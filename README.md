@@ -9,4 +9,3 @@
 #
 **Đề tài: phần mềm quản lí bán hàng**
 
-Mô tả: 
