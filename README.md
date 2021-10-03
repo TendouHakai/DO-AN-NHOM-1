@@ -5,7 +5,7 @@
 - 20522103 - Triệu Tuấn Tú	
 - 20521867 - Huỳnh Thiện Tâm	
 - 20522152 - Nguyễn Hữu Việt	
-- 20521000 - Nguyễn Trung Kiên
+- 20521000 - Nguyễn Trung Kiên <Tenrousa Athena>
 #
 **Đề tài: phần mềm quản lí bán hàng**
 **Đối tượng: chủ cửa hàng và nhân viên.
