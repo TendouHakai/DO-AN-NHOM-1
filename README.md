@@ -8,4 +8,5 @@
 - 20521000 - Nguyễn Trung Kiên
 #
 **Đề tài: phần mềm quản lí bán hàng**
+**Đối tượng: chủ cửa hàng và nhân viên.
 
