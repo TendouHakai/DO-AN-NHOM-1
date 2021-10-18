@@ -10,5 +10,5 @@
 **Đề tài: phần mềm quản lí bán hàng**
 **Đối tượng: chủ cửa hàng và nhân viên.**
 #
-Tiến độ: 20%
+Tiến độ: 25%
 
