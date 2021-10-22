@@ -22,5 +22,12 @@ namespace App_sale_manager
         {
             Thoat(this, new EventArgs());
         }
+
+        private void Form_main_admin_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'qUANLYBANHANG_LTTQDataSet.DTCC' table. You can move, or remove it, as needed.
+            this.dTCCTableAdapter.Fill(this.qUANLYBANHANG_LTTQDataSet.DTCC);
+
+        }
     }
 }
