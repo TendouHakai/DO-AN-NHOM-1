@@ -19,22 +19,11 @@ namespace App_sale_manager
         public Form_login()
         {
             InitializeComponent();
-            this.AcceptButton = btn_dangnhap;
         }
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            if (textBox_usr.Text == "" && textBox_passwd.Text == "")
-            {
-                Form_main_admin A = new Form_main_admin();
-                A.Thoat += Frm_Thoat;
-                A.Show();
-                this.Hide();
-            }
-            else
-                Close();
-
-            /*if(sqlCon==null)
+            if(sqlCon==null)
             {
                 sqlCon = new SqlConnection(strCon);
             }   
@@ -80,7 +69,6 @@ namespace App_sale_manager
 
 
             sqlCon.Close(); 
-            */
         }
 
         private void Frm_Thoat(object sender, EventArgs e)
@@ -100,11 +88,6 @@ namespace App_sale_manager
             frm.Thoat += Frm_Thoat;
             frm.Show();
             this.Hide();
-        }
-
-        private void Form_login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

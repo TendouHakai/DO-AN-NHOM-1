@@ -72,11 +72,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QUANLYBANHANG_LTTQDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QUANLYBANHANG_LTTQDataSet1.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form_doipass.resx">
       <DependentUpon>Form_doipass.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,17 +102,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QUANLYBANHANG_LTTQDataSet1.xsc">
-      <DependentUpon>QUANLYBANHANG_LTTQDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QUANLYBANHANG_LTTQDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QUANLYBANHANG_LTTQDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QUANLYBANHANG_LTTQDataSet1.xss">
-      <DependentUpon>QUANLYBANHANG_LTTQDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
