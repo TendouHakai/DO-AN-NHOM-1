@@ -100,7 +100,7 @@ namespace App_sale_manager
             this.link_frm_doipasswd.Location = new System.Drawing.Point(461, 248);
             this.link_frm_doipasswd.Name = "link_frm_doipasswd";
             this.link_frm_doipasswd.Size = new System.Drawing.Size(29, 17);
-            this.link_frm_doipasswd.TabIndex = 4;
+            this.link_frm_doipasswd.TabIndex = 6;
             this.link_frm_doipasswd.TabStop = true;
             this.link_frm_doipasswd.Text = "link";
             this.link_frm_doipasswd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_frm_doipasswd_LinkClicked);
@@ -110,7 +110,7 @@ namespace App_sale_manager
             this.btn_dangnhap.Location = new System.Drawing.Point(183, 300);
             this.btn_dangnhap.Name = "btn_dangnhap";
             this.btn_dangnhap.Size = new System.Drawing.Size(172, 44);
-            this.btn_dangnhap.TabIndex = 5;
+            this.btn_dangnhap.TabIndex = 4;
             this.btn_dangnhap.Text = "Đăng nhập";
             this.btn_dangnhap.UseVisualStyleBackColor = true;
             this.btn_dangnhap.Click += new System.EventHandler(this.btn_dangnhap_Click);
