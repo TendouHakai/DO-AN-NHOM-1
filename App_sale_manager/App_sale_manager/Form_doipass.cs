@@ -14,7 +14,7 @@ namespace App_sale_manager
     public partial class Form_doipass : Form
     {
         SqlConnection sqlCon = null;
-        string strCon = @"Data Source=LAPTOP-4KM350G8;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=SALE_MANAGER;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
