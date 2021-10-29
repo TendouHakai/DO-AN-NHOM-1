@@ -140,6 +140,7 @@ namespace App_sale_manager
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_tiltle_login);
             this.Name = "Form_login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
