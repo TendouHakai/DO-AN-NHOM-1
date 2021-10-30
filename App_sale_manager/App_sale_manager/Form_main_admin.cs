@@ -103,11 +103,11 @@ namespace App_sale_manager
                 label_SDTtext.Text = row.Cells[2].Value.ToString();
                 label_NGDTtext.Text = row.Cells[3].Value.ToString();
                 label_DIACHItext.Text = row.Cells[4].Value.ToString();
-                string filepath = @"D:\Github\GUI Project\Image samples for testing\" + label_TENDTtext.Text + ".jpg";
+                string filepath = @"Image samples for testing\" + label_TENDTtext.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_Logo.Image = Image.FromFile(filepath);
                 else
-                    pictureBox_Logo.Image = Image.FromFile(@"D:\Github\GUI Project\Image samples for testing\No Image.jpg");
+                    pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\No Image.jpg");
                 button_modDTCC.Enabled = true;
                 button_deleteDTCC.Enabled = true;
             }

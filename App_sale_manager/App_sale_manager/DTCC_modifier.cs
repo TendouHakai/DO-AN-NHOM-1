@@ -81,7 +81,7 @@ namespace App_sale_manager
                 SaveFileDialog Save = new SaveFileDialog();
                 if (filepath!="")
                 {
-                    Save.FileName = @"D:\Github\GUI Project\Image samples for testing\" + textBox_TENDT_z.Text + ".jpg";
+                    Save.FileName = @"Image samples for testing\" + textBox_TENDT_z.Text + ".jpg";
                     pictureBox_image_import.Image.Save(Save.FileName);
                 }
                 RefreshData(this, new EventArgs());
