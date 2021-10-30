@@ -35,7 +35,6 @@ namespace App_sale_manager
             this.label_TENDT_z = new System.Windows.Forms.Label();
             this.textBox_SDT_z = new System.Windows.Forms.TextBox();
             this.label_SDT_z = new System.Windows.Forms.Label();
-            this.textBox_NGDT_z = new System.Windows.Forms.TextBox();
             this.label_NGDT_z = new System.Windows.Forms.Label();
             this.textBox_DIACHI_z = new System.Windows.Forms.TextBox();
             this.label_DIACHI_z = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@ namespace App_sale_manager
             this.pictureBox_image_import = new System.Windows.Forms.PictureBox();
             this.button_Image_import = new System.Windows.Forms.Button();
             this.label_image_name = new System.Windows.Forms.Label();
+            this.dateTimePicker_NGDT_z = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,16 +114,6 @@ namespace App_sale_manager
             this.label_SDT_z.TabIndex = 4;
             this.label_SDT_z.Text = "Số điện thoại:";
             // 
-            // textBox_NGDT_z
-            // 
-            this.textBox_NGDT_z.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_NGDT_z.Location = new System.Drawing.Point(208, 101);
-            this.textBox_NGDT_z.Name = "textBox_NGDT_z";
-            this.textBox_NGDT_z.Size = new System.Drawing.Size(236, 20);
-            this.textBox_NGDT_z.TabIndex = 7;
-            // 
             // label_NGDT_z
             // 
             this.label_NGDT_z.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -132,9 +122,9 @@ namespace App_sale_manager
             this.label_NGDT_z.AutoSize = true;
             this.label_NGDT_z.Location = new System.Drawing.Point(205, 85);
             this.label_NGDT_z.Name = "label_NGDT_z";
-            this.label_NGDT_z.Size = new System.Drawing.Size(137, 13);
+            this.label_NGDT_z.Size = new System.Drawing.Size(56, 13);
             this.label_NGDT_z.TabIndex = 6;
-            this.label_NGDT_z.Text = "Đối tác từ (YYYY/MM/DD):";
+            this.label_NGDT_z.Text = "Đối tác từ:";
             // 
             // textBox_DIACHI_z
             // 
@@ -218,12 +208,22 @@ namespace App_sale_manager
             this.label_image_name.Text = "Chưa thêm ảnh.";
             this.label_image_name.Click += new System.EventHandler(this.label1_Click);
             // 
+            // dateTimePicker_NGDT_z
+            // 
+            this.dateTimePicker_NGDT_z.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_NGDT_z.Location = new System.Drawing.Point(208, 101);
+            this.dateTimePicker_NGDT_z.Name = "dateTimePicker_NGDT_z";
+            this.dateTimePicker_NGDT_z.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_NGDT_z.TabIndex = 16;
+            this.dateTimePicker_NGDT_z.ValueChanged += new System.EventHandler(this.dateTimePicker_NGDT_z_ValueChanged);
+            // 
             // DTCC_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(481, 523);
+            this.Controls.Add(this.dateTimePicker_NGDT_z);
             this.Controls.Add(this.label_image_name);
             this.Controls.Add(this.button_Image_import);
             this.Controls.Add(this.pictureBox_image_import);
@@ -232,7 +232,6 @@ namespace App_sale_manager
             this.Controls.Add(this.button_DTCC_Accept);
             this.Controls.Add(this.textBox_DIACHI_z);
             this.Controls.Add(this.label_DIACHI_z);
-            this.Controls.Add(this.textBox_NGDT_z);
             this.Controls.Add(this.label_NGDT_z);
             this.Controls.Add(this.textBox_SDT_z);
             this.Controls.Add(this.label_SDT_z);
@@ -257,7 +256,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label_TENDT_z;
         private System.Windows.Forms.TextBox textBox_SDT_z;
         private System.Windows.Forms.Label label_SDT_z;
-        private System.Windows.Forms.TextBox textBox_NGDT_z;
         private System.Windows.Forms.Label label_NGDT_z;
         private System.Windows.Forms.TextBox textBox_DIACHI_z;
         private System.Windows.Forms.Label label_DIACHI_z;
@@ -267,5 +265,6 @@ namespace App_sale_manager
         private System.Windows.Forms.PictureBox pictureBox_image_import;
         private System.Windows.Forms.Button button_Image_import;
         private System.Windows.Forms.Label label_image_name;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_NGDT_z;
     }
 }

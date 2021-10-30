@@ -51,11 +51,12 @@ namespace App_sale_manager
         public DTCC_modifier()
         {
             InitializeComponent();
+            dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
+            dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
         }
 
         private void DTCC_modifier_Load(object sender, EventArgs e)
         {
-
         }
 
         private void button_Image_import_Click(object sender, EventArgs e)
@@ -74,7 +75,7 @@ namespace App_sale_manager
 
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
-            if (exedata("Update DTCC set TENDT = '" + textBox_TENDT_z.Text + "', SDT = '" + textBox_SDT_z.Text + "', NGDT = '" + textBox_NGDT_z.Text + "', DIACHI = '" + textBox_DIACHI_z.Text + "' where DTID = '"+textBox_ID_z.Text+"'") == true)
+            if (exedata("Update DTCC set TENDT = '" + textBox_TENDT_z.Text + "', SDT = '" + textBox_SDT_z.Text + "', NGDT = '" + dateTimePicker_NGDT_z.Value + "', DIACHI = '" + textBox_DIACHI_z.Text + "' where DTID = '"+textBox_ID_z.Text+"'") == true)
             {
                 MessageBox.Show("Cập nhật thành công!");
                 SaveFileDialog Save = new SaveFileDialog();

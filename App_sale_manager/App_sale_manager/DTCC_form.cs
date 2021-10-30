@@ -51,6 +51,8 @@ namespace App_sale_manager
         public DTCC_form()
         {
             InitializeComponent();
+            dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
+            dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
         }
         private void DTCC_form_Load(object sender, EventArgs e)
         {
@@ -64,7 +66,7 @@ namespace App_sale_manager
 
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
-            if (exedata("insert into DTCC values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', '" + textBox_SDT_z.Text + "', '" + textBox_NGDT_z.Text + "', '" + textBox_DIACHI_z.Text + "')") == true)
+            if (exedata("insert into DTCC values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', '" + textBox_SDT_z.Text + "', '" + dateTimePicker_NGDT_z.Value + "', '" + textBox_DIACHI_z.Text + "')") == true)
             {
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
@@ -101,6 +103,16 @@ namespace App_sale_manager
                 pictureBox_image_import.Image = Image.FromFile(filepath);
                 this.label_image_name.Text = filepath;
             }           
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker_NGDT_z_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
