@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_ChiTietHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ChiTietHH.Designer.cs">
+      <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_doipass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="Form_main_NV.Designer.cs">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ThemSuaHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ThemSuaHangHoa.Designer.cs">
+      <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
