@@ -262,6 +262,6 @@ namespace App_sale_manager
         public System.Windows.Forms.Label label_TENDT_z;
         public System.Windows.Forms.TextBox textBox_ID_z;
         public System.Windows.Forms.Label label_ID_z;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_NGDT_z;
+        public System.Windows.Forms.DateTimePicker dateTimePicker_NGDT_z;
     }
 }

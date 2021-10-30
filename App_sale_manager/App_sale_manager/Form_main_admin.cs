@@ -84,7 +84,7 @@ namespace App_sale_manager
         {
             DTCC_modifier A = new DTCC_modifier();
             A.textBox_ID_z.Text = label_IDtext.Text;
-            A.textBox_NGDT_z.Text = label_NGDTtext.Text;
+            A.dateTimePicker_NGDT_z.Text = label_NGDTtext.Text;
             A.textBox_DIACHI_z.Text = label_DIACHItext.Text;
             A.textBox_SDT_z.Text = label_SDTtext.Text;
             A.textBox_TENDT_z.Text = label_TENDTtext.Text;
