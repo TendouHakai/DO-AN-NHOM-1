@@ -41,6 +41,24 @@ namespace App_sale_manager
             ADT.Fill(table);
             Box_IDHD.Text = "hd" + Convert.ToString(table.Rows.Count + 1);
 
+            table = new DataTable();
+            command.CommandText = "Select KHID from KHACHHANG WHERE (KHID like '%" + Box_IDKH.Text + "%')";
+            ADT.SelectCommand = command;
+            table.Clear();
+            if (ADT != null)
+            {
+                ADT.Fill(table);
+                DGV_LuaChon.DataSource = table;
+                foreach(DataGridViewRow i in DGV_LuaChon.Rows)
+                {
+                    if (i.Cells[0].Value != null)
+                    Box_IDKH.Items.Add(i.Cells[0].Value);
+                }
+
+            }
+
+
+
             command.CommandText = "Select SPID, GIABAN from SANPHAM";
             ADT.SelectCommand = command;
             table = new DataTable();
@@ -149,7 +167,7 @@ namespace App_sale_manager
                 return;
             }
 
-                DateTime dt = dateTimePicker1.Value;
+            DateTime dt = dateTimePicker1.Value;
             string x = dt.ToShortDateString();
             command.CommandText = "set dateformat dmy";
             ADT.SelectCommand = command;
@@ -180,8 +198,23 @@ namespace App_sale_manager
             this.bnt_xoaSP_Click(sender, e);
         }
 
+        private void Box_LoaiHD_TextChanged(object sender, EventArgs e)
+        {
+            if(Box_LoaiHD.Text =="DTT")
+            {
+                Box_TrangThai.Text = "HOANTAT";
+            }
+            else
+            {
+                Box_TrangThai.Text = "NHANDON";
+            }
+        }
+
+
+
         private void Box_IDKH_TextChanged(object sender, EventArgs e)
         {
+
             table = new DataTable();
             command.CommandText = "Select KHID from KHACHHANG WHERE (KHID like '%" + Box_IDKH.Text + "%')";
             ADT.SelectCommand = command;
@@ -189,8 +222,13 @@ namespace App_sale_manager
             if (ADT != null)
             {
                 ADT.Fill(table);
-                Box_IDKH.ValueMember = Convert.ToString(table);
+                foreach (DataRow i in table.Rows)
+                {
+
+                }
+
             }
+
         }
     }
 }

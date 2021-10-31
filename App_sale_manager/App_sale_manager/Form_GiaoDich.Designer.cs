@@ -335,6 +335,7 @@ namespace App_sale_manager
             this.Box_LoaiHD.Name = "Box_LoaiHD";
             this.Box_LoaiHD.Size = new System.Drawing.Size(228, 24);
             this.Box_LoaiHD.TabIndex = 37;
+            this.Box_LoaiHD.TextChanged += new System.EventHandler(this.Box_LoaiHD_TextChanged);
             // 
             // Box_TrangThai
             // 
@@ -351,12 +352,13 @@ namespace App_sale_manager
             // 
             // Box_IDKH
             // 
+            this.Box_IDKH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Box_IDKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.Box_IDKH.FormattingEnabled = true;
             this.Box_IDKH.Location = new System.Drawing.Point(146, 120);
             this.Box_IDKH.Name = "Box_IDKH";
             this.Box_IDKH.Size = new System.Drawing.Size(224, 24);
             this.Box_IDKH.TabIndex = 39;
-            this.Box_IDKH.TextChanged += new System.EventHandler(this.Box_IDKH_TextChanged);
             // 
             // Form_GiaoDich
             // 
