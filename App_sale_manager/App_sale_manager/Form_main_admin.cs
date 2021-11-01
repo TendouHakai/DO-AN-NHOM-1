@@ -19,7 +19,10 @@ namespace App_sale_manager
         public Form_main_admin()
         {
             InitializeComponent();
-            DTCC_dataInitialize();
+            DTCC_dtgd_dataInitialize();
+            DTCC_guest_dataInitialize();
+            pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
+            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
         }
         public event EventHandler Thoat;
 
@@ -34,7 +37,7 @@ namespace App_sale_manager
             this.dTCCTableAdapter.Fill(this.qUANLYBANHANG_LTTQDataSet.DTCC);
 
         }
-        public void DTCC_dataInitialize()
+        public void DTCC_dtgd_dataInitialize()
         {
             SqlCommand cmd;
             SqlDataAdapter Adapter = new SqlDataAdapter();
@@ -51,9 +54,30 @@ namespace App_sale_manager
             button_deleteDTCC.Enabled = false;
             con.Close();
         }
+        public void DTCC_guest_dataInitialize()
+        {
+            SqlCommand cmd;
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            DataTable Table = new DataTable();
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = "Select * from KHACHHANG";
+            Adapter.SelectCommand = cmd;
+            Table.Clear();
+            Adapter.Fill(Table);
+            dataGridView_dtcc_guest.DataSource = Table;
+            button_guest_mod.Enabled = false;
+            button_guest_delete.Enabled = false;
+            con.Close();
+        }
         public void DTCC_DataRefresh(object sender, EventArgs e)
         {
-            DTCC_dataInitialize();
+            DTCC_dtgd_dataInitialize();
+        }
+        public void Guest_DataRefresh(object sender, EventArgs e)
+        {
+            DTCC_guest_dataInitialize();
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -103,11 +127,11 @@ namespace App_sale_manager
                 label_SDTtext.Text = row.Cells[2].Value.ToString();
                 label_NGDTtext.Text = row.Cells[3].Value.ToString();
                 label_DIACHItext.Text = row.Cells[4].Value.ToString();
-                string filepath = @"Image samples for testing\" + label_TENDTtext.Text + ".jpg";
+                string filepath = @"Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_Logo.Image = Image.FromFile(filepath);
                 else
-                    pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\No Image.jpg");
+                    pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
                 button_modDTCC.Enabled = true;
                 button_deleteDTCC.Enabled = true;
             }
@@ -147,12 +171,31 @@ namespace App_sale_manager
                 SqlCommand newcmd = new SqlCommand(str, con);
                 newcmd.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công!", "Thông báo");
-                DTCC_dataInitialize();
+                /*if(File.Exists(@"\Image samples for testing\Đối tác giao dịch\"+label_TENDTtext.Text+".jpg"))
+                {
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                    File.Delete(@"\Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg");
+                }    
+                */
+                DTCC_dtgd_dataInitialize();
             }
         }
 
         private void button_searchDTCC_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBox_search.Text))
+            {
+                MessageBox.Show("Vui lòng nhập nội dung cần tìm.");
+                textBox_search.Focus();
+                return;
+            }
+            if(comboBox_searchOption.Text=="Chưa chọn")
+            {
+                MessageBox.Show("Vui lòng chọn trường cần tìm");
+                comboBox_searchOption.Focus();
+                return;
+            }
             switch (comboBox_searchOption.Text)
             {
                 case "Mã đối tác":
@@ -162,21 +205,13 @@ namespace App_sale_manager
                     Search("TENDT");
                     break;
                 case "Số điện thoại":
-                    textBox_search.Text = "(Nhập 10 chữ số)";
-                    if (textBox_search.Text != "(Nhập 10 chữ số)")
-                        Search("SDT");
-                    else
-                        MessageBox.Show("Hãy nhập nội dung cần tìm kiếm", "Thông báo");
+                    Search("SDT");
                     break;
                 case "Địa chỉ":
                     Search("DIACHI");
                     break;
                 case "Ngày trở thành đối tác":
-                    textBox_search.Text = "(YYYY/MM/DD)";
-                    if (textBox_search.Text != "(YYYY/MM/DD)")
-                        Search("NGDT");
-                    else
-                        MessageBox.Show("Hãy nhập nội dung cần tìm kiếm", "Thông báo");
+                    Search("NGDT");
                     break;
             }
         }
@@ -184,7 +219,7 @@ namespace App_sale_manager
         public void Search(string SearchOption)
         {
             string str;
-            str = "select * from DTCC where "+SearchOption+" like '%"+textBox_search.Text +"%'";
+            str = "select * from DTCC where " + SearchOption + " like '%" + textBox_search.Text + "%'";
             SqlCommand cmd;
             SqlDataAdapter Adapter = new SqlDataAdapter();
             DataTable Table = new DataTable();
@@ -207,7 +242,160 @@ namespace App_sale_manager
 
         private void button_refresh_Click(object sender, EventArgs e)
         {
-            DTCC_dataInitialize();
+            DTCC_dtgd_dataInitialize();
+        }
+
+        private void tabPage_DTCC_Guest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_dtcc_guest_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {                
+                DataGridViewRow row = this.dataGridView_dtcc_guest.Rows[e.RowIndex];
+                string loaiKH = row.Cells[6].Value.ToString();
+                if (string.IsNullOrEmpty(loaiKH)!=true)
+                    if (loaiKH == "NOR")
+                        label_guestSpec_Text.Text = "Khách thường";
+                    else
+                        label_guestSpec_Text.Text = "Khách vip";
+                label_guestID_Text.Text = row.Cells[0].Value.ToString();
+                label_guestName_Text.Text = row.Cells[1].Value.ToString();
+                label_guestSDT_Text.Text = row.Cells[3].Value.ToString();
+                label_guestReg_Text.Text = row.Cells[4].Value.ToString();
+                label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
+                label_guestMoney_Text.Text = row.Cells[5].Value.ToString();
+                string filepath = @"Image samples for testing\Khách hàng đăng kí\" + label_guestName_Text.Text + ".jpg";
+                if (File.Exists(filepath))
+                    pictureBox_dtcc_guestFace.Image = Image.FromFile(filepath);
+                else
+                    pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\Khách hàng đăng kí\No Image.jpg");
+                button_guest_mod.Enabled = true;
+                button_guest_delete.Enabled = true;
+            }
+        }
+
+        private void button_guest_refresh_Click(object sender, EventArgs e)
+        {
+            DTCC_guest_dataInitialize();
+        }
+
+        private void button_guest_add_Click(object sender, EventArgs e)
+        {
+            DTCC_guest_form A = new DTCC_guest_form();
+            A.RefreshData += Guest_DataRefresh;
+            A.Show();
+        }
+
+        private void button_guest_mod_Click(object sender, EventArgs e)
+        {
+            DTCC_guest_modifier A = new DTCC_guest_modifier();
+            A.textBox_ID_z.Text = label_guestID_Text.Text;
+            A.dateTimePicker_NGDT_z.Text = label_guestReg_Text.Text;
+            A.textBox_DIACHI_z.Text = label_guestAddress_Text.Text;
+            A.textBox_SDT_z.Text = label_guestSDT_Text.Text;
+            A.textBox_TENDT_z.Text = label_guestName_Text.Text;
+            A.textBox_budget_z.Text = label_guestMoney_Text.Text;
+            A.comboBox_loaiKH.Text = label_guestSpec_Text.Text;
+            A.pictureBox_image_import.Image = pictureBox_dtcc_guestFace.Image;
+            A.RefreshData += Guest_DataRefresh;
+            A.Show();
+        }
+
+        private void button_guest_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Xóa dữ liệu", MessageBoxButtons.YesNo);
+            if (Result == DialogResult.Yes)
+            {
+                string str;
+                str = "delete from KHACHHANG where KHID = '" + label_guestID_Text.Text + "'";
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+                SqlCommand newcmd = new SqlCommand(str, con);
+                newcmd.ExecuteNonQuery();
+                MessageBox.Show("Xóa thành công!", "Thông báo");
+                /*if(File.Exists(@"\Image samples for testing\Đối tác giao dịch\"+label_TENDTtext.Text+".jpg"))
+                {
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                    File.Delete(@"\Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg");
+                }    
+                */
+                DTCC_guest_dataInitialize();
+            }
+        }
+
+        private void button_guest_search_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox_guest_search.Text))
+            {
+                MessageBox.Show("Vui lòng nhập nội dung cần tìm.");
+                textBox_search.Focus();
+                return;
+            }
+            if (comboBox_guest_filter.Text == "Chưa chọn")
+            {
+                MessageBox.Show("Vui lòng chọn trường cần tìm.");
+                comboBox_searchOption.Focus();
+                return;
+            }
+            switch (comboBox_guest_filter.Text)
+            {
+                case "Mã khách hàng":
+                    Search_guest("KHID");
+                    break;
+                case "Tên khách hàng":
+                    Search_guest("HOTEN");
+                    break;
+                case "Số điện thoại":
+                    Search_guest("SDT");
+                    break;
+                case "Địa chỉ":
+                    Search_guest("DIACHI");
+                    break;
+                case "Ngày đăng kí":
+                    Search_guest("NGDK");
+                    break;
+                case "Loại khách hàng":
+                    Search_guest("LOAIKH");
+                    break;                
+            }
+        }
+        public void Search_guest(string SearchOption)
+        {
+            string str;
+            str = "select * from KHACHHANG where " + SearchOption + " like '%" + textBox_guest_search.Text + "%'";
+            SqlCommand cmd;
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            DataTable Table = new DataTable();
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = str;
+            Adapter.SelectCommand = cmd;
+            Table.Clear();
+            Adapter.Fill(Table);
+            dataGridView_dtcc_guest.DataSource = Table;
+            button_guest_mod.Enabled = false;
+            button_guest_delete.Enabled = false;
+            con.Close();
+        }
+
+        private void textBox_search_Click(object sender, EventArgs e)
+        {
+            textBox_guest_search.SelectAll();
+        }
+
+        private void textBox_guest_search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_guest_search_Click(object sender, EventArgs e)
+        {
+            textBox_guest_search.SelectAll();
         }
     }
 }

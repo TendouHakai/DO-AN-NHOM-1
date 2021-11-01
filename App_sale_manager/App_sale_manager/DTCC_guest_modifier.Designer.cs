@@ -1,7 +1,7 @@
 ﻿
 namespace App_sale_manager
 {
-    partial class DTCC_modifier
+    partial class DTCC_guest_modifier
     {
         /// <summary>
         /// Required designer variable.
@@ -45,6 +45,10 @@ namespace App_sale_manager
             this.label_ID_z = new System.Windows.Forms.Label();
             this.pictureBox_image_import = new System.Windows.Forms.PictureBox();
             this.dateTimePicker_NGDT_z = new System.Windows.Forms.DateTimePicker();
+            this.comboBox_loaiKH = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_budget_z = new System.Windows.Forms.TextBox();
+            this.label_Budget_z = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +82,7 @@ namespace App_sale_manager
             // 
             // button_DTCC_Reject
             // 
-            this.button_DTCC_Reject.Location = new System.Drawing.Point(385, 475);
+            this.button_DTCC_Reject.Location = new System.Drawing.Point(398, 553);
             this.button_DTCC_Reject.Name = "button_DTCC_Reject";
             this.button_DTCC_Reject.Size = new System.Drawing.Size(75, 23);
             this.button_DTCC_Reject.TabIndex = 27;
@@ -88,7 +92,7 @@ namespace App_sale_manager
             // 
             // button_DTCC_Accept
             // 
-            this.button_DTCC_Accept.Location = new System.Drawing.Point(293, 475);
+            this.button_DTCC_Accept.Location = new System.Drawing.Point(306, 553);
             this.button_DTCC_Accept.Name = "button_DTCC_Accept";
             this.button_DTCC_Accept.Size = new System.Drawing.Size(75, 23);
             this.button_DTCC_Accept.TabIndex = 26;
@@ -98,10 +102,10 @@ namespace App_sale_manager
             // 
             // textBox_DIACHI_z
             // 
-            this.textBox_DIACHI_z.Location = new System.Drawing.Point(23, 346);
+            this.textBox_DIACHI_z.Location = new System.Drawing.Point(21, 434);
             this.textBox_DIACHI_z.Multiline = true;
             this.textBox_DIACHI_z.Name = "textBox_DIACHI_z";
-            this.textBox_DIACHI_z.Size = new System.Drawing.Size(420, 86);
+            this.textBox_DIACHI_z.Size = new System.Drawing.Size(452, 86);
             this.textBox_DIACHI_z.TabIndex = 25;
             // 
             // label_DIACHI_z
@@ -110,7 +114,7 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_DIACHI_z.AutoSize = true;
-            this.label_DIACHI_z.Location = new System.Drawing.Point(20, 330);
+            this.label_DIACHI_z.Location = new System.Drawing.Point(18, 418);
             this.label_DIACHI_z.Name = "label_DIACHI_z";
             this.label_DIACHI_z.Size = new System.Drawing.Size(43, 13);
             this.label_DIACHI_z.TabIndex = 24;
@@ -135,7 +139,7 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_SDT_z.Location = new System.Drawing.Point(23, 100);
             this.textBox_SDT_z.Name = "textBox_SDT_z";
-            this.textBox_SDT_z.Size = new System.Drawing.Size(153, 20);
+            this.textBox_SDT_z.Size = new System.Drawing.Size(174, 20);
             this.textBox_SDT_z.TabIndex = 21;
             // 
             // label_SDT_z
@@ -157,7 +161,7 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_TENDT_z.Location = new System.Drawing.Point(216, 40);
             this.textBox_TENDT_z.Name = "textBox_TENDT_z";
-            this.textBox_TENDT_z.Size = new System.Drawing.Size(236, 20);
+            this.textBox_TENDT_z.Size = new System.Drawing.Size(257, 20);
             this.textBox_TENDT_z.TabIndex = 19;
             // 
             // label_TENDT_z
@@ -182,7 +186,7 @@ namespace App_sale_manager
             this.textBox_ID_z.Location = new System.Drawing.Point(23, 40);
             this.textBox_ID_z.Name = "textBox_ID_z";
             this.textBox_ID_z.ReadOnly = true;
-            this.textBox_ID_z.Size = new System.Drawing.Size(153, 20);
+            this.textBox_ID_z.Size = new System.Drawing.Size(174, 20);
             this.textBox_ID_z.TabIndex = 17;
             // 
             // label_ID_z
@@ -215,11 +219,61 @@ namespace App_sale_manager
             this.dateTimePicker_NGDT_z.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_NGDT_z.TabIndex = 32;
             // 
-            // DTCC_modifier
+            // comboBox_loaiKH
+            // 
+            this.comboBox_loaiKH.FormattingEnabled = true;
+            this.comboBox_loaiKH.Items.AddRange(new object[] {
+            "Khách thường",
+            "Khách vip"});
+            this.comboBox_loaiKH.Location = new System.Drawing.Point(21, 379);
+            this.comboBox_loaiKH.Name = "comboBox_loaiKH";
+            this.comboBox_loaiKH.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_loaiKH.TabIndex = 36;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 363);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Loại khách hàng:";
+            // 
+            // textBox_budget_z
+            // 
+            this.textBox_budget_z.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_budget_z.Location = new System.Drawing.Point(23, 319);
+            this.textBox_budget_z.Name = "textBox_budget_z";
+            this.textBox_budget_z.Size = new System.Drawing.Size(174, 20);
+            this.textBox_budget_z.TabIndex = 34;
+            this.textBox_budget_z.Text = "0";
+            // 
+            // label_Budget_z
+            // 
+            this.label_Budget_z.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Budget_z.AutoSize = true;
+            this.label_Budget_z.Location = new System.Drawing.Point(20, 303);
+            this.label_Budget_z.Name = "label_Budget_z";
+            this.label_Budget_z.Size = new System.Drawing.Size(56, 13);
+            this.label_Budget_z.TabIndex = 33;
+            this.label_Budget_z.Text = "Doanh số:";
+            // 
+            // DTCC_guest_modifier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 523);
+            this.ClientSize = new System.Drawing.Size(502, 603);
+            this.Controls.Add(this.comboBox_loaiKH);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox_budget_z);
+            this.Controls.Add(this.label_Budget_z);
             this.Controls.Add(this.dateTimePicker_NGDT_z);
             this.Controls.Add(this.label_image_name);
             this.Controls.Add(this.button_Image_import);
@@ -236,7 +290,7 @@ namespace App_sale_manager
             this.Controls.Add(this.label_TENDT_z);
             this.Controls.Add(this.textBox_ID_z);
             this.Controls.Add(this.label_ID_z);
-            this.Name = "DTCC_modifier";
+            this.Name = "DTCC_guest_modifier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa dữ liệu";
             this.Load += new System.EventHandler(this.DTCC_modifier_Load);
@@ -264,5 +318,9 @@ namespace App_sale_manager
         public System.Windows.Forms.TextBox textBox_ID_z;
         public System.Windows.Forms.Label label_ID_z;
         public System.Windows.Forms.DateTimePicker dateTimePicker_NGDT_z;
+        public System.Windows.Forms.ComboBox comboBox_loaiKH;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox textBox_budget_z;
+        private System.Windows.Forms.Label label_Budget_z;
     }
 }

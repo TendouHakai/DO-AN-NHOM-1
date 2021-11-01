@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTCC_guest_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_guest_form.Designer.cs">
+      <DependentUpon>DTCC_guest_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTCC_form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DTCC_form.Designer.cs">
       <DependentUpon>DTCC_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTCC_guest_modifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_guest_modifier.Designer.cs">
+      <DependentUpon>DTCC_guest_modifier.cs</DependentUpon>
     </Compile>
     <Compile Include="DTCC_modifier.cs">
       <SubType>Form</SubType>
@@ -89,8 +101,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QUANLYBANHANG_LTTQDataSet2.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DTCC_guest_form.resx">
+      <DependentUpon>DTCC_guest_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DTCC_form.resx">
       <DependentUpon>DTCC_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCC_guest_modifier.resx">
+      <DependentUpon>DTCC_guest_modifier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DTCC_modifier.resx">
       <DependentUpon>DTCC_modifier.cs</DependentUpon>
@@ -140,12 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GearCN.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\No Image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

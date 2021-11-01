@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace App_sale_manager
 {
-    public partial class DTCC_modifier : Form
+    public partial class DTCC_guest_modifier : Form
     {
         public string filepath = "";
         public static string strCon = @"Data Source=ATHENALAPTOP\SQLEXPRESS;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
@@ -48,7 +48,7 @@ namespace App_sale_manager
             closeconnect();
             return check;
         }
-        public DTCC_modifier()
+        public DTCC_guest_modifier()
         {
             InitializeComponent();
             dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
@@ -75,15 +75,21 @@ namespace App_sale_manager
 
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
-            if (exedata("Update DTCC set TENDT = N'" + textBox_TENDT_z.Text + "', SDT = '"
-                + textBox_SDT_z.Text + "', NGDT = '" + dateTimePicker_NGDT_z.Value + "', DIACHI = N'" 
-                + textBox_DIACHI_z.Text + "' where DTID = '"+textBox_ID_z.Text+"'") == true)
+            string loaiKH = "";
+            if (string.IsNullOrEmpty(comboBox_loaiKH.Text)!=true)
+                if (comboBox_loaiKH.Text == "Khách thường")
+                    loaiKH = "NOR";
+                else
+                    loaiKH = "VIP";
+            if (exedata("Update KHACHHANG set HOTEN = N'" + textBox_TENDT_z.Text + "', SDT = '" + textBox_SDT_z.Text + "', NGDK = '"
+                + dateTimePicker_NGDT_z.Value + "', DIACHI = N'" + textBox_DIACHI_z.Text + "', DOANHSO = '" + textBox_budget_z.Text + "', LOAIID = '"
+                + loaiKH + "' where KHID = '" + textBox_ID_z.Text + "'") == true)
             {
                 MessageBox.Show("Cập nhật thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
-                if (filepath!="")
+                if (filepath != "")
                 {
-                    Save.FileName = @"Image samples for testing\Đối tác giao dịch\" + textBox_TENDT_z.Text + ".jpg";
+                    Save.FileName = @"Image samples for testing\Khách hàng đăng kí\" + textBox_TENDT_z.Text + ".jpg";
                     pictureBox_image_import.Image.Save(Save.FileName);
                 }
                 RefreshData(this, new EventArgs());
