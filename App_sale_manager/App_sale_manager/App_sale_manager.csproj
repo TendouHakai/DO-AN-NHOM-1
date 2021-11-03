@@ -101,6 +101,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QUANLYBANHANG_LTTQDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Sale.cs" />
+    <Compile Include="SaleDeleter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleDeleter.Designer.cs">
+      <DependentUpon>SaleDeleter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale_manager.Designer.cs">
+      <DependentUpon>Sale_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale_viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale_viewer.Designer.cs">
+      <DependentUpon>Sale_viewer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DTCC_guest_form.resx">
       <DependentUpon>DTCC_guest_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +154,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SaleDeleter.resx">
+      <DependentUpon>SaleDeleter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale_manager.resx">
+      <DependentUpon>Sale_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale_viewer.resx">
+      <DependentUpon>Sale_viewer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

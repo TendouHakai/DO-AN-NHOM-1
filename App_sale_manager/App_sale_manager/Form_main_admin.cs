@@ -14,6 +14,7 @@ namespace App_sale_manager
 {
     public partial class Form_main_admin : Form
     {
+        Sale_viewer A = new Sale_viewer();
         public static string strCon = @"Data Source=ATHENALAPTOP\SQLEXPRESS;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlConnection con = new SqlConnection(strCon);
         public Form_main_admin()
@@ -396,6 +397,11 @@ namespace App_sale_manager
         private void textBox_guest_search_Click(object sender, EventArgs e)
         {
             textBox_guest_search.SelectAll();
+        }
+
+        private void button_sale_Click(object sender, EventArgs e)
+        {           
+            A.Show();
         }
     }
 }

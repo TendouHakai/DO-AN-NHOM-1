@@ -59,6 +59,7 @@ namespace App_sale_manager
             this.pictureBox_Logo = new System.Windows.Forms.PictureBox();
             this.dataGridView_DTCC = new System.Windows.Forms.DataGridView();
             this.tabPage_DTCC_Guest = new System.Windows.Forms.TabPage();
+            this.button_sale = new System.Windows.Forms.Button();
             this.label_guestSpec_Text = new System.Windows.Forms.Label();
             this.label_guestSpec = new System.Windows.Forms.Label();
             this.label_guestMoney_Text = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@ namespace App_sale_manager
             this.dTCCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qUANLYBANHANG_LTTQDataSet = new App_sale_manager.QUANLYBANHANG_LTTQDataSet();
             this.dTCCTableAdapter = new App_sale_manager.QUANLYBANHANG_LTTQDataSetTableAdapters.DTCCTableAdapter();
-            this.button_sale = new System.Windows.Forms.Button();
             this.tabCtrl.SuspendLayout();
             this.tabPage_tongquan.SuspendLayout();
             this.tabPage_DoiTac.SuspendLayout();
@@ -466,6 +466,17 @@ namespace App_sale_manager
             this.tabPage_DTCC_Guest.Text = "Khách hàng thành viên";
             this.tabPage_DTCC_Guest.Click += new System.EventHandler(this.tabPage_DTCC_Guest_Click);
             // 
+            // button_sale
+            // 
+            this.button_sale.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_sale.Location = new System.Drawing.Point(6, 481);
+            this.button_sale.Name = "button_sale";
+            this.button_sale.Size = new System.Drawing.Size(139, 31);
+            this.button_sale.TabIndex = 67;
+            this.button_sale.Text = "Xem ưu đãi";
+            this.button_sale.UseVisualStyleBackColor = false;
+            this.button_sale.Click += new System.EventHandler(this.button_sale_Click);
+            // 
             // label_guestSpec_Text
             // 
             this.label_guestSpec_Text.AutoSize = true;
@@ -765,16 +776,6 @@ namespace App_sale_manager
             // dTCCTableAdapter
             // 
             this.dTCCTableAdapter.ClearBeforeFill = true;
-            // 
-            // button_sale
-            // 
-            this.button_sale.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_sale.Location = new System.Drawing.Point(6, 481);
-            this.button_sale.Name = "button_sale";
-            this.button_sale.Size = new System.Drawing.Size(139, 31);
-            this.button_sale.TabIndex = 67;
-            this.button_sale.Text = "Xem ưu đãi";
-            this.button_sale.UseVisualStyleBackColor = false;
             // 
             // Form_main_admin
             // 
