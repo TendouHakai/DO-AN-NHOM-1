@@ -33,6 +33,7 @@ namespace App_sale_manager
         {
             sqlCon = new SqlConnection(strCon);
             load_tab_Tongquan();
+            tao_datgridview_lich_lamviec();
         }
         private void Form_main_admin_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -613,5 +614,180 @@ namespace App_sale_manager
                 }
             }    
         }
+        // NHÓM HÀM TABPAGE NHÂN VIÊN
+        // nhóm hàm tabpage phân công
+        private void load_tabp_phancong(object sender, EventArgs e)
+        {
+            (sender as Form).Close();
+            this.load_tabpage_phancong();
+        }    
+        void load_tabpage_phancong()
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "SELECT CT_LAMVIEC.NVID, HOTEN, CV, CAID, CHEDO FROM CT_LAMVIEC INNER JOIN NHANVIEN ON CT_LAMVIEC.NVID = NHANVIEN.NVID WHERE NGAYLAM = '"+mon_nv_phancong_lich.SelectionRange.Start.ToString("d")+"' "
+                                +"UNION "
+                                +"SELECT CT_LAMVIEC_HANGTUAN.NVID, HOTEN, CV, CT_LAMVIEC_HANGTUAN.CAID, CHEDO = 'Lap lai' "
+                                +"FROM CT_LAMVIEC_HANGTUAN, NHANVIEN, CALAMVIEC "
+                                +"WHERE CT_LAMVIEC_HANGTUAN.NVID = NHANVIEN.NVID AND CT_LAMVIEC_HANGTUAN.CAID = CALAMVIEC.CAID AND THU = 'Wednesday' "
+                                +"order by NVID";
+            adapter.SelectCommand = cmd;
+            DataTable table = new DataTable();
+            table.Clear();
+            adapter.Fill(table);
+            lbl_nv_phancong_lich.Text = mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek.ToString();
+            dgv_nv_phancong_lich.Rows.Clear();
+            
+            for(int i =0; i<table.Rows.Count; i++)
+            {
+                dgv_nv_phancong_lich.Rows.Add(table.Rows[i]["NVID"], table.Rows[i]["HOTEN"], table.Rows[i]["CV"], false, false, false, table.Rows[i]["CHEDO"]);
+                string NVID = table.Rows[i]["NVID"].ToString();
+                
+                while(table.Rows[i]["NVID"].ToString()==NVID)
+                {
+                    switch (table.Rows[i]["CAID"].ToString().Substring(2))
+                    {
+                        case "S":
+                            dgv_nv_phancong_lich.Rows[dgv_nv_phancong_lich.Rows.Count-2].Cells[3].Value = true;
+                            break;
+                        case "C":
+                            dgv_nv_phancong_lich.Rows[dgv_nv_phancong_lich.Rows.Count-2].Cells[4].Value = true;
+                            break;
+                        case "T":
+                            dgv_nv_phancong_lich.Rows[dgv_nv_phancong_lich.Rows.Count-2].Cells[5].Value = true;
+                            break;
+                    }
+                    
+                    i++;
+                    if (i >= table.Rows.Count)
+                        return;
+                }
+                i--;
+            }
+            
+            sqlCon.Close();
+        }
+        void tao_datgridview_lich_lamviec()
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "SELECT GIO_BD, GIO_NGHI FROM CALAMVIEC WHERE THU = '" + mon_nv_phancong_lich.SelectionStart.DayOfWeek.ToString() + "' ORDER BY GIO_NGHI";
+            adapter.SelectCommand = cmd;
+            DataTable table1 = new DataTable();
+            table1.Clear();
+            adapter.Fill(table1);
+            // tạo bảng dữ liệu.
+            DataGridViewTextBoxColumn dgvID = new DataGridViewTextBoxColumn();
+            dgvID.HeaderText = "Mã nhân viên";
+            DataGridViewTextBoxColumn dgvTen = new DataGridViewTextBoxColumn();
+            dgvTen.HeaderText = "Họ tên";
+            DataGridViewTextBoxColumn dgvChucvu = new DataGridViewTextBoxColumn();
+            dgvChucvu.HeaderText = "Chức vụ";
+
+            DataGridViewCheckBoxColumn dgvSang = new DataGridViewCheckBoxColumn();
+            dgvSang.HeaderText = "Ca sáng(" + table1.Rows[0]["GIO_BD"] + " - " + table1.Rows[0]["GIO_NGHI"] + ")";
+            DataGridViewCheckBoxColumn dgvChieu = new DataGridViewCheckBoxColumn();
+            dgvChieu.HeaderText = "Ca chiều(" + table1.Rows[1]["GIO_BD"] + " - " + table1.Rows[1]["GIO_NGHI"] + ")";
+            DataGridViewCheckBoxColumn dgvToi = new DataGridViewCheckBoxColumn();
+            dgvToi.HeaderText = "Ca tối(" + table1.Rows[2]["GIO_BD"] + " - " + table1.Rows[2]["GIO_NGHI"] + ")";
+
+            DataGridViewTextBoxColumn dgvChedo = new DataGridViewTextBoxColumn();
+            dgvChedo.HeaderText = "Chế độ";
+            
+
+            dgv_nv_phancong_lich.Columns.AddRange(dgvID, dgvTen, dgvChucvu, dgvSang, dgvChieu, dgvToi, dgvChedo);
+            sqlCon.Close();
+        }
+        private void tab_nv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tab_nv.SelectedIndex==0)
+            {
+
+            }   
+            else if(tab_nv.SelectedIndex==1)
+            {
+
+                load_tabpage_phancong();
+            }    
+        }
+
+        private void mon_nv_phancong_lich_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            load_tabpage_phancong();
+        }
+
+        private void btn_nv_phancong_luu_Click(object sender, EventArgs e)
+        {
+            if (mon_nv_phancong_lich.SelectionRange.Start < DateTime.Today)
+                return;
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "DELETE FROM CT_LAMVIEC WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString()+"'";
+            cmd.ExecuteNonQuery();
+            for(int i =0; i<dgv_nv_phancong_lich.Rows.Count-1; i++)
+            {
+                if(dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString()=="Lap lai")
+                {
+                    if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T')";
+                        MessageBox.Show(cmd.CommandText);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "', null, '" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "', null, '" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "', null, '" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
+                        MessageBox.Show(cmd.CommandText);
+                        cmd.ExecuteNonQuery();
+                    }
+                } 
+                    
+            }    
+            sqlCon.Close();
+        }
+        private void btn_nv_phancong_xoa_Click(object sender, EventArgs e)
+        {
+            dgv_nv_phancong_lich.Rows.RemoveAt(dgv_nv_phancong_lich.CurrentRow.Index);
+        }
+        private void btn_nv_phancong_them_Click(object sender, EventArgs e)
+        {
+            Form_nv_phancong_themlich Frm = new Form_nv_phancong_themlich();
+            Frm.Load_frm_main += load_tabp_phancong;
+            Frm.ShowDialog();
+        }
+
+        private void btn_nv_phancong_tuan_Click(object sender, EventArgs e)
+        {
+            Form_lichhangtuan frm = new Form_lichhangtuan();
+            frm.Load_form_main += load_tabp_phancong;
+            frm.ShowDialog();
+        }
+        //
     }
 }
