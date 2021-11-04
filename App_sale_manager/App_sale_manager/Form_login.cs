@@ -13,9 +13,9 @@ namespace App_sale_manager
 {
     public partial class Form_login : Form
     {
-        string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        string strCon = @"Data Source=DESKTOP-BQASASP;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlConnection sqlCon = null;
-        
+
         public Form_login()
         {
             InitializeComponent();
@@ -23,31 +23,31 @@ namespace App_sale_manager
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            if(sqlCon==null)
+            if (sqlCon == null)
             {
                 sqlCon = new SqlConnection(strCon);
-            }   
-            if(sqlCon.State==ConnectionState.Closed)
+            }
+            if (sqlCon.State == ConnectionState.Closed)
             {
                 sqlCon.Open();
             }
             // tạo ra đối tượng thực thi truy vấn.
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select PASSWD from NHANVIEN where USERNAME = '"+textBox_usr.Text+"'";
+            sqlCmd.CommandText = "select PASSWD from NHANVIEN where USERNAME = '" + textBox_usr.Text + "'";
             // gửi truy vấn tới kết nối.
             sqlCmd.Connection = sqlCon;
             // nhận kết quả
             SqlDataReader reader = sqlCmd.ExecuteReader();
             string passwd = "";
-            if(reader.Read())
+            if (reader.Read())
             {
                 passwd = reader.GetString(0);
             }
             // kiểm tra passwd
             if (passwd == textBox_passwd.Text)
             {
-                if(textBox_usr.Text == "admin")
+                if (textBox_usr.Text == "admin")
                 {
                     Form_main_admin frm = new Form_main_admin();
                     frm.Thoat += Frm_Thoat;
@@ -68,7 +68,7 @@ namespace App_sale_manager
             }
 
 
-            sqlCon.Close(); 
+            sqlCon.Close();
         }
 
         private void Frm_Thoat(object sender, EventArgs e)
@@ -88,6 +88,11 @@ namespace App_sale_manager
             frm.Thoat += Frm_Thoat;
             frm.Show();
             this.Hide();
+           
+        }
+        public string get_user()
+        {
+                return textBox_usr.Text;
         }
     }
 }
