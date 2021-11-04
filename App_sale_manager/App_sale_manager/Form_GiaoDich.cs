@@ -13,10 +13,10 @@ namespace App_sale_manager
 {
     public partial class Form_GiaoDich : Form
     {
-        string strcon = "Data Source=DESKTOP-BQASASP;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
-        SqlConnection AAA;
-        SqlCommand command;
-        SqlDataAdapter ADT = new SqlDataAdapter();
+        string strCon = "Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        SqlConnection sqlCon;
+        SqlCommand cmd;
+        SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table;
         public Form_GiaoDich()
         {
@@ -30,24 +30,24 @@ namespace App_sale_manager
 
             Box_IDNV.Text = Manv;
 
-            AAA = new SqlConnection(strcon);
-            AAA.Open();
-            command = AAA.CreateCommand();
+            sqlCon = new SqlConnection(strCon);
+            sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
 
             table = new DataTable();
-            command.CommandText = "select * from HDBH";
-            ADT.SelectCommand = command;
+            cmd.CommandText = "select * from HDBH";
+            adapter.SelectCommand = cmd;
             table.Clear();
-            ADT.Fill(table);
+            adapter.Fill(table);
             Box_IDHD.Text = "hd" + Convert.ToString(table.Rows.Count + 1);
 
             table = new DataTable();
-            command.CommandText = "Select KHID from KHACHHANG WHERE (KHID like '%" + Box_IDKH.Text + "%')";
-            ADT.SelectCommand = command;
+            cmd.CommandText = "Select KHID from KHACHHANG WHERE (KHID like '%" + Box_IDKH.Text + "%')";
+            adapter.SelectCommand = cmd;
             table.Clear();
-            if (ADT != null)
+            if (adapter != null)
             {
-                ADT.Fill(table);
+                adapter.Fill(table);
                 DGV_LuaChon.DataSource = table;
                 foreach(DataGridViewRow i in DGV_LuaChon.Rows)
                 {
@@ -58,10 +58,10 @@ namespace App_sale_manager
             }
 
             DTP_NGHD.Value = DateTime.Today;
-            command.CommandText = "Select SPID, GIABAN from SANPHAM";
-            ADT.SelectCommand = command;
+            cmd.CommandText = "Select SPID, GIABAN from SANPHAM";
+            adapter.SelectCommand = cmd;
             table = new DataTable();
-            ADT.Fill(table);
+            adapter.Fill(table);
             DGV_LuaChon.DataSource = table;
 
 
@@ -118,10 +118,10 @@ namespace App_sale_manager
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             table = new DataTable();
-            command.CommandText = "Select SPID, GIABAN from SANPHAM WHERE (SPID like '%"+Box_SP.Text+"%')";
-            ADT.SelectCommand = command;
+            cmd.CommandText = "Select SPID, GIABAN from SANPHAM WHERE (SPID like '%"+Box_SP.Text+"%')";
+            adapter.SelectCommand = cmd;
             table.Clear();
-            ADT.Fill(table);
+            adapter.Fill(table);
             DGV_LuaChon.DataSource = table;
         }
 
@@ -168,16 +168,16 @@ namespace App_sale_manager
 
             DateTime dt = DTP_NGHD.Value;
             string x = dt.ToShortDateString();
-            command.CommandText = "set dateformat dmy";
-            ADT.SelectCommand = command;
+            cmd.CommandText = "set dateformat dmy";
+            adapter.SelectCommand = cmd;
             try
             { 
-                command.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_Tong.Text + "','" + Box_LoaiHD.Text + "','" + Box_TrangThai.Text + "') ";
-                command.ExecuteNonQuery();
+                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_Tong.Text + "','" + Box_LoaiHD.Text + "','" + Box_TrangThai.Text + "') ";
+                cmd.ExecuteNonQuery();
                 foreach (DataGridViewRow i in CT_HD.Rows)
                 {
-                    command.CommandText = "insert into CTHDBH values ('" + Box_IDHD.Text + "','" + i.Cells[0].Value + "','" + i.Cells[2].Value + "')";
-                    command.ExecuteNonQuery();
+                    cmd.CommandText = "insert into CTHDBH values ('" + Box_IDHD.Text + "','" + i.Cells[0].Value + "','" + i.Cells[2].Value + "')";
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch(SqlException )
@@ -215,12 +215,12 @@ namespace App_sale_manager
         {
 
             table = new DataTable();
-            command.CommandText = "Select KHID from KHACHHANG WHERE (KHID like '%" + Box_IDKH.Text + "%')";
-            ADT.SelectCommand = command;
+            cmd.CommandText = "Select KHID from KHACHHANG WHERE (KHID like '%" + Box_IDKH.Text + "%')";
+            adapter.SelectCommand = cmd;
             table.Clear();
-            if (ADT != null)
+            if (adapter != null)
             {
-                ADT.Fill(table);
+                adapter.Fill(table);
                 foreach (DataRow i in table.Rows)
                 {
 

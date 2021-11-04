@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_CTHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CTHD.Designer.cs">
+      <DependentUpon>Form_CTHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_doipass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_doipass.Designer.cs">
       <DependentUpon>Form_doipass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_GiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GiaoDich.Designer.cs">
+      <DependentUpon>Form_GiaoDich.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_login.cs">
       <SubType>Form</SubType>
@@ -72,8 +84,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_CTHD.resx">
+      <DependentUpon>Form_CTHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_doipass.resx">
       <DependentUpon>Form_doipass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GiaoDich.resx">
+      <DependentUpon>Form_GiaoDich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_login.resx">
       <DependentUpon>Form_login.cs</DependentUpon>
