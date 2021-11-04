@@ -54,6 +54,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTCC_guest_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_guest_form.Designer.cs">
+      <DependentUpon>DTCC_guest_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTCC_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_form.Designer.cs">
+      <DependentUpon>DTCC_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTCC_guest_modifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_guest_modifier.Designer.cs">
+      <DependentUpon>DTCC_guest_modifier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTCC_modifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_modifier.Designer.cs">
+      <DependentUpon>DTCC_modifier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_doipass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +116,37 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sale.cs" />
+    <Compile Include="SaleDeleter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleDeleter.Designer.cs">
+      <DependentUpon>SaleDeleter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale_manager.Designer.cs">
+      <DependentUpon>Sale_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale_viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale_viewer.Designer.cs">
+      <DependentUpon>Sale_viewer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DTCC_guest_form.resx">
+      <DependentUpon>DTCC_guest_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCC_form.resx">
+      <DependentUpon>DTCC_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCC_guest_modifier.resx">
+      <DependentUpon>DTCC_guest_modifier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCC_modifier.resx">
+      <DependentUpon>DTCC_modifier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_doipass.resx">
       <DependentUpon>Form_doipass.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,7 +174,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SaleDeleter.resx">
+      <DependentUpon>SaleDeleter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale_manager.resx">
+      <DependentUpon>Sale_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale_viewer.resx">
+      <DependentUpon>Sale_viewer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

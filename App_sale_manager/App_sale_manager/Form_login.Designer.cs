@@ -44,9 +44,10 @@ namespace App_sale_manager
             // 
             this.label_tiltle_login.AutoSize = true;
             this.label_tiltle_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tiltle_login.Location = new System.Drawing.Point(178, 109);
+            this.label_tiltle_login.Location = new System.Drawing.Point(134, 89);
+            this.label_tiltle_login.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_tiltle_login.Name = "label_tiltle_login";
-            this.label_tiltle_login.Size = new System.Drawing.Size(211, 25);
+            this.label_tiltle_login.Size = new System.Drawing.Size(176, 20);
             this.label_tiltle_login.TabIndex = 0;
             this.label_tiltle_login.Text = "Đăng nhập tài khoản";
             // 
@@ -54,9 +55,10 @@ namespace App_sale_manager
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(178, 200);
+            this.label1.Location = new System.Drawing.Point(134, 162);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 18);
+            this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "password";
             // 
@@ -64,62 +66,73 @@ namespace App_sale_manager
             // 
             this.label_usr.AutoSize = true;
             this.label_usr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_usr.Location = new System.Drawing.Point(180, 163);
+            this.label_usr.Location = new System.Drawing.Point(135, 132);
+            this.label_usr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_usr.Name = "label_usr";
-            this.label_usr.Size = new System.Drawing.Size(37, 18);
+            this.label_usr.Size = new System.Drawing.Size(31, 15);
             this.label_usr.TabIndex = 1;
             this.label_usr.Text = "user";
             // 
             // textBox_usr
             // 
-            this.textBox_usr.Location = new System.Drawing.Point(280, 163);
+            this.textBox_usr.Location = new System.Drawing.Point(210, 132);
+            this.textBox_usr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_usr.Name = "textBox_usr";
-            this.textBox_usr.Size = new System.Drawing.Size(255, 22);
+            this.textBox_usr.Size = new System.Drawing.Size(192, 20);
             this.textBox_usr.TabIndex = 2;
             // 
             // textBox_passwd
             // 
-            this.textBox_passwd.Location = new System.Drawing.Point(280, 200);
+            this.textBox_passwd.Location = new System.Drawing.Point(210, 162);
+            this.textBox_passwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_passwd.Name = "textBox_passwd";
             this.textBox_passwd.PasswordChar = '*';
-            this.textBox_passwd.Size = new System.Drawing.Size(255, 22);
+            this.textBox_passwd.Size = new System.Drawing.Size(192, 20);
             this.textBox_passwd.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(181, 248);
+            this.label2.Location = new System.Drawing.Point(136, 202);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(273, 17);
+            this.label2.Size = new System.Drawing.Size(206, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "nếu bạn muốn đổi mật khẩu mới hãy nhấn";
             // 
             // link_frm_doipasswd
             // 
             this.link_frm_doipasswd.AutoSize = true;
-            this.link_frm_doipasswd.Location = new System.Drawing.Point(461, 248);
+            this.link_frm_doipasswd.Location = new System.Drawing.Point(346, 202);
+            this.link_frm_doipasswd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.link_frm_doipasswd.Name = "link_frm_doipasswd";
             this.link_frm_doipasswd.Size = new System.Drawing.Size(29, 17);
             this.link_frm_doipasswd.TabIndex = 6;
+            this.link_frm_doipasswd.Size = new System.Drawing.Size(23, 13);
+            this.link_frm_doipasswd.TabIndex = 4;
             this.link_frm_doipasswd.TabStop = true;
             this.link_frm_doipasswd.Text = "link";
             this.link_frm_doipasswd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_frm_doipasswd_LinkClicked);
             // 
             // btn_dangnhap
             // 
-            this.btn_dangnhap.Location = new System.Drawing.Point(183, 300);
+            this.btn_dangnhap.Location = new System.Drawing.Point(137, 244);
+            this.btn_dangnhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_dangnhap.Name = "btn_dangnhap";
             this.btn_dangnhap.Size = new System.Drawing.Size(172, 44);
             this.btn_dangnhap.TabIndex = 4;
+            this.btn_dangnhap.Size = new System.Drawing.Size(129, 36);
+            this.btn_dangnhap.TabIndex = 5;
             this.btn_dangnhap.Text = "Đăng nhập";
             this.btn_dangnhap.UseVisualStyleBackColor = true;
             this.btn_dangnhap.Click += new System.EventHandler(this.btn_dangnhap_Click);
             // 
             // btn_thoat
             // 
-            this.btn_thoat.Location = new System.Drawing.Point(361, 300);
+            this.btn_thoat.Location = new System.Drawing.Point(271, 244);
+            this.btn_thoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.Size = new System.Drawing.Size(172, 44);
+            this.btn_thoat.Size = new System.Drawing.Size(129, 36);
             this.btn_thoat.TabIndex = 5;
             this.btn_thoat.Text = "Thoát";
             this.btn_thoat.UseVisualStyleBackColor = true;
@@ -127,9 +140,9 @@ namespace App_sale_manager
             // 
             // Form_login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 407);
+            this.ClientSize = new System.Drawing.Size(562, 331);
             this.Controls.Add(this.btn_thoat);
             this.Controls.Add(this.btn_dangnhap);
             this.Controls.Add(this.link_frm_doipasswd);
@@ -139,8 +152,10 @@ namespace App_sale_manager
             this.Controls.Add(this.label_usr);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_tiltle_login);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form_login";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form_login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

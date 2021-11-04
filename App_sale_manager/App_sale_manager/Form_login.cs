@@ -19,6 +19,7 @@ namespace App_sale_manager
         public Form_login()
         {
             InitializeComponent();
+            this.AcceptButton = btn_dangnhap;
         }
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
@@ -88,6 +89,12 @@ namespace App_sale_manager
             frm.Thoat += Frm_Thoat;
             frm.Show();
             this.Hide();
+            
+        }
+
+        private void Form_login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
