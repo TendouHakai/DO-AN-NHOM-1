@@ -15,7 +15,7 @@ namespace App_sale_manager
     public partial class Form_main_admin : Form
     {
         Sale_viewer A = new Sale_viewer();
-        public static string strCon = @"Data Source=ATHENALAPTOP\SQLEXPRESS;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        public static string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlConnection con = new SqlConnection(strCon);
         public Form_main_admin()
         {
@@ -35,7 +35,7 @@ namespace App_sale_manager
         private void Form_main_admin_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qUANLYBANHANG_LTTQDataSet.DTCC' table. You can move, or remove it, as needed.
-            this.dTCCTableAdapter.Fill(this.qUANLYBANHANG_LTTQDataSet.DTCC);
+            //this.dTCCTableAdapter.Fill(this.qUANLYBANHANG_LTTQDataSet.DTCC);
 
         }
         public void DTCC_dtgd_dataInitialize()

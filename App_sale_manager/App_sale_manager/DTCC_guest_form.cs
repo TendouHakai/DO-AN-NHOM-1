@@ -13,7 +13,7 @@ namespace App_sale_manager
 {
     public partial class DTCC_guest_form : Form
     {
-        public static string strCon = @"Data Source=ATHENALAPTOP\SQLEXPRESS;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        public static string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlConnection con = new SqlConnection(strCon);
         private void openconnect()
         {
