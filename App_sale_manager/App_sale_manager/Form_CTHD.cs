@@ -13,7 +13,7 @@ namespace App_sale_manager
 {
     public partial class Form_CTHD : Form
     {
-        string strCon = "Data Source=DESKTOP-BQASASP;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        string strCon = "Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlConnection sqlCon;
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();

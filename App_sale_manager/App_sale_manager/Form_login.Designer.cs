@@ -76,7 +76,6 @@ namespace App_sale_manager
             this.textBox_usr.Name = "textBox_usr";
             this.textBox_usr.Size = new System.Drawing.Size(255, 22);
             this.textBox_usr.TabIndex = 2;
-            this.textBox_usr.Text = "admin";
             // 
             // textBox_passwd
             // 
@@ -85,7 +84,6 @@ namespace App_sale_manager
             this.textBox_passwd.PasswordChar = '*';
             this.textBox_passwd.Size = new System.Drawing.Size(255, 22);
             this.textBox_passwd.TabIndex = 3;
-            this.textBox_passwd.Text = "123456";
             // 
             // label2
             // 
