@@ -13,7 +13,7 @@ namespace App_sale_manager
 {
     public partial class Form_login : Form
     {
-        string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=SALE_MANAGER;Integrated Security=True";
+        string strCon = @"Data Source=DESKTOP-LCG6NPQ;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlConnection sqlCon = null;
         
         public Form_login()

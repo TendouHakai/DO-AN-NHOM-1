@@ -16,7 +16,7 @@ namespace App_sale_manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_login());
+            Application.Run(new Form_main_admin());
         }
     }
 }
