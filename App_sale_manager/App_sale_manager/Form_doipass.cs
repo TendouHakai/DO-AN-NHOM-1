@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace App_sale_manager
     public partial class Form_doipass : Form
     {
         SqlConnection sqlCon = null;
-        string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=SALE_MANAGER;Integrated Security=True";
+        string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -79,3 +80,4 @@ namespace App_sale_manager
         }
     }
 }
+

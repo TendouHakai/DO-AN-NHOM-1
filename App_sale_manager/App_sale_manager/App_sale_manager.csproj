@@ -34,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,11 +49,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTCC_guest_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_guest_form.Designer.cs">
+      <DependentUpon>DTCC_guest_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTCC_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_form.Designer.cs">
+      <DependentUpon>DTCC_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTCC_guest_modifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_guest_modifier.Designer.cs">
+      <DependentUpon>DTCC_guest_modifier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTCC_modifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCC_modifier.Designer.cs">
+      <DependentUpon>DTCC_modifier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CTHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CTHD.Designer.cs">
+      <DependentUpon>Form_CTHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_doipass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_doipass.Designer.cs">
       <DependentUpon>Form_doipass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_GiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GiaoDich.Designer.cs">
+      <DependentUpon>Form_GiaoDich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_lichhangtuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_lichhangtuan.Designer.cs">
+      <DependentUpon>Form_lichhangtuan.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_login.cs">
       <SubType>Form</SubType>
@@ -71,10 +115,56 @@
     <Compile Include="Form_main_NV.Designer.cs">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_nv_phancong_themlich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_nv_phancong_themlich.Designer.cs">
+      <DependentUpon>Form_nv_phancong_themlich.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sale.cs" />
+    <Compile Include="SaleDeleter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleDeleter.Designer.cs">
+      <DependentUpon>SaleDeleter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale_manager.Designer.cs">
+      <DependentUpon>Sale_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale_viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale_viewer.Designer.cs">
+      <DependentUpon>Sale_viewer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DTCC_guest_form.resx">
+      <DependentUpon>DTCC_guest_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCC_form.resx">
+      <DependentUpon>DTCC_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCC_guest_modifier.resx">
+      <DependentUpon>DTCC_guest_modifier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCC_modifier.resx">
+      <DependentUpon>DTCC_modifier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CTHD.resx">
+      <DependentUpon>Form_CTHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_doipass.resx">
       <DependentUpon>Form_doipass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GiaoDich.resx">
+      <DependentUpon>Form_GiaoDich.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_lichhangtuan.resx">
+      <DependentUpon>Form_lichhangtuan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_login.resx">
       <DependentUpon>Form_login.cs</DependentUpon>
@@ -85,24 +175,19 @@
     <EmbeddedResource Include="Form_main_NV.resx">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Form_nv_phancong_themlich.resx">
+      <DependentUpon>Form_nv_phancong_themlich.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="SaleDeleter.resx">
+      <DependentUpon>SaleDeleter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale_manager.resx">
+      <DependentUpon>Sale_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale_viewer.resx">
+      <DependentUpon>Sale_viewer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
