@@ -73,11 +73,23 @@
     <Compile Include="DTCC_modifier.Designer.cs">
       <DependentUpon>DTCC_modifier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_CTHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CTHD.Designer.cs">
+      <DependentUpon>Form_CTHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_doipass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_doipass.Designer.cs">
       <DependentUpon>Form_doipass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_GiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GiaoDich.Designer.cs">
+      <DependentUpon>Form_GiaoDich.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_lichhangtuan.cs">
       <SubType>Form</SubType>
@@ -142,8 +154,14 @@
     <EmbeddedResource Include="DTCC_modifier.resx">
       <DependentUpon>DTCC_modifier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_CTHD.resx">
+      <DependentUpon>Form_CTHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_doipass.resx">
       <DependentUpon>Form_doipass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GiaoDich.resx">
+      <DependentUpon>Form_GiaoDich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_lichhangtuan.resx">
       <DependentUpon>Form_lichhangtuan.cs</DependentUpon>
@@ -161,16 +179,6 @@
       <DependentUpon>Form_nv_phancong_themlich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SaleDeleter.resx">
       <DependentUpon>SaleDeleter.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,15 +188,6 @@
     <EmbeddedResource Include="Sale_viewer.resx">
       <DependentUpon>Sale_viewer.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

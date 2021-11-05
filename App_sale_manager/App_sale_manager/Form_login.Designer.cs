@@ -1,3 +1,4 @@
+
 ﻿
 namespace App_sale_manager
 {
@@ -174,4 +175,4 @@ namespace App_sale_manager
         private System.Windows.Forms.Button btn_thoat;
     }
 }
-
+﻿

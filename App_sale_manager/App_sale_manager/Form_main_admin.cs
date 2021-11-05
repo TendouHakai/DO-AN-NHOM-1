@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,22 +15,31 @@ namespace App_sale_manager
 {
     public partial class Form_main_admin : Form
     {
+        string manv = "nv01";
         SqlConnection sqlCon = null;
         string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
         bool canExit;
         Sale_viewer A = new Sale_viewer();
-       
+        DataTable table = new DataTable();
         public Form_main_admin()
         {
-            InitializeComponent();
             sqlCon = new SqlConnection(strCon);
+            cmd = sqlCon.CreateCommand();
+            InitializeComponent();
             DTCC_dtgd_dataInitialize();
             DTCC_guest_dataInitialize();
             canExit = true;
             pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
+        }
+        public Form_main_admin(string manv)
+        {
+            this.manv = manv;
+            sqlCon = new SqlConnection(strCon);
+            cmd = sqlCon.CreateCommand();
+            InitializeComponent();
         }
         public event EventHandler Thoat;
         private void btn_dangxuat_Click(object sender, EventArgs e)
@@ -163,7 +173,10 @@ namespace App_sale_manager
             {
                 tabControl_Baocao.SelectedIndex = 0;
                 tabControl_Baocao_SelectedIndexChanged(tabControl_Baocao, new EventArgs());
-                
+            }    
+            else if(tabCtrl.SelectedIndex==3)
+            {
+                this.Refresh_data_GD();
             }    
         }
         //
@@ -280,7 +293,7 @@ namespace App_sale_manager
             table.Clear();
             adapter.Fill(table);
             dgv_bc_cuoingay.DataSource = table;
-            cmd.CommandText = "SELECT (THU-CHI) AS DOANHTHU FROM (SELECT SUM(THU) AS THU, SUM(CHI) AS CHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = NULL FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND NGHD='"+day+"' GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = NULL, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE NGNHAP='"+day+"' GROUP BY NGNHAP) AS K) AS H";
+            cmd.CommandText = "SELECT (THU-CHI) AS DOANHTHU FROM (SELECT SUM(THU) AS THU, SUM(CHI) AS CHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND NGHD='"+day+"' GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE NGNHAP='"+day+"' GROUP BY NGNHAP) AS K) AS H";
             adapter.SelectCommand = cmd;
             DataTable table1 = new DataTable();
             table1.Clear();
@@ -1165,5 +1178,97 @@ namespace App_sale_manager
             A.Show();
         }
         //
+        // TabPage Giao dịch
+        //
+        private void BNT_TaoHoaDon_Click(object sender, EventArgs e)
+        {
+            Form_GiaoDich F_GD = new Form_GiaoDich(manv);
+            F_GD.Show();
+
+        }
+
+        private void BNT_Refresh_GD_Click(object sender, EventArgs e)
+        {
+            this.Refresh_data_GD();
+        }
+
+        private void Refresh_data_GD()
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            cmd.CommandText = "select * from HDBH";
+            adapter.SelectCommand = cmd;
+            table.Clear();
+            adapter.Fill(table);
+            GridView_Data_GiaoDich.DataSource = table;
+            sqlCon.Close();
+            CLB_GD_TrangThai.SetItemChecked(0, true);
+            CLB_GD_TrangThai.SetItemChecked(1, true);
+            CLB_GD_TrangThai.SetItemChecked(2, true);
+            CLB_GD_LoaiDon.SetItemChecked(0, true);
+            CLB_GD_LoaiDon.SetItemChecked(1, true);
+            Box_GD_MaHoaDon.Text = "";
+            Box_GD_MaKhachHang.Text = "";
+            BOX_GD_MaNhanVien.Text = "";
+        }
+
+        private void bnt_Timkiem_Click(object sender, EventArgs e)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            cmd.CommandText = "select * from HDBH where (SOHD_BH like '%" + Box_GD_MaHoaDon.Text + "%' and KHID like '%" + Box_GD_MaKhachHang.Text + "%'AND NVID like '%" + BOX_GD_MaNhanVien.Text + "%'  ";
+            if (CLB_GD_LoaiDon.CheckedIndices.Contains(0) == false)
+            {
+                cmd.CommandText += " and LOAIHD != 'DDH'";
+            }
+            if (CLB_GD_LoaiDon.CheckedIndices.Contains(1) == false)
+            {
+                cmd.CommandText += " and LOAIHD != 'DTT'";
+            }
+            if (CLB_GD_TrangThai.CheckedIndices.Contains(0) == false)
+            {
+                cmd.CommandText += " and TRANGTHAI != 'NHANDON'";
+            }
+            if (CLB_GD_TrangThai.CheckedIndices.Contains(1) == false)
+            {
+                cmd.CommandText += " and TRANGTHAI != 'DANGGIAO'";
+            }
+
+            if (CLB_GD_TrangThai.CheckedIndices.Contains(2) == false)
+            {
+                cmd.CommandText += " and TRANGTHAI != 'HOANTAT'";
+            }
+
+            cmd.CommandText += ") ";
+            adapter.SelectCommand = cmd;
+            table.Clear();
+            adapter.Fill(table);
+            GridView_Data_GiaoDich.DataSource = table;
+            sqlCon.Close();
+        }
+
+        private void GridView_Data_GiaoDich_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            Form_CTHD cthd = new Form_CTHD((string)GridView_Data_GiaoDich.CurrentRow.Cells[0].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[2].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[3].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[5].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[6].Value, Convert.ToString(GridView_Data_GiaoDich.CurrentRow.Cells[4].Value));
+            cthd.Show();
+        }
+
+        Bitmap bmp;
+        private void bnt_inDS_Click(object sender, EventArgs e)
+        {
+            int height = GridView_Data_GiaoDich.Height;
+            GridView_Data_GiaoDich.Height = GridView_Data_GiaoDich.RowCount * GridView_Data_GiaoDich.RowTemplate.Height + 2 * GridView_Data_GiaoDich.RowTemplate.Height;
+            GridView_Data_GiaoDich.CurrentRow.Selected = false;
+            bmp = new Bitmap(GridView_Data_GiaoDich.Width, GridView_Data_GiaoDich.Height);
+            GridView_Data_GiaoDich.DrawToBitmap(bmp, new Rectangle(0, 0, GridView_Data_GiaoDich.Width, GridView_Data_GiaoDich.Height));
+            GridView_Data_GiaoDich.Height = height;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage_GD(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 30, 0);
+        }
     }
 }

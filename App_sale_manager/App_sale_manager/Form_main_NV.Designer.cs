@@ -1,4 +1,5 @@
-﻿
+
+
 namespace App_sale_manager
 {
     partial class Form_main_NV
