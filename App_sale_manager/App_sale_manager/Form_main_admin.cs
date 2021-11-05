@@ -13,33 +13,31 @@ namespace App_sale_manager
 {
     public partial class Form_main_admin : Form
     {
+        string manv = "nv01";
+        public event EventHandler Thoat;
+
+        string strCon = "Data Source=DESKTOP-BQASASP;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        SqlConnection sqlCon;
+        SqlCommand cmd;
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataTable table = new DataTable();
         public Form_main_admin()
         {
-            AAA = new SqlConnection(strcon);
-            command = AAA.CreateCommand();
+            sqlCon = new SqlConnection(strCon);
+            cmd = sqlCon.CreateCommand();
             InitializeComponent();
         }
 
         public Form_main_admin(string manv)
         {
             this.manv = manv;
-            AAA = new SqlConnection(strcon);
-            command = AAA.CreateCommand();
+            sqlCon = new SqlConnection(strCon);
+            cmd = sqlCon.CreateCommand();
 
             InitializeComponent();
             
             
         }
-
-        string manv="nv01";
-        public event EventHandler Thoat;
-
-        string strcon = "Data Source=DESKTOP-BQASASP;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
-        SqlConnection AAA;
-        SqlCommand command;
-        SqlDataAdapter ADT = new SqlDataAdapter();
-        DataTable table = new DataTable();
-
         private void btn_dangxuat_Click(object sender, EventArgs e)
         {
             Thoat(this, new EventArgs());
@@ -59,13 +57,13 @@ namespace App_sale_manager
 
         private  void Refresh_data_GD()
         {
-            AAA.Open();   
-            command.CommandText = "select * from HDBH";
-            ADT.SelectCommand = command;
+            sqlCon.Open();   
+            cmd.CommandText = "select * from HDBH";
+            adapter.SelectCommand = cmd;
             table.Clear();
-            ADT.Fill(table);
+            adapter.Fill(table);
             GridView_Data_GiaoDich.DataSource = table;
-            AAA.Close();
+            sqlCon.Close();
             CLB_GD_TrangThai.SetItemChecked(0, true);
             CLB_GD_TrangThai.SetItemChecked(1, true);
             CLB_GD_TrangThai.SetItemChecked(2, true);
@@ -83,36 +81,36 @@ namespace App_sale_manager
 
         private void bnt_Timkiem_Click(object sender, EventArgs e)
         {
-            AAA.Open();
-            command.CommandText = "select * from HDBH where (SOHD_BH like '%"+Box_GD_MaHoaDon.Text+ "%' and KHID like '%" + Box_GD_MaKhachHang.Text + "%'AND NVID like '%" + BOX_GD_MaNhanVien.Text + "%'  ";
+            sqlCon.Open();
+            cmd.CommandText = "select * from HDBH where (SOHD_BH like '%"+Box_GD_MaHoaDon.Text+ "%' and KHID like '%" + Box_GD_MaKhachHang.Text + "%'AND NVID like '%" + BOX_GD_MaNhanVien.Text + "%'  ";
             if(CLB_GD_LoaiDon.CheckedIndices.Contains(0) == false)
             {
-                command.CommandText += " and LOAIHD != 'DDH'";
+                cmd.CommandText += " and LOAIHD != 'DDH'";
             }
             if (CLB_GD_LoaiDon.CheckedIndices.Contains(1) == false)
             {
-                command.CommandText += " and LOAIHD != 'DTT'";
+                cmd.CommandText += " and LOAIHD != 'DTT'";
             }
             if (CLB_GD_TrangThai.CheckedIndices.Contains(0) == false)
             {
-                command.CommandText += " and TRANGTHAI != 'NHANDON'";
+                cmd.CommandText += " and TRANGTHAI != 'NHANDON'";
             }
             if (CLB_GD_TrangThai.CheckedIndices.Contains(1) == false)
             {
-                command.CommandText += " and TRANGTHAI != 'DANGGIAO'";
+                cmd.CommandText += " and TRANGTHAI != 'DANGGIAO'";
             }
 
             if (CLB_GD_TrangThai.CheckedIndices.Contains(2) == false)
             {
-                command.CommandText += " and TRANGTHAI != 'HOANTAT'";
+                cmd.CommandText += " and TRANGTHAI != 'HOANTAT'";
             }
 
-            command.CommandText += ") ";
-            ADT.SelectCommand = command;
+            cmd.CommandText += ") ";
+            adapter.SelectCommand = cmd;
             table.Clear();
-            ADT.Fill(table);
+            adapter.Fill(table);
             GridView_Data_GiaoDich.DataSource = table;
-            AAA.Close();
+            sqlCon.Close();
         }
 
         private void GridView_Data_GiaoDich_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -13,16 +13,17 @@ namespace App_sale_manager
 {
     public partial class Form_CTHD : Form
     {
+        string strCon = "Data Source=DESKTOP-BQASASP;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        SqlConnection sqlCon;
+        SqlCommand cmd;
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataTable table = new DataTable();
+        Bitmap bmp;
         public Form_CTHD()
         {
             InitializeComponent();
         }
-        string strcon = "Data Source=DESKTOP-BQASASP;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
-        SqlConnection AAA;
-        SqlCommand command;
-        SqlDataAdapter ADT = new SqlDataAdapter();
-        DataTable table = new DataTable();
-        Bitmap bmp;
+        
         public Form_CTHD(string mahoadon,string makhachhang,string manhanvien,string loaihd,string trangthai, string tong)
         {           
             InitializeComponent();
@@ -35,14 +36,14 @@ namespace App_sale_manager
             l_TrangThai.Text = trangthai;
             l_Tong.Text =tong;
 
-            AAA = new SqlConnection(strcon);
-            AAA.Open();
-            command = AAA.CreateCommand();
+            sqlCon = new SqlConnection(strCon);
+            sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
 
 
-            command.CommandText = "select CTHDBH.SPID,SL,GIABAN from CTHDBH, SANPHAM where SOHD_BH = '"+mahoadon+"' and SANPHAM.SPID = CTHDBH.SPID " ;
-            ADT.SelectCommand = command;
-            ADT.Fill(table);
+            cmd.CommandText = "select CTHDBH.SPID,SL,GIABAN from CTHDBH, SANPHAM where SOHD_BH = '"+mahoadon+"' and SANPHAM.SPID = CTHDBH.SPID " ;
+            adapter.SelectCommand = cmd;
+            adapter.Fill(table);
             DGV_CTHD.DataSource = table;
         }
 
@@ -51,15 +52,15 @@ namespace App_sale_manager
             
             if (l_TrangThai.Text == "NHANDON")
             {
-                command.CommandText = "update HDBH set TRANGTHAI = 'DANGGIAO' where SOHD_BH = '"+l_MaHoadon.Text+"' ";
-                ADT.UpdateCommand = command;
+                cmd.CommandText = "update HDBH set TRANGTHAI = 'DANGGIAO' where SOHD_BH = '"+l_MaHoadon.Text+"' ";
+                adapter.UpdateCommand = cmd;
                 l_TrangThai.Text = "DANGGIAO";
             }
             if (l_TrangThai.Text == "DANGGIAO")
             {
                 l_TrangThai.Text = "HOANTAT";
-                command.CommandText = "update HDBH set TRANGTHAI = 'HOANTAT' where SOHD_BH  = '"+l_MaHoadon.Text+"' ";
-                command.ExecuteNonQuery();               
+                cmd.CommandText = "update HDBH set TRANGTHAI = 'HOANTAT' where SOHD_BH  = '"+l_MaHoadon.Text+"' ";
+                cmd.ExecuteNonQuery();               
             }
         }
 
