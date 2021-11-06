@@ -94,9 +94,9 @@ namespace App_sale_manager
                     image1 = Image.FromStream(stream);
                 }
 
-                pictureBox_image_import.Image = image1;
+                pictureBox_image_import_nv.Image = image1;
             }
-            else pictureBox_image_import.Image = null;
+            else pictureBox_image_import_nv.Image = null;
 
         }
         private void tb_SDT_nv_infonv_KeyPress(object sender, KeyPressEventArgs e)
@@ -154,7 +154,7 @@ namespace App_sale_manager
                 if (filepath != "")
                 {
                     Save.FileName = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
-                    pictureBox_image_import.Image.Save(Save.FileName);
+                    pictureBox_image_import_nv.Image.Save(Save.FileName);
                     filepath = "";
                 }
             }
@@ -172,7 +172,7 @@ namespace App_sale_manager
             command = AAA.CreateCommand();
             command.CommandText = "delete from NHANVIEN where NVID='" + tb_MaNV_nv_infonv.Text + "'";
             command.ExecuteNonQuery();
-            pictureBox_image_import.Image= null;
+            pictureBox_image_import_nv.Image= null;
             if (File.Exists(filepath))
             {
                 File.Delete(filepath);
@@ -190,7 +190,7 @@ namespace App_sale_manager
             if (filepath != "")
             {
                 Save.FileName = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
-                pictureBox_image_import.Image.Save(Save.FileName);
+                pictureBox_image_import_nv.Image.Save(Save.FileName);
                 filepath = "";
             }
             command.ExecuteNonQuery();
@@ -209,7 +209,7 @@ namespace App_sale_manager
             tb_matkhau_nv_infonv.Text = "";
             tb_MaNV_nv_infonv.ReadOnly = false;
             (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
-            pictureBox_image_import.Image = null;
+            pictureBox_image_import_nv.Image = null;
         }
 
         private void bt_nv_infonv_Tracuu_Click(object sender, EventArgs e)
@@ -351,7 +351,7 @@ namespace App_sale_manager
             if (Open1.ShowDialog() == DialogResult.OK)
             {
                 filepath = Open1.FileName;
-                pictureBox_image_import.Image = Image.FromFile(filepath);
+                pictureBox_image_import_nv.Image = Image.FromFile(filepath);
             }
         }
 

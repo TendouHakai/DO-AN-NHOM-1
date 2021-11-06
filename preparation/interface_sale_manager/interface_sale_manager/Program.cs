@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App_sale_manager
+namespace interface_sale_manager
 {
     static class Program
     {

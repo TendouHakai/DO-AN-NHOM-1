@@ -39,7 +39,7 @@ namespace App_sale_manager
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button_Image_import = new System.Windows.Forms.Button();
-            this.pictureBox_image_import = new System.Windows.Forms.PictureBox();
+            this.pictureBox_image_import_nv = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bt_Tracuu_nv_infonv = new System.Windows.Forms.Button();
@@ -88,7 +88,7 @@ namespace App_sale_manager
             this.tabPage_NhanVien.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import_nv)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nv_infonv)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -191,7 +191,7 @@ namespace App_sale_manager
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage1.Controls.Add(this.button_Image_import);
-            this.tabPage1.Controls.Add(this.pictureBox_image_import);
+            this.tabPage1.Controls.Add(this.pictureBox_image_import_nv);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.bt_Tracuu_nv_infonv);
@@ -233,14 +233,14 @@ namespace App_sale_manager
             this.button_Image_import.UseVisualStyleBackColor = true;
             this.button_Image_import.Click += new System.EventHandler(this.button_Image_import_Click);
             // 
-            // pictureBox_image_import
+            // pictureBox_image_import_nv
             // 
-            this.pictureBox_image_import.Location = new System.Drawing.Point(36, 80);
-            this.pictureBox_image_import.Name = "pictureBox_image_import";
-            this.pictureBox_image_import.Size = new System.Drawing.Size(60, 80);
-            this.pictureBox_image_import.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_image_import.TabIndex = 10;
-            this.pictureBox_image_import.TabStop = false;
+            this.pictureBox_image_import_nv.Location = new System.Drawing.Point(36, 80);
+            this.pictureBox_image_import_nv.Name = "pictureBox_image_import_nv";
+            this.pictureBox_image_import_nv.Size = new System.Drawing.Size(60, 80);
+            this.pictureBox_image_import_nv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_image_import_nv.TabIndex = 10;
+            this.pictureBox_image_import_nv.TabStop = false;
             // 
             // label12
             // 
@@ -691,7 +691,7 @@ namespace App_sale_manager
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import_nv)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nv_infonv)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -758,6 +758,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Button bt_Khoitao_nv_bangluong;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button_Image_import;
-        private System.Windows.Forms.PictureBox pictureBox_image_import;
+        private System.Windows.Forms.PictureBox pictureBox_image_import_nv;
     }
 }
