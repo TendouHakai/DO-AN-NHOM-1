@@ -1,5 +1,3 @@
-
-
 namespace App_sale_manager
 {
     partial class Form_main_admin
@@ -81,6 +79,12 @@ namespace App_sale_manager
             this.label_kqbh = new System.Windows.Forms.Label();
             this.btn_dangxuat = new System.Windows.Forms.Button();
             this.tabPage_HangHoa = new System.Windows.Forms.TabPage();
+            this.btnQLKho = new System.Windows.Forms.Button();
+            this.btnQuanLiHH = new System.Windows.Forms.Button();
+            this.lblTieuDeHH = new System.Windows.Forms.Label();
+            this.lblChuY = new System.Windows.Forms.Label();
+            this.dgvSP = new System.Windows.Forms.DataGridView();
+            this.lblLoaiSP = new System.Windows.Forms.Label();
             this.tabPage_DoiTac = new System.Windows.Forms.TabPage();
             this.tabControl_DTCC_in = new System.Windows.Forms.TabControl();
             this.tabPage__DTCC_DTGD = new System.Windows.Forms.TabPage();
@@ -197,6 +201,8 @@ namespace App_sale_manager
             this.label_bc_nv_thoigian = new System.Windows.Forms.Label();
             this.comboBox_bc_Nv_kieutinh = new System.Windows.Forms.ComboBox();
             this.label_bc_nv_kieutinh = new System.Windows.Forms.Label();
+            this.lblGhiChu = new System.Windows.Forms.Label();
+            this.lblGhiChu2 = new System.Windows.Forms.Label();
             this.qUANLYBANHANGLTTQDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.qUANLYBANHANGLTTQDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dTCCBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -234,6 +240,8 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTCCBindingSource)).BeginInit();
+            this.tabPage_HangHoa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSP)).BeginInit();
             this.SuspendLayout();
             // 
             // label1_GD
@@ -584,14 +592,106 @@ namespace App_sale_manager
             // 
             // tabPage_HangHoa
             // 
+            this.tabPage_HangHoa.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu2);
+            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu);
+            this.tabPage_HangHoa.Controls.Add(this.btnQLKho);
+            this.tabPage_HangHoa.Controls.Add(this.btnQuanLiHH);
+            this.tabPage_HangHoa.Controls.Add(this.lblTieuDeHH);
+            this.tabPage_HangHoa.Controls.Add(this.lblChuY);
+            this.tabPage_HangHoa.Controls.Add(this.dgvSP);
+            this.tabPage_HangHoa.Controls.Add(this.lblLoaiSP);
             this.tabPage_HangHoa.Location = new System.Drawing.Point(4, 25);
-            this.tabPage_HangHoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_HangHoa.Name = "tabPage_HangHoa";
-            this.tabPage_HangHoa.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_HangHoa.Size = new System.Drawing.Size(1177, 650);
+            this.tabPage_HangHoa.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_HangHoa.Size = new System.Drawing.Size(1196, 650);
             this.tabPage_HangHoa.TabIndex = 1;
             this.tabPage_HangHoa.Text = "Hàng hóa";
-            this.tabPage_HangHoa.UseVisualStyleBackColor = true;
+            // 
+            // btnQLKho
+            // 
+            this.btnQLKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLKho.Location = new System.Drawing.Point(320, 27);
+            this.btnQLKho.Name = "btnQLKho";
+            this.btnQLKho.Size = new System.Drawing.Size(157, 88);
+            this.btnQLKho.TabIndex = 30;
+            this.btnQLKho.Text = "Quản lí kho";
+            this.btnQLKho.UseVisualStyleBackColor = true;
+            this.btnQLKho.Click += new System.EventHandler(this.btnQLKho_Click);
+            // 
+            // btnQuanLiHH
+            // 
+            this.btnQuanLiHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuanLiHH.Location = new System.Drawing.Point(41, 27);
+            this.btnQuanLiHH.Name = "btnQuanLiHH";
+            this.btnQuanLiHH.Size = new System.Drawing.Size(157, 88);
+            this.btnQuanLiHH.TabIndex = 29;
+            this.btnQuanLiHH.Text = "Quản lí hàng hoá";
+            this.btnQuanLiHH.UseVisualStyleBackColor = true;
+            this.btnQuanLiHH.Click += new System.EventHandler(this.btnQuanLiHH_Click);
+            // 
+            // lblTieuDeHH
+            // 
+            this.lblTieuDeHH.AutoSize = true;
+            this.lblTieuDeHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDeHH.Location = new System.Drawing.Point(483, 183);
+            this.lblTieuDeHH.Name = "lblTieuDeHH";
+            this.lblTieuDeHH.Size = new System.Drawing.Size(224, 29);
+            this.lblTieuDeHH.TabIndex = 28;
+            this.lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
+            // 
+            // lblChuY
+            // 
+            this.lblChuY.AutoSize = true;
+            this.lblChuY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChuY.Location = new System.Drawing.Point(446, 16);
+            this.lblChuY.Name = "lblChuY";
+            this.lblChuY.Size = new System.Drawing.Size(0, 20);
+            this.lblChuY.TabIndex = 27;
+            // 
+            // dgvSP
+            // 
+            this.dgvSP.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvSP.ColumnHeadersHeight = 70;
+            this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSP.Location = new System.Drawing.Point(-4, 230);
+            this.dgvSP.Name = "dgvSP";
+            this.dgvSP.ReadOnly = true;
+            this.dgvSP.RowHeadersWidth = 51;
+            this.dgvSP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvSP.RowTemplate.Height = 24;
+            this.dgvSP.Size = new System.Drawing.Size(1197, 417);
+            this.dgvSP.TabIndex = 8;
+            this.dgvSP.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSP_CellMouseDoubleClick);
+            // 
+            // lblLoaiSP
+            // 
+            this.lblLoaiSP.AutoSize = true;
+            this.lblLoaiSP.Location = new System.Drawing.Point(1220, 47);
+            this.lblLoaiSP.Name = "lblLoaiSP";
+            this.lblLoaiSP.Size = new System.Drawing.Size(101, 17);
+            this.lblLoaiSP.TabIndex = 3;
+            this.lblLoaiSP.Text = "Loại sản phẩm";
+            // 
+            // lblGhiChu
+            // 
+            this.lblGhiChu.AutoSize = true;
+            this.lblGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGhiChu.Location = new System.Drawing.Point(707, 24);
+            this.lblGhiChu.Name = "lblGhiChu";
+            this.lblGhiChu.Size = new System.Drawing.Size(381, 17);
+            this.lblGhiChu.TabIndex = 31;
+            this.lblGhiChu.Text = "Quản lí hàng hoá: thêm xoá sửa thông tin hàng hoá";
+            // 
+            // lblGhiChu2
+            // 
+            this.lblGhiChu2.AutoSize = true;
+            this.lblGhiChu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGhiChu2.Location = new System.Drawing.Point(707, 76);
+            this.lblGhiChu2.Name = "lblGhiChu2";
+            this.lblGhiChu2.Size = new System.Drawing.Size(417, 17);
+            this.lblGhiChu2.TabIndex = 32;
+            this.lblGhiChu2.Text = "Quản lí kho: tìm kiếm, nhập hàng, xem hàng hoá sắp hết";
             // 
             // tabPage_DoiTac
             // 
@@ -872,8 +972,8 @@ namespace App_sale_manager
             this.dataGridView_DTCC.AllowUserToAddRows = false;
             this.dataGridView_DTCC.AllowUserToDeleteRows = false;
             this.dataGridView_DTCC.AllowUserToResizeRows = false;
-            this.dataGridView_DTCC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView_DTCC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_DTCC.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_DTCC.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -1200,8 +1300,8 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.AllowUserToAddRows = false;
             this.dataGridView_dtcc_guest.AllowUserToDeleteRows = false;
             this.dataGridView_dtcc_guest.AllowUserToResizeRows = false;
-            this.dataGridView_dtcc_guest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView_dtcc_guest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_dtcc_guest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_dtcc_guest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -2012,6 +2112,9 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTCCBindingSource)).EndInit();
+            this.tabPage_HangHoa.ResumeLayout(false);
+            this.tabPage_HangHoa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2170,5 +2273,13 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label3_GD;
         private System.Windows.Forms.Label label4_GD;
         private System.Windows.Forms.Label label5_GD;
+        private System.Windows.Forms.Label lblLoaiSP;
+        private System.Windows.Forms.DataGridView dgvSP;
+        private System.Windows.Forms.Label lblChuY;
+        private System.Windows.Forms.Label lblTieuDeHH;
+        private System.Windows.Forms.Button btnQLKho;
+        private System.Windows.Forms.Button btnQuanLiHH;
+        private System.Windows.Forms.Label lblGhiChu2;
+        private System.Windows.Forms.Label lblGhiChu;
     }
 }

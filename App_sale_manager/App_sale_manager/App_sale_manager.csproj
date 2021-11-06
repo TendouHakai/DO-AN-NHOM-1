@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -79,6 +79,12 @@
     <Compile Include="Form_CTHD.Designer.cs">
       <DependentUpon>Form_CTHD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_ChiTietHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ChiTietHH.Designer.cs">
+      <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_doipass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,42 @@
     </Compile>
     <Compile Include="Form_main_NV.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_NhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_NhapHang.Designer.cs">
+      <DependentUpon>Form_NhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_QLKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_QLKho.Designer.cs">
+      <DependentUpon>Form_QLKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_QLLoaiHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_QLLoaiHH.Designer.cs">
+      <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_QuanLiHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_QuanLiHH.Designer.cs">
+      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ThemSuaHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ThemSuaHangHoa.Designer.cs">
+      <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TimKiemHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TimKiemHH.Designer.cs">
+      <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_main_NV.Designer.cs">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
@@ -157,6 +199,9 @@
     <EmbeddedResource Include="Form_CTHD.resx">
       <DependentUpon>Form_CTHD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_ChiTietHH.resx">
+      <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_doipass.resx">
       <DependentUpon>Form_doipass.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +219,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_main_NV.resx">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_NhapHang.resx">
+      <DependentUpon>Form_NhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_QLKho.resx">
+      <DependentUpon>Form_QLKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_QLLoaiHH.resx">
+      <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_QuanLiHH.resx">
+      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ThemSuaHangHoa.resx">
+      <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TimKiemHH.resx">
+      <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_nv_phancong_themlich.resx">
       <DependentUpon>Form_nv_phancong_themlich.cs</DependentUpon>

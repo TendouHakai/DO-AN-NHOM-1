@@ -124,6 +124,10 @@ namespace App_sale_manager
             if (cbo_chedo.Text == "Chỉ một lần trong tuần này")
             {
                 CHEDO = "Khong lap";
+                if(dtp_phancong_ngay.Value < DateTime.Today)
+                {
+                    MessageBox.Show("Ngày này đã qua. Bạn không thêm vào được!", "Thông báo");
+                }    
                 for(int i =0; i<chkL_phancong_NVID.Items.Count; i++)
                 {
                     for(int j =0; j<CAIDs.Count; j++)
@@ -151,7 +155,7 @@ namespace App_sale_manager
                             string THU ="";
                             if (((int)CAIDs[j].Nglam.DayOfWeek) == 0)
                                 THU = "CN";
-                            else THU = THU + "Thứ " + ((int)CAIDs[j].Nglam.DayOfWeek);
+                            else THU = THU + "Thứ " + ((int)CAIDs[j].Nglam.DayOfWeek+1);
                             DialogResult dlg=  MessageBox.Show("Ca lam viec " + THU + " buổi " + cmd.ExecuteScalar() + " của " + chkL_phancong_NVID.Items[i].ToString() + " đã có trong lịch hàng tuần.\nBạn có muốn tiếp tục thay đổi không?", "Thông báo", MessageBoxButtons.YesNo);
                             if(dlg == DialogResult.Yes)
                             {

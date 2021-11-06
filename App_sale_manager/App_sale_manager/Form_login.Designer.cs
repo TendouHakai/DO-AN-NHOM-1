@@ -1,5 +1,3 @@
-
-﻿
 namespace App_sale_manager
 {
     partial class Form_login
@@ -175,4 +173,4 @@ namespace App_sale_manager
         private System.Windows.Forms.Button btn_thoat;
     }
 }
-﻿
+
