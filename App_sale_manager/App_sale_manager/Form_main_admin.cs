@@ -214,50 +214,52 @@ namespace App_sale_manager
 
         private void bt_nv_infonv_Tracuu_Click(object sender, EventArgs e)
         {
-            (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
-            if (!string.IsNullOrEmpty(tb_MaNV_nv_infonv.Text))
+            if (string.IsNullOrEmpty(tb_search_nv_infonv.Text))
             {
-                (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format("NVID ='{0}'", tb_MaNV_nv_infonv.Text);
+                MessageBox.Show("Vui lòng nhập nội dung cần tìm.");
+                tb_search_nv_infonv.Focus();
+                return;
             }
-            else
+            if (cb_searchoption_nv_infonv.Text == "Chưa chọn")
             {
-                string str_RowFilter = null;
-                if (!string.IsNullOrEmpty(tb_TenNV_nv_infonv.Text))
-                {
-                    str_RowFilter = string.Format("HOTEN LIKE'%{0}%'", tb_TenNV_nv_infonv.Text);
-                }
-                if (!string.IsNullOrEmpty(tb_SDT_nv_infonv.Text))
-                {
-                    if (!string.IsNullOrEmpty(str_RowFilter))
-                        str_RowFilter += string.Format("AND SDT LIKE'{0}%' ", tb_SDT_nv_infonv.Text);
-                    else
-                        str_RowFilter = string.Format("SDT LIKE'{0}%' ", tb_SDT_nv_infonv.Text);
-                }
-                DateTime minDate = new DateTime(1900, 01, 01);
-                if (dt_NgaySinh_nv_infonv.Value.Date > minDate.Date)
-                {
-                    if (!string.IsNullOrEmpty(str_RowFilter))
-                        str_RowFilter += string.Format("AND NGSINH='{0}' ", dt_NgaySinh_nv_infonv.Text);
-                    else
-                        str_RowFilter = string.Format("NGSINH ='{0}' ", dt_NgaySinh_nv_infonv.Text);
-                }
-                if (dt_NgayVaoLam_nv_infonv.Value.Date > minDate.Date)
-                {
-                    if (!string.IsNullOrEmpty(str_RowFilter))
-                        str_RowFilter += string.Format("AND NGVL='{0}' ", dt_NgayVaoLam_nv_infonv.Text);
-                    else
-                        str_RowFilter = string.Format("NGVL ='{0}' ", dt_NgayVaoLam_nv_infonv.Text);
-                }
-                if (!string.IsNullOrEmpty(tb_ChucVu_nv_infonv.Text))
-                {
-                    if (!string.IsNullOrEmpty(str_RowFilter))
-                        str_RowFilter += string.Format("AND CV LIKE'%{0}%' ", tb_ChucVu_nv_infonv.Text);
-                    else
-                        str_RowFilter = string.Format("CV LIKE'%{0}%' ", tb_ChucVu_nv_infonv.Text);
-                }
-
-                (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = str_RowFilter;
+                MessageBox.Show("Vui lòng chọn trường cần tìm");
+                cb_searchoption_nv_infonv.Focus();
+                return;
             }
+            switch (cb_searchoption_nv_infonv.Text)
+            {
+                case "Mã NV":
+                    {
+                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format("NVID ='{0}'", tb_search_nv_infonv.Text);
+                        break;
+                    }
+                case "Họ Tên":
+                    {
+                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format("HOTEN LIKE'%{0}%'", tb_search_nv_infonv.Text);
+                        break;
+                    }
+                case "Số điện thoại":
+                    {
+                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format(" SDT LIKE'{0}%' ", tb_search_nv_infonv.Text);
+                        break;
+                    }
+                case "Ngày sinh":
+                    {
+                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format("NGSINH='{0}' ", tb_search_nv_infonv.Text);
+                        break;
+                    }
+                case "Ngày vào làm":
+                    {
+                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format(" NGVL = '{0}' ", tb_search_nv_infonv.Text);
+                        break;
+                    }
+                case "Chức vụ":
+                    {
+                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format(" CV LIKE'%{0}%' ", tb_search_nv_infonv.Text);
+                        break;
+                    }
+            }
+            
         }
 
 
@@ -295,49 +297,54 @@ namespace App_sale_manager
         }
         private void bt_Tracuu_nv_bangluong_Click(object sender, EventArgs e)
         {
-            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
-            if (!string.IsNullOrEmpty(tb_MaNV_nv_bangluong.Text))
+            if (string.IsNullOrEmpty(tb_search_nv_bangluong.Text))
             {
-                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format("NVID ='{0}'", tb_MaNV_nv_bangluong.Text);
+                MessageBox.Show("Vui lòng nhập nội dung cần tìm.");
+                tb_search_nv_bangluong.Focus();
+                return;
             }
-            else
+            if (cb_searchoption_nv_bangluong.Text == "Chưa chọn")
             {
-                string str_RowFilter = null;
-                if (!string.IsNullOrEmpty(tb_TenNV_nv_bangluong.Text))
-                {
-                    str_RowFilter = string.Format("HOTEN LIKE'%{0}%'", tb_TenNV_nv_bangluong.Text);
-                }
-                if (!(nud_Luong_nv_bangluong.Value==0))
-                {
-                    if (!string.IsNullOrEmpty(str_RowFilter))
-                    {
-                        if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(0))
-                            str_RowFilter += string.Format(" AND LUONG = '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(1))
-                            str_RowFilter += string.Format(" AND LUONG > '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(2))
-                            str_RowFilter += string.Format(" AND LUONG < '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                    }
-                    else
-                    {
-                        if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(0))
-                            str_RowFilter += string.Format(" LUONG = '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(1))
-                            str_RowFilter += string.Format(" LUONG > '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(2))
-                            str_RowFilter += string.Format(" LUONG < '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                    }
-                }
-                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = str_RowFilter;
-                if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(0))
-                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG ASC";
-                else if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(1))
-                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG DESC";
-                else if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(2))
-                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "NVID ASC";
+                MessageBox.Show("Vui lòng chọn trường cần tìm");
+                cb_searchoption_nv_bangluong.Focus();
+                return;
             }
-            
-        }
+            switch (cb_searchoption_nv_infonv.Text)
+            {
+                case "Mã NV":
+                    {
+                        (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format("NVID ='{0}'", tb_search_nv_bangluong.Text);
+                        break;
+                    }
+                case "Họ Tên":
+                    {
+                        (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format("HOTEN LIKE'%{0}%'", tb_search_nv_bangluong.Text);
+                        break;
+                    }
+                case "Lương":
+                    {
+                        if (cb_LocLuong_nv_bangluong.Text == "Lọc")
+                        {
+                            MessageBox.Show("Vui lòng chọn mức lương cần lọc");
+                            cb_LocLuong_nv_bangluong.Focus();
+                            return;
+                        }
+                        if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(0))
+                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG = '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
+                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(1))
+                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG > '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
+                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(2))
+                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG < '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
+                        break;
+                    }
+                case "Hệ số":
+                    {
+                        (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format("HESO LIKE {0}'", tb_search_nv_bangluong.Text);
+                        break;
+                    }
+            }
+            }
+
         private void Form_main_admin_FormClosing(object sender, FormClosingEventArgs e)
         {
             AAA.Close();
@@ -355,6 +362,14 @@ namespace App_sale_manager
             }
         }
 
-        
+        private void cb_ThutuLuong_nv_bangluong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(0))
+                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG ASC";
+            else if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(1))
+                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG DESC";
+            else if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(2))
+                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "NVID ASC";
+        }
     }
 }

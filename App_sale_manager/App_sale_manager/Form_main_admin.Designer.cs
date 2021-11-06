@@ -38,6 +38,9 @@ namespace App_sale_manager
             this.tabPage_NhanVien = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_search_nv_infonv = new System.Windows.Forms.TextBox();
+            this.cb_searchoption_nv_infonv = new System.Windows.Forms.ComboBox();
             this.button_Image_import = new System.Windows.Forms.Button();
             this.pictureBox_image_import_nv = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,10 +66,12 @@ namespace App_sale_manager
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tb_search_nv_bangluong = new System.Windows.Forms.TextBox();
+            this.cb_searchoption_nv_bangluong = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.bt_Khoitao_nv_bangluong = new System.Windows.Forms.Button();
             this.nud_Heso_nv_bangluong = new System.Windows.Forms.NumericUpDown();
@@ -190,6 +195,9 @@ namespace App_sale_manager
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.tb_search_nv_infonv);
+            this.tabPage1.Controls.Add(this.cb_searchoption_nv_infonv);
             this.tabPage1.Controls.Add(this.button_Image_import);
             this.tabPage1.Controls.Add(this.pictureBox_image_import_nv);
             this.tabPage1.Controls.Add(this.label12);
@@ -214,7 +222,6 @@ namespace App_sale_manager
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
@@ -222,6 +229,39 @@ namespace App_sale_manager
             this.tabPage1.Size = new System.Drawing.Size(1187, 622);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tra cứu thông tin nhân viên";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(448, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Tìm theo";
+            // 
+            // tb_search_nv_infonv
+            // 
+            this.tb_search_nv_infonv.Location = new System.Drawing.Point(700, 38);
+            this.tb_search_nv_infonv.Name = "tb_search_nv_infonv";
+            this.tb_search_nv_infonv.Size = new System.Drawing.Size(311, 22);
+            this.tb_search_nv_infonv.TabIndex = 13;
+            // 
+            // cb_searchoption_nv_infonv
+            // 
+            this.cb_searchoption_nv_infonv.FormattingEnabled = true;
+            this.cb_searchoption_nv_infonv.Items.AddRange(new object[] {
+            "Mã NV",
+            "Họ Tên",
+            "Số điện thoại",
+            "Ngày sinh",
+            "Ngày vào làm",
+            "Chức vụ"});
+            this.cb_searchoption_nv_infonv.Location = new System.Drawing.Point(539, 37);
+            this.cb_searchoption_nv_infonv.Name = "cb_searchoption_nv_infonv";
+            this.cb_searchoption_nv_infonv.Size = new System.Drawing.Size(155, 24);
+            this.cb_searchoption_nv_infonv.TabIndex = 12;
+            this.cb_searchoption_nv_infonv.Text = "Chưa chọn";
             // 
             // button_Image_import
             // 
@@ -262,7 +302,7 @@ namespace App_sale_manager
             // 
             // bt_Tracuu_nv_infonv
             // 
-            this.bt_Tracuu_nv_infonv.Location = new System.Drawing.Point(158, 559);
+            this.bt_Tracuu_nv_infonv.Location = new System.Drawing.Point(1034, 37);
             this.bt_Tracuu_nv_infonv.Name = "bt_Tracuu_nv_infonv";
             this.bt_Tracuu_nv_infonv.Size = new System.Drawing.Size(75, 23);
             this.bt_Tracuu_nv_infonv.TabIndex = 8;
@@ -318,7 +358,7 @@ namespace App_sale_manager
             this.groupBox1.Size = new System.Drawing.Size(753, 517);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Danh mục nhân viên";
             // 
             // dgv_nv_infonv
             // 
@@ -453,16 +493,6 @@ namespace App_sale_manager
             this.label3.TabIndex = 2;
             this.label3.Text = "Mã NV";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(380, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Danh mục nhân viên";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -486,6 +516,9 @@ namespace App_sale_manager
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.tb_search_nv_bangluong);
+            this.tabPage3.Controls.Add(this.cb_searchoption_nv_bangluong);
             this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.bt_Khoitao_nv_bangluong);
             this.tabPage3.Controls.Add(this.nud_Heso_nv_bangluong);
@@ -508,6 +541,36 @@ namespace App_sale_manager
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bảng lương nhân viên";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(51, 510);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 17);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Tìm theo";
+            // 
+            // tb_search_nv_bangluong
+            // 
+            this.tb_search_nv_bangluong.Location = new System.Drawing.Point(131, 543);
+            this.tb_search_nv_bangluong.Name = "tb_search_nv_bangluong";
+            this.tb_search_nv_bangluong.Size = new System.Drawing.Size(290, 22);
+            this.tb_search_nv_bangluong.TabIndex = 10;
+            // 
+            // cb_searchoption_nv_bangluong
+            // 
+            this.cb_searchoption_nv_bangluong.FormattingEnabled = true;
+            this.cb_searchoption_nv_bangluong.Items.AddRange(new object[] {
+            "Mã NV",
+            "Họ Tên",
+            "Lương",
+            "Hệ số"});
+            this.cb_searchoption_nv_bangluong.Location = new System.Drawing.Point(131, 505);
+            this.cb_searchoption_nv_bangluong.Name = "cb_searchoption_nv_bangluong";
+            this.cb_searchoption_nv_bangluong.Size = new System.Drawing.Size(135, 24);
+            this.cb_searchoption_nv_bangluong.TabIndex = 9;
+            this.cb_searchoption_nv_bangluong.Text = "Chưa chọn";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -520,7 +583,7 @@ namespace App_sale_manager
             // 
             // bt_Khoitao_nv_bangluong
             // 
-            this.bt_Khoitao_nv_bangluong.Location = new System.Drawing.Point(48, 526);
+            this.bt_Khoitao_nv_bangluong.Location = new System.Drawing.Point(156, 449);
             this.bt_Khoitao_nv_bangluong.Name = "bt_Khoitao_nv_bangluong";
             this.bt_Khoitao_nv_bangluong.Size = new System.Drawing.Size(75, 23);
             this.bt_Khoitao_nv_bangluong.TabIndex = 7;
@@ -569,6 +632,7 @@ namespace App_sale_manager
             this.cb_ThutuLuong_nv_bangluong.Size = new System.Drawing.Size(99, 24);
             this.cb_ThutuLuong_nv_bangluong.TabIndex = 5;
             this.cb_ThutuLuong_nv_bangluong.Text = "Sắp xếp";
+            this.cb_ThutuLuong_nv_bangluong.SelectedIndexChanged += new System.EventHandler(this.cb_ThutuLuong_nv_bangluong_SelectedIndexChanged);
             // 
             // cb_LocLuong_nv_bangluong
             // 
@@ -577,7 +641,7 @@ namespace App_sale_manager
             "Bằng",
             "Lớn hơn",
             "Nhỏ hơn"});
-            this.cb_LocLuong_nv_bangluong.Location = new System.Drawing.Point(391, 338);
+            this.cb_LocLuong_nv_bangluong.Location = new System.Drawing.Point(366, 338);
             this.cb_LocLuong_nv_bangluong.Name = "cb_LocLuong_nv_bangluong";
             this.cb_LocLuong_nv_bangluong.Size = new System.Drawing.Size(99, 24);
             this.cb_LocLuong_nv_bangluong.TabIndex = 5;
@@ -585,7 +649,7 @@ namespace App_sale_manager
             // 
             // bt_Tracuu_nv_bangluong
             // 
-            this.bt_Tracuu_nv_bangluong.Location = new System.Drawing.Point(206, 472);
+            this.bt_Tracuu_nv_bangluong.Location = new System.Drawing.Point(427, 542);
             this.bt_Tracuu_nv_bangluong.Name = "bt_Tracuu_nv_bangluong";
             this.bt_Tracuu_nv_bangluong.Size = new System.Drawing.Size(96, 23);
             this.bt_Tracuu_nv_bangluong.TabIndex = 4;
@@ -595,7 +659,7 @@ namespace App_sale_manager
             // 
             // bt_Sua_nv_bangluong
             // 
-            this.bt_Sua_nv_bangluong.Location = new System.Drawing.Point(48, 472);
+            this.bt_Sua_nv_bangluong.Location = new System.Drawing.Point(48, 449);
             this.bt_Sua_nv_bangluong.Name = "bt_Sua_nv_bangluong";
             this.bt_Sua_nv_bangluong.Size = new System.Drawing.Size(75, 23);
             this.bt_Sua_nv_bangluong.TabIndex = 3;
@@ -656,7 +720,7 @@ namespace App_sale_manager
             // dgv_nv_bangluong
             // 
             this.dgv_nv_bangluong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_nv_bangluong.Location = new System.Drawing.Point(587, 49);
+            this.dgv_nv_bangluong.Location = new System.Drawing.Point(591, 76);
             this.dgv_nv_bangluong.Name = "dgv_nv_bangluong";
             this.dgv_nv_bangluong.ReadOnly = true;
             this.dgv_nv_bangluong.RowHeadersWidth = 51;
@@ -725,7 +789,6 @@ namespace App_sale_manager
         private System.Windows.Forms.TextBox tb_TenNV_nv_infonv;
         private System.Windows.Forms.TextBox tb_MaNV_nv_infonv;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dt_NgaySinh_nv_infonv;
         private System.Windows.Forms.DateTimePicker dt_NgayVaoLam_nv_infonv;
         private System.Windows.Forms.TextBox tb_ChucVu_nv_infonv;
@@ -759,5 +822,11 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button_Image_import;
         private System.Windows.Forms.PictureBox pictureBox_image_import_nv;
+        private System.Windows.Forms.ComboBox cb_searchoption_nv_infonv;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tb_search_nv_infonv;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tb_search_nv_bangluong;
+        private System.Windows.Forms.ComboBox cb_searchoption_nv_bangluong;
     }
 }
