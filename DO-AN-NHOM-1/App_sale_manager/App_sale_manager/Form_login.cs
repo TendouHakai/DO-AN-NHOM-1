@@ -52,7 +52,6 @@ namespace App_sale_manager
                 if (textBox_usr.Text == "admin")
                 {
                     Form_main_admin frm = new Form_main_admin();
-                    frm.Thoat += Frm_Thoat;
                     frm.Show();
                     this.Hide();
                 }

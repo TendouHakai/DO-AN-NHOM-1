@@ -1,26 +1,29 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data;
-using System;
 
 namespace App_sale_manager
 {
-    public partial class Form_main_admin : Form
+    public partial class Form_QLKho : Form
     {
         public string strCon = @"Data Source=LAPTOP-4KM350G8;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         public SqlConnection sqlCon = null;
-        static public SqlDataAdapter ADT = null;
-           
-        
-        public Form_main_admin()
+        static public SqlDataAdapter adapter = null;
+        public Form_QLKho()
         {
             InitializeComponent();
+            if (KiemTraHangSapHet())
+                lblChuY.Text = "Chú Ý: Có hàng hoá sắp hết";
             LoadHangHoa();
-
         }
-    public void LoadHangHoa()
+        public void LoadHangHoa()
         {
 
             sqlCon = new SqlConnection(strCon);
@@ -29,13 +32,13 @@ namespace App_sale_manager
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
             sqlCmd.Connection = sqlCon;
-            ADT = new SqlDataAdapter(sqlCmd);
-            SqlCommandBuilder builder = new SqlCommandBuilder(ADT);
+           adapter = new SqlDataAdapter(sqlCmd);
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
             DataTable tbHH = new DataTable();
             tbHH.Clear();
-            ADT.Fill(tbHH);
+           adapter.Fill(tbHH);
             dgvSP.DataSource = tbHH;
-            DinhDangdgvHH();                    
+            DinhDangdgvHH();
             lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
             sqlCon.Close();
         }
@@ -74,28 +77,63 @@ namespace App_sale_manager
             f.ShowDialog();
             this.Show();
         }
-
-        private void btnQuanLiHH_Click(object sender, EventArgs e)
+        private bool KiemTraHangSapHet()
         {
-            Form_QuanLiHH f = new Form_QuanLiHH();
+            sqlCon = new SqlConnection(strCon);
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "select * from SANPHAM where SoLuong<SLTT";
+            // gửi truy vấn tới kết nối.
+            sqlCmd.Connection = sqlCon;
+            sqlCon.Open();
+            var r = sqlCmd.ExecuteReader();
+            if (r.HasRows)
+                return true;
+            return false;
+        }
+        private void btnHangSapHet_Click(object sender, EventArgs e)
+        {
+            lblTieuDeHH.Text = "Hàng Hoá Sắp Hết";
+            sqlCon = new SqlConnection(strCon);
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID and SoLuong<SLTT";
+            // gửi truy vấn tới kết nối.
+            sqlCmd.Connection = sqlCon;
+           adapter = new SqlDataAdapter(sqlCmd);
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            DataTable tbHHSH = new DataTable();
+            tbHHSH.Clear();
+           adapter.Fill(tbHHSH);
+            dgvSP.DataSource = tbHHSH;
+        }
+
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
             this.Hide();
+            Form_NhapHang f = new Form_NhapHang();
             f.ShowDialog();
             LoadHangHoa();
             this.Show();
         }
 
-        private void Form_main_admin_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
-        private void btnQLKho_Click(object sender, EventArgs e)
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            Form_QLKho f = new Form_QLKho();
+            Form_TimKiemHH f = new Form_TimKiemHH();
             this.Hide();
             f.ShowDialog();
-            LoadHangHoa();
+            dgvSP.DataSource=f.TimKiem();
             this.Show();
+        }
+
+        private void btn_XemHH_Click(object sender, EventArgs e)
+        {
+            LoadHangHoa();
         }
     }
 }

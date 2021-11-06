@@ -19,25 +19,20 @@ namespace App_sale_manager
         public Form_ChiTietHH(string SPID, string TenSP, string SL, string NuocSX, string GiaBan, string GiaNhap, string DVT, string SLTT, string LoaiSP, string MoTa)
         {
             InitializeComponent();
-
-            lblNDMaSP.Text = SPID;
-            lblNDTenSP.Text = TenSP;
-            lblNDSoLuong.Text = SL;
-            lblNDNuocSX.Text = NuocSX;
-            lblNDGiaBan.Text = GiaNhap;
-            lblNDGiaNhap.Text = GiaBan;
-            lblNDDVT.Text = DVT;
-            lblNDSLToiThieu.Text = SLTT;
-            lblNDLoaiID.Text = LoaiSP;
-            lblNDMoTa.Text = MoTa;
-
+            txtNDMaSP.Text = SPID;
+            txtNDTenSP.Text = TenSP;
+            txtNDSoLuong.Text = SL;
+            txtNDNuocSX.Text = NuocSX;
+            txtNDGiaBan.Text = GiaNhap;
+            txtNDGiaNhap.Text = GiaBan;
+            txtNDDVT.Text = DVT;
+            txtNDSLToiThieu.Text = SLTT;
+            txtNDLoaiID.Text = LoaiSP;
+            txtNDMoTa.Text = MoTa;
+            ptrbHinhAnh.Image = Image.FromFile(@"..\..\..\..\HangHoa\"+txtNDMaSP.Text + ".jpg");
+            ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        private void Form_ChiTietHH_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form_main_admin frm = new Form_main_admin();
-
-            frm.Show();
-        }
+       
     }
 }

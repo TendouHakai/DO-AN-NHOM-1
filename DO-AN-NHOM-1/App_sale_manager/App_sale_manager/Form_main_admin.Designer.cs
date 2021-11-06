@@ -29,19 +29,18 @@
             this.tabPage_tongquan = new System.Windows.Forms.TabPage();
             this.btn_dangxuat = new System.Windows.Forms.Button();
             this.tabPage_HangHoa = new System.Windows.Forms.TabPage();
+            this.btnQLKho = new System.Windows.Forms.Button();
+            this.btnQuanLiHH = new System.Windows.Forms.Button();
+            this.lblTieuDeHH = new System.Windows.Forms.Label();
             this.lblChuY = new System.Windows.Forms.Label();
-            this.btnHangSapHet = new System.Windows.Forms.Button();
-            this.btnXemChiTietHH = new System.Windows.Forms.Button();
-            this.btnXoaHH = new System.Windows.Forms.Button();
-            this.btnSuaHH = new System.Windows.Forms.Button();
-            this.btnThemHH = new System.Windows.Forms.Button();
             this.dgvSP = new System.Windows.Forms.DataGridView();
             this.lblLoaiSP = new System.Windows.Forms.Label();
             this.tabPage_DoiTac = new System.Windows.Forms.TabPage();
             this.tabPage_GiaoDich = new System.Windows.Forms.TabPage();
             this.tabPage_NhanVien = new System.Windows.Forms.TabPage();
             this.tabPage_BaoCao = new System.Windows.Forms.TabPage();
-            this.lblTieuDeHH = new System.Windows.Forms.Label();
+            this.lblGhiChu = new System.Windows.Forms.Label();
+            this.lblGhiChu2 = new System.Windows.Forms.Label();
             this.tabCtrl.SuspendLayout();
             this.tabPage_tongquan.SuspendLayout();
             this.tabPage_HangHoa.SuspendLayout();
@@ -56,7 +55,6 @@
             this.tabCtrl.Controls.Add(this.tabPage_GiaoDich);
             this.tabCtrl.Controls.Add(this.tabPage_NhanVien);
             this.tabCtrl.Controls.Add(this.tabPage_BaoCao);
-            this.tabCtrl.Location = new System.Drawing.Point(3, 12);
             this.tabCtrl.Location = new System.Drawing.Point(13, 13);
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
@@ -84,17 +82,16 @@
             this.btn_dangxuat.TabIndex = 0;
             this.btn_dangxuat.Text = "Đăng xuất";
             this.btn_dangxuat.UseVisualStyleBackColor = false;
-            this.btn_dangxuat.Click += new System.EventHandler(this.btn_dangxuat_Click);
             // 
             // tabPage_HangHoa
             // 
+            this.tabPage_HangHoa.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu2);
+            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu);
+            this.tabPage_HangHoa.Controls.Add(this.btnQLKho);
+            this.tabPage_HangHoa.Controls.Add(this.btnQuanLiHH);
             this.tabPage_HangHoa.Controls.Add(this.lblTieuDeHH);
             this.tabPage_HangHoa.Controls.Add(this.lblChuY);
-            this.tabPage_HangHoa.Controls.Add(this.btnHangSapHet);
-            this.tabPage_HangHoa.Controls.Add(this.btnXemChiTietHH);
-            this.tabPage_HangHoa.Controls.Add(this.btnXoaHH);
-            this.tabPage_HangHoa.Controls.Add(this.btnSuaHH);
-            this.tabPage_HangHoa.Controls.Add(this.btnThemHH);
             this.tabPage_HangHoa.Controls.Add(this.dgvSP);
             this.tabPage_HangHoa.Controls.Add(this.lblLoaiSP);
             this.tabPage_HangHoa.Location = new System.Drawing.Point(4, 25);
@@ -103,78 +100,60 @@
             this.tabPage_HangHoa.Size = new System.Drawing.Size(1196, 650);
             this.tabPage_HangHoa.TabIndex = 1;
             this.tabPage_HangHoa.Text = "Hàng hóa";
-            this.tabPage_HangHoa.UseVisualStyleBackColor = true;
+            // 
+            // btnQLKho
+            // 
+            this.btnQLKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLKho.Location = new System.Drawing.Point(320, 27);
+            this.btnQLKho.Name = "btnQLKho";
+            this.btnQLKho.Size = new System.Drawing.Size(157, 88);
+            this.btnQLKho.TabIndex = 30;
+            this.btnQLKho.Text = "Quản lí kho";
+            this.btnQLKho.UseVisualStyleBackColor = true;
+            this.btnQLKho.Click += new System.EventHandler(this.btnQLKho_Click);
+            // 
+            // btnQuanLiHH
+            // 
+            this.btnQuanLiHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuanLiHH.Location = new System.Drawing.Point(41, 27);
+            this.btnQuanLiHH.Name = "btnQuanLiHH";
+            this.btnQuanLiHH.Size = new System.Drawing.Size(157, 88);
+            this.btnQuanLiHH.TabIndex = 29;
+            this.btnQuanLiHH.Text = "Quản lí hàng hoá";
+            this.btnQuanLiHH.UseVisualStyleBackColor = true;
+            this.btnQuanLiHH.Click += new System.EventHandler(this.btnQuanLiHH_Click);
+            // 
+            // lblTieuDeHH
+            // 
+            this.lblTieuDeHH.AutoSize = true;
+            this.lblTieuDeHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDeHH.Location = new System.Drawing.Point(483, 183);
+            this.lblTieuDeHH.Name = "lblTieuDeHH";
+            this.lblTieuDeHH.Size = new System.Drawing.Size(224, 29);
+            this.lblTieuDeHH.TabIndex = 28;
+            this.lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
             // 
             // lblChuY
             // 
             this.lblChuY.AutoSize = true;
             this.lblChuY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChuY.Location = new System.Drawing.Point(427, 105);
+            this.lblChuY.Location = new System.Drawing.Point(446, 16);
             this.lblChuY.Name = "lblChuY";
             this.lblChuY.Size = new System.Drawing.Size(0, 20);
             this.lblChuY.TabIndex = 27;
             // 
-            // btnHangSapHet
-            // 
-            this.btnHangSapHet.Location = new System.Drawing.Point(252, 167);
-            this.btnHangSapHet.Name = "btnHangSapHet";
-            this.btnHangSapHet.Size = new System.Drawing.Size(90, 46);
-            this.btnHangSapHet.TabIndex = 26;
-            this.btnHangSapHet.Text = "Hàng sắp hết";
-            this.btnHangSapHet.UseVisualStyleBackColor = true;
-            this.btnHangSapHet.Click += new System.EventHandler(this.btnHangSapHet_Click);
-            // 
-            // btnXemChiTietHH
-            // 
-            this.btnXemChiTietHH.Location = new System.Drawing.Point(148, 167);
-            this.btnXemChiTietHH.Name = "btnXemChiTietHH";
-            this.btnXemChiTietHH.Size = new System.Drawing.Size(90, 45);
-            this.btnXemChiTietHH.TabIndex = 25;
-            this.btnXemChiTietHH.Text = "Xem chi tiết";
-            this.btnXemChiTietHH.UseVisualStyleBackColor = true;
-            this.btnXemChiTietHH.Click += new System.EventHandler(this.btnXemChiTietHH_Click);
-            // 
-            // btnXoaHH
-            // 
-            this.btnXoaHH.Location = new System.Drawing.Point(148, 105);
-            this.btnXoaHH.Name = "btnXoaHH";
-            this.btnXoaHH.Size = new System.Drawing.Size(90, 45);
-            this.btnXoaHH.TabIndex = 24;
-            this.btnXoaHH.Text = "Xoá";
-            this.btnXoaHH.UseVisualStyleBackColor = true;
-            this.btnXoaHH.Click += new System.EventHandler(this.btnXoaHH_Click);
-            // 
-            // btnSuaHH
-            // 
-            this.btnSuaHH.Location = new System.Drawing.Point(29, 166);
-            this.btnSuaHH.Name = "btnSuaHH";
-            this.btnSuaHH.Size = new System.Drawing.Size(90, 46);
-            this.btnSuaHH.TabIndex = 23;
-            this.btnSuaHH.Text = "Sửa";
-            this.btnSuaHH.UseVisualStyleBackColor = true;
-            this.btnSuaHH.Click += new System.EventHandler(this.btnSuaHH_Click);
-            // 
-            // btnThemHH
-            // 
-            this.btnThemHH.Location = new System.Drawing.Point(29, 105);
-            this.btnThemHH.Name = "btnThemHH";
-            this.btnThemHH.Size = new System.Drawing.Size(90, 45);
-            this.btnThemHH.TabIndex = 22;
-            this.btnThemHH.Text = "Thêm";
-            this.btnThemHH.UseVisualStyleBackColor = true;
-            this.btnThemHH.Click += new System.EventHandler(this.btnThemHH_Click);
-            // 
             // dgvSP
             // 
-            this.dgvSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSP.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSP.Location = new System.Drawing.Point(6, 264);
+            this.dgvSP.ColumnHeadersHeight = 70;
+            this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSP.Location = new System.Drawing.Point(-4, 230);
             this.dgvSP.Name = "dgvSP";
             this.dgvSP.ReadOnly = true;
             this.dgvSP.RowHeadersWidth = 51;
+            this.dgvSP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSP.RowTemplate.Height = 24;
-            this.dgvSP.Size = new System.Drawing.Size(1194, 386);
+            this.dgvSP.Size = new System.Drawing.Size(1197, 417);
             this.dgvSP.TabIndex = 8;
             this.dgvSP.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSP_CellMouseDoubleClick);
             // 
@@ -227,15 +206,25 @@
             this.tabPage_BaoCao.Text = "Báo cáo";
             this.tabPage_BaoCao.UseVisualStyleBackColor = true;
             // 
-            // lblTieuDeHH
+            // lblGhiChu
             // 
-            this.lblTieuDeHH.AutoSize = true;
-            this.lblTieuDeHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTieuDeHH.Location = new System.Drawing.Point(486, 241);
-            this.lblTieuDeHH.Name = "lblTieuDeHH";
-            this.lblTieuDeHH.Size = new System.Drawing.Size(164, 20);
-            this.lblTieuDeHH.TabIndex = 28;
-            this.lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
+            this.lblGhiChu.AutoSize = true;
+            this.lblGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGhiChu.Location = new System.Drawing.Point(707, 24);
+            this.lblGhiChu.Name = "lblGhiChu";
+            this.lblGhiChu.Size = new System.Drawing.Size(381, 17);
+            this.lblGhiChu.TabIndex = 31;
+            this.lblGhiChu.Text = "Quản lí hàng hoá: thêm xoá sửa thông tin hàng hoá";
+            // 
+            // lblGhiChu2
+            // 
+            this.lblGhiChu2.AutoSize = true;
+            this.lblGhiChu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGhiChu2.Location = new System.Drawing.Point(707, 76);
+            this.lblGhiChu2.Name = "lblGhiChu2";
+            this.lblGhiChu2.Size = new System.Drawing.Size(417, 17);
+            this.lblGhiChu2.TabIndex = 32;
+            this.lblGhiChu2.Text = "Quản lí kho: tìm kiếm, nhập hàng, xem hàng hoá sắp hết";
             // 
             // Form_main_admin
             // 
@@ -266,12 +255,11 @@
         private System.Windows.Forms.TabPage tabPage_BaoCao;
         private System.Windows.Forms.Label lblLoaiSP;
         private System.Windows.Forms.DataGridView dgvSP;
-        private System.Windows.Forms.Button btnThemHH;
-        private System.Windows.Forms.Button btnXoaHH;
-        private System.Windows.Forms.Button btnSuaHH;
-        private System.Windows.Forms.Button btnXemChiTietHH;
-        private System.Windows.Forms.Button btnHangSapHet;
         private System.Windows.Forms.Label lblChuY;
         private System.Windows.Forms.Label lblTieuDeHH;
+        private System.Windows.Forms.Button btnQLKho;
+        private System.Windows.Forms.Button btnQuanLiHH;
+        private System.Windows.Forms.Label lblGhiChu2;
+        private System.Windows.Forms.Label lblGhiChu;
     }
 }

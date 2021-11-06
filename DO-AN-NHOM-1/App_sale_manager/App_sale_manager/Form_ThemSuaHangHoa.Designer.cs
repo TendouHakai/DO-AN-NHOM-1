@@ -45,17 +45,21 @@
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.txtDVT = new System.Windows.Forms.TextBox();
             this.txtNuocSX = new System.Windows.Forms.TextBox();
-            this.txtLoaiSP = new System.Windows.Forms.TextBox();
             this.txtSL = new System.Windows.Forms.TextBox();
             this.txtSLTT = new System.Windows.Forms.TextBox();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.txtGiaNhap = new System.Windows.Forms.TextBox();
+            this.cbLoaiSP = new System.Windows.Forms.ComboBox();
+            this.ptrbHinhAnh = new System.Windows.Forms.PictureBox();
+            this.lblHinhAnh = new System.Windows.Forms.Label();
+            this.btnChonHinh = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLoaiID
             // 
             this.lblLoaiID.AutoSize = true;
-            this.lblLoaiID.Location = new System.Drawing.Point(22, 271);
+            this.lblLoaiID.Location = new System.Drawing.Point(22, 38);
             this.lblLoaiID.Name = "lblLoaiID";
             this.lblLoaiID.Size = new System.Drawing.Size(35, 17);
             this.lblLoaiID.TabIndex = 39;
@@ -82,7 +86,7 @@
             // lblDVT
             // 
             this.lblDVT.AutoSize = true;
-            this.lblDVT.Location = new System.Drawing.Point(22, 153);
+            this.lblDVT.Location = new System.Drawing.Point(22, 208);
             this.lblDVT.Name = "lblDVT";
             this.lblDVT.Size = new System.Drawing.Size(75, 17);
             this.lblDVT.TabIndex = 27;
@@ -109,7 +113,7 @@
             // lblNuocSX
             // 
             this.lblNuocSX.AutoSize = true;
-            this.lblNuocSX.Location = new System.Drawing.Point(22, 212);
+            this.lblNuocSX.Location = new System.Drawing.Point(22, 267);
             this.lblNuocSX.Name = "lblNuocSX";
             this.lblNuocSX.Size = new System.Drawing.Size(98, 17);
             this.lblNuocSX.TabIndex = 24;
@@ -118,7 +122,7 @@
             // lblTenSP
             // 
             this.lblTenSP.AutoSize = true;
-            this.lblTenSP.Location = new System.Drawing.Point(22, 94);
+            this.lblTenSP.Location = new System.Drawing.Point(22, 149);
             this.lblTenSP.Name = "lblTenSP";
             this.lblTenSP.Size = new System.Drawing.Size(99, 17);
             this.lblTenSP.TabIndex = 23;
@@ -127,7 +131,7 @@
             // lblMaSP
             // 
             this.lblMaSP.AutoSize = true;
-            this.lblMaSP.Location = new System.Drawing.Point(22, 35);
+            this.lblMaSP.Location = new System.Drawing.Point(22, 90);
             this.lblMaSP.Name = "lblMaSP";
             this.lblMaSP.Size = new System.Drawing.Size(93, 17);
             this.lblMaSP.TabIndex = 22;
@@ -136,7 +140,7 @@
             // lblMoTa
             // 
             this.lblMoTa.AutoSize = true;
-            this.lblMoTa.Location = new System.Drawing.Point(515, 18);
+            this.lblMoTa.Location = new System.Drawing.Point(481, 22);
             this.lblMoTa.Name = "lblMoTa";
             this.lblMoTa.Size = new System.Drawing.Size(43, 17);
             this.lblMoTa.TabIndex = 40;
@@ -144,15 +148,15 @@
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(564, 15);
+            this.txtMoTa.Location = new System.Drawing.Point(484, 42);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(587, 142);
+            this.txtMoTa.Size = new System.Drawing.Size(643, 153);
             this.txtMoTa.TabIndex = 41;
             // 
             // btnHoanTat
             // 
-            this.btnHoanTat.Location = new System.Drawing.Point(547, 516);
+            this.btnHoanTat.Location = new System.Drawing.Point(459, 588);
             this.btnHoanTat.Name = "btnHoanTat";
             this.btnHoanTat.Size = new System.Drawing.Size(111, 55);
             this.btnHoanTat.TabIndex = 42;
@@ -162,7 +166,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(690, 516);
+            this.btnHuy.Location = new System.Drawing.Point(691, 588);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(111, 55);
             this.btnHuy.TabIndex = 43;
@@ -172,38 +176,31 @@
             // 
             // txtSPID
             // 
-            this.txtSPID.Location = new System.Drawing.Point(156, 32);
+            this.txtSPID.Location = new System.Drawing.Point(156, 87);
             this.txtSPID.Name = "txtSPID";
             this.txtSPID.Size = new System.Drawing.Size(280, 22);
             this.txtSPID.TabIndex = 44;
             // 
             // txtTenSP
             // 
-            this.txtTenSP.Location = new System.Drawing.Point(156, 91);
+            this.txtTenSP.Location = new System.Drawing.Point(156, 146);
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(280, 22);
             this.txtTenSP.TabIndex = 45;
             // 
             // txtDVT
             // 
-            this.txtDVT.Location = new System.Drawing.Point(156, 155);
+            this.txtDVT.Location = new System.Drawing.Point(156, 210);
             this.txtDVT.Name = "txtDVT";
             this.txtDVT.Size = new System.Drawing.Size(280, 22);
             this.txtDVT.TabIndex = 46;
             // 
             // txtNuocSX
             // 
-            this.txtNuocSX.Location = new System.Drawing.Point(156, 212);
+            this.txtNuocSX.Location = new System.Drawing.Point(156, 267);
             this.txtNuocSX.Name = "txtNuocSX";
             this.txtNuocSX.Size = new System.Drawing.Size(280, 22);
             this.txtNuocSX.TabIndex = 47;
-            // 
-            // txtLoaiSP
-            // 
-            this.txtLoaiSP.Location = new System.Drawing.Point(156, 271);
-            this.txtLoaiSP.Name = "txtLoaiSP";
-            this.txtLoaiSP.Size = new System.Drawing.Size(280, 22);
-            this.txtLoaiSP.TabIndex = 48;
             // 
             // txtSL
             // 
@@ -233,16 +230,55 @@
             this.txtGiaNhap.Size = new System.Drawing.Size(280, 22);
             this.txtGiaNhap.TabIndex = 52;
             // 
+            // cbLoaiSP
+            // 
+            this.cbLoaiSP.FormattingEnabled = true;
+            this.cbLoaiSP.Location = new System.Drawing.Point(156, 31);
+            this.cbLoaiSP.Name = "cbLoaiSP";
+            this.cbLoaiSP.Size = new System.Drawing.Size(277, 24);
+            this.cbLoaiSP.TabIndex = 53;
+            // 
+            // ptrbHinhAnh
+            // 
+            this.ptrbHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ptrbHinhAnh.Location = new System.Drawing.Point(484, 243);
+            this.ptrbHinhAnh.Name = "ptrbHinhAnh";
+            this.ptrbHinhAnh.Size = new System.Drawing.Size(643, 320);
+            this.ptrbHinhAnh.TabIndex = 63;
+            this.ptrbHinhAnh.TabStop = false;
+            // 
+            // lblHinhAnh
+            // 
+            this.lblHinhAnh.AutoSize = true;
+            this.lblHinhAnh.Location = new System.Drawing.Point(481, 223);
+            this.lblHinhAnh.Name = "lblHinhAnh";
+            this.lblHinhAnh.Size = new System.Drawing.Size(69, 17);
+            this.lblHinhAnh.TabIndex = 62;
+            this.lblHinhAnh.Text = "Hình ảnh ";
+            // 
+            // btnChonHinh
+            // 
+            this.btnChonHinh.Location = new System.Drawing.Point(556, 201);
+            this.btnChonHinh.Name = "btnChonHinh";
+            this.btnChonHinh.Size = new System.Drawing.Size(97, 41);
+            this.btnChonHinh.TabIndex = 64;
+            this.btnChonHinh.Text = "Chọn Hình";
+            this.btnChonHinh.UseVisualStyleBackColor = true;
+            this.btnChonHinh.Click += new System.EventHandler(this.btnChonHinh_Click);
+            // 
             // Form_ThemSuaHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 655);
+            this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.btnChonHinh);
+            this.Controls.Add(this.ptrbHinhAnh);
+            this.Controls.Add(this.lblHinhAnh);
+            this.Controls.Add(this.cbLoaiSP);
             this.Controls.Add(this.txtGiaNhap);
             this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.txtSLTT);
             this.Controls.Add(this.txtSL);
-            this.Controls.Add(this.txtLoaiSP);
             this.Controls.Add(this.txtNuocSX);
             this.Controls.Add(this.txtDVT);
             this.Controls.Add(this.txtTenSP);
@@ -263,7 +299,7 @@
             this.Name = "Form_ThemSuaHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_ThemXoaSuaHangHoa";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_ThemSuaHangHoa_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,10 +324,13 @@
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.TextBox txtDVT;
         private System.Windows.Forms.TextBox txtNuocSX;
-        private System.Windows.Forms.TextBox txtLoaiSP;
         private System.Windows.Forms.TextBox txtSL;
         private System.Windows.Forms.TextBox txtSLTT;
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.TextBox txtGiaNhap;
+        private System.Windows.Forms.ComboBox cbLoaiSP;
+        private System.Windows.Forms.PictureBox ptrbHinhAnh;
+        private System.Windows.Forms.Label lblHinhAnh;
+        private System.Windows.Forms.Button btnChonHinh;
     }
 }

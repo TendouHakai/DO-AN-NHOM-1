@@ -39,31 +39,34 @@ namespace App_sale_manager
             this.lblTenSP = new System.Windows.Forms.Label();
             this.lblMaSP = new System.Windows.Forms.Label();
             this.lblMoTa = new System.Windows.Forms.Label();
-            this.lblNDMaSP = new System.Windows.Forms.Label();
-            this.lblNDTenSP = new System.Windows.Forms.Label();
-            this.lblNDDVT = new System.Windows.Forms.Label();
-            this.lblNDNuocSX = new System.Windows.Forms.Label();
-            this.lblNDLoaiID = new System.Windows.Forms.Label();
-            this.lblNDSoLuong = new System.Windows.Forms.Label();
-            this.lblNDSLToiThieu = new System.Windows.Forms.Label();
-            this.lblNDGiaBan = new System.Windows.Forms.Label();
-            this.lblNDGiaNhap = new System.Windows.Forms.Label();
-            this.lblNDMoTa = new System.Windows.Forms.Label();
+            this.txtNDMoTa = new System.Windows.Forms.TextBox();
+            this.lblHinhAnh = new System.Windows.Forms.Label();
+            this.ptrbHinhAnh = new System.Windows.Forms.PictureBox();
+            this.txtNDTenSP = new System.Windows.Forms.TextBox();
+            this.txtNDMaSP = new System.Windows.Forms.TextBox();
+            this.txtNDDVT = new System.Windows.Forms.TextBox();
+            this.txtNDNuocSX = new System.Windows.Forms.TextBox();
+            this.txtNDLoaiID = new System.Windows.Forms.TextBox();
+            this.txtNDSoLuong = new System.Windows.Forms.TextBox();
+            this.txtNDSLToiThieu = new System.Windows.Forms.TextBox();
+            this.txtNDGiaBan = new System.Windows.Forms.TextBox();
+            this.txtNDGiaNhap = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLoaiID
             // 
             this.lblLoaiID.AutoSize = true;
-            this.lblLoaiID.Location = new System.Drawing.Point(30, 248);
+            this.lblLoaiID.Location = new System.Drawing.Point(30, 295);
             this.lblLoaiID.Name = "lblLoaiID";
-            this.lblLoaiID.Size = new System.Drawing.Size(35, 17);
+            this.lblLoaiID.Size = new System.Drawing.Size(101, 17);
             this.lblLoaiID.TabIndex = 48;
-            this.lblLoaiID.Text = "Loại";
+            this.lblLoaiID.Text = "Loại sản phẩm";
             // 
             // lblSLToiThieu
             // 
             this.lblSLToiThieu.AutoSize = true;
-            this.lblSLToiThieu.Location = new System.Drawing.Point(30, 360);
+            this.lblSLToiThieu.Location = new System.Drawing.Point(30, 407);
             this.lblSLToiThieu.Name = "lblSLToiThieu";
             this.lblSLToiThieu.Size = new System.Drawing.Size(118, 17);
             this.lblSLToiThieu.TabIndex = 47;
@@ -72,7 +75,7 @@ namespace App_sale_manager
             // lblGiaBan
             // 
             this.lblGiaBan.AutoSize = true;
-            this.lblGiaBan.Location = new System.Drawing.Point(30, 416);
+            this.lblGiaBan.Location = new System.Drawing.Point(30, 463);
             this.lblGiaBan.Name = "lblGiaBan";
             this.lblGiaBan.Size = new System.Drawing.Size(58, 17);
             this.lblGiaBan.TabIndex = 46;
@@ -81,7 +84,7 @@ namespace App_sale_manager
             // lblDVT
             // 
             this.lblDVT.AutoSize = true;
-            this.lblDVT.Location = new System.Drawing.Point(30, 136);
+            this.lblDVT.Location = new System.Drawing.Point(30, 183);
             this.lblDVT.Name = "lblDVT";
             this.lblDVT.Size = new System.Drawing.Size(75, 17);
             this.lblDVT.TabIndex = 45;
@@ -90,7 +93,7 @@ namespace App_sale_manager
             // lblGiaNhap
             // 
             this.lblGiaNhap.AutoSize = true;
-            this.lblGiaNhap.Location = new System.Drawing.Point(30, 472);
+            this.lblGiaNhap.Location = new System.Drawing.Point(30, 519);
             this.lblGiaNhap.Name = "lblGiaNhap";
             this.lblGiaNhap.Size = new System.Drawing.Size(66, 17);
             this.lblGiaNhap.TabIndex = 44;
@@ -99,7 +102,7 @@ namespace App_sale_manager
             // lblSoLuong
             // 
             this.lblSoLuong.AutoSize = true;
-            this.lblSoLuong.Location = new System.Drawing.Point(30, 304);
+            this.lblSoLuong.Location = new System.Drawing.Point(30, 351);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(64, 17);
             this.lblSoLuong.TabIndex = 43;
@@ -108,7 +111,7 @@ namespace App_sale_manager
             // lblNuocSX
             // 
             this.lblNuocSX.AutoSize = true;
-            this.lblNuocSX.Location = new System.Drawing.Point(30, 192);
+            this.lblNuocSX.Location = new System.Drawing.Point(30, 239);
             this.lblNuocSX.Name = "lblNuocSX";
             this.lblNuocSX.Size = new System.Drawing.Size(98, 17);
             this.lblNuocSX.TabIndex = 42;
@@ -135,117 +138,129 @@ namespace App_sale_manager
             // lblMoTa
             // 
             this.lblMoTa.AutoSize = true;
-            this.lblMoTa.Location = new System.Drawing.Point(378, 24);
+            this.lblMoTa.Location = new System.Drawing.Point(428, 24);
             this.lblMoTa.Name = "lblMoTa";
             this.lblMoTa.Size = new System.Drawing.Size(43, 17);
             this.lblMoTa.TabIndex = 49;
             this.lblMoTa.Text = "Mô tả";
             // 
-            // lblNDMaSP
+            // txtNDMoTa
             // 
-            this.lblNDMaSP.AutoSize = true;
-            this.lblNDMaSP.Location = new System.Drawing.Point(172, 24);
-            this.lblNDMaSP.Name = "lblNDMaSP";
-            this.lblNDMaSP.Size = new System.Drawing.Size(46, 17);
-            this.lblNDMaSP.TabIndex = 50;
-            this.lblNDMaSP.Text = "label1";
+            this.txtNDMoTa.Location = new System.Drawing.Point(431, 44);
+            this.txtNDMoTa.Multiline = true;
+            this.txtNDMoTa.Name = "txtNDMoTa";
+            this.txtNDMoTa.ReadOnly = true;
+            this.txtNDMoTa.Size = new System.Drawing.Size(664, 145);
+            this.txtNDMoTa.TabIndex = 59;
             // 
-            // lblNDTenSP
+            // lblHinhAnh
             // 
-            this.lblNDTenSP.AutoSize = true;
-            this.lblNDTenSP.Location = new System.Drawing.Point(172, 80);
-            this.lblNDTenSP.Name = "lblNDTenSP";
-            this.lblNDTenSP.Size = new System.Drawing.Size(46, 17);
-            this.lblNDTenSP.TabIndex = 51;
-            this.lblNDTenSP.Text = "label2";
+            this.lblHinhAnh.AutoSize = true;
+            this.lblHinhAnh.Location = new System.Drawing.Point(428, 228);
+            this.lblHinhAnh.Name = "lblHinhAnh";
+            this.lblHinhAnh.Size = new System.Drawing.Size(69, 17);
+            this.lblHinhAnh.TabIndex = 60;
+            this.lblHinhAnh.Text = "Hình ảnh ";
             // 
-            // lblNDDVT
+            // ptrbHinhAnh
             // 
-            this.lblNDDVT.AutoSize = true;
-            this.lblNDDVT.Location = new System.Drawing.Point(172, 136);
-            this.lblNDDVT.Name = "lblNDDVT";
-            this.lblNDDVT.Size = new System.Drawing.Size(46, 17);
-            this.lblNDDVT.TabIndex = 52;
-            this.lblNDDVT.Text = "label3";
+            this.ptrbHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ptrbHinhAnh.Location = new System.Drawing.Point(431, 248);
+            this.ptrbHinhAnh.Name = "ptrbHinhAnh";
+            this.ptrbHinhAnh.Size = new System.Drawing.Size(689, 393);
+            this.ptrbHinhAnh.TabIndex = 61;
+            this.ptrbHinhAnh.TabStop = false;
             // 
-            // lblNDNuocSX
+            // txtNDTenSP
             // 
-            this.lblNDNuocSX.AutoSize = true;
-            this.lblNDNuocSX.Location = new System.Drawing.Point(172, 192);
-            this.lblNDNuocSX.Name = "lblNDNuocSX";
-            this.lblNDNuocSX.Size = new System.Drawing.Size(46, 17);
-            this.lblNDNuocSX.TabIndex = 53;
-            this.lblNDNuocSX.Text = "label4";
+            this.txtNDTenSP.Location = new System.Drawing.Point(163, 85);
+            this.txtNDTenSP.Multiline = true;
+            this.txtNDTenSP.Name = "txtNDTenSP";
+            this.txtNDTenSP.ReadOnly = true;
+            this.txtNDTenSP.Size = new System.Drawing.Size(209, 67);
+            this.txtNDTenSP.TabIndex = 62;
             // 
-            // lblNDLoaiID
+            // txtNDMaSP
             // 
-            this.lblNDLoaiID.AutoSize = true;
-            this.lblNDLoaiID.Location = new System.Drawing.Point(172, 248);
-            this.lblNDLoaiID.Name = "lblNDLoaiID";
-            this.lblNDLoaiID.Size = new System.Drawing.Size(46, 17);
-            this.lblNDLoaiID.TabIndex = 54;
-            this.lblNDLoaiID.Text = "label5";
+            this.txtNDMaSP.Location = new System.Drawing.Point(163, 24);
+            this.txtNDMaSP.Name = "txtNDMaSP";
+            this.txtNDMaSP.ReadOnly = true;
+            this.txtNDMaSP.Size = new System.Drawing.Size(209, 22);
+            this.txtNDMaSP.TabIndex = 63;
             // 
-            // lblNDSoLuong
+            // txtNDDVT
             // 
-            this.lblNDSoLuong.AutoSize = true;
-            this.lblNDSoLuong.Location = new System.Drawing.Point(172, 304);
-            this.lblNDSoLuong.Name = "lblNDSoLuong";
-            this.lblNDSoLuong.Size = new System.Drawing.Size(46, 17);
-            this.lblNDSoLuong.TabIndex = 55;
-            this.lblNDSoLuong.Text = "label6";
+            this.txtNDDVT.Location = new System.Drawing.Point(163, 183);
+            this.txtNDDVT.Name = "txtNDDVT";
+            this.txtNDDVT.ReadOnly = true;
+            this.txtNDDVT.Size = new System.Drawing.Size(209, 22);
+            this.txtNDDVT.TabIndex = 64;
             // 
-            // lblNDSLToiThieu
+            // txtNDNuocSX
             // 
-            this.lblNDSLToiThieu.AutoSize = true;
-            this.lblNDSLToiThieu.Location = new System.Drawing.Point(172, 360);
-            this.lblNDSLToiThieu.Name = "lblNDSLToiThieu";
-            this.lblNDSLToiThieu.Size = new System.Drawing.Size(46, 17);
-            this.lblNDSLToiThieu.TabIndex = 56;
-            this.lblNDSLToiThieu.Text = "label7";
+            this.txtNDNuocSX.Location = new System.Drawing.Point(163, 234);
+            this.txtNDNuocSX.Name = "txtNDNuocSX";
+            this.txtNDNuocSX.ReadOnly = true;
+            this.txtNDNuocSX.Size = new System.Drawing.Size(209, 22);
+            this.txtNDNuocSX.TabIndex = 65;
             // 
-            // lblNDGiaBan
+            // txtNDLoaiID
             // 
-            this.lblNDGiaBan.AutoSize = true;
-            this.lblNDGiaBan.Location = new System.Drawing.Point(172, 416);
-            this.lblNDGiaBan.Name = "lblNDGiaBan";
-            this.lblNDGiaBan.Size = new System.Drawing.Size(46, 17);
-            this.lblNDGiaBan.TabIndex = 57;
-            this.lblNDGiaBan.Text = "label8";
+            this.txtNDLoaiID.Location = new System.Drawing.Point(163, 290);
+            this.txtNDLoaiID.Name = "txtNDLoaiID";
+            this.txtNDLoaiID.ReadOnly = true;
+            this.txtNDLoaiID.Size = new System.Drawing.Size(209, 22);
+            this.txtNDLoaiID.TabIndex = 66;
             // 
-            // lblNDGiaNhap
+            // txtNDSoLuong
             // 
-            this.lblNDGiaNhap.AutoSize = true;
-            this.lblNDGiaNhap.Location = new System.Drawing.Point(172, 472);
-            this.lblNDGiaNhap.Name = "lblNDGiaNhap";
-            this.lblNDGiaNhap.Size = new System.Drawing.Size(46, 17);
-            this.lblNDGiaNhap.TabIndex = 58;
-            this.lblNDGiaNhap.Text = "label9";
+            this.txtNDSoLuong.Location = new System.Drawing.Point(163, 346);
+            this.txtNDSoLuong.Name = "txtNDSoLuong";
+            this.txtNDSoLuong.ReadOnly = true;
+            this.txtNDSoLuong.Size = new System.Drawing.Size(209, 22);
+            this.txtNDSoLuong.TabIndex = 67;
             // 
-            // lblNDMoTa
+            // txtNDSLToiThieu
             // 
-            this.lblNDMoTa.AutoSize = true;
-            this.lblNDMoTa.Location = new System.Drawing.Point(475, 24);
-            this.lblNDMoTa.Name = "lblNDMoTa";
-            this.lblNDMoTa.Size = new System.Drawing.Size(54, 17);
-            this.lblNDMoTa.TabIndex = 59;
-            this.lblNDMoTa.Text = "label11";
+            this.txtNDSLToiThieu.Location = new System.Drawing.Point(163, 402);
+            this.txtNDSLToiThieu.Name = "txtNDSLToiThieu";
+            this.txtNDSLToiThieu.ReadOnly = true;
+            this.txtNDSLToiThieu.Size = new System.Drawing.Size(209, 22);
+            this.txtNDSLToiThieu.TabIndex = 68;
+            // 
+            // txtNDGiaBan
+            // 
+            this.txtNDGiaBan.Location = new System.Drawing.Point(163, 458);
+            this.txtNDGiaBan.Name = "txtNDGiaBan";
+            this.txtNDGiaBan.ReadOnly = true;
+            this.txtNDGiaBan.Size = new System.Drawing.Size(209, 22);
+            this.txtNDGiaBan.TabIndex = 69;
+            // 
+            // txtNDGiaNhap
+            // 
+            this.txtNDGiaNhap.Location = new System.Drawing.Point(163, 514);
+            this.txtNDGiaNhap.Name = "txtNDGiaNhap";
+            this.txtNDGiaNhap.ReadOnly = true;
+            this.txtNDGiaNhap.Size = new System.Drawing.Size(209, 22);
+            this.txtNDGiaNhap.TabIndex = 70;
             // 
             // Form_ChiTietHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 552);
-            this.Controls.Add(this.lblNDMoTa);
-            this.Controls.Add(this.lblNDGiaNhap);
-            this.Controls.Add(this.lblNDGiaBan);
-            this.Controls.Add(this.lblNDSLToiThieu);
-            this.Controls.Add(this.lblNDSoLuong);
-            this.Controls.Add(this.lblNDLoaiID);
-            this.Controls.Add(this.lblNDNuocSX);
-            this.Controls.Add(this.lblNDDVT);
-            this.Controls.Add(this.lblNDTenSP);
-            this.Controls.Add(this.lblNDMaSP);
+            this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.txtNDGiaNhap);
+            this.Controls.Add(this.txtNDGiaBan);
+            this.Controls.Add(this.txtNDSLToiThieu);
+            this.Controls.Add(this.txtNDSoLuong);
+            this.Controls.Add(this.txtNDLoaiID);
+            this.Controls.Add(this.txtNDNuocSX);
+            this.Controls.Add(this.txtNDDVT);
+            this.Controls.Add(this.txtNDMaSP);
+            this.Controls.Add(this.txtNDTenSP);
+            this.Controls.Add(this.ptrbHinhAnh);
+            this.Controls.Add(this.lblHinhAnh);
+            this.Controls.Add(this.txtNDMoTa);
             this.Controls.Add(this.lblMoTa);
             this.Controls.Add(this.lblLoaiID);
             this.Controls.Add(this.lblSLToiThieu);
@@ -259,7 +274,7 @@ namespace App_sale_manager
             this.Name = "Form_ChiTietHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_ChiTietHH";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_ChiTietHH_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,15 +292,17 @@ namespace App_sale_manager
         private System.Windows.Forms.Label lblTenSP;
         private System.Windows.Forms.Label lblMaSP;
         private System.Windows.Forms.Label lblMoTa;
-        private System.Windows.Forms.Label lblNDMaSP;
-        private System.Windows.Forms.Label lblNDTenSP;
-        private System.Windows.Forms.Label lblNDDVT;
-        private System.Windows.Forms.Label lblNDNuocSX;
-        private System.Windows.Forms.Label lblNDLoaiID;
-        private System.Windows.Forms.Label lblNDSoLuong;
-        private System.Windows.Forms.Label lblNDSLToiThieu;
-        private System.Windows.Forms.Label lblNDGiaBan;
-        private System.Windows.Forms.Label lblNDGiaNhap;
-        private System.Windows.Forms.Label lblNDMoTa;
+        private System.Windows.Forms.TextBox txtNDMoTa;
+        private System.Windows.Forms.Label lblHinhAnh;
+        private System.Windows.Forms.PictureBox ptrbHinhAnh;
+        private System.Windows.Forms.TextBox txtNDTenSP;
+        private System.Windows.Forms.TextBox txtNDMaSP;
+        private System.Windows.Forms.TextBox txtNDDVT;
+        private System.Windows.Forms.TextBox txtNDNuocSX;
+        private System.Windows.Forms.TextBox txtNDLoaiID;
+        private System.Windows.Forms.TextBox txtNDSoLuong;
+        private System.Windows.Forms.TextBox txtNDSLToiThieu;
+        private System.Windows.Forms.TextBox txtNDGiaBan;
+        private System.Windows.Forms.TextBox txtNDGiaNhap;
     }
 }
