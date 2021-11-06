@@ -13,7 +13,7 @@ namespace App_sale_manager
 {
     public partial class Form_QLLoaiHH : Form
     {
-        public string strCon = @"Data Source=LAPTOP-4KM350G8;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        public string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         static public SqlConnection sqlCon = null;
         static public SqlDataAdapter adapter = null;
         static int ModeLHH = 0;
