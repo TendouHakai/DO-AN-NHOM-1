@@ -18,7 +18,7 @@ namespace App_sale_manager
         public string filepath = "";
         SqlConnection AAA;
         SqlCommand command;
-        String strcon = @"Data Source=DESKTOP-LCG6NPQ;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        String strcon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
         SqlDataAdapter ADT = new SqlDataAdapter();
         DataTable table_nv_infonv = new DataTable();
         
