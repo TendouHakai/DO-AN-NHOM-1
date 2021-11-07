@@ -16,31 +16,31 @@ namespace App_sale_manager
     public partial class Form_main_admin : Form
     {
         public string filepath = "";
-        SqlConnection AAA;
-        SqlCommand command;
-        String strcon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
-        SqlDataAdapter ADT = new SqlDataAdapter();
+        SqlConnection sqlCon;
+        SqlCommand cmd;
+        String strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table_nv_infonv = new DataTable();
         
         DataTable table_nv_bangluong = new DataTable();
 
         void LoadData_nv_infonv()
         {
-            command = AAA.CreateCommand();
-            command.CommandText = "SELECT NVID,HOTEN,SDT,NGVL,NGSINH,CV,USERNAME,PASSWD FROM NHANVIEN";
-            ADT.SelectCommand = command;
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "SELECT NVID,HOTEN,SDT,NGVL,NGSINH,CV,USERNAME,PASSWD FROM NHANVIEN";
+            adapter.SelectCommand = cmd;
             table_nv_infonv.Clear();
-            ADT.Fill(table_nv_infonv);
+            adapter.Fill(table_nv_infonv);
             dgv_nv_infonv.DataSource = table_nv_infonv;
         }
        
         void LoadData_nv_bangluong()
         {
-            command = AAA.CreateCommand();
-            command.CommandText = "SELECT NVID,HOTEN,LUONG,HESO FROM NHANVIEN";
-            ADT.SelectCommand = command;
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "SELECT NVID,HOTEN,LUONG,HESO FROM NHANVIEN";
+            adapter.SelectCommand = cmd;
             table_nv_bangluong.Clear();
-            ADT.Fill(table_nv_bangluong);
+            adapter.Fill(table_nv_bangluong);
             dgv_nv_bangluong.DataSource = table_nv_bangluong;
         }
         public Form_main_admin()
@@ -58,8 +58,8 @@ namespace App_sale_manager
 
         private void Form_main_admin_Load(object sender, EventArgs e)
         {
-            AAA = new SqlConnection(strcon);
-            AAA.Open();
+            sqlCon = new SqlConnection(strCon);
+            sqlCon.Open();
             LoadData_nv_infonv();
             LoadData_nv_bangluong();
         }
@@ -110,11 +110,11 @@ namespace App_sale_manager
         }
         private void bt_Them_nv_infonv_Click(object sender, EventArgs e)
         {
-            command = AAA.CreateCommand();
+            cmd = sqlCon.CreateCommand();
             try
             {
-                command.CommandText = "set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_username_nv_infonv.Text + "','" + tb_matkhau_nv_infonv.Text + "','" + 0 + "','" + 0 + "')";
-                command.ExecuteNonQuery();
+                cmd.CommandText = "set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_username_nv_infonv.Text + "','" + tb_matkhau_nv_infonv.Text + "','" + 0 + "','" + 0 + "')";
+                cmd.ExecuteNonQuery();
                 SaveFileDialog Save = new SaveFileDialog();
                 if (filepath != "")
                 {
@@ -137,9 +137,9 @@ namespace App_sale_manager
             if (Result == DialogResult.Yes)
             {
                 filepath = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
-                command = AAA.CreateCommand();
-                command.CommandText = "delete from NHANVIEN where NVID='" + tb_MaNV_nv_infonv.Text + "'";
-                command.ExecuteNonQuery();
+                cmd = sqlCon.CreateCommand();
+                cmd.CommandText = "delete from NHANVIEN where NVID='" + tb_MaNV_nv_infonv.Text + "'";
+                cmd.ExecuteNonQuery();
                 pictureBox_image_import_nv.Image = null;
                 if (File.Exists(filepath))
                 {
@@ -156,8 +156,8 @@ namespace App_sale_manager
             DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Sửa dữ liệu", MessageBoxButtons.YesNo);
             if (Result == DialogResult.Yes)
             {
-                command = AAA.CreateCommand();
-                command.CommandText = "set dateformat dmy " + "update NHANVIEN set HOTEN=N'" + tb_TenNV_nv_infonv.Text + "',SDT='" + tb_SDT_nv_infonv.Text + "',NGVL='" + dt_NgayVaoLam_nv_infonv.Text + "',NGSINH='" + dt_NgaySinh_nv_infonv.Text + "',CV=N'" + tb_ChucVu_nv_infonv.Text + "',USERNAME=N'" + tb_username_nv_infonv.Text + "',PASSWD='" + tb_matkhau_nv_infonv.Text + "' where NVID='" + tb_MaNV_nv_infonv.Text + "'";
+                cmd = sqlCon.CreateCommand();
+                cmd.CommandText = "set dateformat dmy " + "update NHANVIEN set HOTEN=N'" + tb_TenNV_nv_infonv.Text + "',SDT='" + tb_SDT_nv_infonv.Text + "',NGVL='" + dt_NgayVaoLam_nv_infonv.Text + "',NGSINH='" + dt_NgaySinh_nv_infonv.Text + "',CV=N'" + tb_ChucVu_nv_infonv.Text + "',USERNAME=N'" + tb_username_nv_infonv.Text + "',PASSWD='" + tb_matkhau_nv_infonv.Text + "' where NVID='" + tb_MaNV_nv_infonv.Text + "'";
                 SaveFileDialog Save = new SaveFileDialog();
                 if (filepath != "")
                 {
@@ -165,7 +165,7 @@ namespace App_sale_manager
                     pictureBox_image_import_nv.Image.Save(Save.FileName);
                     filepath = "";
                 }
-                command.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 LoadData_nv_infonv();
                 LoadData_nv_bangluong();
             }
@@ -266,9 +266,9 @@ namespace App_sale_manager
         
         private void bt_Sua_nv_bangluong_Click(object sender, EventArgs e)
         {
-            command = AAA.CreateCommand();
-            command.CommandText = "update NHANVIEN set LUONG='"+nud_Luong_nv_bangluong.Value.ToString()+"',HESO='"+float.Parse(nud_Heso_nv_bangluong.Value.ToString())+"' WHERE NVID='"+tb_MaNV_nv_bangluong.Text+"'";
-            command.ExecuteNonQuery();
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "update NHANVIEN set LUONG='"+nud_Luong_nv_bangluong.Value.ToString()+"',HESO='"+float.Parse(nud_Heso_nv_bangluong.Value.ToString())+"' WHERE NVID='"+tb_MaNV_nv_bangluong.Text+"'";
+            cmd.ExecuteNonQuery();
             LoadData_nv_bangluong();
         }
         private void bt_Khoitao_nv_bangluong_Click(object sender, EventArgs e)
@@ -354,7 +354,7 @@ namespace App_sale_manager
 
         private void Form_main_admin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            AAA.Close();
+            sqlCon.Close();
         }
 
         private void button_Image_import_Click(object sender, EventArgs e)
