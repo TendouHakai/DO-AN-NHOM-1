@@ -82,7 +82,7 @@ namespace App_sale_manager
             {
                 if(KiemtralistCAID(txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" "))) || cbo_chedo.Text == "Lặp lại hàng tuần")
                 {
-                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" ")) + "' AND BUOI = 'Sang'";
+                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" ")) + "' AND GIO_BD BETWEEN '6:00:00' AND '12:00:00'";
                     CAID ca = new CAID();
                     ca.CA = (string)cmd.ExecuteScalar();
                     ca.Nglam = chuyenNglam(txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" ")));
@@ -94,7 +94,7 @@ namespace App_sale_manager
             {
                 if(KiemtralistCAID(txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" "))) || cbo_chedo.Text == "Lặp lại hàng tuần")
                 {
-                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" ")) + "' AND BUOI = 'Chieu'";
+                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" ")) + "' AND GIO_BD BETWEEN '12:00:00' AND '18:00:00'";
                     CAID ca = new CAID();
                     ca.CA = (string)cmd.ExecuteScalar();
                     ca.Nglam = chuyenNglam(txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" ")));
@@ -106,7 +106,7 @@ namespace App_sale_manager
             {
                 if(KiemtralistCAID(txt_phancong_Toi.Text.Substring(0, txt_phancong_Toi.Text.IndexOf(" "))) || cbo_chedo.Text == "Lặp lại hàng tuần")
                 {
-                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_Toi.Text.Substring(0, txt_phancong_Toi.Text.IndexOf(" ")) + "' AND BUOI = 'Toi'";
+                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_Toi.Text.Substring(0, txt_phancong_Toi.Text.IndexOf(" ")) + "' AND GIO_BD BETWEEN '17:00:00' AND '23:00:00'";
                     CAID ca = new CAID();
                     ca.CA = (string)cmd.ExecuteScalar();
                     ca.Nglam = chuyenNglam(txt_phancong_Toi.Text.Substring(0, txt_phancong_Toi.Text.IndexOf(" ")));
@@ -151,12 +151,20 @@ namespace App_sale_manager
                         }
                         else
                         {
-                            cmd.CommandText = "SELECT BUOI FROM CALAMVIEC WHERE CAID ='" + CAIDs[j].CA + "'";
+                            cmd.CommandText = "SELECT GIO_BD, GIO_NGHI FROM CALAMVIEC WHERE CAID ='" + CAIDs[j].CA + "'";
+                            var reader = cmd.ExecuteReader();
+                            string giobd="";
+                            string gionghi="";
+                            while(reader.Read())
+                            {
+                                giobd = reader.GetString(0);
+                                gionghi = reader.GetString(1);
+                            }    
                             string THU ="";
                             if (((int)CAIDs[j].Nglam.DayOfWeek) == 0)
                                 THU = "CN";
                             else THU = THU + "Thứ " + ((int)CAIDs[j].Nglam.DayOfWeek+1);
-                            DialogResult dlg=  MessageBox.Show("Ca lam viec " + THU + " buổi " + cmd.ExecuteScalar() + " của " + chkL_phancong_NVID.Items[i].ToString() + " đã có trong lịch hàng tuần.\nBạn có muốn tiếp tục thay đổi không?", "Thông báo", MessageBoxButtons.YesNo);
+                            DialogResult dlg=  MessageBox.Show("Ca lam viec " + THU + " " + giobd +" đến "+ gionghi+ " của " + chkL_phancong_NVID.Items[i].ToString() + " đã có trong lịch hàng tuần.\nBạn có muốn tiếp tục thay đổi không?", "Thông báo", MessageBoxButtons.YesNo);
                             if(dlg == DialogResult.Yes)
                             {
                                 cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "', '" + CAIDs[j].Nglam.ToString("d") + "', 'null', '" + CHEDO +  "')";

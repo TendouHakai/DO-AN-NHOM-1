@@ -774,7 +774,6 @@ namespace App_sale_manager
                     if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
                     {
                         cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T')";
-                        MessageBox.Show(cmd.CommandText);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -793,7 +792,6 @@ namespace App_sale_manager
                     if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
                     {
                         cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "', null, '" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
-                        MessageBox.Show(cmd.CommandText);
                         cmd.ExecuteNonQuery();
                     }
                 }
