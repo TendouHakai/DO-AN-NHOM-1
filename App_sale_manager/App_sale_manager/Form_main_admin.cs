@@ -63,42 +63,7 @@ namespace App_sale_manager
             LoadData_nv_infonv();
             LoadData_nv_bangluong();
         }
-        private void dgv_nv_infonv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            tb_MaNV_nv_infonv.ReadOnly = true;
-            int i;
-            i = dgv_nv_infonv.CurrentRow.Index;
-            tb_MaNV_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[0].Value.ToString();
-            tb_TenNV_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[1].Value.ToString();
-            tb_SDT_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[2].Value.ToString();
-            dt_NgayVaoLam_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[3].Value.ToString();
-            dt_NgaySinh_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[4].Value.ToString();
-            tb_ChucVu_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[5].Value.ToString();
-            tb_username_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[6].Value.ToString();
-            tb_matkhau_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[7].Value.ToString();
-
-            /*filepath = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
-             { if (File.Exists(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg"))
-                {
-                    pictureBox_image_import.Image = Image.FromFile(filepath) ;
-                 
-                }
-
-                else pictureBox_image_import.Image = null;
-            };*/
-            if (File.Exists(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg"))
-            {
-                Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg", FileMode.Open))
-                {
-                    image1 = Image.FromStream(stream);
-                }
-
-                pictureBox_image_import_nv.Image = image1;
-            }
-            else pictureBox_image_import_nv.Image = null;
-
-        }
+       
         private void tb_SDT_nv_infonv_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -160,7 +125,7 @@ namespace App_sale_manager
             }
             catch(SqlException)
             {
-                MessageBox.Show("Nhap dung du lieu!");
+                MessageBox.Show("Nhập không đúng dữ liệu hoặc MANV đã có!");
             }
             LoadData_nv_infonv();
             LoadData_nv_bangluong();
@@ -168,34 +133,42 @@ namespace App_sale_manager
 
         private void bt_nv_infonv_Xoa_Click(object sender, EventArgs e)
         {
-            filepath = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
-            command = AAA.CreateCommand();
-            command.CommandText = "delete from NHANVIEN where NVID='" + tb_MaNV_nv_infonv.Text + "'";
-            command.ExecuteNonQuery();
-            pictureBox_image_import_nv.Image= null;
-            if (File.Exists(filepath))
+            DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Xóa dữ liệu", MessageBoxButtons.YesNo);
+            if (Result == DialogResult.Yes)
             {
-                File.Delete(filepath);
+                filepath = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
+                command = AAA.CreateCommand();
+                command.CommandText = "delete from NHANVIEN where NVID='" + tb_MaNV_nv_infonv.Text + "'";
+                command.ExecuteNonQuery();
+                pictureBox_image_import_nv.Image = null;
+                if (File.Exists(filepath))
+                {
+                    File.Delete(filepath);
+                }
+                filepath = "";
+                LoadData_nv_infonv();
+                LoadData_nv_bangluong();
             }
-            filepath = "";
-            LoadData_nv_infonv();
-            LoadData_nv_bangluong();
         }
 
         private void bt_nv_infonv_Sua_Click(object sender, EventArgs e)
         {
-            command = AAA.CreateCommand();
-            command.CommandText = "set dateformat dmy "+ "update NHANVIEN set HOTEN=N'" + tb_TenNV_nv_infonv.Text + "',SDT='" + tb_SDT_nv_infonv.Text + "',NGVL='" + dt_NgayVaoLam_nv_infonv.Text + "',NGSINH='" + dt_NgaySinh_nv_infonv.Text + "',CV=N'" + tb_ChucVu_nv_infonv.Text + "',USERNAME=N'" + tb_username_nv_infonv.Text + "',PASSWD='" + tb_matkhau_nv_infonv.Text + "' where NVID='" + tb_MaNV_nv_infonv.Text + "'";
-            SaveFileDialog Save = new SaveFileDialog();
-            if (filepath != "")
+            DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Sửa dữ liệu", MessageBoxButtons.YesNo);
+            if (Result == DialogResult.Yes)
             {
-                Save.FileName = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
-                pictureBox_image_import_nv.Image.Save(Save.FileName);
-                filepath = "";
+                command = AAA.CreateCommand();
+                command.CommandText = "set dateformat dmy " + "update NHANVIEN set HOTEN=N'" + tb_TenNV_nv_infonv.Text + "',SDT='" + tb_SDT_nv_infonv.Text + "',NGVL='" + dt_NgayVaoLam_nv_infonv.Text + "',NGSINH='" + dt_NgaySinh_nv_infonv.Text + "',CV=N'" + tb_ChucVu_nv_infonv.Text + "',USERNAME=N'" + tb_username_nv_infonv.Text + "',PASSWD='" + tb_matkhau_nv_infonv.Text + "' where NVID='" + tb_MaNV_nv_infonv.Text + "'";
+                SaveFileDialog Save = new SaveFileDialog();
+                if (filepath != "")
+                {
+                    Save.FileName = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
+                    pictureBox_image_import_nv.Image.Save(Save.FileName);
+                    filepath = "";
+                }
+                command.ExecuteNonQuery();
+                LoadData_nv_infonv();
+                LoadData_nv_bangluong();
             }
-            command.ExecuteNonQuery();
-            LoadData_nv_infonv();
-            LoadData_nv_bangluong();
         }
         private void bt_nv_infonv_Khoitao_Click(object sender, EventArgs e)
         {
@@ -240,17 +213,43 @@ namespace App_sale_manager
                     }
                 case "Số điện thoại":
                     {
-                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format(" SDT LIKE'{0}%' ", tb_search_nv_infonv.Text);
+                       
+                        if (Regex.IsMatch(tb_search_nv_infonv.Text, @"^\d+$"))
+                        {
+                            (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format(" SDT LIKE'{0}%' ", tb_search_nv_infonv.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("vui long nhap 1 so dien thoai");
+                            tb_search_nv_infonv.Focus();
+                        }
                         break;
                     }
                 case "Ngày sinh":
                     {
-                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format("NGSINH='{0}' ", tb_search_nv_infonv.Text);
+                        try
+                        {
+                            (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format("NGSINH='{0}' ", tb_search_nv_infonv.Text);
+                        }
+                        catch(Exception)
+                        {
+                            MessageBox.Show("Bạn không nhập đúng format ngày");
+                            tb_search_nv_infonv.Focus();
+                        }
                         break;
                     }
                 case "Ngày vào làm":
                     {
-                        (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format(" NGVL = '{0}' ", tb_search_nv_infonv.Text);
+                        try
+                        {
+                            (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Format(" NGVL = '{0}' ", tb_search_nv_infonv.Text);
+
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Bạn không nhập đúng format ngày");
+                            tb_search_nv_infonv.Focus();
+                        }
                         break;
                     }
                 case "Chức vụ":
@@ -264,18 +263,7 @@ namespace App_sale_manager
 
 
 
-        private void dgv_nv_bangluong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            tb_MaNV_nv_bangluong.ReadOnly = true;
-            tb_TenNV_nv_bangluong.ReadOnly = true;
-            int i;
-            i = dgv_nv_bangluong.CurrentRow.Index;
-            tb_MaNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[0].Value.ToString();
-            tb_TenNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[1].Value.ToString();
-            nud_Luong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[2].Value.ToString());
-            nud_Heso_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[3].Value.ToString());
-            
-        }
+        
         private void bt_Sua_nv_bangluong_Click(object sender, EventArgs e)
         {
             command = AAA.CreateCommand();
@@ -297,6 +285,7 @@ namespace App_sale_manager
         }
         private void bt_Tracuu_nv_bangluong_Click(object sender, EventArgs e)
         {
+            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
             if (string.IsNullOrEmpty(tb_search_nv_bangluong.Text))
             {
                 MessageBox.Show("Vui lòng nhập nội dung cần tìm.");
@@ -309,7 +298,7 @@ namespace App_sale_manager
                 cb_searchoption_nv_bangluong.Focus();
                 return;
             }
-            switch (cb_searchoption_nv_infonv.Text)
+            switch (cb_searchoption_nv_bangluong.Text)
             {
                 case "Mã NV":
                     {
@@ -327,19 +316,37 @@ namespace App_sale_manager
                         {
                             MessageBox.Show("Vui lòng chọn mức lương cần lọc");
                             cb_LocLuong_nv_bangluong.Focus();
-                            return;
                         }
-                        if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(0))
-                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG = '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(1))
-                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG > '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
-                        else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(2))
-                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG < '{0}'", Convert.ToDecimal(nud_Luong_nv_bangluong.Value));
+                        else
+                        {
+                            if (decimal.TryParse(tb_search_nv_bangluong.Text, out decimal result))
+                            {
+                                if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(0))
+                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG = '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
+                                else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(1))
+                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG > '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
+                                else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(2))
+                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" LUONG < '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
+                            }
+                            else
+                            {
+                                MessageBox.Show("vui lòng nhập một số tiền");
+                                tb_search_nv_bangluong.Focus();
+                            }
+                        }
                         break;
                     }
                 case "Hệ số":
                     {
-                        (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format("HESO LIKE {0}'", tb_search_nv_bangluong.Text);
+                        if (decimal.TryParse(tb_search_nv_bangluong.Text, out decimal result))
+                        {
+                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format("HESO = '{0}'", tb_search_nv_bangluong.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("vui lòng nhập một số");
+                            tb_search_nv_bangluong.Focus();
+                        }
                         break;
                     }
             }
@@ -371,5 +378,61 @@ namespace App_sale_manager
             else if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(2))
                 (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "NVID ASC";
         }
+
+        private void dgv_nv_infonv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tb_MaNV_nv_infonv.ReadOnly = true;
+            int i;
+            i = dgv_nv_infonv.CurrentRow.Index;
+            tb_MaNV_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[0].Value.ToString();
+            tb_TenNV_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[1].Value.ToString();
+            tb_SDT_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[2].Value.ToString();
+            dt_NgayVaoLam_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[3].Value.ToString();
+            dt_NgaySinh_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[4].Value.ToString();
+            tb_ChucVu_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[5].Value.ToString();
+            tb_username_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[6].Value.ToString();
+            tb_matkhau_nv_infonv.Text = dgv_nv_infonv.Rows[i].Cells[7].Value.ToString();
+
+
+            if (File.Exists(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg"))
+            {
+                Image image1 = null;
+                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg", FileMode.Open))
+                {
+                    image1 = Image.FromStream(stream);
+                }
+
+                pictureBox_image_import_nv.Image = image1;
+            }
+            else pictureBox_image_import_nv.Image = null;
+
+        }
+
+        private void dgv_nv_bangluong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tb_MaNV_nv_bangluong.ReadOnly = true;
+            tb_TenNV_nv_bangluong.ReadOnly = true;
+            int i;
+            i = dgv_nv_bangluong.CurrentRow.Index;
+            tb_MaNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[0].Value.ToString();
+            tb_TenNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[1].Value.ToString();
+            nud_Luong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[2].Value.ToString());
+            nud_Heso_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[3].Value.ToString());
+
+        }
+
+        private void cb_searchoption_nv_bangluong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_searchoption_nv_bangluong.Text == "Lương")
+            {
+                cb_LocLuong_nv_bangluong.Visible = true;
+            }
+            else
+            {
+                cb_LocLuong_nv_bangluong.Visible = false;
+            }
+        }
+
+       
     }
 }
