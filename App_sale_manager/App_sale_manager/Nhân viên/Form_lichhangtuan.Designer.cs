@@ -273,6 +273,7 @@ namespace App_sale_manager
             this.Controls.Add(this.grb_thuhai);
             this.Name = "Form_lichhangtuan";
             this.Text = "LỊCH HÀNG TUẦN";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_lichhangtuan_FormClosed);
             this.grb_thuhai.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_2)).EndInit();
             this.grb_thuba.ResumeLayout(false);

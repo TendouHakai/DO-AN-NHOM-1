@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace App_sale_manager
 {
@@ -15,7 +16,7 @@ namespace App_sale_manager
     {
         DateTime Day;
         SqlConnection sqlCon = null;
-        string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
         public event EventHandler Load_frm_main;
@@ -82,7 +83,7 @@ namespace App_sale_manager
             {
                 if(KiemtralistCAID(txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" "))) || cbo_chedo.Text == "Lặp lại hàng tuần")
                 {
-                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" ")) + "' AND GIO_BD BETWEEN '6:00:00' AND '12:00:00'";
+                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" ")) + "' AND GIO_BD BETWEEN '6:00:00' AND '9:00:00'";
                     CAID ca = new CAID();
                     ca.CA = (string)cmd.ExecuteScalar();
                     ca.Nglam = chuyenNglam(txt_phancong_sang.Text.Substring(0, txt_phancong_sang.Text.IndexOf(" ")));
@@ -94,7 +95,7 @@ namespace App_sale_manager
             {
                 if(KiemtralistCAID(txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" "))) || cbo_chedo.Text == "Lặp lại hàng tuần")
                 {
-                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" ")) + "' AND GIO_BD BETWEEN '12:00:00' AND '18:00:00'";
+                    cmd.CommandText = "SELECT CAID FROM CALAMVIEC WHERE THU = '" + txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" ")) + "' AND GIO_BD BETWEEN '12:00:00' AND '15:00:00'";
                     CAID ca = new CAID();
                     ca.CA = (string)cmd.ExecuteScalar();
                     ca.Nglam = chuyenNglam(txt_phancong_Chieu.Text.Substring(0, txt_phancong_Chieu.Text.IndexOf(" ")));
@@ -199,8 +200,9 @@ namespace App_sale_manager
                     }
                 }
             }
-            Load_frm_main(this, new EventArgs());
             sqlCon.Close();
+            Load_frm_main(this, new EventArgs());
+            
         }
 
         private void cbo_phancong_NVID_TextUpdate(object sender, EventArgs e)

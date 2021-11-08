@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace App_sale_manager
 {
@@ -16,7 +17,7 @@ namespace App_sale_manager
         GroupBox[] grbs;
         DataGridView[] dgvs;
         SqlConnection sqlCon = null;
-        string strCon = @"Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
         public event EventHandler Load_form_main;
@@ -156,8 +157,9 @@ namespace App_sale_manager
             }    
         }
 
-
-
-        
+        private void Form_lichhangtuan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Load_form_main(this, new EventArgs());
+        }
     }
 }

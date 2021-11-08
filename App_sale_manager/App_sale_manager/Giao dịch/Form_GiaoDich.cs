@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace App_sale_manager
 {
     public partial class Form_GiaoDich : Form
     {
-        string strCon = "Data Source=DESKTOP-7DBJ8OV;Initial Catalog=QUANLYBANHANG_LTTQ;Integrated Security=True";
+        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlConnection sqlCon;
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -69,19 +70,17 @@ namespace App_sale_manager
 
         private void CT_HD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            int sum = 0;
+            Double sum = 0;
             foreach(DataGridViewRow i in CT_HD.Rows)
             {
-              sum+= 10000*Convert.ToInt32(i.Cells[1].Value) *Convert.ToInt32( i.Cells[2].Value);
+              sum+= Convert.ToDouble(i.Cells[1].Value) *Convert.ToDouble( i.Cells[2].Value);
             }
             Box_Tong.Text = Convert.ToString(sum);
         }
 
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
-                      
+        {        
             if (DGV_LuaChon.CurrentRow != null)
             {
                 foreach(DataGridViewRow temp in CT_HD.Rows)
@@ -144,10 +143,10 @@ namespace App_sale_manager
 
         private void CT_HD_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            int sum = 0;
+            Double sum = 0;
             foreach (DataGridViewRow i in CT_HD.Rows)
             {
-               sum += 10000* Convert.ToInt32(i.Cells[1].Value) * Convert.ToInt32(i.Cells[2].Value);
+               sum += 10000* Convert.ToDouble(i.Cells[1].Value.ToString()) * Convert.ToDouble(i.Cells[2].Value.ToString());
             }
             Box_Tong.Text = Convert.ToString(sum);
         }
