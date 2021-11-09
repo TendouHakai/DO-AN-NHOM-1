@@ -139,6 +139,7 @@ namespace App_sale_manager
             this.pictureBox_dtcc_guestFace = new System.Windows.Forms.PictureBox();
             this.dataGridView_dtcc_guest = new System.Windows.Forms.DataGridView();
             this.tabPage_GiaoDich = new System.Windows.Forms.TabPage();
+            this.GroupB_GD_TimKiem = new System.Windows.Forms.GroupBox();
             this.tabPage_NhanVien = new System.Windows.Forms.TabPage();
             this.tab_nv = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -204,6 +205,10 @@ namespace App_sale_manager
             this.tabPage_BaoCao = new System.Windows.Forms.TabPage();
             this.tabControl_Baocao = new System.Windows.Forms.TabControl();
             this.tabPage_Baocao_cuoingay = new System.Windows.Forms.TabPage();
+            this.grb_bc_qt = new System.Windows.Forms.GroupBox();
+            this.rBtn_bc_qt1 = new System.Windows.Forms.RadioButton();
+            this.rBtn_bc_qt2 = new System.Windows.Forms.RadioButton();
+            this.rBtn_bc_qt3 = new System.Windows.Forms.RadioButton();
             this.textBox_bcCuoingay3 = new System.Windows.Forms.TextBox();
             this.textBox_bcCuoingay2 = new System.Windows.Forms.TextBox();
             this.textBox_bcCuoingay1 = new System.Windows.Forms.TextBox();
@@ -214,9 +219,6 @@ namespace App_sale_manager
             this.label_bc_cuoingay = new System.Windows.Forms.Label();
             this.dtp_bc_time = new System.Windows.Forms.DateTimePicker();
             this.label_bc_tg = new System.Windows.Forms.Label();
-            this.rBtn_bc_qt1 = new System.Windows.Forms.RadioButton();
-            this.rBtn_bc_qt3 = new System.Windows.Forms.RadioButton();
-            this.rBtn_bc_qt2 = new System.Windows.Forms.RadioButton();
             this.tabPage_baocao_doanhthu = new System.Windows.Forms.TabPage();
             this.textBox_bc_Doanhthu_chi = new System.Windows.Forms.TextBox();
             this.textBox_bc_Doanhthu_doanhthu = new System.Windows.Forms.TextBox();
@@ -253,7 +255,6 @@ namespace App_sale_manager
             this.qUANLYBANHANGLTTQDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.qUANLYBANHANGLTTQDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dTCCBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.grb_bc_qt = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Data_GiaoDich)).BeginInit();
             this.tabCtrl.SuspendLayout();
             this.tabPage_tongquan.SuspendLayout();
@@ -273,6 +274,7 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_dtcc_guestFace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dtcc_guest)).BeginInit();
             this.tabPage_GiaoDich.SuspendLayout();
+            this.GroupB_GD_TimKiem.SuspendLayout();
             this.tabPage_NhanVien.SuspendLayout();
             this.tab_nv.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -290,6 +292,7 @@ namespace App_sale_manager
             this.tabPage_BaoCao.SuspendLayout();
             this.tabControl_Baocao.SuspendLayout();
             this.tabPage_Baocao_cuoingay.SuspendLayout();
+            this.grb_bc_qt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bc_cuoingay)).BeginInit();
             this.tabPage_baocao_doanhthu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_bc_Doanhthu)).BeginInit();
@@ -298,14 +301,13 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTCCBindingSource)).BeginInit();
-            this.grb_bc_qt.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1_GD
             // 
             this.label1_GD.AutoSize = true;
             this.label1_GD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1_GD.Location = new System.Drawing.Point(37, 322);
+            this.label1_GD.Location = new System.Drawing.Point(6, 298);
             this.label1_GD.Name = "label1_GD";
             this.label1_GD.Size = new System.Drawing.Size(72, 18);
             this.label1_GD.TabIndex = 8;
@@ -315,7 +317,7 @@ namespace App_sale_manager
             // 
             this.label2_GD.AutoSize = true;
             this.label2_GD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2_GD.Location = new System.Drawing.Point(37, 428);
+            this.label2_GD.Location = new System.Drawing.Point(3, 390);
             this.label2_GD.Name = "label2_GD";
             this.label2_GD.Size = new System.Drawing.Size(78, 18);
             this.label2_GD.TabIndex = 9;
@@ -325,7 +327,7 @@ namespace App_sale_manager
             // 
             this.label3_GD.AutoSize = true;
             this.label3_GD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3_GD.Location = new System.Drawing.Point(37, 85);
+            this.label3_GD.Location = new System.Drawing.Point(6, 61);
             this.label3_GD.Name = "label3_GD";
             this.label3_GD.Size = new System.Drawing.Size(87, 18);
             this.label3_GD.TabIndex = 10;
@@ -335,7 +337,7 @@ namespace App_sale_manager
             // 
             this.label4_GD.AutoSize = true;
             this.label4_GD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4_GD.Location = new System.Drawing.Point(37, 165);
+            this.label4_GD.Location = new System.Drawing.Point(6, 141);
             this.label4_GD.Name = "label4_GD";
             this.label4_GD.Size = new System.Drawing.Size(109, 18);
             this.label4_GD.TabIndex = 13;
@@ -345,7 +347,7 @@ namespace App_sale_manager
             // 
             this.label5_GD.AutoSize = true;
             this.label5_GD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5_GD.Location = new System.Drawing.Point(37, 238);
+            this.label5_GD.Location = new System.Drawing.Point(6, 214);
             this.label5_GD.Name = "label5_GD";
             this.label5_GD.Size = new System.Drawing.Size(95, 18);
             this.label5_GD.TabIndex = 14;
@@ -359,7 +361,7 @@ namespace App_sale_manager
             this.CLB_GD_LoaiDon.Items.AddRange(new object[] {
             "Đơn đặt hàng",
             "Đơn trực tiếp"});
-            this.CLB_GD_LoaiDon.Location = new System.Drawing.Point(37, 350);
+            this.CLB_GD_LoaiDon.Location = new System.Drawing.Point(6, 326);
             this.CLB_GD_LoaiDon.Name = "CLB_GD_LoaiDon";
             this.CLB_GD_LoaiDon.Size = new System.Drawing.Size(163, 61);
             this.CLB_GD_LoaiDon.TabIndex = 6;
@@ -367,7 +369,7 @@ namespace App_sale_manager
             // BOX_GD_MaNhanVien
             // 
             this.BOX_GD_MaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BOX_GD_MaNhanVien.Location = new System.Drawing.Point(37, 267);
+            this.BOX_GD_MaNhanVien.Location = new System.Drawing.Point(6, 243);
             this.BOX_GD_MaNhanVien.Name = "BOX_GD_MaNhanVien";
             this.BOX_GD_MaNhanVien.Size = new System.Drawing.Size(163, 28);
             this.BOX_GD_MaNhanVien.TabIndex = 12;
@@ -375,7 +377,7 @@ namespace App_sale_manager
             // Box_GD_MaKhachHang
             // 
             this.Box_GD_MaKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Box_GD_MaKhachHang.Location = new System.Drawing.Point(37, 194);
+            this.Box_GD_MaKhachHang.Location = new System.Drawing.Point(6, 170);
             this.Box_GD_MaKhachHang.Name = "Box_GD_MaKhachHang";
             this.Box_GD_MaKhachHang.Size = new System.Drawing.Size(163, 28);
             this.Box_GD_MaKhachHang.TabIndex = 11;
@@ -390,7 +392,7 @@ namespace App_sale_manager
             "Nhận đơn",
             "Đạng giao",
             "Hoàn Thành"});
-            this.CLB_GD_TrangThai.Location = new System.Drawing.Point(37, 460);
+            this.CLB_GD_TrangThai.Location = new System.Drawing.Point(6, 411);
             this.CLB_GD_TrangThai.Name = "CLB_GD_TrangThai";
             this.CLB_GD_TrangThai.Size = new System.Drawing.Size(163, 80);
             this.CLB_GD_TrangThai.TabIndex = 7;
@@ -398,7 +400,7 @@ namespace App_sale_manager
             // BNT_GD_inDS
             // 
             this.BNT_GD_inDS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BNT_GD_inDS.Location = new System.Drawing.Point(673, 19);
+            this.BNT_GD_inDS.Location = new System.Drawing.Point(623, 19);
             this.BNT_GD_inDS.Name = "BNT_GD_inDS";
             this.BNT_GD_inDS.Size = new System.Drawing.Size(163, 48);
             this.BNT_GD_inDS.TabIndex = 5;
@@ -409,7 +411,7 @@ namespace App_sale_manager
             // Box_GD_MaHoaDon
             // 
             this.Box_GD_MaHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Box_GD_MaHoaDon.Location = new System.Drawing.Point(37, 117);
+            this.Box_GD_MaHoaDon.Location = new System.Drawing.Point(6, 93);
             this.Box_GD_MaHoaDon.Name = "Box_GD_MaHoaDon";
             this.Box_GD_MaHoaDon.Size = new System.Drawing.Size(163, 28);
             this.Box_GD_MaHoaDon.TabIndex = 4;
@@ -417,7 +419,7 @@ namespace App_sale_manager
             // bnt_GD_Timkiem
             // 
             this.bnt_GD_Timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnt_GD_Timkiem.Location = new System.Drawing.Point(37, 19);
+            this.bnt_GD_Timkiem.Location = new System.Drawing.Point(6, 520);
             this.bnt_GD_Timkiem.Name = "bnt_GD_Timkiem";
             this.bnt_GD_Timkiem.Size = new System.Drawing.Size(163, 48);
             this.bnt_GD_Timkiem.TabIndex = 3;
@@ -438,14 +440,14 @@ namespace App_sale_manager
             this.GridView_Data_GiaoDich.ReadOnly = true;
             this.GridView_Data_GiaoDich.RowHeadersWidth = 51;
             this.GridView_Data_GiaoDich.RowTemplate.Height = 24;
-            this.GridView_Data_GiaoDich.Size = new System.Drawing.Size(958, 571);
+            this.GridView_Data_GiaoDich.Size = new System.Drawing.Size(916, 533);
             this.GridView_Data_GiaoDich.TabIndex = 2;
             this.GridView_Data_GiaoDich.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_Data_GiaoDich_CellDoubleClick);
             // 
             // BNT_Refresh_GD
             // 
             this.BNT_Refresh_GD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BNT_Refresh_GD.Location = new System.Drawing.Point(842, 19);
+            this.BNT_Refresh_GD.Location = new System.Drawing.Point(792, 19);
             this.BNT_Refresh_GD.Name = "BNT_Refresh_GD";
             this.BNT_Refresh_GD.Size = new System.Drawing.Size(163, 48);
             this.BNT_Refresh_GD.TabIndex = 1;
@@ -456,7 +458,7 @@ namespace App_sale_manager
             // BNT_TaoHoaDon
             // 
             this.BNT_TaoHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BNT_TaoHoaDon.Location = new System.Drawing.Point(1008, 19);
+            this.BNT_TaoHoaDon.Location = new System.Drawing.Point(961, 19);
             this.BNT_TaoHoaDon.Name = "BNT_TaoHoaDon";
             this.BNT_TaoHoaDon.Size = new System.Drawing.Size(163, 48);
             this.BNT_TaoHoaDon.TabIndex = 0;
@@ -1378,18 +1380,9 @@ namespace App_sale_manager
             // 
             // tabPage_GiaoDich
             // 
-            this.tabPage_GiaoDich.Controls.Add(this.label5_GD);
-            this.tabPage_GiaoDich.Controls.Add(this.label4_GD);
-            this.tabPage_GiaoDich.Controls.Add(this.BOX_GD_MaNhanVien);
-            this.tabPage_GiaoDich.Controls.Add(this.Box_GD_MaKhachHang);
-            this.tabPage_GiaoDich.Controls.Add(this.label3_GD);
-            this.tabPage_GiaoDich.Controls.Add(this.label2_GD);
-            this.tabPage_GiaoDich.Controls.Add(this.label1_GD);
-            this.tabPage_GiaoDich.Controls.Add(this.CLB_GD_TrangThai);
-            this.tabPage_GiaoDich.Controls.Add(this.CLB_GD_LoaiDon);
+            this.tabPage_GiaoDich.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage_GiaoDich.Controls.Add(this.GroupB_GD_TimKiem);
             this.tabPage_GiaoDich.Controls.Add(this.BNT_GD_inDS);
-            this.tabPage_GiaoDich.Controls.Add(this.Box_GD_MaHoaDon);
-            this.tabPage_GiaoDich.Controls.Add(this.bnt_GD_Timkiem);
             this.tabPage_GiaoDich.Controls.Add(this.GridView_Data_GiaoDich);
             this.tabPage_GiaoDich.Controls.Add(this.BNT_Refresh_GD);
             this.tabPage_GiaoDich.Controls.Add(this.BNT_TaoHoaDon);
@@ -1400,7 +1393,26 @@ namespace App_sale_manager
             this.tabPage_GiaoDich.Size = new System.Drawing.Size(1177, 650);
             this.tabPage_GiaoDich.TabIndex = 3;
             this.tabPage_GiaoDich.Text = "Giao dịch";
-            this.tabPage_GiaoDich.UseVisualStyleBackColor = true;
+            // 
+            // GroupB_GD_TimKiem
+            // 
+            this.GroupB_GD_TimKiem.Controls.Add(this.label5_GD);
+            this.GroupB_GD_TimKiem.Controls.Add(this.CLB_GD_TrangThai);
+            this.GroupB_GD_TimKiem.Controls.Add(this.bnt_GD_Timkiem);
+            this.GroupB_GD_TimKiem.Controls.Add(this.label2_GD);
+            this.GroupB_GD_TimKiem.Controls.Add(this.label4_GD);
+            this.GroupB_GD_TimKiem.Controls.Add(this.BOX_GD_MaNhanVien);
+            this.GroupB_GD_TimKiem.Controls.Add(this.Box_GD_MaKhachHang);
+            this.GroupB_GD_TimKiem.Controls.Add(this.label3_GD);
+            this.GroupB_GD_TimKiem.Controls.Add(this.label1_GD);
+            this.GroupB_GD_TimKiem.Controls.Add(this.CLB_GD_LoaiDon);
+            this.GroupB_GD_TimKiem.Controls.Add(this.Box_GD_MaHoaDon);
+            this.GroupB_GD_TimKiem.Location = new System.Drawing.Point(24, 38);
+            this.GroupB_GD_TimKiem.Name = "GroupB_GD_TimKiem";
+            this.GroupB_GD_TimKiem.Size = new System.Drawing.Size(194, 601);
+            this.GroupB_GD_TimKiem.TabIndex = 15;
+            this.GroupB_GD_TimKiem.TabStop = false;
+            this.GroupB_GD_TimKiem.Text = "Tìm kiếm";
             // 
             // tabPage_NhanVien
             // 
@@ -2128,6 +2140,58 @@ namespace App_sale_manager
             this.tabPage_Baocao_cuoingay.TabIndex = 0;
             this.tabPage_Baocao_cuoingay.Text = "Cuối ngày";
             // 
+            // grb_bc_qt
+            // 
+            this.grb_bc_qt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.grb_bc_qt.Controls.Add(this.rBtn_bc_qt1);
+            this.grb_bc_qt.Controls.Add(this.rBtn_bc_qt2);
+            this.grb_bc_qt.Controls.Add(this.rBtn_bc_qt3);
+            this.grb_bc_qt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_bc_qt.Location = new System.Drawing.Point(34, 106);
+            this.grb_bc_qt.Name = "grb_bc_qt";
+            this.grb_bc_qt.Size = new System.Drawing.Size(197, 151);
+            this.grb_bc_qt.TabIndex = 7;
+            this.grb_bc_qt.TabStop = false;
+            this.grb_bc_qt.Text = "Mối quan tâm";
+            // 
+            // rBtn_bc_qt1
+            // 
+            this.rBtn_bc_qt1.AutoSize = true;
+            this.rBtn_bc_qt1.Checked = true;
+            this.rBtn_bc_qt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rBtn_bc_qt1.Location = new System.Drawing.Point(18, 21);
+            this.rBtn_bc_qt1.Name = "rBtn_bc_qt1";
+            this.rBtn_bc_qt1.Size = new System.Drawing.Size(90, 21);
+            this.rBtn_bc_qt1.TabIndex = 0;
+            this.rBtn_bc_qt1.TabStop = true;
+            this.rBtn_bc_qt1.Text = "Bán hàng";
+            this.rBtn_bc_qt1.UseVisualStyleBackColor = true;
+            this.rBtn_bc_qt1.CheckedChanged += new System.EventHandler(this.rBtn_bc_qt1_CheckedChanged);
+            // 
+            // rBtn_bc_qt2
+            // 
+            this.rBtn_bc_qt2.AutoSize = true;
+            this.rBtn_bc_qt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rBtn_bc_qt2.Location = new System.Drawing.Point(18, 62);
+            this.rBtn_bc_qt2.Name = "rBtn_bc_qt2";
+            this.rBtn_bc_qt2.Size = new System.Drawing.Size(99, 21);
+            this.rBtn_bc_qt2.TabIndex = 0;
+            this.rBtn_bc_qt2.Text = "Nhập hàng";
+            this.rBtn_bc_qt2.UseVisualStyleBackColor = true;
+            this.rBtn_bc_qt2.CheckedChanged += new System.EventHandler(this.rBtn_bc_qt1_CheckedChanged);
+            // 
+            // rBtn_bc_qt3
+            // 
+            this.rBtn_bc_qt3.AutoSize = true;
+            this.rBtn_bc_qt3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rBtn_bc_qt3.Location = new System.Drawing.Point(18, 103);
+            this.rBtn_bc_qt3.Name = "rBtn_bc_qt3";
+            this.rBtn_bc_qt3.Size = new System.Drawing.Size(95, 21);
+            this.rBtn_bc_qt3.TabIndex = 0;
+            this.rBtn_bc_qt3.Text = "Doanh thu";
+            this.rBtn_bc_qt3.UseVisualStyleBackColor = true;
+            this.rBtn_bc_qt3.CheckedChanged += new System.EventHandler(this.rBtn_bc_qt1_CheckedChanged);
+            // 
             // textBox_bcCuoingay3
             // 
             this.textBox_bcCuoingay3.Location = new System.Drawing.Point(604, 562);
@@ -2217,44 +2281,6 @@ namespace App_sale_manager
             this.label_bc_tg.Size = new System.Drawing.Size(77, 18);
             this.label_bc_tg.TabIndex = 1;
             this.label_bc_tg.Text = "Thời gian";
-            // 
-            // rBtn_bc_qt1
-            // 
-            this.rBtn_bc_qt1.AutoSize = true;
-            this.rBtn_bc_qt1.Checked = true;
-            this.rBtn_bc_qt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rBtn_bc_qt1.Location = new System.Drawing.Point(18, 21);
-            this.rBtn_bc_qt1.Name = "rBtn_bc_qt1";
-            this.rBtn_bc_qt1.Size = new System.Drawing.Size(90, 21);
-            this.rBtn_bc_qt1.TabIndex = 0;
-            this.rBtn_bc_qt1.TabStop = true;
-            this.rBtn_bc_qt1.Text = "Bán hàng";
-            this.rBtn_bc_qt1.UseVisualStyleBackColor = true;
-            this.rBtn_bc_qt1.CheckedChanged += new System.EventHandler(this.rBtn_bc_qt1_CheckedChanged);
-            // 
-            // rBtn_bc_qt3
-            // 
-            this.rBtn_bc_qt3.AutoSize = true;
-            this.rBtn_bc_qt3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rBtn_bc_qt3.Location = new System.Drawing.Point(18, 103);
-            this.rBtn_bc_qt3.Name = "rBtn_bc_qt3";
-            this.rBtn_bc_qt3.Size = new System.Drawing.Size(95, 21);
-            this.rBtn_bc_qt3.TabIndex = 0;
-            this.rBtn_bc_qt3.Text = "Doanh thu";
-            this.rBtn_bc_qt3.UseVisualStyleBackColor = true;
-            this.rBtn_bc_qt3.CheckedChanged += new System.EventHandler(this.rBtn_bc_qt1_CheckedChanged);
-            // 
-            // rBtn_bc_qt2
-            // 
-            this.rBtn_bc_qt2.AutoSize = true;
-            this.rBtn_bc_qt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rBtn_bc_qt2.Location = new System.Drawing.Point(18, 62);
-            this.rBtn_bc_qt2.Name = "rBtn_bc_qt2";
-            this.rBtn_bc_qt2.Size = new System.Drawing.Size(99, 21);
-            this.rBtn_bc_qt2.TabIndex = 0;
-            this.rBtn_bc_qt2.Text = "Nhập hàng";
-            this.rBtn_bc_qt2.UseVisualStyleBackColor = true;
-            this.rBtn_bc_qt2.CheckedChanged += new System.EventHandler(this.rBtn_bc_qt1_CheckedChanged);
             // 
             // tabPage_baocao_doanhthu
             // 
@@ -2626,20 +2652,6 @@ namespace App_sale_manager
             // 
             this.dTCCBindingSource.DataMember = "DTCC";
             // 
-            // grb_bc_qt
-            // 
-            this.grb_bc_qt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.grb_bc_qt.Controls.Add(this.rBtn_bc_qt1);
-            this.grb_bc_qt.Controls.Add(this.rBtn_bc_qt2);
-            this.grb_bc_qt.Controls.Add(this.rBtn_bc_qt3);
-            this.grb_bc_qt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_bc_qt.Location = new System.Drawing.Point(34, 106);
-            this.grb_bc_qt.Name = "grb_bc_qt";
-            this.grb_bc_qt.Size = new System.Drawing.Size(197, 151);
-            this.grb_bc_qt.TabIndex = 7;
-            this.grb_bc_qt.TabStop = false;
-            this.grb_bc_qt.Text = "Mối quan tâm";
-            // 
             // Form_main_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2674,7 +2686,8 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_dtcc_guestFace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dtcc_guest)).EndInit();
             this.tabPage_GiaoDich.ResumeLayout(false);
-            this.tabPage_GiaoDich.PerformLayout();
+            this.GroupB_GD_TimKiem.ResumeLayout(false);
+            this.GroupB_GD_TimKiem.PerformLayout();
             this.tabPage_NhanVien.ResumeLayout(false);
             this.tab_nv.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -2696,6 +2709,8 @@ namespace App_sale_manager
             this.tabControl_Baocao.ResumeLayout(false);
             this.tabPage_Baocao_cuoingay.ResumeLayout(false);
             this.tabPage_Baocao_cuoingay.PerformLayout();
+            this.grb_bc_qt.ResumeLayout(false);
+            this.grb_bc_qt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bc_cuoingay)).EndInit();
             this.tabPage_baocao_doanhthu.ResumeLayout(false);
             this.tabPage_baocao_doanhthu.PerformLayout();
@@ -2706,8 +2721,6 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYBANHANGLTTQDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTCCBindingSource)).EndInit();
-            this.grb_bc_qt.ResumeLayout(false);
-            this.grb_bc_qt.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2922,5 +2935,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Label lblGhiChu2;
         private System.Windows.Forms.Label lblGhiChu;
         private System.Windows.Forms.GroupBox grb_bc_qt;
+        private System.Windows.Forms.GroupBox GroupB_GD_TimKiem;
     }
 }

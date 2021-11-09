@@ -15,7 +15,7 @@ using System.Configuration;
 namespace App_sale_manager
 {
     public partial class Form_main_admin : Form
-    {
+    {   
         public string filepath = "";
         string manv = "nv01";
         SqlConnection sqlCon = null;
@@ -45,6 +45,11 @@ namespace App_sale_manager
             sqlCon = new SqlConnection(strCon);
             cmd = sqlCon.CreateCommand();
             InitializeComponent();
+            DTCC_dtgd_dataInitialize();
+            DTCC_guest_dataInitialize();
+            canExit = true;
+            pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
+            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
         }
         public event EventHandler Thoat;
         private void tabCtrl_SelectedIndexChanged(object sender, EventArgs e)
@@ -1659,6 +1664,9 @@ namespace App_sale_manager
         private void GridView_Data_GiaoDich_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if (GridView_Data_GiaoDich.CurrentRow.Index == GridView_Data_GiaoDich.RowCount -1)
+                return;
+
             Form_CTHD cthd = new Form_CTHD((string)GridView_Data_GiaoDich.CurrentRow.Cells[0].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[2].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[3].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[5].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[6].Value, Convert.ToString(GridView_Data_GiaoDich.CurrentRow.Cells[4].Value));
             cthd.Show();
         }
@@ -1666,6 +1674,9 @@ namespace App_sale_manager
         Bitmap bmp;
         private void bnt_inDS_Click(object sender, EventArgs e)
         {
+            if (GridView_Data_GiaoDich.RowCount== 1)
+                return;
+
             int height = GridView_Data_GiaoDich.Height;
             GridView_Data_GiaoDich.Height = GridView_Data_GiaoDich.RowCount * GridView_Data_GiaoDich.RowTemplate.Height + 2 * GridView_Data_GiaoDich.RowTemplate.Height;
             GridView_Data_GiaoDich.CurrentRow.Selected = false;
