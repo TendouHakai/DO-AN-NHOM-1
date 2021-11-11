@@ -805,7 +805,6 @@ namespace App_sale_manager
             this.tabPage_DoiTac.Size = new System.Drawing.Size(902, 532);
             this.tabPage_DoiTac.TabIndex = 2;
             this.tabPage_DoiTac.Text = "Đối tác";
-            this.tabPage_DoiTac.Click += new System.EventHandler(this.tabPage_DoiTac_Click);
             // 
             // tabControl_DTCC_in
             // 
@@ -1377,7 +1376,7 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.ReadOnly = true;
             this.dataGridView_dtcc_guest.RowHeadersWidth = 51;
             this.dataGridView_dtcc_guest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(507, 317);
+            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(508, 317);
             this.dataGridView_dtcc_guest.TabIndex = 42;
             this.dataGridView_dtcc_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dtcc_guest_CellClick);
             // 

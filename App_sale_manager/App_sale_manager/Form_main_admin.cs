@@ -1272,30 +1272,6 @@ namespace App_sale_manager
         {
             DTCC_guest_dataInitialize();
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_SDT_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage_DoiTac_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1305,7 +1281,11 @@ namespace App_sale_manager
             A.textBox_DIACHI_z.Text = label_DIACHItext.Text;
             A.textBox_SDT_z.Text = label_SDTtext.Text;
             A.textBox_TENDT_z.Text = label_TENDTtext.Text;
-            A.pictureBox_image_import.Image = pictureBox_Logo.Image;
+            using (FileStream stream = new FileStream(@"Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg", FileMode.Open, FileAccess.Read))
+            {
+                A.pictureBox_image_import.Image = Image.FromStream(stream);
+                stream.Dispose();
+            }
             A.RefreshData += DTCC_DataRefresh;
             A.Show();
         }
@@ -1330,26 +1310,11 @@ namespace App_sale_manager
             }
         }
 
-        private void pictureBox_Logo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_addDTCC_Click(object sender, EventArgs e)
         {
             DTCC_form A = new DTCC_form();
             A.RefreshData += DTCC_DataRefresh;
             A.Show();
-        }
-
-        private void dataGridView_DTCC_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button_deleteDTCC_Click(object sender, EventArgs e)
@@ -1575,6 +1540,7 @@ namespace App_sale_manager
         private void textBox_search_Click(object sender, EventArgs e)
         {
             textBox_guest_search.SelectAll();
+            this.AcceptButton = button_searchDTCC;
         }
 
         private void textBox_guest_search_Click(object sender, EventArgs e)

@@ -68,7 +68,11 @@ namespace App_sale_manager
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
                 Save.FileName = @"Image samples for testing\Đối tác giao dịch\"+textBox_TENDT_z.Text+".jpg";
-                pictureBox_image_import.Image.Save(Save.FileName);
+                using (System.IO.FileStream fstream = new System.IO.FileStream(Save.FileName, System.IO.FileMode.Create))
+                {
+                    pictureBox_image_import.Image.Save(fstream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    fstream.Close();
+                }
                 RefreshData(this, new EventArgs());
                 Close();
             }
