@@ -179,7 +179,6 @@ namespace App_sale_manager
             this.label_Picture_z.TabIndex = 12;
             this.label_Picture_z.Text = "Ảnh minh họa (nếu có):";
             this.label_Picture_z.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_Picture_z.Click += new System.EventHandler(this.label_Picture_z_Click);
             // 
             // pictureBox_image_import
             // 
@@ -209,7 +208,6 @@ namespace App_sale_manager
             this.label_image_name.Size = new System.Drawing.Size(230, 84);
             this.label_image_name.TabIndex = 15;
             this.label_image_name.Text = "Chưa thêm ảnh.";
-            this.label_image_name.Click += new System.EventHandler(this.label1_Click);
             // 
             // dateTimePicker_NGDT_z
             // 
@@ -218,7 +216,6 @@ namespace App_sale_manager
             this.dateTimePicker_NGDT_z.Name = "dateTimePicker_NGDT_z";
             this.dateTimePicker_NGDT_z.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_NGDT_z.TabIndex = 16;
-            this.dateTimePicker_NGDT_z.ValueChanged += new System.EventHandler(this.dateTimePicker_NGDT_z_ValueChanged);
             // 
             // textBox_budget_z
             // 
@@ -297,7 +294,6 @@ namespace App_sale_manager
             this.Name = "DTCC_guest_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập dữ liệu";
-            this.Load += new System.EventHandler(this.DTCC_form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

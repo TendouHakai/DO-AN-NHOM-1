@@ -49,9 +49,5 @@ namespace App_sale_manager
                 Close();
             }
         }
-
-        private void comboBox_sale_TextChanged(object sender, EventArgs e)
-        {
-        }
     }
 }

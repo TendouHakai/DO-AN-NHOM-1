@@ -56,10 +56,6 @@ namespace App_sale_manager
             dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
         }
 
-        private void DTCC_modifier_Load(object sender, EventArgs e)
-        {
-        }
-
         private void button_Image_import_Click(object sender, EventArgs e)
         {
             

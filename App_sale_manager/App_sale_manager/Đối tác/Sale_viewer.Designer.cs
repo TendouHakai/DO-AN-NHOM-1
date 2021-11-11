@@ -157,9 +157,7 @@ namespace App_sale_manager
             this.listBox_NOR_ongoing.Size = new System.Drawing.Size(398, 100);
             this.listBox_NOR_ongoing.TabIndex = 1;
             this.listBox_NOR_ongoing.DoubleClick += new System.EventHandler(this.listBox_NOR_ongoing_DoubleClick);
-            this.listBox_NOR_ongoing.Layout += new System.Windows.Forms.LayoutEventHandler(this.listBox_NOR_ongoing_Layout);
             this.listBox_NOR_ongoing.Leave += new System.EventHandler(this.listBox_NOR_ongoing_Leave);
-            this.listBox_NOR_ongoing.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_NOR_ongoing_MouseDoubleClick);
             // 
             // groupBox_forVIP
             // 
@@ -271,7 +269,6 @@ namespace App_sale_manager
             this.Controls.Add(this.button_quit);
             this.Name = "Sale_viewer";
             this.Text = "Sale_viewer";
-            this.Load += new System.EventHandler(this.Sale_viewer_Load);
             this.groupBox_forNOR.ResumeLayout(false);
             this.groupBox_forNOR.PerformLayout();
             this.groupBox_forVIP.ResumeLayout(false);

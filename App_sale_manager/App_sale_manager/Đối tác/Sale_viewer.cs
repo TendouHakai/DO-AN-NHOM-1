@@ -270,19 +270,9 @@ namespace App_sale_manager
             A.Show();
         }
 
-        private void Sale_viewer_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_quit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void listBox_NOR_ongoing_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
+            Close();
         }
 
         private void listBox_NOR_ongoing_DoubleClick(object sender, EventArgs e)
@@ -381,11 +371,6 @@ namespace App_sale_manager
             A.Get_sale_list += Sale_select;
             A.Delete_sale += Sale_delete;
             A.Show();
-        }
-
-        private void listBox_NOR_ongoing_Layout(object sender, LayoutEventArgs e)
-        {
-
         }
         private void listBox_NOR_ongoing_Leave(object sender, EventArgs e)
         {

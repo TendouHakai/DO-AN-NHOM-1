@@ -97,7 +97,6 @@ namespace App_sale_manager
             this.groupBox_general.TabIndex = 0;
             this.groupBox_general.TabStop = false;
             this.groupBox_general.Text = "Thông tin ưu đãi chung";
-            this.groupBox_general.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // checkBox_autoDelete
             // 
@@ -217,7 +216,6 @@ namespace App_sale_manager
             this.label_saleMethod.Size = new System.Drawing.Size(63, 13);
             this.label_saleMethod.TabIndex = 4;
             this.label_saleMethod.Text = "Loại ưu đãi:";
-            this.label_saleMethod.Click += new System.EventHandler(this.label_saleMethod_Click);
             // 
             // comboBox_saleObj
             // 
@@ -240,7 +238,6 @@ namespace App_sale_manager
             this.label_saleObj.Size = new System.Drawing.Size(89, 13);
             this.label_saleObj.TabIndex = 2;
             this.label_saleObj.Text = "Đối tượng ưu đãi:";
-            this.label_saleObj.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox_saleName
             // 
@@ -377,7 +374,6 @@ namespace App_sale_manager
             this.label_priceReduced.Size = new System.Drawing.Size(100, 13);
             this.label_priceReduced.TabIndex = 10;
             this.label_priceReduced.Text = "Phần trăm giảm (%):";
-            this.label_priceReduced.TextChanged += new System.EventHandler(this.label_priceReduced_TextChanged);
             // 
             // label_priceMethod
             // 

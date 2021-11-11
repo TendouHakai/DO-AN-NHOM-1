@@ -56,10 +56,6 @@ namespace App_sale_manager
             textBox_budget_z.Text = "0";
             pictureBox_image_import.Image = Image.FromFile(@"Image samples for testing\Khách hàng đăng kí\No Image.jpg");
         }
-        private void DTCC_form_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button_DTCC_Reject_Click(object sender, EventArgs e)
         {
@@ -90,16 +86,6 @@ namespace App_sale_manager
             }
         }
 
-        private void label_Picture_z_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_Image_import_Click(object sender, EventArgs e)
         {
             string filepath;
@@ -112,16 +98,6 @@ namespace App_sale_manager
                 pictureBox_image_import.Image = Image.FromFile(filepath);
                 this.label_image_name.Text = filepath;
             }           
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker_NGDT_z_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void textBox_budget_z_Click(object sender, EventArgs e)

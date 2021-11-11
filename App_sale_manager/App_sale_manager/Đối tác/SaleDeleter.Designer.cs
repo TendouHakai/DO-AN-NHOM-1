@@ -97,7 +97,6 @@ namespace App_sale_manager
             this.comboBox_sale.Size = new System.Drawing.Size(292, 21);
             this.comboBox_sale.TabIndex = 5;
             this.comboBox_sale.Text = "- Chưa chọn -";
-            this.comboBox_sale.TextChanged += new System.EventHandler(this.comboBox_sale_TextChanged);
             // 
             // label_sale
             // 

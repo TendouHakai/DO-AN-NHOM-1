@@ -56,20 +56,6 @@ namespace App_sale_manager
             InitializeComponent();
         }
         public event SaleSaveEvent sale_Save;
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_saleMethod_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBox_saleCondition_TextChanged(object sender, EventArgs e)
         {
@@ -95,11 +81,6 @@ namespace App_sale_manager
         private void numericUpDown_priceReduced_Click(object sender, EventArgs e)
         {
             numericUpDown_priceReduced.Select(0, Convert.ToString(numericUpDown_priceReduced.Value).Length);
-        }
-
-        private void label_priceReduced_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void numericUpDown_Condition_price_Click(object sender, EventArgs e)

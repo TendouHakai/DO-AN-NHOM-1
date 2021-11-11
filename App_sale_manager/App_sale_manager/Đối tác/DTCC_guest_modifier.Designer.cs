@@ -293,7 +293,6 @@ namespace App_sale_manager
             this.Name = "DTCC_guest_modifier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa dữ liệu";
-            this.Load += new System.EventHandler(this.DTCC_modifier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

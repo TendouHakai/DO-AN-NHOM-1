@@ -1419,6 +1419,11 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
+            if (SearchOption=="NGDT")
+            {
+                cmd.CommandText = "set dateformat dmy";
+                cmd.ExecuteNonQuery();
+            }
             cmd.CommandText = str;
             Adapter.SelectCommand = cmd;
             Table.Clear();
@@ -1428,19 +1433,10 @@ namespace App_sale_manager
             button_deleteDTCC.Enabled = false;
             sqlCon.Close();
         }
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
 
         private void button_refresh_Click(object sender, EventArgs e)
         {
             DTCC_dtgd_dataInitialize();
-        }
-
-        private void tabPage_DTCC_Guest_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView_dtcc_guest_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1579,11 +1575,6 @@ namespace App_sale_manager
         private void textBox_search_Click(object sender, EventArgs e)
         {
             textBox_guest_search.SelectAll();
-        }
-
-        private void textBox_guest_search_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void textBox_guest_search_Click(object sender, EventArgs e)
@@ -1760,7 +1751,5 @@ namespace App_sale_manager
             LoadHangHoa();
             this.Show();
         }
-
-        
     }
 }
