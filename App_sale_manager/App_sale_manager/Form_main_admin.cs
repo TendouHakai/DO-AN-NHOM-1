@@ -1368,8 +1368,8 @@ namespace App_sale_manager
                 case "Địa chỉ":
                     Search("DIACHI");
                     break;
-                case "Ngày trở thành đối tác":
-                    Search("NGDT");
+                case "Năm trở thành đối tác":
+                    Search("Year(NGDT)");
                     break;
             }
         }
@@ -1509,8 +1509,8 @@ namespace App_sale_manager
                 case "Địa chỉ":
                     Search_guest("DIACHI");
                     break;
-                case "Ngày đăng kí":
-                    Search_guest("NGDK");
+                case "Năm đăng kí":
+                    Search_guest("Year(NGDK)");
                     break;
                 case "Loại khách hàng":
                     Search_guest("LOAIKH");

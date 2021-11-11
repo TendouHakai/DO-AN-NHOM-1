@@ -879,7 +879,7 @@ namespace App_sale_manager
             "Mã đối tác",
             "Tên đối tác",
             "Số điện thoại",
-            "Ngày trở thành đối tác",
+            "Năm trở thành đối tác",
             "Địa chỉ"});
             this.comboBox_searchOption.Location = new System.Drawing.Point(407, 56);
             this.comboBox_searchOption.Name = "comboBox_searchOption";
@@ -1186,7 +1186,7 @@ namespace App_sale_manager
             "Địa chỉ",
             "Số điện thoại",
             "Loại khách hàng",
-            "Ngày đăng kí"});
+            "Năm đăng kí"});
             this.comboBox_guest_filter.Location = new System.Drawing.Point(407, 56);
             this.comboBox_guest_filter.Name = "comboBox_guest_filter";
             this.comboBox_guest_filter.Size = new System.Drawing.Size(126, 23);
@@ -1376,7 +1376,7 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.ReadOnly = true;
             this.dataGridView_dtcc_guest.RowHeadersWidth = 51;
             this.dataGridView_dtcc_guest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(508, 317);
+            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(509, 317);
             this.dataGridView_dtcc_guest.TabIndex = 42;
             this.dataGridView_dtcc_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dtcc_guest_CellClick);
             // 
