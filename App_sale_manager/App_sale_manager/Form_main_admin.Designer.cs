@@ -30,24 +30,24 @@ namespace App_sale_manager
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_admin));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label1_GD = new System.Windows.Forms.Label();
             this.label2_GD = new System.Windows.Forms.Label();
             this.label3_GD = new System.Windows.Forms.Label();
@@ -183,27 +183,28 @@ namespace App_sale_manager
             this.grb_nv_phancong_lich = new System.Windows.Forms.GroupBox();
             this.mon_nv_phancong_lich = new System.Windows.Forms.MonthCalendar();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.nud_Thuong_nv_bangluong = new System.Windows.Forms.NumericUpDown();
-            this.label_thuong_nv_bangluong = new System.Windows.Forms.Label();
-            this.label_sapxep_nv_bangluong = new System.Windows.Forms.Label();
-            this.label_search_nv_bangluong = new System.Windows.Forms.Label();
-            this.tb_search_nv_bangluong = new System.Windows.Forms.TextBox();
+            this.grb_nv_luong_timkiem = new System.Windows.Forms.GroupBox();
             this.cb_searchoption_nv_bangluong = new System.Windows.Forms.ComboBox();
-            this.label_bangluong_nv_bangluong = new System.Windows.Forms.Label();
-            this.bt_Khoitao_nv_bangluong = new System.Windows.Forms.Button();
-            this.nud_Heso_nv_bangluong = new System.Windows.Forms.NumericUpDown();
-            this.nud_Luong_nv_bangluong = new System.Windows.Forms.NumericUpDown();
-            this.cb_ThutuLuong_nv_bangluong = new System.Windows.Forms.ComboBox();
-            this.cb_LocLuong_nv_bangluong = new System.Windows.Forms.ComboBox();
             this.bt_Tracuu_nv_bangluong = new System.Windows.Forms.Button();
-            this.bt_Sua_nv_bangluong = new System.Windows.Forms.Button();
-            this.label_heso_nv_bangluong = new System.Windows.Forms.Label();
-            this.label_luong_nv_bangluong = new System.Windows.Forms.Label();
-            this.label_hoten_nv_bangluong = new System.Windows.Forms.Label();
-            this.label_manv_nv_bangluong = new System.Windows.Forms.Label();
+            this.label_sapxep_nv_bangluong = new System.Windows.Forms.Label();
+            this.cb_LocLuong_nv_bangluong = new System.Windows.Forms.ComboBox();
+            this.label_search_nv_bangluong = new System.Windows.Forms.Label();
+            this.cb_ThutuLuong_nv_bangluong = new System.Windows.Forms.ComboBox();
+            this.tb_search_nv_bangluong = new System.Windows.Forms.TextBox();
+            this.grb_nv_luong_ìnfo = new System.Windows.Forms.GroupBox();
             this.tb_TenNV_nv_bangluong = new System.Windows.Forms.TextBox();
             this.tb_MaNV_nv_bangluong = new System.Windows.Forms.TextBox();
+            this.label_manv_nv_bangluong = new System.Windows.Forms.Label();
+            this.label_hoten_nv_bangluong = new System.Windows.Forms.Label();
+            this.label_luong_nv_bangluong = new System.Windows.Forms.Label();
+            this.label_heso_nv_bangluong = new System.Windows.Forms.Label();
+            this.bt_Khoitao_nv_bangluong = new System.Windows.Forms.Button();
+            this.bt_Sua_nv_bangluong = new System.Windows.Forms.Button();
+            this.nud_Heso_nv_bangluong = new System.Windows.Forms.NumericUpDown();
+            this.nud_Luong_nv_bangluong = new System.Windows.Forms.NumericUpDown();
+            this.label_bangluong_nv_bangluong = new System.Windows.Forms.Label();
             this.dgv_nv_bangluong = new System.Windows.Forms.DataGridView();
+            this.imageList_icon = new System.Windows.Forms.ImageList(this.components);
             this.tabPage_BaoCao = new System.Windows.Forms.TabPage();
             this.tabControl_Baocao = new System.Windows.Forms.TabControl();
             this.tabPage_Baocao_cuoingay = new System.Windows.Forms.TabPage();
@@ -288,7 +289,8 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nv_phancong_lich)).BeginInit();
             this.grb_nv_phancong_lich.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Thuong_nv_bangluong)).BeginInit();
+            this.grb_nv_luong_timkiem.SuspendLayout();
+            this.grb_nv_luong_ìnfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Heso_nv_bangluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Luong_nv_bangluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nv_bangluong)).BeginInit();
@@ -402,13 +404,14 @@ namespace App_sale_manager
             // 
             // BNT_GD_inDS
             // 
+            this.BNT_GD_inDS.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BNT_GD_inDS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BNT_GD_inDS.Location = new System.Drawing.Point(623, 19);
             this.BNT_GD_inDS.Name = "BNT_GD_inDS";
             this.BNT_GD_inDS.Size = new System.Drawing.Size(163, 48);
             this.BNT_GD_inDS.TabIndex = 5;
             this.BNT_GD_inDS.Text = "In Danh Sach";
-            this.BNT_GD_inDS.UseVisualStyleBackColor = true;
+            this.BNT_GD_inDS.UseVisualStyleBackColor = false;
             this.BNT_GD_inDS.Click += new System.EventHandler(this.bnt_inDS_Click);
             // 
             // Box_GD_MaHoaDon
@@ -421,13 +424,14 @@ namespace App_sale_manager
             // 
             // bnt_GD_Timkiem
             // 
+            this.bnt_GD_Timkiem.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.bnt_GD_Timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnt_GD_Timkiem.Location = new System.Drawing.Point(6, 520);
             this.bnt_GD_Timkiem.Name = "bnt_GD_Timkiem";
             this.bnt_GD_Timkiem.Size = new System.Drawing.Size(163, 48);
             this.bnt_GD_Timkiem.TabIndex = 3;
             this.bnt_GD_Timkiem.Text = "Tìm Kiếm";
-            this.bnt_GD_Timkiem.UseVisualStyleBackColor = true;
+            this.bnt_GD_Timkiem.UseVisualStyleBackColor = false;
             this.bnt_GD_Timkiem.Click += new System.EventHandler(this.bnt_Timkiem_Click);
             // 
             // GridView_Data_GiaoDich
@@ -449,24 +453,26 @@ namespace App_sale_manager
             // 
             // BNT_Refresh_GD
             // 
+            this.BNT_Refresh_GD.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BNT_Refresh_GD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BNT_Refresh_GD.Location = new System.Drawing.Point(792, 19);
             this.BNT_Refresh_GD.Name = "BNT_Refresh_GD";
             this.BNT_Refresh_GD.Size = new System.Drawing.Size(163, 48);
             this.BNT_Refresh_GD.TabIndex = 1;
             this.BNT_Refresh_GD.Text = "Làm mới";
-            this.BNT_Refresh_GD.UseVisualStyleBackColor = true;
+            this.BNT_Refresh_GD.UseVisualStyleBackColor = false;
             this.BNT_Refresh_GD.Click += new System.EventHandler(this.BNT_Refresh_GD_Click);
             // 
             // BNT_TaoHoaDon
             // 
+            this.BNT_TaoHoaDon.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BNT_TaoHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BNT_TaoHoaDon.Location = new System.Drawing.Point(961, 19);
             this.BNT_TaoHoaDon.Name = "BNT_TaoHoaDon";
             this.BNT_TaoHoaDon.Size = new System.Drawing.Size(163, 48);
             this.BNT_TaoHoaDon.TabIndex = 0;
             this.BNT_TaoHoaDon.Text = "Tạo Hóa Đơn";
-            this.BNT_TaoHoaDon.UseVisualStyleBackColor = true;
+            this.BNT_TaoHoaDon.UseVisualStyleBackColor = false;
             this.BNT_TaoHoaDon.Click += new System.EventHandler(this.BNT_TaoHoaDon_Click);
             // 
             // printDocument1
@@ -492,11 +498,13 @@ namespace App_sale_manager
             this.tabCtrl.Controls.Add(this.tabPage_GiaoDich);
             this.tabCtrl.Controls.Add(this.tabPage_NhanVien);
             this.tabCtrl.Controls.Add(this.tabPage_BaoCao);
-            this.tabCtrl.Location = new System.Drawing.Point(32, 14);
+            this.tabCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCtrl.ImageList = this.imageList_icon;
+            this.tabCtrl.Location = new System.Drawing.Point(3, 0);
             this.tabCtrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
-            this.tabCtrl.Size = new System.Drawing.Size(1185, 679);
+            this.tabCtrl.Size = new System.Drawing.Size(1213, 689);
             this.tabCtrl.TabIndex = 0;
             this.tabCtrl.SelectedIndexChanged += new System.EventHandler(this.tabCtrl_SelectedIndexChanged);
             // 
@@ -512,11 +520,12 @@ namespace App_sale_manager
             this.tabPage_tongquan.Controls.Add(this.label_hanghoabanchay);
             this.tabPage_tongquan.Controls.Add(this.label_kqbh);
             this.tabPage_tongquan.Controls.Add(this.btn_dangxuat);
-            this.tabPage_tongquan.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_tongquan.ImageIndex = 0;
+            this.tabPage_tongquan.Location = new System.Drawing.Point(4, 27);
             this.tabPage_tongquan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_tongquan.Name = "tabPage_tongquan";
             this.tabPage_tongquan.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_tongquan.Size = new System.Drawing.Size(1177, 650);
+            this.tabPage_tongquan.Size = new System.Drawing.Size(1205, 658);
             this.tabPage_tongquan.TabIndex = 0;
             this.tabPage_tongquan.Text = "Tổng quan";
             // 
@@ -543,24 +552,24 @@ namespace App_sale_manager
             // 
             // chart_hangbanchay
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart_hangbanchay.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_hangbanchay.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chart_hangbanchay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_hangbanchay.Legends.Add(legend1);
             this.chart_hangbanchay.Location = new System.Drawing.Point(38, 421);
             this.chart_hangbanchay.Name = "chart_hangbanchay";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series7.Legend = "Legend1";
-            series7.LegendText = "Doanh thu";
-            series7.Name = "Series_hanghoa";
-            this.chart_hangbanchay.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Doanh thu";
+            series1.Name = "Series_hanghoa";
+            this.chart_hangbanchay.Series.Add(series1);
             this.chart_hangbanchay.Size = new System.Drawing.Size(739, 220);
             this.chart_hangbanchay.TabIndex = 4;
             this.chart_hangbanchay.Text = "chart1";
-            title5.Name = "Title_hangbanchay";
-            title5.Text = "danh sách hàng hóa bán chạy tháng";
-            this.chart_hangbanchay.Titles.Add(title5);
+            title1.Name = "Title_hangbanchay";
+            title1.Text = "danh sách hàng hóa bán chạy tháng";
+            this.chart_hangbanchay.Titles.Add(title1);
             // 
             // gB_doanhthuthang
             // 
@@ -575,29 +584,29 @@ namespace App_sale_manager
             // 
             // chart_doanhthuthang
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart_doanhthuthang.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chart_doanhthuthang.ChartAreas.Add(chartArea2);
             this.chart_doanhthuthang.Dock = System.Windows.Forms.DockStyle.Right;
-            legend6.Name = "Legend1";
-            this.chart_doanhthuthang.Legends.Add(legend6);
+            legend2.Name = "Legend1";
+            this.chart_doanhthuthang.Legends.Add(legend2);
             this.chart_doanhthuthang.Location = new System.Drawing.Point(-16, 20);
             this.chart_doanhthuthang.Name = "chart_doanhthuthang";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.LegendText = "Thu";
-            series8.Name = "Series_Thu";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.LegendText = "Chi";
-            series9.Name = "Series_Chi";
-            this.chart_doanhthuthang.Series.Add(series8);
-            this.chart_doanhthuthang.Series.Add(series9);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.LegendText = "Thu";
+            series2.Name = "Series_Thu";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.LegendText = "Chi";
+            series3.Name = "Series_Chi";
+            this.chart_doanhthuthang.Series.Add(series2);
+            this.chart_doanhthuthang.Series.Add(series3);
             this.chart_doanhthuthang.Size = new System.Drawing.Size(752, 235);
             this.chart_doanhthuthang.TabIndex = 0;
             this.chart_doanhthuthang.Text = "chart1";
-            title6.Name = "Title1";
-            title6.Text = "Doanh thu tháng";
-            this.chart_doanhthuthang.Titles.Add(title6);
+            title2.Name = "Title1";
+            title2.Text = "Doanh thu tháng";
+            this.chart_doanhthuthang.Titles.Add(title2);
             // 
             // dgv_DonDatHang
             // 
@@ -663,10 +672,11 @@ namespace App_sale_manager
             this.tabPage_HangHoa.Controls.Add(this.lblChuY);
             this.tabPage_HangHoa.Controls.Add(this.dgvSP);
             this.tabPage_HangHoa.Controls.Add(this.lblLoaiSP);
-            this.tabPage_HangHoa.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_HangHoa.ImageIndex = 1;
+            this.tabPage_HangHoa.Location = new System.Drawing.Point(4, 27);
             this.tabPage_HangHoa.Name = "tabPage_HangHoa";
             this.tabPage_HangHoa.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_HangHoa.Size = new System.Drawing.Size(1177, 650);
+            this.tabPage_HangHoa.Size = new System.Drawing.Size(1205, 658);
             this.tabPage_HangHoa.TabIndex = 1;
             this.tabPage_HangHoa.Text = "Hàng hóa";
             // 
@@ -736,7 +746,7 @@ namespace App_sale_manager
             this.dgvSP.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvSP.ColumnHeadersHeight = 70;
             this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvSP.Location = new System.Drawing.Point(3, 230);
+            this.dgvSP.Location = new System.Drawing.Point(19, 230);
             this.dgvSP.Name = "dgvSP";
             this.dgvSP.ReadOnly = true;
             this.dgvSP.RowHeadersWidth = 51;
@@ -751,7 +761,7 @@ namespace App_sale_manager
             this.lblLoaiSP.AutoSize = true;
             this.lblLoaiSP.Location = new System.Drawing.Point(1220, 47);
             this.lblLoaiSP.Name = "lblLoaiSP";
-            this.lblLoaiSP.Size = new System.Drawing.Size(101, 17);
+            this.lblLoaiSP.Size = new System.Drawing.Size(105, 18);
             this.lblLoaiSP.TabIndex = 3;
             this.lblLoaiSP.Text = "Loại sản phẩm";
             // 
@@ -759,11 +769,12 @@ namespace App_sale_manager
             // 
             this.tabPage_DoiTac.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage_DoiTac.Controls.Add(this.tabControl_DTCC_in);
-            this.tabPage_DoiTac.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_DoiTac.ImageIndex = 2;
+            this.tabPage_DoiTac.Location = new System.Drawing.Point(4, 27);
             this.tabPage_DoiTac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_DoiTac.Name = "tabPage_DoiTac";
             this.tabPage_DoiTac.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_DoiTac.Size = new System.Drawing.Size(1177, 650);
+            this.tabPage_DoiTac.Size = new System.Drawing.Size(1205, 658);
             this.tabPage_DoiTac.TabIndex = 2;
             this.tabPage_DoiTac.Text = "Đối tác";
             this.tabPage_DoiTac.Click += new System.EventHandler(this.tabPage_DoiTac_Click);
@@ -778,7 +789,7 @@ namespace App_sale_manager
             this.tabControl_DTCC_in.Multiline = true;
             this.tabControl_DTCC_in.Name = "tabControl_DTCC_in";
             this.tabControl_DTCC_in.SelectedIndex = 0;
-            this.tabControl_DTCC_in.Size = new System.Drawing.Size(1180, 652);
+            this.tabControl_DTCC_in.Size = new System.Drawing.Size(1201, 652);
             this.tabControl_DTCC_in.TabIndex = 0;
             this.tabControl_DTCC_in.TabStop = false;
             // 
@@ -806,17 +817,18 @@ namespace App_sale_manager
             this.tabPage__DTCC_DTGD.Controls.Add(this.label_ID);
             this.tabPage__DTCC_DTGD.Controls.Add(this.pictureBox_Logo);
             this.tabPage__DTCC_DTGD.Controls.Add(this.dataGridView_DTCC);
-            this.tabPage__DTCC_DTGD.Location = new System.Drawing.Point(25, 4);
+            this.tabPage__DTCC_DTGD.Location = new System.Drawing.Point(28, 4);
             this.tabPage__DTCC_DTGD.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage__DTCC_DTGD.Name = "tabPage__DTCC_DTGD";
             this.tabPage__DTCC_DTGD.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage__DTCC_DTGD.Size = new System.Drawing.Size(1151, 644);
+            this.tabPage__DTCC_DTGD.Size = new System.Drawing.Size(1169, 644);
             this.tabPage__DTCC_DTGD.TabIndex = 0;
             this.tabPage__DTCC_DTGD.Text = "Đối tác giao dịch";
             // 
             // button_refresh
             // 
-            this.button_refresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_refresh.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_refresh.Location = new System.Drawing.Point(357, 290);
             this.button_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.button_refresh.Name = "button_refresh";
@@ -829,10 +841,11 @@ namespace App_sale_manager
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(473, 73);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(439, 71);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.Size = new System.Drawing.Size(79, 18);
             this.label1.TabIndex = 40;
             this.label1.Text = "Tìm theo:";
             // 
@@ -848,7 +861,7 @@ namespace App_sale_manager
             this.comboBox_searchOption.Location = new System.Drawing.Point(543, 69);
             this.comboBox_searchOption.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_searchOption.Name = "comboBox_searchOption";
-            this.comboBox_searchOption.Size = new System.Drawing.Size(167, 24);
+            this.comboBox_searchOption.Size = new System.Drawing.Size(167, 26);
             this.comboBox_searchOption.TabIndex = 39;
             this.comboBox_searchOption.Text = "Chưa chọn";
             // 
@@ -870,13 +883,14 @@ namespace App_sale_manager
             this.textBox_search.Location = new System.Drawing.Point(719, 69);
             this.textBox_search.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_search.Name = "textBox_search";
-            this.textBox_search.Size = new System.Drawing.Size(304, 22);
+            this.textBox_search.Size = new System.Drawing.Size(304, 24);
             this.textBox_search.TabIndex = 37;
             this.textBox_search.Click += new System.EventHandler(this.textBox_search_Click);
             // 
             // button_searchDTCC
             // 
-            this.button_searchDTCC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_searchDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_searchDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_searchDTCC.Location = new System.Drawing.Point(1032, 65);
             this.button_searchDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_searchDTCC.Name = "button_searchDTCC";
@@ -888,7 +902,8 @@ namespace App_sale_manager
             // 
             // button_deleteDTCC
             // 
-            this.button_deleteDTCC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_deleteDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_deleteDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_deleteDTCC.Location = new System.Drawing.Point(965, 540);
             this.button_deleteDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_deleteDTCC.Name = "button_deleteDTCC";
@@ -900,7 +915,8 @@ namespace App_sale_manager
             // 
             // button_modDTCC
             // 
-            this.button_modDTCC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_modDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_modDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_modDTCC.Location = new System.Drawing.Point(719, 540);
             this.button_modDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_modDTCC.Name = "button_modDTCC";
@@ -912,7 +928,8 @@ namespace App_sale_manager
             // 
             // button_addDTCC
             // 
-            this.button_addDTCC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_addDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_addDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_addDTCC.Location = new System.Drawing.Point(465, 540);
             this.button_addDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_addDTCC.Name = "button_addDTCC";
@@ -936,7 +953,7 @@ namespace App_sale_manager
             this.label_DIACHI.Location = new System.Drawing.Point(87, 486);
             this.label_DIACHI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_DIACHI.Name = "label_DIACHI";
-            this.label_DIACHI.Size = new System.Drawing.Size(55, 17);
+            this.label_DIACHI.Size = new System.Drawing.Size(57, 18);
             this.label_DIACHI.TabIndex = 31;
             this.label_DIACHI.Text = "Địa chỉ:";
             // 
@@ -946,7 +963,7 @@ namespace App_sale_manager
             this.label_NGDTtext.Location = new System.Drawing.Point(152, 442);
             this.label_NGDTtext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_NGDTtext.Name = "label_NGDTtext";
-            this.label_NGDTtext.Size = new System.Drawing.Size(0, 17);
+            this.label_NGDTtext.Size = new System.Drawing.Size(0, 18);
             this.label_NGDTtext.TabIndex = 30;
             // 
             // label_NGDT
@@ -955,7 +972,7 @@ namespace App_sale_manager
             this.label_NGDT.Location = new System.Drawing.Point(69, 442);
             this.label_NGDT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_NGDT.Name = "label_NGDT";
-            this.label_NGDT.Size = new System.Drawing.Size(72, 17);
+            this.label_NGDT.Size = new System.Drawing.Size(75, 18);
             this.label_NGDT.TabIndex = 29;
             this.label_NGDT.Text = "Đối tác từ:";
             // 
@@ -965,7 +982,7 @@ namespace App_sale_manager
             this.label_SDTtext.Location = new System.Drawing.Point(152, 400);
             this.label_SDTtext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_SDTtext.Name = "label_SDTtext";
-            this.label_SDTtext.Size = new System.Drawing.Size(0, 17);
+            this.label_SDTtext.Size = new System.Drawing.Size(0, 18);
             this.label_SDTtext.TabIndex = 28;
             // 
             // label_SDT
@@ -974,7 +991,7 @@ namespace App_sale_manager
             this.label_SDT.Location = new System.Drawing.Point(47, 400);
             this.label_SDT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_SDT.Name = "label_SDT";
-            this.label_SDT.Size = new System.Drawing.Size(95, 17);
+            this.label_SDT.Size = new System.Drawing.Size(98, 18);
             this.label_SDT.TabIndex = 27;
             this.label_SDT.Text = "Số điện thoại:";
             // 
@@ -984,7 +1001,7 @@ namespace App_sale_manager
             this.label_TENDTtext.Location = new System.Drawing.Point(152, 357);
             this.label_TENDTtext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_TENDTtext.Name = "label_TENDTtext";
-            this.label_TENDTtext.Size = new System.Drawing.Size(0, 17);
+            this.label_TENDTtext.Size = new System.Drawing.Size(0, 18);
             this.label_TENDTtext.TabIndex = 26;
             // 
             // label_TENDT
@@ -993,7 +1010,7 @@ namespace App_sale_manager
             this.label_TENDT.Location = new System.Drawing.Point(57, 357);
             this.label_TENDT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_TENDT.Name = "label_TENDT";
-            this.label_TENDT.Size = new System.Drawing.Size(83, 17);
+            this.label_TENDT.Size = new System.Drawing.Size(85, 18);
             this.label_TENDT.TabIndex = 25;
             this.label_TENDT.Text = "Tên đối tác:";
             // 
@@ -1003,7 +1020,7 @@ namespace App_sale_manager
             this.label_IDtext.Location = new System.Drawing.Point(201, 290);
             this.label_IDtext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_IDtext.Name = "label_IDtext";
-            this.label_IDtext.Size = new System.Drawing.Size(0, 17);
+            this.label_IDtext.Size = new System.Drawing.Size(0, 18);
             this.label_IDtext.TabIndex = 24;
             // 
             // label_ID
@@ -1012,7 +1029,7 @@ namespace App_sale_manager
             this.label_ID.Location = new System.Drawing.Point(121, 290);
             this.label_ID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_ID.Name = "label_ID";
-            this.label_ID.Size = new System.Drawing.Size(81, 17);
+            this.label_ID.Size = new System.Drawing.Size(85, 18);
             this.label_ID.TabIndex = 23;
             this.label_ID.Text = "Mã đối tác: ";
             // 
@@ -1048,7 +1065,7 @@ namespace App_sale_manager
             this.dataGridView_DTCC.ReadOnly = true;
             this.dataGridView_DTCC.RowHeadersWidth = 51;
             this.dataGridView_DTCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_DTCC.Size = new System.Drawing.Size(652, 364);
+            this.dataGridView_DTCC.Size = new System.Drawing.Size(670, 364);
             this.dataGridView_DTCC.TabIndex = 21;
             this.dataGridView_DTCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DTCC_CellClick);
             // 
@@ -1081,18 +1098,19 @@ namespace App_sale_manager
             this.tabPage_DTCC_Guest.Controls.Add(this.label__dtcc_guestId);
             this.tabPage_DTCC_Guest.Controls.Add(this.pictureBox_dtcc_guestFace);
             this.tabPage_DTCC_Guest.Controls.Add(this.dataGridView_dtcc_guest);
-            this.tabPage_DTCC_Guest.Location = new System.Drawing.Point(25, 4);
+            this.tabPage_DTCC_Guest.Location = new System.Drawing.Point(28, 4);
             this.tabPage_DTCC_Guest.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_DTCC_Guest.Name = "tabPage_DTCC_Guest";
             this.tabPage_DTCC_Guest.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage_DTCC_Guest.Size = new System.Drawing.Size(1151, 644);
+            this.tabPage_DTCC_Guest.Size = new System.Drawing.Size(1169, 644);
             this.tabPage_DTCC_Guest.TabIndex = 1;
             this.tabPage_DTCC_Guest.Text = "Khách hàng thành viên";
             this.tabPage_DTCC_Guest.Click += new System.EventHandler(this.tabPage_DTCC_Guest_Click);
             // 
             // button_sale
             // 
-            this.button_sale.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_sale.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_sale.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_sale.Location = new System.Drawing.Point(8, 592);
             this.button_sale.Margin = new System.Windows.Forms.Padding(4);
             this.button_sale.Name = "button_sale";
@@ -1108,7 +1126,7 @@ namespace App_sale_manager
             this.label_guestSpec_Text.Location = new System.Drawing.Point(175, 476);
             this.label_guestSpec_Text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_guestSpec_Text.Name = "label_guestSpec_Text";
-            this.label_guestSpec_Text.Size = new System.Drawing.Size(0, 17);
+            this.label_guestSpec_Text.Size = new System.Drawing.Size(0, 18);
             this.label_guestSpec_Text.TabIndex = 66;
             // 
             // label_guestSpec
@@ -1117,7 +1135,7 @@ namespace App_sale_manager
             this.label_guestSpec.Location = new System.Drawing.Point(47, 476);
             this.label_guestSpec.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_guestSpec.Name = "label_guestSpec";
-            this.label_guestSpec.Size = new System.Drawing.Size(117, 17);
+            this.label_guestSpec.Size = new System.Drawing.Size(120, 18);
             this.label_guestSpec.TabIndex = 65;
             this.label_guestSpec.Text = "Loại khách hàng:";
             // 
@@ -1127,7 +1145,7 @@ namespace App_sale_manager
             this.label_guestMoney_Text.Location = new System.Drawing.Point(175, 448);
             this.label_guestMoney_Text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_guestMoney_Text.Name = "label_guestMoney_Text";
-            this.label_guestMoney_Text.Size = new System.Drawing.Size(0, 17);
+            this.label_guestMoney_Text.Size = new System.Drawing.Size(0, 18);
             this.label_guestMoney_Text.TabIndex = 64;
             // 
             // label_dtcc_guestMoney
@@ -1136,13 +1154,14 @@ namespace App_sale_manager
             this.label_dtcc_guestMoney.Location = new System.Drawing.Point(92, 448);
             this.label_dtcc_guestMoney.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_dtcc_guestMoney.Name = "label_dtcc_guestMoney";
-            this.label_dtcc_guestMoney.Size = new System.Drawing.Size(73, 17);
+            this.label_dtcc_guestMoney.Size = new System.Drawing.Size(77, 18);
             this.label_dtcc_guestMoney.TabIndex = 63;
             this.label_dtcc_guestMoney.Text = "Doanh số:";
             // 
             // button_guest_refresh
             // 
-            this.button_guest_refresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_guest_refresh.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_guest_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_refresh.Location = new System.Drawing.Point(357, 290);
             this.button_guest_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_refresh.Name = "button_guest_refresh";
@@ -1155,10 +1174,11 @@ namespace App_sale_manager
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(473, 73);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(443, 71);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 17);
+            this.label2.Size = new System.Drawing.Size(79, 18);
             this.label2.TabIndex = 61;
             this.label2.Text = "Tìm theo:";
             // 
@@ -1175,7 +1195,7 @@ namespace App_sale_manager
             this.comboBox_guest_filter.Location = new System.Drawing.Point(543, 69);
             this.comboBox_guest_filter.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_guest_filter.Name = "comboBox_guest_filter";
-            this.comboBox_guest_filter.Size = new System.Drawing.Size(167, 24);
+            this.comboBox_guest_filter.Size = new System.Drawing.Size(167, 26);
             this.comboBox_guest_filter.TabIndex = 60;
             this.comboBox_guest_filter.Text = "Chưa chọn";
             // 
@@ -1197,14 +1217,15 @@ namespace App_sale_manager
             this.textBox_guest_search.Location = new System.Drawing.Point(719, 69);
             this.textBox_guest_search.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_guest_search.Name = "textBox_guest_search";
-            this.textBox_guest_search.Size = new System.Drawing.Size(304, 22);
+            this.textBox_guest_search.Size = new System.Drawing.Size(304, 24);
             this.textBox_guest_search.TabIndex = 58;
             this.textBox_guest_search.Click += new System.EventHandler(this.textBox_guest_search_Click);
             this.textBox_guest_search.TextChanged += new System.EventHandler(this.textBox_guest_search_TextChanged);
             // 
             // button_guest_search
             // 
-            this.button_guest_search.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_guest_search.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_guest_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_search.Location = new System.Drawing.Point(1032, 65);
             this.button_guest_search.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_search.Name = "button_guest_search";
@@ -1216,7 +1237,8 @@ namespace App_sale_manager
             // 
             // button_guest_delete
             // 
-            this.button_guest_delete.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_guest_delete.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_guest_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_delete.Location = new System.Drawing.Point(965, 540);
             this.button_guest_delete.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_delete.Name = "button_guest_delete";
@@ -1228,7 +1250,8 @@ namespace App_sale_manager
             // 
             // button_guest_mod
             // 
-            this.button_guest_mod.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_guest_mod.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_guest_mod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_mod.Location = new System.Drawing.Point(719, 540);
             this.button_guest_mod.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_mod.Name = "button_guest_mod";
@@ -1240,7 +1263,8 @@ namespace App_sale_manager
             // 
             // button_guest_add
             // 
-            this.button_guest_add.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_guest_add.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_guest_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_add.Location = new System.Drawing.Point(465, 540);
             this.button_guest_add.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_add.Name = "button_guest_add";
@@ -1264,7 +1288,7 @@ namespace App_sale_manager
             this.label_dtcc_guestAddr.Location = new System.Drawing.Point(109, 506);
             this.label_dtcc_guestAddr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_dtcc_guestAddr.Name = "label_dtcc_guestAddr";
-            this.label_dtcc_guestAddr.Size = new System.Drawing.Size(55, 17);
+            this.label_dtcc_guestAddr.Size = new System.Drawing.Size(57, 18);
             this.label_dtcc_guestAddr.TabIndex = 52;
             this.label_dtcc_guestAddr.Text = "Địa chỉ:";
             // 
@@ -1274,7 +1298,7 @@ namespace App_sale_manager
             this.label_guestReg_Text.Location = new System.Drawing.Point(175, 418);
             this.label_guestReg_Text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_guestReg_Text.Name = "label_guestReg_Text";
-            this.label_guestReg_Text.Size = new System.Drawing.Size(0, 17);
+            this.label_guestReg_Text.Size = new System.Drawing.Size(0, 18);
             this.label_guestReg_Text.TabIndex = 51;
             // 
             // label_dtcc_guestReg
@@ -1283,7 +1307,7 @@ namespace App_sale_manager
             this.label_dtcc_guestReg.Location = new System.Drawing.Point(65, 418);
             this.label_dtcc_guestReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_dtcc_guestReg.Name = "label_dtcc_guestReg";
-            this.label_dtcc_guestReg.Size = new System.Drawing.Size(95, 17);
+            this.label_dtcc_guestReg.Size = new System.Drawing.Size(97, 18);
             this.label_dtcc_guestReg.TabIndex = 50;
             this.label_dtcc_guestReg.Text = "Ngày đăng kí:";
             // 
@@ -1293,7 +1317,7 @@ namespace App_sale_manager
             this.label_guestSDT_Text.Location = new System.Drawing.Point(175, 389);
             this.label_guestSDT_Text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_guestSDT_Text.Name = "label_guestSDT_Text";
-            this.label_guestSDT_Text.Size = new System.Drawing.Size(0, 17);
+            this.label_guestSDT_Text.Size = new System.Drawing.Size(0, 18);
             this.label_guestSDT_Text.TabIndex = 49;
             // 
             // label_dtcc_guestPhone
@@ -1302,7 +1326,7 @@ namespace App_sale_manager
             this.label_dtcc_guestPhone.Location = new System.Drawing.Point(69, 389);
             this.label_dtcc_guestPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_dtcc_guestPhone.Name = "label_dtcc_guestPhone";
-            this.label_dtcc_guestPhone.Size = new System.Drawing.Size(95, 17);
+            this.label_dtcc_guestPhone.Size = new System.Drawing.Size(98, 18);
             this.label_dtcc_guestPhone.TabIndex = 48;
             this.label_dtcc_guestPhone.Text = "Số điện thoại:";
             // 
@@ -1312,7 +1336,7 @@ namespace App_sale_manager
             this.label_guestName_Text.Location = new System.Drawing.Point(175, 359);
             this.label_guestName_Text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_guestName_Text.Name = "label_guestName_Text";
-            this.label_guestName_Text.Size = new System.Drawing.Size(0, 17);
+            this.label_guestName_Text.Size = new System.Drawing.Size(0, 18);
             this.label_guestName_Text.TabIndex = 47;
             // 
             // label_DTCC_guestName
@@ -1321,7 +1345,7 @@ namespace App_sale_manager
             this.label_DTCC_guestName.Location = new System.Drawing.Point(80, 359);
             this.label_DTCC_guestName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_DTCC_guestName.Name = "label_DTCC_guestName";
-            this.label_DTCC_guestName.Size = new System.Drawing.Size(83, 17);
+            this.label_DTCC_guestName.Size = new System.Drawing.Size(85, 18);
             this.label_DTCC_guestName.TabIndex = 46;
             this.label_DTCC_guestName.Text = "Tên đối tác:";
             // 
@@ -1331,7 +1355,7 @@ namespace App_sale_manager
             this.label_guestID_Text.Location = new System.Drawing.Point(201, 290);
             this.label_guestID_Text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_guestID_Text.Name = "label_guestID_Text";
-            this.label_guestID_Text.Size = new System.Drawing.Size(0, 17);
+            this.label_guestID_Text.Size = new System.Drawing.Size(0, 18);
             this.label_guestID_Text.TabIndex = 45;
             // 
             // label__dtcc_guestId
@@ -1340,7 +1364,7 @@ namespace App_sale_manager
             this.label__dtcc_guestId.Location = new System.Drawing.Point(80, 290);
             this.label__dtcc_guestId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label__dtcc_guestId.Name = "label__dtcc_guestId";
-            this.label__dtcc_guestId.Size = new System.Drawing.Size(109, 17);
+            this.label__dtcc_guestId.Size = new System.Drawing.Size(113, 18);
             this.label__dtcc_guestId.TabIndex = 44;
             this.label__dtcc_guestId.Text = "Mã khách hàng:";
             // 
@@ -1377,7 +1401,7 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.ReadOnly = true;
             this.dataGridView_dtcc_guest.RowHeadersWidth = 51;
             this.dataGridView_dtcc_guest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(652, 385);
+            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(673, 385);
             this.dataGridView_dtcc_guest.TabIndex = 42;
             this.dataGridView_dtcc_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dtcc_guest_CellClick);
             // 
@@ -1389,11 +1413,12 @@ namespace App_sale_manager
             this.tabPage_GiaoDich.Controls.Add(this.GridView_Data_GiaoDich);
             this.tabPage_GiaoDich.Controls.Add(this.BNT_Refresh_GD);
             this.tabPage_GiaoDich.Controls.Add(this.BNT_TaoHoaDon);
-            this.tabPage_GiaoDich.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_GiaoDich.ImageIndex = 4;
+            this.tabPage_GiaoDich.Location = new System.Drawing.Point(4, 27);
             this.tabPage_GiaoDich.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_GiaoDich.Name = "tabPage_GiaoDich";
             this.tabPage_GiaoDich.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_GiaoDich.Size = new System.Drawing.Size(1177, 650);
+            this.tabPage_GiaoDich.Size = new System.Drawing.Size(1205, 658);
             this.tabPage_GiaoDich.TabIndex = 3;
             this.tabPage_GiaoDich.Text = "Giao dịch";
             // 
@@ -1410,6 +1435,7 @@ namespace App_sale_manager
             this.GroupB_GD_TimKiem.Controls.Add(this.label1_GD);
             this.GroupB_GD_TimKiem.Controls.Add(this.CLB_GD_LoaiDon);
             this.GroupB_GD_TimKiem.Controls.Add(this.Box_GD_MaHoaDon);
+            this.GroupB_GD_TimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupB_GD_TimKiem.Location = new System.Drawing.Point(24, 38);
             this.GroupB_GD_TimKiem.Name = "GroupB_GD_TimKiem";
             this.GroupB_GD_TimKiem.Size = new System.Drawing.Size(194, 601);
@@ -1420,11 +1446,12 @@ namespace App_sale_manager
             // tabPage_NhanVien
             // 
             this.tabPage_NhanVien.Controls.Add(this.tab_nv);
-            this.tabPage_NhanVien.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_NhanVien.ImageIndex = 3;
+            this.tabPage_NhanVien.Location = new System.Drawing.Point(4, 27);
             this.tabPage_NhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_NhanVien.Name = "tabPage_NhanVien";
             this.tabPage_NhanVien.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_NhanVien.Size = new System.Drawing.Size(1177, 650);
+            this.tabPage_NhanVien.Size = new System.Drawing.Size(1205, 658);
             this.tabPage_NhanVien.TabIndex = 4;
             this.tabPage_NhanVien.Text = "Nhân viên";
             this.tabPage_NhanVien.UseVisualStyleBackColor = true;
@@ -1435,15 +1462,17 @@ namespace App_sale_manager
             this.tab_nv.Controls.Add(this.tabPage1);
             this.tab_nv.Controls.Add(this.tabP_nv_bangphancong);
             this.tab_nv.Controls.Add(this.tabPage3);
-            this.tab_nv.Location = new System.Drawing.Point(4, 7);
+            this.tab_nv.ImageList = this.imageList_icon;
+            this.tab_nv.Location = new System.Drawing.Point(-4, 0);
             this.tab_nv.Name = "tab_nv";
             this.tab_nv.SelectedIndex = 0;
-            this.tab_nv.Size = new System.Drawing.Size(1192, 643);
+            this.tab_nv.Size = new System.Drawing.Size(1213, 655);
             this.tab_nv.TabIndex = 0;
             this.tab_nv.SelectedIndexChanged += new System.EventHandler(this.tab_nv_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage1.Controls.Add(this.label_search_nv_infonv);
             this.tabPage1.Controls.Add(this.tb_search_nv_infonv);
             this.tabPage1.Controls.Add(this.cb_searchoption_nv_infonv);
@@ -1472,21 +1501,21 @@ namespace App_sale_manager
             this.tabPage1.Controls.Add(this.label_tennv_nv_infonv);
             this.tabPage1.Controls.Add(this.label_manv_nv_infonv);
             this.tabPage1.Controls.Add(this.label_Nhapthongtin_nv_infonv);
+            this.tabPage1.ImageIndex = 8;
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1184, 614);
+            this.tabPage1.Size = new System.Drawing.Size(1205, 624);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tra cứu thông tin nhân viên";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label_search_nv_infonv
             // 
             this.label_search_nv_infonv.AutoSize = true;
-            this.label_search_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_search_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_search_nv_infonv.Location = new System.Drawing.Point(448, 40);
             this.label_search_nv_infonv.Name = "label_search_nv_infonv";
-            this.label_search_nv_infonv.Size = new System.Drawing.Size(74, 20);
+            this.label_search_nv_infonv.Size = new System.Drawing.Size(82, 20);
             this.label_search_nv_infonv.TabIndex = 14;
             this.label_search_nv_infonv.Text = "Tìm theo";
             // 
@@ -1494,7 +1523,7 @@ namespace App_sale_manager
             // 
             this.tb_search_nv_infonv.Location = new System.Drawing.Point(700, 38);
             this.tb_search_nv_infonv.Name = "tb_search_nv_infonv";
-            this.tb_search_nv_infonv.Size = new System.Drawing.Size(311, 22);
+            this.tb_search_nv_infonv.Size = new System.Drawing.Size(311, 24);
             this.tb_search_nv_infonv.TabIndex = 13;
             // 
             // cb_searchoption_nv_infonv
@@ -1509,18 +1538,20 @@ namespace App_sale_manager
             "Chức vụ"});
             this.cb_searchoption_nv_infonv.Location = new System.Drawing.Point(539, 37);
             this.cb_searchoption_nv_infonv.Name = "cb_searchoption_nv_infonv";
-            this.cb_searchoption_nv_infonv.Size = new System.Drawing.Size(155, 24);
+            this.cb_searchoption_nv_infonv.Size = new System.Drawing.Size(155, 26);
             this.cb_searchoption_nv_infonv.TabIndex = 12;
             this.cb_searchoption_nv_infonv.Text = "Chưa chọn";
             // 
             // button_Image_import
             // 
+            this.button_Image_import.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_Image_import.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Image_import.Location = new System.Drawing.Point(146, 80);
             this.button_Image_import.Name = "button_Image_import";
-            this.button_Image_import.Size = new System.Drawing.Size(126, 23);
+            this.button_Image_import.Size = new System.Drawing.Size(126, 34);
             this.button_Image_import.TabIndex = 11;
             this.button_Image_import.Text = "Chọn ảnh";
-            this.button_Image_import.UseVisualStyleBackColor = true;
+            this.button_Image_import.UseVisualStyleBackColor = false;
             this.button_Image_import.Click += new System.EventHandler(this.button_Image_import_Click);
             // 
             // pictureBox_image_import_nv
@@ -1537,7 +1568,7 @@ namespace App_sale_manager
             this.label_matkhau_nv_infonv.AutoSize = true;
             this.label_matkhau_nv_infonv.Location = new System.Drawing.Point(34, 451);
             this.label_matkhau_nv_infonv.Name = "label_matkhau_nv_infonv";
-            this.label_matkhau_nv_infonv.Size = new System.Drawing.Size(66, 17);
+            this.label_matkhau_nv_infonv.Size = new System.Drawing.Size(69, 18);
             this.label_matkhau_nv_infonv.TabIndex = 9;
             this.label_matkhau_nv_infonv.Text = "Mật khẩu";
             // 
@@ -1546,58 +1577,68 @@ namespace App_sale_manager
             this.label_username_nv_infonv.AutoSize = true;
             this.label_username_nv_infonv.Location = new System.Drawing.Point(34, 418);
             this.label_username_nv_infonv.Name = "label_username_nv_infonv";
-            this.label_username_nv_infonv.Size = new System.Drawing.Size(73, 17);
+            this.label_username_nv_infonv.Size = new System.Drawing.Size(77, 18);
             this.label_username_nv_infonv.TabIndex = 9;
             this.label_username_nv_infonv.Text = "Username";
             // 
             // bt_Tracuu_nv_infonv
             // 
-            this.bt_Tracuu_nv_infonv.Location = new System.Drawing.Point(1034, 37);
+            this.bt_Tracuu_nv_infonv.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Tracuu_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Tracuu_nv_infonv.Location = new System.Drawing.Point(1017, 32);
             this.bt_Tracuu_nv_infonv.Name = "bt_Tracuu_nv_infonv";
-            this.bt_Tracuu_nv_infonv.Size = new System.Drawing.Size(75, 23);
+            this.bt_Tracuu_nv_infonv.Size = new System.Drawing.Size(92, 36);
             this.bt_Tracuu_nv_infonv.TabIndex = 8;
             this.bt_Tracuu_nv_infonv.Text = "Tra cứu";
-            this.bt_Tracuu_nv_infonv.UseVisualStyleBackColor = true;
+            this.bt_Tracuu_nv_infonv.UseVisualStyleBackColor = false;
             this.bt_Tracuu_nv_infonv.Click += new System.EventHandler(this.bt_nv_infonv_Tracuu_Click);
             // 
             // bt_Khoitao_nv_infonv
             // 
-            this.bt_Khoitao_nv_infonv.Location = new System.Drawing.Point(37, 559);
+            this.bt_Khoitao_nv_infonv.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Khoitao_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Khoitao_nv_infonv.Location = new System.Drawing.Point(36, 545);
             this.bt_Khoitao_nv_infonv.Name = "bt_Khoitao_nv_infonv";
-            this.bt_Khoitao_nv_infonv.Size = new System.Drawing.Size(75, 23);
+            this.bt_Khoitao_nv_infonv.Size = new System.Drawing.Size(117, 33);
             this.bt_Khoitao_nv_infonv.TabIndex = 8;
-            this.bt_Khoitao_nv_infonv.Text = "Khởi tạo";
-            this.bt_Khoitao_nv_infonv.UseVisualStyleBackColor = true;
+            this.bt_Khoitao_nv_infonv.Text = "làm mới";
+            this.bt_Khoitao_nv_infonv.UseVisualStyleBackColor = false;
             this.bt_Khoitao_nv_infonv.Click += new System.EventHandler(this.bt_nv_infonv_Khoitao_Click);
             // 
             // bt_Xoa_nv_infonv
             // 
-            this.bt_Xoa_nv_infonv.Location = new System.Drawing.Point(279, 513);
+            this.bt_Xoa_nv_infonv.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Xoa_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Xoa_nv_infonv.Location = new System.Drawing.Point(279, 503);
             this.bt_Xoa_nv_infonv.Name = "bt_Xoa_nv_infonv";
-            this.bt_Xoa_nv_infonv.Size = new System.Drawing.Size(75, 23);
+            this.bt_Xoa_nv_infonv.Size = new System.Drawing.Size(75, 33);
             this.bt_Xoa_nv_infonv.TabIndex = 8;
             this.bt_Xoa_nv_infonv.Text = "Xóa";
-            this.bt_Xoa_nv_infonv.UseVisualStyleBackColor = true;
+            this.bt_Xoa_nv_infonv.UseVisualStyleBackColor = false;
             this.bt_Xoa_nv_infonv.Click += new System.EventHandler(this.bt_nv_infonv_Xoa_Click);
             // 
             // bt_Sua_nv_infonv
             // 
-            this.bt_Sua_nv_infonv.Location = new System.Drawing.Point(158, 513);
+            this.bt_Sua_nv_infonv.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Sua_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Sua_nv_infonv.Location = new System.Drawing.Point(158, 503);
             this.bt_Sua_nv_infonv.Name = "bt_Sua_nv_infonv";
-            this.bt_Sua_nv_infonv.Size = new System.Drawing.Size(75, 23);
+            this.bt_Sua_nv_infonv.Size = new System.Drawing.Size(75, 33);
             this.bt_Sua_nv_infonv.TabIndex = 8;
             this.bt_Sua_nv_infonv.Text = "Sửa";
-            this.bt_Sua_nv_infonv.UseVisualStyleBackColor = true;
+            this.bt_Sua_nv_infonv.UseVisualStyleBackColor = false;
             this.bt_Sua_nv_infonv.Click += new System.EventHandler(this.bt_nv_infonv_Sua_Click);
             // 
             // bt_Them_nv_infonv
             // 
-            this.bt_Them_nv_infonv.Location = new System.Drawing.Point(36, 513);
+            this.bt_Them_nv_infonv.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Them_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Them_nv_infonv.Location = new System.Drawing.Point(36, 503);
             this.bt_Them_nv_infonv.Name = "bt_Them_nv_infonv";
-            this.bt_Them_nv_infonv.Size = new System.Drawing.Size(75, 23);
+            this.bt_Them_nv_infonv.Size = new System.Drawing.Size(75, 33);
             this.bt_Them_nv_infonv.TabIndex = 8;
             this.bt_Them_nv_infonv.Text = "Thêm";
-            this.bt_Them_nv_infonv.UseVisualStyleBackColor = true;
+            this.bt_Them_nv_infonv.UseVisualStyleBackColor = false;
             this.bt_Them_nv_infonv.Click += new System.EventHandler(this.bt_Them_nv_infonv_Click);
             // 
             // groupBox1
@@ -1605,7 +1646,7 @@ namespace App_sale_manager
             this.groupBox1.Controls.Add(this.dgv_nv_infonv);
             this.groupBox1.Location = new System.Drawing.Point(384, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(753, 517);
+            this.groupBox1.Size = new System.Drawing.Size(786, 517);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh mục nhân viên";
@@ -1628,7 +1669,7 @@ namespace App_sale_manager
             this.dt_NgaySinh_nv_infonv.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_NgaySinh_nv_infonv.Location = new System.Drawing.Point(146, 303);
             this.dt_NgaySinh_nv_infonv.Name = "dt_NgaySinh_nv_infonv";
-            this.dt_NgaySinh_nv_infonv.Size = new System.Drawing.Size(103, 22);
+            this.dt_NgaySinh_nv_infonv.Size = new System.Drawing.Size(103, 24);
             this.dt_NgaySinh_nv_infonv.TabIndex = 5;
             this.dt_NgaySinh_nv_infonv.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
@@ -1638,7 +1679,7 @@ namespace App_sale_manager
             this.dt_NgayVaoLam_nv_infonv.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_NgayVaoLam_nv_infonv.Location = new System.Drawing.Point(146, 339);
             this.dt_NgayVaoLam_nv_infonv.Name = "dt_NgayVaoLam_nv_infonv";
-            this.dt_NgayVaoLam_nv_infonv.Size = new System.Drawing.Size(103, 22);
+            this.dt_NgayVaoLam_nv_infonv.Size = new System.Drawing.Size(103, 24);
             this.dt_NgayVaoLam_nv_infonv.TabIndex = 5;
             this.dt_NgayVaoLam_nv_infonv.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
@@ -1646,7 +1687,7 @@ namespace App_sale_manager
             // 
             this.tb_matkhau_nv_infonv.Location = new System.Drawing.Point(146, 446);
             this.tb_matkhau_nv_infonv.Name = "tb_matkhau_nv_infonv";
-            this.tb_matkhau_nv_infonv.Size = new System.Drawing.Size(178, 22);
+            this.tb_matkhau_nv_infonv.Size = new System.Drawing.Size(178, 24);
             this.tb_matkhau_nv_infonv.TabIndex = 3;
             this.tb_matkhau_nv_infonv.TextChanged += new System.EventHandler(this.tb_matkhau_nv_infonv_TextChanged);
             this.tb_matkhau_nv_infonv.Leave += new System.EventHandler(this.tb_matkhau_nv_infonv_Leave);
@@ -1655,21 +1696,21 @@ namespace App_sale_manager
             // 
             this.tb_username_nv_infonv.Location = new System.Drawing.Point(146, 418);
             this.tb_username_nv_infonv.Name = "tb_username_nv_infonv";
-            this.tb_username_nv_infonv.Size = new System.Drawing.Size(178, 22);
+            this.tb_username_nv_infonv.Size = new System.Drawing.Size(178, 24);
             this.tb_username_nv_infonv.TabIndex = 3;
             // 
             // tb_ChucVu_nv_infonv
             // 
             this.tb_ChucVu_nv_infonv.Location = new System.Drawing.Point(146, 383);
             this.tb_ChucVu_nv_infonv.Name = "tb_ChucVu_nv_infonv";
-            this.tb_ChucVu_nv_infonv.Size = new System.Drawing.Size(178, 22);
+            this.tb_ChucVu_nv_infonv.Size = new System.Drawing.Size(178, 24);
             this.tb_ChucVu_nv_infonv.TabIndex = 3;
             // 
             // tb_SDT_nv_infonv
             // 
             this.tb_SDT_nv_infonv.Location = new System.Drawing.Point(146, 259);
             this.tb_SDT_nv_infonv.Name = "tb_SDT_nv_infonv";
-            this.tb_SDT_nv_infonv.Size = new System.Drawing.Size(178, 22);
+            this.tb_SDT_nv_infonv.Size = new System.Drawing.Size(178, 24);
             this.tb_SDT_nv_infonv.TabIndex = 3;
             this.tb_SDT_nv_infonv.TextChanged += new System.EventHandler(this.tb_SDT_nv_infonv_TextChanged);
             this.tb_SDT_nv_infonv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_SDT_nv_infonv_KeyPress);
@@ -1679,14 +1720,14 @@ namespace App_sale_manager
             // 
             this.tb_TenNV_nv_infonv.Location = new System.Drawing.Point(146, 223);
             this.tb_TenNV_nv_infonv.Name = "tb_TenNV_nv_infonv";
-            this.tb_TenNV_nv_infonv.Size = new System.Drawing.Size(178, 22);
+            this.tb_TenNV_nv_infonv.Size = new System.Drawing.Size(178, 24);
             this.tb_TenNV_nv_infonv.TabIndex = 3;
             // 
             // tb_MaNV_nv_infonv
             // 
             this.tb_MaNV_nv_infonv.Location = new System.Drawing.Point(146, 189);
             this.tb_MaNV_nv_infonv.Name = "tb_MaNV_nv_infonv";
-            this.tb_MaNV_nv_infonv.Size = new System.Drawing.Size(178, 22);
+            this.tb_MaNV_nv_infonv.Size = new System.Drawing.Size(178, 24);
             this.tb_MaNV_nv_infonv.TabIndex = 3;
             // 
             // label_ngayvl_nv_infonv
@@ -1694,7 +1735,7 @@ namespace App_sale_manager
             this.label_ngayvl_nv_infonv.AutoSize = true;
             this.label_ngayvl_nv_infonv.Location = new System.Drawing.Point(33, 339);
             this.label_ngayvl_nv_infonv.Name = "label_ngayvl_nv_infonv";
-            this.label_ngayvl_nv_infonv.Size = new System.Drawing.Size(94, 17);
+            this.label_ngayvl_nv_infonv.Size = new System.Drawing.Size(98, 18);
             this.label_ngayvl_nv_infonv.TabIndex = 2;
             this.label_ngayvl_nv_infonv.Text = "Ngày vào làm";
             // 
@@ -1703,7 +1744,7 @@ namespace App_sale_manager
             this.label_chucvu_nv_infonv.AutoSize = true;
             this.label_chucvu_nv_infonv.Location = new System.Drawing.Point(33, 383);
             this.label_chucvu_nv_infonv.Name = "label_chucvu_nv_infonv";
-            this.label_chucvu_nv_infonv.Size = new System.Drawing.Size(59, 17);
+            this.label_chucvu_nv_infonv.Size = new System.Drawing.Size(62, 18);
             this.label_chucvu_nv_infonv.TabIndex = 2;
             this.label_chucvu_nv_infonv.Text = "Chức vụ";
             // 
@@ -1712,7 +1753,7 @@ namespace App_sale_manager
             this.label_ngaysinh_nv_infonv.AutoSize = true;
             this.label_ngaysinh_nv_infonv.Location = new System.Drawing.Point(33, 303);
             this.label_ngaysinh_nv_infonv.Name = "label_ngaysinh_nv_infonv";
-            this.label_ngaysinh_nv_infonv.Size = new System.Drawing.Size(71, 17);
+            this.label_ngaysinh_nv_infonv.Size = new System.Drawing.Size(73, 18);
             this.label_ngaysinh_nv_infonv.TabIndex = 2;
             this.label_ngaysinh_nv_infonv.Text = "Ngày sinh";
             // 
@@ -1721,7 +1762,7 @@ namespace App_sale_manager
             this.label_sdt_nv_infonv.AutoSize = true;
             this.label_sdt_nv_infonv.Location = new System.Drawing.Point(33, 259);
             this.label_sdt_nv_infonv.Name = "label_sdt_nv_infonv";
-            this.label_sdt_nv_infonv.Size = new System.Drawing.Size(91, 17);
+            this.label_sdt_nv_infonv.Size = new System.Drawing.Size(94, 18);
             this.label_sdt_nv_infonv.TabIndex = 2;
             this.label_sdt_nv_infonv.Text = "Số diện thoại";
             // 
@@ -1730,7 +1771,7 @@ namespace App_sale_manager
             this.label_tennv_nv_infonv.AutoSize = true;
             this.label_tennv_nv_infonv.Location = new System.Drawing.Point(33, 226);
             this.label_tennv_nv_infonv.Name = "label_tennv_nv_infonv";
-            this.label_tennv_nv_infonv.Size = new System.Drawing.Size(56, 17);
+            this.label_tennv_nv_infonv.Size = new System.Drawing.Size(57, 18);
             this.label_tennv_nv_infonv.TabIndex = 2;
             this.label_tennv_nv_infonv.Text = "Tên NV";
             // 
@@ -1739,7 +1780,7 @@ namespace App_sale_manager
             this.label_manv_nv_infonv.AutoSize = true;
             this.label_manv_nv_infonv.Location = new System.Drawing.Point(33, 194);
             this.label_manv_nv_infonv.Name = "label_manv_nv_infonv";
-            this.label_manv_nv_infonv.Size = new System.Drawing.Size(50, 17);
+            this.label_manv_nv_infonv.Size = new System.Drawing.Size(53, 18);
             this.label_manv_nv_infonv.TabIndex = 2;
             this.label_manv_nv_infonv.Text = "Mã NV";
             // 
@@ -1763,10 +1804,11 @@ namespace App_sale_manager
             this.tabP_nv_bangphancong.Controls.Add(this.btn_nv_phancong_luu);
             this.tabP_nv_bangphancong.Controls.Add(this.btn_nv_phancong_them);
             this.tabP_nv_bangphancong.Controls.Add(this.grb_nv_phancong_lich);
+            this.tabP_nv_bangphancong.ImageIndex = 9;
             this.tabP_nv_bangphancong.Location = new System.Drawing.Point(4, 4);
             this.tabP_nv_bangphancong.Name = "tabP_nv_bangphancong";
             this.tabP_nv_bangphancong.Padding = new System.Windows.Forms.Padding(3);
-            this.tabP_nv_bangphancong.Size = new System.Drawing.Size(1184, 614);
+            this.tabP_nv_bangphancong.Size = new System.Drawing.Size(1205, 624);
             this.tabP_nv_bangphancong.TabIndex = 1;
             this.tabP_nv_bangphancong.Text = "Bảng phân công nhân viên";
             // 
@@ -1870,131 +1912,225 @@ namespace App_sale_manager
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage3.Controls.Add(this.nud_Thuong_nv_bangluong);
-            this.tabPage3.Controls.Add(this.label_thuong_nv_bangluong);
-            this.tabPage3.Controls.Add(this.label_sapxep_nv_bangluong);
-            this.tabPage3.Controls.Add(this.label_search_nv_bangluong);
-            this.tabPage3.Controls.Add(this.tb_search_nv_bangluong);
-            this.tabPage3.Controls.Add(this.cb_searchoption_nv_bangluong);
+            this.tabPage3.Controls.Add(this.grb_nv_luong_timkiem);
+            this.tabPage3.Controls.Add(this.grb_nv_luong_ìnfo);
             this.tabPage3.Controls.Add(this.label_bangluong_nv_bangluong);
-            this.tabPage3.Controls.Add(this.bt_Khoitao_nv_bangluong);
-            this.tabPage3.Controls.Add(this.nud_Heso_nv_bangluong);
-            this.tabPage3.Controls.Add(this.nud_Luong_nv_bangluong);
-            this.tabPage3.Controls.Add(this.cb_ThutuLuong_nv_bangluong);
-            this.tabPage3.Controls.Add(this.cb_LocLuong_nv_bangluong);
-            this.tabPage3.Controls.Add(this.bt_Tracuu_nv_bangluong);
-            this.tabPage3.Controls.Add(this.bt_Sua_nv_bangluong);
-            this.tabPage3.Controls.Add(this.label_heso_nv_bangluong);
-            this.tabPage3.Controls.Add(this.label_luong_nv_bangluong);
-            this.tabPage3.Controls.Add(this.label_hoten_nv_bangluong);
-            this.tabPage3.Controls.Add(this.label_manv_nv_bangluong);
-            this.tabPage3.Controls.Add(this.tb_TenNV_nv_bangluong);
-            this.tabPage3.Controls.Add(this.tb_MaNV_nv_bangluong);
             this.tabPage3.Controls.Add(this.dgv_nv_bangluong);
+            this.tabPage3.ImageIndex = 7;
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1184, 614);
+            this.tabPage3.Size = new System.Drawing.Size(1205, 624);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bảng lương nhân viên";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // nud_Thuong_nv_bangluong
+            // grb_nv_luong_timkiem
             // 
-            this.nud_Thuong_nv_bangluong.Increment = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nud_Thuong_nv_bangluong.Location = new System.Drawing.Point(184, 246);
-            this.nud_Thuong_nv_bangluong.Maximum = new decimal(new int[] {
-            1215752192,
-            23,
-            0,
-            0});
-            this.nud_Thuong_nv_bangluong.Name = "nud_Thuong_nv_bangluong";
-            this.nud_Thuong_nv_bangluong.Size = new System.Drawing.Size(178, 22);
-            this.nud_Thuong_nv_bangluong.TabIndex = 14;
-            // 
-            // label_thuong_nv_bangluong
-            // 
-            this.label_thuong_nv_bangluong.AutoSize = true;
-            this.label_thuong_nv_bangluong.Location = new System.Drawing.Point(47, 251);
-            this.label_thuong_nv_bangluong.Name = "label_thuong_nv_bangluong";
-            this.label_thuong_nv_bangluong.Size = new System.Drawing.Size(57, 17);
-            this.label_thuong_nv_bangluong.TabIndex = 13;
-            this.label_thuong_nv_bangluong.Text = "Thưởng";
-            // 
-            // label_sapxep_nv_bangluong
-            // 
-            this.label_sapxep_nv_bangluong.AutoSize = true;
-            this.label_sapxep_nv_bangluong.Location = new System.Drawing.Point(53, 522);
-            this.label_sapxep_nv_bangluong.Name = "label_sapxep_nv_bangluong";
-            this.label_sapxep_nv_bangluong.Size = new System.Drawing.Size(130, 17);
-            this.label_sapxep_nv_bangluong.TabIndex = 12;
-            this.label_sapxep_nv_bangluong.Text = "Sắp xếp lương theo";
-            // 
-            // label_search_nv_bangluong
-            // 
-            this.label_search_nv_bangluong.AutoSize = true;
-            this.label_search_nv_bangluong.Location = new System.Drawing.Point(53, 427);
-            this.label_search_nv_bangluong.Name = "label_search_nv_bangluong";
-            this.label_search_nv_bangluong.Size = new System.Drawing.Size(63, 17);
-            this.label_search_nv_bangluong.TabIndex = 11;
-            this.label_search_nv_bangluong.Text = "Tìm theo";
-            // 
-            // tb_search_nv_bangluong
-            // 
-            this.tb_search_nv_bangluong.Location = new System.Drawing.Point(133, 460);
-            this.tb_search_nv_bangluong.Name = "tb_search_nv_bangluong";
-            this.tb_search_nv_bangluong.Size = new System.Drawing.Size(290, 22);
-            this.tb_search_nv_bangluong.TabIndex = 10;
+            this.grb_nv_luong_timkiem.Controls.Add(this.cb_searchoption_nv_bangluong);
+            this.grb_nv_luong_timkiem.Controls.Add(this.bt_Tracuu_nv_bangluong);
+            this.grb_nv_luong_timkiem.Controls.Add(this.label_sapxep_nv_bangluong);
+            this.grb_nv_luong_timkiem.Controls.Add(this.cb_LocLuong_nv_bangluong);
+            this.grb_nv_luong_timkiem.Controls.Add(this.label_search_nv_bangluong);
+            this.grb_nv_luong_timkiem.Controls.Add(this.cb_ThutuLuong_nv_bangluong);
+            this.grb_nv_luong_timkiem.Controls.Add(this.tb_search_nv_bangluong);
+            this.grb_nv_luong_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_nv_luong_timkiem.Location = new System.Drawing.Point(6, 325);
+            this.grb_nv_luong_timkiem.Name = "grb_nv_luong_timkiem";
+            this.grb_nv_luong_timkiem.Size = new System.Drawing.Size(511, 238);
+            this.grb_nv_luong_timkiem.TabIndex = 14;
+            this.grb_nv_luong_timkiem.TabStop = false;
+            this.grb_nv_luong_timkiem.Text = "Tra cứu";
             // 
             // cb_searchoption_nv_bangluong
             // 
+            this.cb_searchoption_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_searchoption_nv_bangluong.FormattingEnabled = true;
             this.cb_searchoption_nv_bangluong.Items.AddRange(new object[] {
             "Mã NV",
             "Họ Tên",
             "Lương",
-            "Thưởng",
             "Hệ số"});
-            this.cb_searchoption_nv_bangluong.Location = new System.Drawing.Point(133, 422);
+            this.cb_searchoption_nv_bangluong.Location = new System.Drawing.Point(94, 36);
             this.cb_searchoption_nv_bangluong.Name = "cb_searchoption_nv_bangluong";
             this.cb_searchoption_nv_bangluong.Size = new System.Drawing.Size(135, 24);
             this.cb_searchoption_nv_bangluong.TabIndex = 9;
             this.cb_searchoption_nv_bangluong.Text = "Chưa chọn";
             this.cb_searchoption_nv_bangluong.SelectedIndexChanged += new System.EventHandler(this.cb_searchoption_nv_bangluong_SelectedIndexChanged);
             // 
-            // label_bangluong_nv_bangluong
+            // bt_Tracuu_nv_bangluong
             // 
-            this.label_bangluong_nv_bangluong.AutoSize = true;
-            this.label_bangluong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_bangluong_nv_bangluong.Location = new System.Drawing.Point(45, 76);
-            this.label_bangluong_nv_bangluong.Name = "label_bangluong_nv_bangluong";
-            this.label_bangluong_nv_bangluong.Size = new System.Drawing.Size(275, 25);
-            this.label_bangluong_nv_bangluong.TabIndex = 8;
-            this.label_bangluong_nv_bangluong.Text = "BẢNG LƯƠNG NHÂN VIÊN";
+            this.bt_Tracuu_nv_bangluong.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Tracuu_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Tracuu_nv_bangluong.Location = new System.Drawing.Point(390, 68);
+            this.bt_Tracuu_nv_bangluong.Name = "bt_Tracuu_nv_bangluong";
+            this.bt_Tracuu_nv_bangluong.Size = new System.Drawing.Size(96, 35);
+            this.bt_Tracuu_nv_bangluong.TabIndex = 4;
+            this.bt_Tracuu_nv_bangluong.Text = "Tra cứu";
+            this.bt_Tracuu_nv_bangluong.UseVisualStyleBackColor = false;
+            this.bt_Tracuu_nv_bangluong.Click += new System.EventHandler(this.bt_Tracuu_nv_bangluong_Click);
+            // 
+            // label_sapxep_nv_bangluong
+            // 
+            this.label_sapxep_nv_bangluong.AutoSize = true;
+            this.label_sapxep_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_sapxep_nv_bangluong.Location = new System.Drawing.Point(14, 136);
+            this.label_sapxep_nv_bangluong.Name = "label_sapxep_nv_bangluong";
+            this.label_sapxep_nv_bangluong.Size = new System.Drawing.Size(130, 17);
+            this.label_sapxep_nv_bangluong.TabIndex = 12;
+            this.label_sapxep_nv_bangluong.Text = "Sắp xếp lương theo";
+            // 
+            // cb_LocLuong_nv_bangluong
+            // 
+            this.cb_LocLuong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_LocLuong_nv_bangluong.FormattingEnabled = true;
+            this.cb_LocLuong_nv_bangluong.Items.AddRange(new object[] {
+            "Bằng",
+            "Lớn hơn",
+            "Nhỏ hơn"});
+            this.cb_LocLuong_nv_bangluong.Location = new System.Drawing.Point(235, 36);
+            this.cb_LocLuong_nv_bangluong.Name = "cb_LocLuong_nv_bangluong";
+            this.cb_LocLuong_nv_bangluong.Size = new System.Drawing.Size(99, 24);
+            this.cb_LocLuong_nv_bangluong.TabIndex = 5;
+            this.cb_LocLuong_nv_bangluong.Text = "Lọc";
+            this.cb_LocLuong_nv_bangluong.Visible = false;
+            // 
+            // label_search_nv_bangluong
+            // 
+            this.label_search_nv_bangluong.AutoSize = true;
+            this.label_search_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_search_nv_bangluong.Location = new System.Drawing.Point(14, 41);
+            this.label_search_nv_bangluong.Name = "label_search_nv_bangluong";
+            this.label_search_nv_bangluong.Size = new System.Drawing.Size(63, 17);
+            this.label_search_nv_bangluong.TabIndex = 11;
+            this.label_search_nv_bangluong.Text = "Tìm theo";
+            // 
+            // cb_ThutuLuong_nv_bangluong
+            // 
+            this.cb_ThutuLuong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_ThutuLuong_nv_bangluong.FormattingEnabled = true;
+            this.cb_ThutuLuong_nv_bangluong.Items.AddRange(new object[] {
+            "Tăng dần ",
+            "Giảm dần",
+            "Mặc định"});
+            this.cb_ThutuLuong_nv_bangluong.Location = new System.Drawing.Point(159, 136);
+            this.cb_ThutuLuong_nv_bangluong.Name = "cb_ThutuLuong_nv_bangluong";
+            this.cb_ThutuLuong_nv_bangluong.Size = new System.Drawing.Size(99, 24);
+            this.cb_ThutuLuong_nv_bangluong.TabIndex = 5;
+            this.cb_ThutuLuong_nv_bangluong.Text = "Sắp xếp";
+            this.cb_ThutuLuong_nv_bangluong.SelectedIndexChanged += new System.EventHandler(this.cb_ThutuLuong_nv_bangluong_SelectedIndexChanged);
+            // 
+            // tb_search_nv_bangluong
+            // 
+            this.tb_search_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_nv_bangluong.Location = new System.Drawing.Point(94, 74);
+            this.tb_search_nv_bangluong.Name = "tb_search_nv_bangluong";
+            this.tb_search_nv_bangluong.Size = new System.Drawing.Size(290, 22);
+            this.tb_search_nv_bangluong.TabIndex = 10;
+            // 
+            // grb_nv_luong_ìnfo
+            // 
+            this.grb_nv_luong_ìnfo.Controls.Add(this.tb_TenNV_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.tb_MaNV_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.label_manv_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.label_hoten_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.label_luong_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.label_heso_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.bt_Khoitao_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.bt_Sua_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.nud_Heso_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Controls.Add(this.nud_Luong_nv_bangluong);
+            this.grb_nv_luong_ìnfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_nv_luong_ìnfo.Location = new System.Drawing.Point(6, 33);
+            this.grb_nv_luong_ìnfo.Name = "grb_nv_luong_ìnfo";
+            this.grb_nv_luong_ìnfo.Size = new System.Drawing.Size(511, 286);
+            this.grb_nv_luong_ìnfo.TabIndex = 13;
+            this.grb_nv_luong_ìnfo.TabStop = false;
+            this.grb_nv_luong_ìnfo.Text = "Xem thông tin";
+            // 
+            // tb_TenNV_nv_bangluong
+            // 
+            this.tb_TenNV_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_TenNV_nv_bangluong.Location = new System.Drawing.Point(173, 95);
+            this.tb_TenNV_nv_bangluong.Name = "tb_TenNV_nv_bangluong";
+            this.tb_TenNV_nv_bangluong.Size = new System.Drawing.Size(178, 22);
+            this.tb_TenNV_nv_bangluong.TabIndex = 1;
+            // 
+            // tb_MaNV_nv_bangluong
+            // 
+            this.tb_MaNV_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_MaNV_nv_bangluong.Location = new System.Drawing.Point(173, 53);
+            this.tb_MaNV_nv_bangluong.Name = "tb_MaNV_nv_bangluong";
+            this.tb_MaNV_nv_bangluong.Size = new System.Drawing.Size(178, 22);
+            this.tb_MaNV_nv_bangluong.TabIndex = 1;
+            // 
+            // label_manv_nv_bangluong
+            // 
+            this.label_manv_nv_bangluong.AutoSize = true;
+            this.label_manv_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_manv_nv_bangluong.Location = new System.Drawing.Point(36, 58);
+            this.label_manv_nv_bangluong.Name = "label_manv_nv_bangluong";
+            this.label_manv_nv_bangluong.Size = new System.Drawing.Size(93, 17);
+            this.label_manv_nv_bangluong.TabIndex = 2;
+            this.label_manv_nv_bangluong.Text = "Mã nhân viên";
+            // 
+            // label_hoten_nv_bangluong
+            // 
+            this.label_hoten_nv_bangluong.AutoSize = true;
+            this.label_hoten_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hoten_nv_bangluong.Location = new System.Drawing.Point(36, 100);
+            this.label_hoten_nv_bangluong.Name = "label_hoten_nv_bangluong";
+            this.label_hoten_nv_bangluong.Size = new System.Drawing.Size(50, 17);
+            this.label_hoten_nv_bangluong.TabIndex = 2;
+            this.label_hoten_nv_bangluong.Text = "Họ tên";
+            // 
+            // label_luong_nv_bangluong
+            // 
+            this.label_luong_nv_bangluong.AutoSize = true;
+            this.label_luong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_luong_nv_bangluong.Location = new System.Drawing.Point(36, 140);
+            this.label_luong_nv_bangluong.Name = "label_luong_nv_bangluong";
+            this.label_luong_nv_bangluong.Size = new System.Drawing.Size(48, 17);
+            this.label_luong_nv_bangluong.TabIndex = 2;
+            this.label_luong_nv_bangluong.Text = "Lương";
+            // 
+            // label_heso_nv_bangluong
+            // 
+            this.label_heso_nv_bangluong.AutoSize = true;
+            this.label_heso_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_heso_nv_bangluong.Location = new System.Drawing.Point(36, 185);
+            this.label_heso_nv_bangluong.Name = "label_heso_nv_bangluong";
+            this.label_heso_nv_bangluong.Size = new System.Drawing.Size(45, 17);
+            this.label_heso_nv_bangluong.TabIndex = 2;
+            this.label_heso_nv_bangluong.Text = "Hệ số";
             // 
             // bt_Khoitao_nv_bangluong
             // 
-            this.bt_Khoitao_nv_bangluong.Location = new System.Drawing.Point(158, 366);
+            this.bt_Khoitao_nv_bangluong.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Khoitao_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Khoitao_nv_bangluong.Location = new System.Drawing.Point(336, 222);
             this.bt_Khoitao_nv_bangluong.Name = "bt_Khoitao_nv_bangluong";
-            this.bt_Khoitao_nv_bangluong.Size = new System.Drawing.Size(75, 23);
+            this.bt_Khoitao_nv_bangluong.Size = new System.Drawing.Size(99, 37);
             this.bt_Khoitao_nv_bangluong.TabIndex = 7;
-            this.bt_Khoitao_nv_bangluong.Text = "Khởi tạo";
-            this.bt_Khoitao_nv_bangluong.UseVisualStyleBackColor = true;
+            this.bt_Khoitao_nv_bangluong.Text = "Làm mới";
+            this.bt_Khoitao_nv_bangluong.UseVisualStyleBackColor = false;
             this.bt_Khoitao_nv_bangluong.Click += new System.EventHandler(this.bt_Khoitao_nv_bangluong_Click);
+            // 
+            // bt_Sua_nv_bangluong
+            // 
+            this.bt_Sua_nv_bangluong.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bt_Sua_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Sua_nv_bangluong.Location = new System.Drawing.Point(187, 222);
+            this.bt_Sua_nv_bangluong.Name = "bt_Sua_nv_bangluong";
+            this.bt_Sua_nv_bangluong.Size = new System.Drawing.Size(99, 37);
+            this.bt_Sua_nv_bangluong.TabIndex = 3;
+            this.bt_Sua_nv_bangluong.Text = "Sửa";
+            this.bt_Sua_nv_bangluong.UseVisualStyleBackColor = false;
+            this.bt_Sua_nv_bangluong.Click += new System.EventHandler(this.bt_Sua_nv_bangluong_Click);
             // 
             // nud_Heso_nv_bangluong
             // 
-            this.nud_Heso_nv_bangluong.DecimalPlaces = 2;
-            this.nud_Heso_nv_bangluong.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud_Heso_nv_bangluong.Location = new System.Drawing.Point(184, 295);
+            this.nud_Heso_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_Heso_nv_bangluong.Location = new System.Drawing.Point(173, 180);
             this.nud_Heso_nv_bangluong.Maximum = new decimal(new int[] {
             1215752192,
             23,
@@ -2006,12 +2142,13 @@ namespace App_sale_manager
             // 
             // nud_Luong_nv_bangluong
             // 
+            this.nud_Luong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nud_Luong_nv_bangluong.Increment = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.nud_Luong_nv_bangluong.Location = new System.Drawing.Point(184, 205);
+            this.nud_Luong_nv_bangluong.Location = new System.Drawing.Point(173, 140);
             this.nud_Luong_nv_bangluong.Maximum = new decimal(new int[] {
             1215752192,
             23,
@@ -2021,125 +2158,55 @@ namespace App_sale_manager
             this.nud_Luong_nv_bangluong.Size = new System.Drawing.Size(178, 22);
             this.nud_Luong_nv_bangluong.TabIndex = 6;
             // 
-            // cb_ThutuLuong_nv_bangluong
+            // label_bangluong_nv_bangluong
             // 
-            this.cb_ThutuLuong_nv_bangluong.FormattingEnabled = true;
-            this.cb_ThutuLuong_nv_bangluong.Items.AddRange(new object[] {
-            "Tăng dần ",
-            "Giảm dần",
-            "Mặc định"});
-            this.cb_ThutuLuong_nv_bangluong.Location = new System.Drawing.Point(198, 522);
-            this.cb_ThutuLuong_nv_bangluong.Name = "cb_ThutuLuong_nv_bangluong";
-            this.cb_ThutuLuong_nv_bangluong.Size = new System.Drawing.Size(99, 24);
-            this.cb_ThutuLuong_nv_bangluong.TabIndex = 5;
-            this.cb_ThutuLuong_nv_bangluong.Text = "Sắp xếp";
-            this.cb_ThutuLuong_nv_bangluong.SelectedIndexChanged += new System.EventHandler(this.cb_ThutuLuong_nv_bangluong_SelectedIndexChanged);
-            // 
-            // cb_LocLuong_nv_bangluong
-            // 
-            this.cb_LocLuong_nv_bangluong.FormattingEnabled = true;
-            this.cb_LocLuong_nv_bangluong.Items.AddRange(new object[] {
-            "Bằng",
-            "Lớn hơn",
-            "Nhỏ hơn"});
-            this.cb_LocLuong_nv_bangluong.Location = new System.Drawing.Point(274, 422);
-            this.cb_LocLuong_nv_bangluong.Name = "cb_LocLuong_nv_bangluong";
-            this.cb_LocLuong_nv_bangluong.Size = new System.Drawing.Size(99, 24);
-            this.cb_LocLuong_nv_bangluong.TabIndex = 5;
-            this.cb_LocLuong_nv_bangluong.Text = "Lọc";
-            this.cb_LocLuong_nv_bangluong.Visible = false;
-            // 
-            // bt_Tracuu_nv_bangluong
-            // 
-            this.bt_Tracuu_nv_bangluong.Location = new System.Drawing.Point(429, 459);
-            this.bt_Tracuu_nv_bangluong.Name = "bt_Tracuu_nv_bangluong";
-            this.bt_Tracuu_nv_bangluong.Size = new System.Drawing.Size(96, 23);
-            this.bt_Tracuu_nv_bangluong.TabIndex = 4;
-            this.bt_Tracuu_nv_bangluong.Text = "Tra cứu";
-            this.bt_Tracuu_nv_bangluong.UseVisualStyleBackColor = true;
-            this.bt_Tracuu_nv_bangluong.Click += new System.EventHandler(this.bt_Tracuu_nv_bangluong_Click);
-            // 
-            // bt_Sua_nv_bangluong
-            // 
-            this.bt_Sua_nv_bangluong.Location = new System.Drawing.Point(50, 366);
-            this.bt_Sua_nv_bangluong.Name = "bt_Sua_nv_bangluong";
-            this.bt_Sua_nv_bangluong.Size = new System.Drawing.Size(75, 23);
-            this.bt_Sua_nv_bangluong.TabIndex = 3;
-            this.bt_Sua_nv_bangluong.Text = "Sửa";
-            this.bt_Sua_nv_bangluong.UseVisualStyleBackColor = true;
-            this.bt_Sua_nv_bangluong.Click += new System.EventHandler(this.bt_Sua_nv_bangluong_Click);
-            // 
-            // label_heso_nv_bangluong
-            // 
-            this.label_heso_nv_bangluong.AutoSize = true;
-            this.label_heso_nv_bangluong.Location = new System.Drawing.Point(47, 300);
-            this.label_heso_nv_bangluong.Name = "label_heso_nv_bangluong";
-            this.label_heso_nv_bangluong.Size = new System.Drawing.Size(45, 17);
-            this.label_heso_nv_bangluong.TabIndex = 2;
-            this.label_heso_nv_bangluong.Text = "Hệ số";
-            // 
-            // label_luong_nv_bangluong
-            // 
-            this.label_luong_nv_bangluong.AutoSize = true;
-            this.label_luong_nv_bangluong.Location = new System.Drawing.Point(47, 205);
-            this.label_luong_nv_bangluong.Name = "label_luong_nv_bangluong";
-            this.label_luong_nv_bangluong.Size = new System.Drawing.Size(48, 17);
-            this.label_luong_nv_bangluong.TabIndex = 2;
-            this.label_luong_nv_bangluong.Text = "Lương";
-            // 
-            // label_hoten_nv_bangluong
-            // 
-            this.label_hoten_nv_bangluong.AutoSize = true;
-            this.label_hoten_nv_bangluong.Location = new System.Drawing.Point(47, 165);
-            this.label_hoten_nv_bangluong.Name = "label_hoten_nv_bangluong";
-            this.label_hoten_nv_bangluong.Size = new System.Drawing.Size(50, 17);
-            this.label_hoten_nv_bangluong.TabIndex = 2;
-            this.label_hoten_nv_bangluong.Text = "Họ tên";
-            // 
-            // label_manv_nv_bangluong
-            // 
-            this.label_manv_nv_bangluong.AutoSize = true;
-            this.label_manv_nv_bangluong.Location = new System.Drawing.Point(47, 121);
-            this.label_manv_nv_bangluong.Name = "label_manv_nv_bangluong";
-            this.label_manv_nv_bangluong.Size = new System.Drawing.Size(93, 17);
-            this.label_manv_nv_bangluong.TabIndex = 2;
-            this.label_manv_nv_bangluong.Text = "Mã nhân viên";
-            // 
-            // tb_TenNV_nv_bangluong
-            // 
-            this.tb_TenNV_nv_bangluong.Location = new System.Drawing.Point(184, 160);
-            this.tb_TenNV_nv_bangluong.Name = "tb_TenNV_nv_bangluong";
-            this.tb_TenNV_nv_bangluong.Size = new System.Drawing.Size(178, 22);
-            this.tb_TenNV_nv_bangluong.TabIndex = 1;
-            // 
-            // tb_MaNV_nv_bangluong
-            // 
-            this.tb_MaNV_nv_bangluong.Location = new System.Drawing.Point(184, 118);
-            this.tb_MaNV_nv_bangluong.Name = "tb_MaNV_nv_bangluong";
-            this.tb_MaNV_nv_bangluong.Size = new System.Drawing.Size(178, 22);
-            this.tb_MaNV_nv_bangluong.TabIndex = 1;
+            this.label_bangluong_nv_bangluong.AutoSize = true;
+            this.label_bangluong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_bangluong_nv_bangluong.Location = new System.Drawing.Point(535, 33);
+            this.label_bangluong_nv_bangluong.Name = "label_bangluong_nv_bangluong";
+            this.label_bangluong_nv_bangluong.Size = new System.Drawing.Size(238, 20);
+            this.label_bangluong_nv_bangluong.TabIndex = 8;
+            this.label_bangluong_nv_bangluong.Text = "BẢNG LƯƠNG NHÂN VIÊN";
             // 
             // dgv_nv_bangluong
             // 
             this.dgv_nv_bangluong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_nv_bangluong.Location = new System.Drawing.Point(591, 76);
+            this.dgv_nv_bangluong.Location = new System.Drawing.Point(539, 56);
             this.dgv_nv_bangluong.Name = "dgv_nv_bangluong";
             this.dgv_nv_bangluong.ReadOnly = true;
             this.dgv_nv_bangluong.RowHeadersWidth = 51;
             this.dgv_nv_bangluong.RowTemplate.Height = 24;
-            this.dgv_nv_bangluong.Size = new System.Drawing.Size(571, 540);
+            this.dgv_nv_bangluong.Size = new System.Drawing.Size(634, 540);
             this.dgv_nv_bangluong.TabIndex = 0;
             this.dgv_nv_bangluong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_nv_bangluong_CellClick);
             // 
+            // imageList_icon
+            // 
+            this.imageList_icon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_icon.ImageStream")));
+            this.imageList_icon.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList_icon.Images.SetKeyName(0, "tải xuống (1).png");
+            this.imageList_icon.Images.SetKeyName(1, "tải xuống (2).png");
+            this.imageList_icon.Images.SetKeyName(2, "772-7724889_we-believe-every-client-have-different-needs-and.jpg");
+            this.imageList_icon.Images.SetKeyName(3, "man-icon-1.png");
+            this.imageList_icon.Images.SetKeyName(4, "kisspng-computer-icons-sales-industry-purchasing-retail-5adcfe303c9d52.4758297915" +
+        "244324322483.jpg");
+            this.imageList_icon.Images.SetKeyName(5, "pngtree-write-report-line-filled-icon-png-image_324810.jpg");
+            this.imageList_icon.Images.SetKeyName(6, "tải xuống.png");
+            this.imageList_icon.Images.SetKeyName(7, "9272.png_860.png");
+            this.imageList_icon.Images.SetKeyName(8, "magnifying-glass-tilted-left-facebook.png");
+            this.imageList_icon.Images.SetKeyName(9, "kisspng-hardcover-calendar-photo-book-computer-icons-calendar-icon-5ac1ec9423c239" +
+        ".0446656115226584521465.jpg");
+            // 
             // tabPage_BaoCao
             // 
-            this.tabPage_BaoCao.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage_BaoCao.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tabPage_BaoCao.Controls.Add(this.tabControl_Baocao);
-            this.tabPage_BaoCao.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_BaoCao.ImageIndex = 5;
+            this.tabPage_BaoCao.Location = new System.Drawing.Point(4, 27);
             this.tabPage_BaoCao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_BaoCao.Name = "tabPage_BaoCao";
             this.tabPage_BaoCao.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_BaoCao.Size = new System.Drawing.Size(1177, 650);
+            this.tabPage_BaoCao.Size = new System.Drawing.Size(1205, 658);
             this.tabPage_BaoCao.TabIndex = 5;
             this.tabPage_BaoCao.Text = "Báo cáo";
             // 
@@ -2149,11 +2216,12 @@ namespace App_sale_manager
             this.tabControl_Baocao.Controls.Add(this.tabPage_Baocao_cuoingay);
             this.tabControl_Baocao.Controls.Add(this.tabPage_baocao_doanhthu);
             this.tabControl_Baocao.Controls.Add(this.tabPage_Baocao_nhanvien);
-            this.tabControl_Baocao.Location = new System.Drawing.Point(4, 7);
+            this.tabControl_Baocao.ImageList = this.imageList_icon;
+            this.tabControl_Baocao.Location = new System.Drawing.Point(-4, 0);
             this.tabControl_Baocao.Multiline = true;
             this.tabControl_Baocao.Name = "tabControl_Baocao";
             this.tabControl_Baocao.SelectedIndex = 0;
-            this.tabControl_Baocao.Size = new System.Drawing.Size(1189, 640);
+            this.tabControl_Baocao.Size = new System.Drawing.Size(1209, 658);
             this.tabControl_Baocao.TabIndex = 0;
             this.tabControl_Baocao.SelectedIndexChanged += new System.EventHandler(this.tabControl_Baocao_SelectedIndexChanged);
             // 
@@ -2171,10 +2239,11 @@ namespace App_sale_manager
             this.tabPage_Baocao_cuoingay.Controls.Add(this.label_bc_cuoingay);
             this.tabPage_Baocao_cuoingay.Controls.Add(this.dtp_bc_time);
             this.tabPage_Baocao_cuoingay.Controls.Add(this.label_bc_tg);
+            this.tabPage_Baocao_cuoingay.ImageIndex = 6;
             this.tabPage_Baocao_cuoingay.Location = new System.Drawing.Point(4, 4);
             this.tabPage_Baocao_cuoingay.Name = "tabPage_Baocao_cuoingay";
             this.tabPage_Baocao_cuoingay.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Baocao_cuoingay.Size = new System.Drawing.Size(1181, 611);
+            this.tabPage_Baocao_cuoingay.Size = new System.Drawing.Size(1201, 616);
             this.tabPage_Baocao_cuoingay.TabIndex = 0;
             this.tabPage_Baocao_cuoingay.Text = "Cuối ngày";
             // 
@@ -2234,21 +2303,21 @@ namespace App_sale_manager
             // 
             this.textBox_bcCuoingay3.Location = new System.Drawing.Point(604, 562);
             this.textBox_bcCuoingay3.Name = "textBox_bcCuoingay3";
-            this.textBox_bcCuoingay3.Size = new System.Drawing.Size(260, 22);
+            this.textBox_bcCuoingay3.Size = new System.Drawing.Size(260, 24);
             this.textBox_bcCuoingay3.TabIndex = 6;
             // 
             // textBox_bcCuoingay2
             // 
             this.textBox_bcCuoingay2.Location = new System.Drawing.Point(604, 532);
             this.textBox_bcCuoingay2.Name = "textBox_bcCuoingay2";
-            this.textBox_bcCuoingay2.Size = new System.Drawing.Size(260, 22);
+            this.textBox_bcCuoingay2.Size = new System.Drawing.Size(260, 24);
             this.textBox_bcCuoingay2.TabIndex = 6;
             // 
             // textBox_bcCuoingay1
             // 
             this.textBox_bcCuoingay1.Location = new System.Drawing.Point(604, 502);
             this.textBox_bcCuoingay1.Name = "textBox_bcCuoingay1";
-            this.textBox_bcCuoingay1.Size = new System.Drawing.Size(260, 22);
+            this.textBox_bcCuoingay1.Size = new System.Drawing.Size(260, 24);
             this.textBox_bcCuoingay1.TabIndex = 6;
             // 
             // label_bcCuoingay3
@@ -2306,7 +2375,7 @@ namespace App_sale_manager
             // 
             this.dtp_bc_time.Location = new System.Drawing.Point(34, 292);
             this.dtp_bc_time.Name = "dtp_bc_time";
-            this.dtp_bc_time.Size = new System.Drawing.Size(200, 22);
+            this.dtp_bc_time.Size = new System.Drawing.Size(200, 24);
             this.dtp_bc_time.TabIndex = 2;
             this.dtp_bc_time.ValueChanged += new System.EventHandler(this.dtp_bc_time_ValueChanged);
             // 
@@ -2338,10 +2407,11 @@ namespace App_sale_manager
             this.tabPage_baocao_doanhthu.Controls.Add(this.comboBox_bc_Doanhthu_kieutinh);
             this.tabPage_baocao_doanhthu.Controls.Add(this.label_bc_Doanhthu_nhap);
             this.tabPage_baocao_doanhthu.Controls.Add(this.label_bc_Doanhthu_kieutinh);
+            this.tabPage_baocao_doanhthu.ImageIndex = 7;
             this.tabPage_baocao_doanhthu.Location = new System.Drawing.Point(4, 4);
             this.tabPage_baocao_doanhthu.Name = "tabPage_baocao_doanhthu";
             this.tabPage_baocao_doanhthu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_baocao_doanhthu.Size = new System.Drawing.Size(1181, 611);
+            this.tabPage_baocao_doanhthu.Size = new System.Drawing.Size(1201, 616);
             this.tabPage_baocao_doanhthu.TabIndex = 1;
             this.tabPage_baocao_doanhthu.Text = "Doanh Thu";
             // 
@@ -2349,21 +2419,21 @@ namespace App_sale_manager
             // 
             this.textBox_bc_Doanhthu_chi.Location = new System.Drawing.Point(853, 489);
             this.textBox_bc_Doanhthu_chi.Name = "textBox_bc_Doanhthu_chi";
-            this.textBox_bc_Doanhthu_chi.Size = new System.Drawing.Size(263, 22);
+            this.textBox_bc_Doanhthu_chi.Size = new System.Drawing.Size(263, 24);
             this.textBox_bc_Doanhthu_chi.TabIndex = 9;
             // 
             // textBox_bc_Doanhthu_doanhthu
             // 
             this.textBox_bc_Doanhthu_doanhthu.Location = new System.Drawing.Point(461, 548);
             this.textBox_bc_Doanhthu_doanhthu.Name = "textBox_bc_Doanhthu_doanhthu";
-            this.textBox_bc_Doanhthu_doanhthu.Size = new System.Drawing.Size(263, 22);
+            this.textBox_bc_Doanhthu_doanhthu.Size = new System.Drawing.Size(263, 24);
             this.textBox_bc_Doanhthu_doanhthu.TabIndex = 9;
             // 
             // textBox_bc_Doanhthu_thu
             // 
             this.textBox_bc_Doanhthu_thu.Location = new System.Drawing.Point(461, 491);
             this.textBox_bc_Doanhthu_thu.Name = "textBox_bc_Doanhthu_thu";
-            this.textBox_bc_Doanhthu_thu.Size = new System.Drawing.Size(263, 22);
+            this.textBox_bc_Doanhthu_thu.Size = new System.Drawing.Size(263, 24);
             this.textBox_bc_Doanhthu_thu.TabIndex = 9;
             // 
             // label_bc_Doanhthu_kq2
@@ -2413,40 +2483,40 @@ namespace App_sale_manager
             this.comboBox_bc_Doanhthu_nhap1.FormattingEnabled = true;
             this.comboBox_bc_Doanhthu_nhap1.Location = new System.Drawing.Point(113, 166);
             this.comboBox_bc_Doanhthu_nhap1.Name = "comboBox_bc_Doanhthu_nhap1";
-            this.comboBox_bc_Doanhthu_nhap1.Size = new System.Drawing.Size(100, 24);
+            this.comboBox_bc_Doanhthu_nhap1.Size = new System.Drawing.Size(100, 26);
             this.comboBox_bc_Doanhthu_nhap1.TabIndex = 6;
             // 
             // chart_bc_Doanhthu
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart_bc_Doanhthu.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart_bc_Doanhthu.Legends.Add(legend7);
+            chartArea3.Name = "ChartArea1";
+            this.chart_bc_Doanhthu.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart_bc_Doanhthu.Legends.Add(legend3);
             this.chart_bc_Doanhthu.Location = new System.Drawing.Point(243, 43);
             this.chart_bc_Doanhthu.Name = "chart_bc_Doanhthu";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.LegendText = "Tổng Thu";
-            series10.Name = "Series_Thu";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.LegendText = "Tổng Chi";
-            series11.Name = "Series_Chi";
-            this.chart_bc_Doanhthu.Series.Add(series10);
-            this.chart_bc_Doanhthu.Series.Add(series11);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.LegendText = "Tổng Thu";
+            series4.Name = "Series_Thu";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.LegendText = "Tổng Chi";
+            series5.Name = "Series_Chi";
+            this.chart_bc_Doanhthu.Series.Add(series4);
+            this.chart_bc_Doanhthu.Series.Add(series5);
             this.chart_bc_Doanhthu.Size = new System.Drawing.Size(919, 441);
             this.chart_bc_Doanhthu.TabIndex = 5;
             this.chart_bc_Doanhthu.Text = "chart1";
-            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title7.Name = "Title_chart_bc_Doanhthu";
-            title7.Text = "Báo cáo doanh thu tháng";
-            this.chart_bc_Doanhthu.Titles.Add(title7);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "Title_chart_bc_Doanhthu";
+            title3.Text = "Báo cáo doanh thu tháng";
+            this.chart_bc_Doanhthu.Titles.Add(title3);
             // 
             // textBox_bc_DoanhThu_nhap2
             // 
             this.textBox_bc_DoanhThu_nhap2.Location = new System.Drawing.Point(113, 213);
             this.textBox_bc_DoanhThu_nhap2.Name = "textBox_bc_DoanhThu_nhap2";
-            this.textBox_bc_DoanhThu_nhap2.Size = new System.Drawing.Size(100, 22);
+            this.textBox_bc_DoanhThu_nhap2.Size = new System.Drawing.Size(100, 24);
             this.textBox_bc_DoanhThu_nhap2.TabIndex = 3;
             // 
             // label_bc_Doanhthu_nhap2
@@ -2454,7 +2524,7 @@ namespace App_sale_manager
             this.label_bc_Doanhthu_nhap2.AutoSize = true;
             this.label_bc_Doanhthu_nhap2.Location = new System.Drawing.Point(9, 213);
             this.label_bc_Doanhthu_nhap2.Name = "label_bc_Doanhthu_nhap2";
-            this.label_bc_Doanhthu_nhap2.Size = new System.Drawing.Size(73, 17);
+            this.label_bc_Doanhthu_nhap2.Size = new System.Drawing.Size(76, 18);
             this.label_bc_Doanhthu_nhap2.TabIndex = 2;
             this.label_bc_Doanhthu_nhap2.Text = "Nhập năm";
             // 
@@ -2463,7 +2533,7 @@ namespace App_sale_manager
             this.label_bc_Doanhthu_nhap1.AutoSize = true;
             this.label_bc_Doanhthu_nhap1.Location = new System.Drawing.Point(9, 166);
             this.label_bc_Doanhthu_nhap1.Name = "label_bc_Doanhthu_nhap1";
-            this.label_bc_Doanhthu_nhap1.Size = new System.Drawing.Size(82, 17);
+            this.label_bc_Doanhthu_nhap1.Size = new System.Drawing.Size(83, 18);
             this.label_bc_Doanhthu_nhap1.TabIndex = 2;
             this.label_bc_Doanhthu_nhap1.Text = "Nhập tháng";
             // 
@@ -2475,7 +2545,7 @@ namespace App_sale_manager
             "Theo Quý"});
             this.comboBox_bc_Doanhthu_kieutinh.Location = new System.Drawing.Point(9, 83);
             this.comboBox_bc_Doanhthu_kieutinh.Name = "comboBox_bc_Doanhthu_kieutinh";
-            this.comboBox_bc_Doanhthu_kieutinh.Size = new System.Drawing.Size(185, 24);
+            this.comboBox_bc_Doanhthu_kieutinh.Size = new System.Drawing.Size(185, 26);
             this.comboBox_bc_Doanhthu_kieutinh.TabIndex = 1;
             this.comboBox_bc_Doanhthu_kieutinh.Text = "Theo tháng";
             this.comboBox_bc_Doanhthu_kieutinh.SelectedIndexChanged += new System.EventHandler(this.comboBox_bc_Doanhthu_kieutinh_SelectedIndexChanged);
@@ -2519,10 +2589,11 @@ namespace App_sale_manager
             this.tabPage_Baocao_nhanvien.Controls.Add(this.label_bc_nv_thoigian);
             this.tabPage_Baocao_nhanvien.Controls.Add(this.comboBox_bc_Nv_kieutinh);
             this.tabPage_Baocao_nhanvien.Controls.Add(this.label_bc_nv_kieutinh);
+            this.tabPage_Baocao_nhanvien.ImageIndex = 3;
             this.tabPage_Baocao_nhanvien.Location = new System.Drawing.Point(4, 4);
             this.tabPage_Baocao_nhanvien.Name = "tabPage_Baocao_nhanvien";
             this.tabPage_Baocao_nhanvien.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Baocao_nhanvien.Size = new System.Drawing.Size(1181, 611);
+            this.tabPage_Baocao_nhanvien.Size = new System.Drawing.Size(1201, 627);
             this.tabPage_Baocao_nhanvien.TabIndex = 2;
             this.tabPage_Baocao_nhanvien.Text = "Nhân viên";
             // 
@@ -2531,7 +2602,7 @@ namespace App_sale_manager
             this.comboBox_bc_nv_nhap1.FormattingEnabled = true;
             this.comboBox_bc_nv_nhap1.Location = new System.Drawing.Point(101, 179);
             this.comboBox_bc_nv_nhap1.Name = "comboBox_bc_nv_nhap1";
-            this.comboBox_bc_nv_nhap1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox_bc_nv_nhap1.Size = new System.Drawing.Size(121, 26);
             this.comboBox_bc_nv_nhap1.TabIndex = 10;
             // 
             // btn_bc_nv_xem
@@ -2550,21 +2621,21 @@ namespace App_sale_manager
             // 
             this.textBox_bc_nv_kq2.Location = new System.Drawing.Point(809, 519);
             this.textBox_bc_nv_kq2.Name = "textBox_bc_nv_kq2";
-            this.textBox_bc_nv_kq2.Size = new System.Drawing.Size(296, 22);
+            this.textBox_bc_nv_kq2.Size = new System.Drawing.Size(296, 24);
             this.textBox_bc_nv_kq2.TabIndex = 8;
             // 
             // textBox_bc_nv_kq3
             // 
             this.textBox_bc_nv_kq3.Location = new System.Drawing.Point(462, 566);
             this.textBox_bc_nv_kq3.Name = "textBox_bc_nv_kq3";
-            this.textBox_bc_nv_kq3.Size = new System.Drawing.Size(229, 22);
+            this.textBox_bc_nv_kq3.Size = new System.Drawing.Size(229, 24);
             this.textBox_bc_nv_kq3.TabIndex = 8;
             // 
             // textBox_bc_nv_kq1
             // 
             this.textBox_bc_nv_kq1.Location = new System.Drawing.Point(462, 518);
             this.textBox_bc_nv_kq1.Name = "textBox_bc_nv_kq1";
-            this.textBox_bc_nv_kq1.Size = new System.Drawing.Size(166, 22);
+            this.textBox_bc_nv_kq1.Size = new System.Drawing.Size(166, 24);
             this.textBox_bc_nv_kq1.TabIndex = 8;
             // 
             // label_bc_nv_kq3
@@ -2609,30 +2680,30 @@ namespace App_sale_manager
             // 
             // chart_bc_nv
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart_bc_nv.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart_bc_nv.Legends.Add(legend8);
+            chartArea4.Name = "ChartArea1";
+            this.chart_bc_nv.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart_bc_nv.Legends.Add(legend4);
             this.chart_bc_nv.Location = new System.Drawing.Point(243, 32);
             this.chart_bc_nv.Name = "chart_bc_nv";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series12.Legend = "Legend1";
-            series12.LegendText = "doanh số";
-            series12.Name = "Series1";
-            this.chart_bc_nv.Series.Add(series12);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series6.Legend = "Legend1";
+            series6.LegendText = "doanh số";
+            series6.Name = "Series1";
+            this.chart_bc_nv.Series.Add(series6);
             this.chart_bc_nv.Size = new System.Drawing.Size(915, 460);
             this.chart_bc_nv.TabIndex = 5;
             this.chart_bc_nv.Text = "chart1";
-            title8.Name = "Title1";
-            title8.Text = "Biểu đồ doanh số bán hàng nhân viên tháng";
-            this.chart_bc_nv.Titles.Add(title8);
+            title4.Name = "Title1";
+            title4.Text = "Biểu đồ doanh số bán hàng nhân viên tháng";
+            this.chart_bc_nv.Titles.Add(title4);
             // 
             // textBox_bc_nv_nhap2
             // 
             this.textBox_bc_nv_nhap2.Location = new System.Drawing.Point(100, 232);
             this.textBox_bc_nv_nhap2.Name = "textBox_bc_nv_nhap2";
-            this.textBox_bc_nv_nhap2.Size = new System.Drawing.Size(121, 22);
+            this.textBox_bc_nv_nhap2.Size = new System.Drawing.Size(121, 24);
             this.textBox_bc_nv_nhap2.TabIndex = 4;
             // 
             // label_bc_nv_nhap2
@@ -2640,7 +2711,7 @@ namespace App_sale_manager
             this.label_bc_nv_nhap2.AutoSize = true;
             this.label_bc_nv_nhap2.Location = new System.Drawing.Point(12, 232);
             this.label_bc_nv_nhap2.Name = "label_bc_nv_nhap2";
-            this.label_bc_nv_nhap2.Size = new System.Drawing.Size(73, 17);
+            this.label_bc_nv_nhap2.Size = new System.Drawing.Size(76, 18);
             this.label_bc_nv_nhap2.TabIndex = 3;
             this.label_bc_nv_nhap2.Text = "Nhập năm";
             // 
@@ -2649,7 +2720,7 @@ namespace App_sale_manager
             this.label_bc_nv_nhap1.AutoSize = true;
             this.label_bc_nv_nhap1.Location = new System.Drawing.Point(12, 179);
             this.label_bc_nv_nhap1.Name = "label_bc_nv_nhap1";
-            this.label_bc_nv_nhap1.Size = new System.Drawing.Size(82, 17);
+            this.label_bc_nv_nhap1.Size = new System.Drawing.Size(83, 18);
             this.label_bc_nv_nhap1.TabIndex = 3;
             this.label_bc_nv_nhap1.Text = "Nhập tháng";
             // 
@@ -2671,7 +2742,7 @@ namespace App_sale_manager
             "Theo quý"});
             this.comboBox_bc_Nv_kieutinh.Location = new System.Drawing.Point(9, 83);
             this.comboBox_bc_Nv_kieutinh.Name = "comboBox_bc_Nv_kieutinh";
-            this.comboBox_bc_Nv_kieutinh.Size = new System.Drawing.Size(153, 24);
+            this.comboBox_bc_Nv_kieutinh.Size = new System.Drawing.Size(153, 26);
             this.comboBox_bc_Nv_kieutinh.TabIndex = 1;
             this.comboBox_bc_Nv_kieutinh.Text = "Theo tháng";
             this.comboBox_bc_Nv_kieutinh.SelectedIndexChanged += new System.EventHandler(this.comboBox_bc_Nv_kieutinh_SelectedIndexChanged);
@@ -2740,7 +2811,10 @@ namespace App_sale_manager
             this.grb_nv_phancong_lich.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Thuong_nv_bangluong)).EndInit();
+            this.grb_nv_luong_timkiem.ResumeLayout(false);
+            this.grb_nv_luong_timkiem.PerformLayout();
+            this.grb_nv_luong_ìnfo.ResumeLayout(false);
+            this.grb_nv_luong_ìnfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Heso_nv_bangluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Luong_nv_bangluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nv_bangluong)).EndInit();
@@ -2975,7 +3049,8 @@ namespace App_sale_manager
         private System.Windows.Forms.Label lblGhiChu;
         private System.Windows.Forms.GroupBox grb_bc_qt;
         private System.Windows.Forms.GroupBox GroupB_GD_TimKiem;
-        private System.Windows.Forms.NumericUpDown nud_Thuong_nv_bangluong;
-        private System.Windows.Forms.Label label_thuong_nv_bangluong;
+        private System.Windows.Forms.GroupBox grb_nv_luong_timkiem;
+        private System.Windows.Forms.GroupBox grb_nv_luong_ìnfo;
+        private System.Windows.Forms.ImageList imageList_icon;
     }
 }

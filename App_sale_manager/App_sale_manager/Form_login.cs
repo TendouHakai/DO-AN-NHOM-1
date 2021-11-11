@@ -16,6 +16,7 @@ namespace App_sale_manager
     {
         string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlConnection sqlCon = null;
+        bool canread = false;
         
         public Form_login()
         {
@@ -98,6 +99,25 @@ namespace App_sale_manager
         private void Form_login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if(canread==false)
+            { 
+                canread = true;
+                (sender as PictureBox).SizeMode = PictureBoxSizeMode.StretchImage;
+                (sender as PictureBox).Image = Image.FromFile("../../icon/images (1).png");
+                textBox_passwd.PasswordChar = '\0';
+            }
+            else
+            {
+                canread = false;
+                (sender as PictureBox).SizeMode = PictureBoxSizeMode.StretchImage;
+                (sender as PictureBox).Image = Image.FromFile("../../icon/images (2).png");
+                textBox_passwd.PasswordChar = '*';
+            } 
+                
         }
     }
 }

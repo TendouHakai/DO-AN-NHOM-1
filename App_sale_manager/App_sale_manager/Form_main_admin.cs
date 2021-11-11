@@ -132,7 +132,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            cmd.CommandText = "SELECT NGAY, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND MONTH(NGHD)=" + date.Month + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + date.Month + " GROUP BY NGNHAP) AS K GROUP BY NGAY";
+            cmd.CommandText = "SELECT NGAY, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)=" + date.Month + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + date.Month + " GROUP BY NGNHAP) AS K GROUP BY NGAY";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -256,7 +256,7 @@ namespace App_sale_manager
                 textBox_bcCuoingay1.Text = Convert.ToDouble(table1.Rows[0]["TONGTIEN"]).ToString();
                 textBox_bcCuoingay2.Text = Convert.ToDouble(table1.Rows[1]["TONGTIEN"]).ToString();
             }
-            cmd.CommandText = "SELECT SUM(TRIGIA) AS TONG FROM HDBH WHERE (LOAIHD='DTT' OR (LOAIHD='DDH' AND TRANGTHAI='Da thanh toan')) AND NGHD='" + day + "'";
+            cmd.CommandText = "SELECT SUM(TRIGIA) AS TONG FROM HDBH WHERE (LOAIHD='DTT' OR (LOAIHD='DDH' AND TRANGTHAI='HOANTAT')) AND NGHD='" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table2 = new DataTable();
             table2.Clear();
@@ -314,13 +314,13 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             string day = dtp_bc_time.Value.ToString("d");
-            cmd.CommandText = "SELECT SOHD_BH AS SOHD, NGHD, KHID AS DOITAC, NVID, TRIGIA FROM HDBH WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND NGHD = '" + day + "' UNION SELECT* FROM HDNH WHERE NGNHAP = '" + day + "'";
+            cmd.CommandText = "SELECT SOHD_BH AS SOHD, NGHD, KHID AS DOITAC, NVID, TRIGIA FROM HDBH WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD = '" + day + "' UNION SELECT* FROM HDNH WHERE NGNHAP = '" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
             adapter.Fill(table);
             dgv_bc_cuoingay.DataSource = table;
-            cmd.CommandText = "SELECT (THU-CHI) AS DOANHTHU FROM (SELECT SUM(THU) AS THU, SUM(CHI) AS CHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND NGHD='" + day + "' GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE NGNHAP='" + day + "' GROUP BY NGNHAP) AS K) AS H";
+            cmd.CommandText = "SELECT (THU-CHI) AS DOANHTHU FROM (SELECT SUM(THU) AS THU, SUM(CHI) AS CHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD='" + day + "' GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE NGNHAP='" + day + "' GROUP BY NGNHAP) AS K) AS H";
             adapter.SelectCommand = cmd;
             DataTable table1 = new DataTable();
             table1.Clear();
@@ -360,7 +360,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "SELECT DAY(NGAY) AS NGAY, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + "AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K GROUP BY DAY(NGAY)";
+            cmd.CommandText = "SELECT DAY(NGAY) AS NGAY, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + "AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K GROUP BY DAY(NGAY)";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -378,7 +378,7 @@ namespace App_sale_manager
                 chart_bc_Doanhthu.Series["Series_Thu"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGTHU"])/1000000));
                 chart_bc_Doanhthu.Series["Series_Chi"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGCHI"])/1000000));
             }
-            cmd.CommandText = "SELECT SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = NULL FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = NULL, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K ";
+            cmd.CommandText = "SELECT SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = NULL FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = NULL, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K ";
             adapter.SelectCommand = cmd;
             DataTable table1 = new DataTable();
             table1.Clear();
@@ -389,7 +389,7 @@ namespace App_sale_manager
             if (table1.Rows[0]["TONGCHI"].ToString() == "")
                 textBox_bc_Doanhthu_chi.Text = "0";
             else textBox_bc_Doanhthu_chi.Text = Convert.ToDouble(table1.Rows[0]["TONGCHI"]).ToString();
-            cmd.CommandText = "SELECT (TONGTHU-TONGCHI) AS DOANHTHU FROM (SELECT SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " UNION SELECT THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K) AS H";
+            cmd.CommandText = "SELECT (TONGTHU-TONGCHI) AS DOANHTHU FROM (SELECT SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = '')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " UNION SELECT THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K) AS H";
             adapter.SelectCommand = cmd;
             DataTable table2 = new DataTable();
             table2.Clear();
@@ -405,7 +405,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             int Quy = Convert.ToInt32(comboBox_bc_Doanhthu_nhap1.Text);
-            cmd.CommandText = "SELECT THANG, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT MONTH(NGHD) AS THANG, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'Da thanh toan')) AND MONTH(NGHD) BETWEEN (" + Quy * 3 + "-2) AND " + Quy * 3 + " GROUP BY MONTH(NGHD) UNION SELECT MONTH(NGNHAP), THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP) BETWEEN (" + Quy * 3 + " -2) AND " + Quy * 3 + " GROUP BY NGNHAP) AS K GROUP BY THANG";
+            cmd.CommandText = "SELECT THANG, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT MONTH(NGHD) AS THANG, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD) BETWEEN (" + Quy * 3 + "-2) AND " + Quy * 3 + " GROUP BY MONTH(NGHD) UNION SELECT MONTH(NGNHAP), THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP) BETWEEN (" + Quy * 3 + " -2) AND " + Quy * 3 + " GROUP BY NGNHAP) AS K GROUP BY THANG";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -513,7 +513,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "SELECT HDBH.NVID AS MANV, SUM(TRIGIA)AS DOANHSO, HOTEN FROM HDBH inner join NHANVIEN on HDBH.NVID=NHANVIEN.NVID WHERE (LOAIHD='DTT' OR (LOAIHD='DDH' AND TRANGTHAI='Da thanh toan')) AND MONTH(NGHD)=" + comboBox_bc_nv_nhap1.Text + " GROUP BY HDBH.NVID, HOTEN ORDER BY DOANHSO DESC";
+            cmd.CommandText = "SELECT HDBH.NVID AS MANV, SUM(TRIGIA)AS DOANHSO, HOTEN FROM HDBH inner join NHANVIEN on HDBH.NVID=NHANVIEN.NVID WHERE (LOAIHD='DTT' OR (LOAIHD='DDH' AND TRANGTHAI='HOANTAT')) AND MONTH(NGHD)=" + comboBox_bc_nv_nhap1.Text + " GROUP BY HDBH.NVID, HOTEN ORDER BY DOANHSO DESC";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -682,30 +682,22 @@ namespace App_sale_manager
         }
         void LoadData_nv_infonv()
         {
-            if (sqlCon.State == ConnectionState.Closed)
-                sqlCon.Open();
-            cmd = sqlCon.CreateCommand();
             cmd = sqlCon.CreateCommand();
             cmd.CommandText = "SELECT NVID,HOTEN,SDT,NGVL,NGSINH,CV,USERNAME,PASSWD FROM NHANVIEN";
             adapter.SelectCommand = cmd;
             table_nv_infonv.Clear();
             adapter.Fill(table_nv_infonv);
             dgv_nv_infonv.DataSource = table_nv_infonv;
-            sqlCon.Close();
         }
 
         void LoadData_nv_bangluong()
         {
-            if (sqlCon.State == ConnectionState.Closed)
-                sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "SELECT NVID,HOTEN,LUONG,THUONG,HESO FROM NHANVIEN";
+            cmd.CommandText = "SELECT NVID,HOTEN,LUONG,HESO FROM NHANVIEN";
             adapter.SelectCommand = cmd;
             table_nv_bangluong.Clear();
             adapter.Fill(table_nv_bangluong);
             dgv_nv_bangluong.DataSource = table_nv_bangluong;
-            sqlCon.Close();
         }
         // nhóm hàm tabpage danh mục nhân viên
         private void tb_SDT_nv_infonv_KeyPress(object sender, KeyPressEventArgs e)
@@ -754,12 +746,10 @@ namespace App_sale_manager
         }
         private void bt_Them_nv_infonv_Click(object sender, EventArgs e)
         {
-            if (sqlCon.State == ConnectionState.Closed)
-                sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             try
             {
-                cmd.CommandText = "set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "','" + 0 + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_username_nv_infonv.Text + "','" + tb_matkhau_nv_infonv.Text + "','" + 0 + "','" + 0 + "')";
+                cmd.CommandText = "set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_username_nv_infonv.Text + "','" + tb_matkhau_nv_infonv.Text + "','" + 0 + "','" + 0 + "')";
                 cmd.ExecuteNonQuery();
                 SaveFileDialog Save = new SaveFileDialog();
                 if (filepath != "")
@@ -775,7 +765,6 @@ namespace App_sale_manager
             }
             LoadData_nv_infonv();
             LoadData_nv_bangluong();
-            sqlCon.Close();
         }
 
         private void bt_nv_infonv_Xoa_Click(object sender, EventArgs e)
@@ -783,8 +772,6 @@ namespace App_sale_manager
             DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Xóa dữ liệu", MessageBoxButtons.YesNo);
             if (Result == DialogResult.Yes)
             {
-                if (sqlCon.State == ConnectionState.Closed)
-                    sqlCon.Open();
                 filepath = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
                 cmd = sqlCon.CreateCommand();
                 cmd.CommandText = "delete from NHANVIEN where NVID='" + tb_MaNV_nv_infonv.Text + "'";
@@ -797,7 +784,6 @@ namespace App_sale_manager
                 filepath = "";
                 LoadData_nv_infonv();
                 LoadData_nv_bangluong();
-                sqlCon.Close();
             }
         }
 
@@ -806,31 +792,18 @@ namespace App_sale_manager
             DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Sửa dữ liệu", MessageBoxButtons.YesNo);
             if (Result == DialogResult.Yes)
             {
-                if (sqlCon.State == ConnectionState.Closed)
-                    sqlCon.Open();
                 cmd = sqlCon.CreateCommand();
-                try
+                cmd.CommandText = "set dateformat dmy " + "update NHANVIEN set HOTEN=N'" + tb_TenNV_nv_infonv.Text + "',SDT='" + tb_SDT_nv_infonv.Text + "',NGVL='" + dt_NgayVaoLam_nv_infonv.Text + "',NGSINH='" + dt_NgaySinh_nv_infonv.Text + "',CV=N'" + tb_ChucVu_nv_infonv.Text + "',USERNAME=N'" + tb_username_nv_infonv.Text + "',PASSWD='" + tb_matkhau_nv_infonv.Text + "' where NVID='" + tb_MaNV_nv_infonv.Text + "'";
+                SaveFileDialog Save = new SaveFileDialog();
+                if (filepath != "")
                 {
-                    cmd.CommandText = "set dateformat dmy " + "update NHANVIEN set HOTEN=N'" + tb_TenNV_nv_infonv.Text + "',SDT='" + tb_SDT_nv_infonv.Text + "',NGVL='" + dt_NgayVaoLam_nv_infonv.Text + "',NGSINH='" + dt_NgaySinh_nv_infonv.Text + "',CV=N'" + tb_ChucVu_nv_infonv.Text + "',USERNAME=N'" + tb_username_nv_infonv.Text + "',PASSWD='" + tb_matkhau_nv_infonv.Text + "' where NVID='" + tb_MaNV_nv_infonv.Text + "'";
-                    cmd.ExecuteNonQuery();
-                    if (filepath != "")
-                    {
-                        SaveFileDialog Save = new SaveFileDialog();
-                        Save.FileName = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
-                        pictureBox_image_import_nv.Image.Save(Save.FileName);
-                        filepath = "";
-                    }
+                    Save.FileName = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
+                    pictureBox_image_import_nv.Image.Save(Save.FileName);
+                    filepath = "";
                 }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Dữ liệu bạn sử không đúng!");
-                }
-
-
-
+                cmd.ExecuteNonQuery();
                 LoadData_nv_infonv();
                 LoadData_nv_bangluong();
-                sqlCon.Close();
             }
         }
         private void bt_nv_infonv_Khoitao_Click(object sender, EventArgs e)
@@ -988,9 +961,12 @@ namespace App_sale_manager
             adapter.Fill(table1);
             // tạo bảng dữ liệu.
             DataGridViewTextBoxColumn dgvID = new DataGridViewTextBoxColumn();
-            dgvID.HeaderText = "Mã nhân viên";
+            dgvID.HeaderText = "Mã NV";
+            dgvID.Frozen = true;
+            dgvID.Width = 50;
             DataGridViewTextBoxColumn dgvTen = new DataGridViewTextBoxColumn();
             dgvTen.HeaderText = "Họ tên";
+            dgvTen.Frozen = true;
             DataGridViewTextBoxColumn dgvChucvu = new DataGridViewTextBoxColumn();
             dgvChucvu.HeaderText = "Chức vụ";
 
@@ -1004,8 +980,8 @@ namespace App_sale_manager
             DataGridViewTextBoxColumn dgvChedo = new DataGridViewTextBoxColumn();
             dgvChedo.HeaderText = "Chế độ";
 
-
             dgv_nv_phancong_lich.Columns.AddRange(dgvID, dgvTen, dgvChucvu, dgvSang, dgvChieu, dgvToi, dgvChedo);
+            
             sqlCon.Close();
         }
         
@@ -1092,17 +1068,10 @@ namespace App_sale_manager
         //nhóm tabpage bảng lương nhân viên
         private void bt_Sua_nv_bangluong_Click(object sender, EventArgs e)
         {
-            DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Sửa dữ liệu", MessageBoxButtons.YesNo);
-            if (Result == DialogResult.Yes)
-            {
-                if (sqlCon.State == ConnectionState.Closed)
-                    sqlCon.Open();
-                cmd = sqlCon.CreateCommand();
-                cmd.CommandText = "update NHANVIEN set LUONG='" + nud_Luong_nv_bangluong.Value.ToString() + "',HESO='" + float.Parse(nud_Heso_nv_bangluong.Value.ToString()) + "',THUONG='" + nud_Thuong_nv_bangluong.Value.ToString() + "' WHERE NVID='" + tb_MaNV_nv_bangluong.Text + "'";
-                cmd.ExecuteNonQuery();
-                LoadData_nv_bangluong();
-                sqlCon.Close();
-            }
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "update NHANVIEN set LUONG='" + nud_Luong_nv_bangluong.Value.ToString() + "',HESO='" + float.Parse(nud_Heso_nv_bangluong.Value.ToString()) + "' WHERE NVID='" + tb_MaNV_nv_bangluong.Text + "'";
+            cmd.ExecuteNonQuery();
+            LoadData_nv_bangluong();
         }
         private void bt_Khoitao_nv_bangluong_Click(object sender, EventArgs e)
         {
@@ -1112,7 +1081,7 @@ namespace App_sale_manager
             tb_TenNV_nv_bangluong.Text = "";
             nud_Luong_nv_bangluong.Value = 0;
             nud_Heso_nv_bangluong.Value = 0;
-            nud_Thuong_nv_bangluong.Value = 0;
+
             (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
 
         }
@@ -1147,7 +1116,7 @@ namespace App_sale_manager
                     {
                         if (cb_LocLuong_nv_bangluong.Text == "Lọc")
                         {
-                            MessageBox.Show("Vui lòng chọn miền lương cần lọc");
+                            MessageBox.Show("Vui lòng chọn mức lương cần lọc");
                             cb_LocLuong_nv_bangluong.Focus();
                         }
                         else
@@ -1171,53 +1140,14 @@ namespace App_sale_manager
                     }
                 case "Hệ số":
                     {
-                        if (cb_LocLuong_nv_bangluong.Text == "Lọc")
+                        if (decimal.TryParse(tb_search_nv_bangluong.Text, out decimal result))
                         {
-                            MessageBox.Show("Vui lòng chọn miền lương cần lọc");
-                            cb_LocLuong_nv_bangluong.Focus();
+                            (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format("HESO = '{0}'", tb_search_nv_bangluong.Text);
                         }
                         else
                         {
-                            if (decimal.TryParse(tb_search_nv_bangluong.Text, out decimal result))
-                            {
-                                if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(0))
-                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" HESO = '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
-                                else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(1))
-                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" HESO > '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
-                                else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(2))
-                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" HESO < '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
-                            }
-                            else
-                            {
-                                MessageBox.Show("vui lòng nhập một số thập phân");
-                                tb_search_nv_bangluong.Focus();
-                            }
-                        }
-                        break;
-                    }
-                case "Thưởng":
-                    {
-                        if (cb_LocLuong_nv_bangluong.Text == "Lọc")
-                        {
-                            MessageBox.Show("Vui lòng chọn miền thưởng cần lọc");
-                            cb_LocLuong_nv_bangluong.Focus();
-                        }
-                        else
-                        {
-                            if (decimal.TryParse(tb_search_nv_bangluong.Text, out decimal result))
-                            {
-                                if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(0))
-                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" THUONG = '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
-                                else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(1))
-                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" THUONG > '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
-                                else if (cb_LocLuong_nv_bangluong.SelectedIndex.Equals(2))
-                                    (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Format(" THUONG < '{0}'", Convert.ToDecimal(tb_search_nv_bangluong.Text));
-                            }
-                            else
-                            {
-                                MessageBox.Show("vui lòng nhập một số tiền");
-                                tb_search_nv_bangluong.Focus();
-                            }
+                            MessageBox.Show("vui lòng nhập một số");
+                            tb_search_nv_bangluong.Focus();
                         }
                         break;
                     }
@@ -1283,14 +1213,13 @@ namespace App_sale_manager
             tb_MaNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[0].Value.ToString();
             tb_TenNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[1].Value.ToString();
             nud_Luong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[2].Value.ToString());
-            nud_Thuong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[3].Value.ToString());
-            nud_Heso_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[4].Value.ToString());
+            nud_Heso_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[3].Value.ToString());
 
         }
 
         private void cb_searchoption_nv_bangluong_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_searchoption_nv_bangluong.Text == "Lương" || cb_searchoption_nv_bangluong.Text == "Hệ số" || cb_searchoption_nv_bangluong.Text == "Thưởng")
+            if (cb_searchoption_nv_bangluong.Text == "Lương")
             {
                 cb_LocLuong_nv_bangluong.Visible = true;
             }
@@ -1832,6 +1761,6 @@ namespace App_sale_manager
             this.Show();
         }
 
-       
+        
     }
 }

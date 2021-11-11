@@ -104,6 +104,11 @@
     <Compile Include="Hàng hóa\Form_TimKiemHH.Designer.cs">
       <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Đối tác\DTCC_guest_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +229,10 @@
     <EmbeddedResource Include="Hàng hóa\Form_TimKiemHH.resx">
       <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Đối tác\DTCC_guest_form.resx">
       <DependentUpon>DTCC_guest_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -274,6 +283,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="icon\door-login-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\2546560-middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\images %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\images %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,9 +46,12 @@ namespace App_sale_manager
             adapter.Fill(table1);
             // tạo bảng dữ liệu.
             DataGridViewTextBoxColumn dgvID = new DataGridViewTextBoxColumn();
-            dgvID.HeaderText = "Mã nhân viên";
+            dgvID.HeaderText = "Mã NV";
+            dgvID.Frozen = true;
+            dgvID.Width = 50;
             DataGridViewTextBoxColumn dgvTen = new DataGridViewTextBoxColumn();
             dgvTen.HeaderText = "Họ tên";
+            dgvTen.Frozen = true;
             DataGridViewTextBoxColumn dgvChucvu = new DataGridViewTextBoxColumn();
             dgvChucvu.HeaderText = "Chức vụ";
 
@@ -58,7 +61,6 @@ namespace App_sale_manager
             dgvChieu.HeaderText = "Ca chiều(" + table1.Rows[1]["GIO_BD"] + " - " + table1.Rows[1]["GIO_NGHI"] + ")";
             DataGridViewCheckBoxColumn dgvToi = new DataGridViewCheckBoxColumn();
             dgvToi.HeaderText = "Ca tối(" + table1.Rows[2]["GIO_BD"] + " - " + table1.Rows[2]["GIO_NGHI"] + ")";
-
 
             dgv.Columns.AddRange(dgvID, dgvTen, dgvChucvu, dgvSang, dgvChieu, dgvToi);
             sqlCon.Close();

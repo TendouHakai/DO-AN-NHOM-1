@@ -84,12 +84,13 @@ namespace App_sale_manager
                 adapter.UpdateCommand = cmd;
                 l_TrangThai.Text = "DANGGIAO";
             }
-            if (l_TrangThai.Text == "DANGGIAO")
+            else if (l_TrangThai.Text == "DANGGIAO")
             {
                 l_TrangThai.Text = "HOANTAT";
                 cmd.CommandText = "update HDBH set TRANGTHAI = 'HOANTAT' where SOHD_BH  = '"+l_MaHoadon.Text+"' ";
-                cmd.ExecuteNonQuery();               
+                               
             }
+            cmd.ExecuteNonQuery();
         }
 
         private void Form_CTHD_Load(object sender, EventArgs e)
