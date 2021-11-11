@@ -260,5 +260,6 @@ namespace App_sale_manager
             PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\" + DGV_LuaChon.CurrentRow.Cells[0].Value + ".jpg");
             PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
     }
 }
