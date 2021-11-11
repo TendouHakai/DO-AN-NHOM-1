@@ -69,25 +69,33 @@ namespace App_sale_manager
         {
             if(dgvLoaiHH.CurrentRow == null)
             {
-                MessageBox.Show("Chưa chonk hàng để xoá");
+                MessageBox.Show("Chưa chọn hàng để xoá");
                 return;
             }
             else
             {
-                sqlCon.Open();
-                string strquery = "delete LOAISP where LOAIID=N'" + textBox1.Text + "'";
-                SqlCommand sqlCmd = new SqlCommand(strquery, sqlCon);
-                sqlCmd.ExecuteNonQuery();
-                sqlCon.Close();
-                LoadLoaiHH();
+                DialogResult dar= MessageBox.Show("Xoá loại sản phẩm sẽ kiến tất cả sản phẩm và thông tin liên quan bị xoá \nBạn có chắc chắn xoá ", "Chú ý", MessageBoxButtons.YesNo);
+
+                if (dar == DialogResult.Yes)
+                {
+                    sqlCon.Open();
+                    string strquery = "delete CTHDNH where SPID in (select SPID from SANPHAM where LOAIID = '"+textBox1.Text+"')"+
+                                      "delete CTHDBH where SPID in (select SPID from SANPHAM where LOAIID = '" + textBox1.Text + "')" +
+                                      "delete SANPHAM " + "where LOAIID ='"+textBox1.Text+"' " +
+                                      "delete LOAISP " + "where LOAIID=N'" + textBox1.Text + "'";
+                    SqlCommand sqlCmd = new SqlCommand(strquery, sqlCon);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlCon.Close();
+                    LoadLoaiHH();
+                }
+                
             }
         }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (dgvLoaiHH.CurrentRow == null)
             {
-                MessageBox.Show("Chưa chonk hàng để sửa");
+                MessageBox.Show("Chưa chọn hàng để sửa");
                 return;
             }
             ModeLHH = 2;

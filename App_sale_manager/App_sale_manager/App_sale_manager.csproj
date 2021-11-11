@@ -50,6 +50,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hàng hóa\Form_ChiTietNH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_ChiTietNH.Designer.cs">
+      <DependentUpon>Form_ChiTietNH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_ChiTietHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_ChiTietHH.Designer.cs">
+      <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_HoaDonNH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_HoaDonNH.Designer.cs">
+      <DependentUpon>Form_HoaDonNH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_NhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_NhapHang.Designer.cs">
+      <DependentUpon>Form_NhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_QLKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_QLKho.Designer.cs">
+      <DependentUpon>Form_QLKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_QLLoaiHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_QLLoaiHH.Designer.cs">
+      <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_QuanLiHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_QuanLiHH.Designer.cs">
+      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_ThemSuaHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_ThemSuaHangHoa.Designer.cs">
+      <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_TimKiemHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hàng hóa\Form_TimKiemHH.Designer.cs">
+      <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Đối tác\DTCC_guest_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,12 +133,6 @@
     </Compile>
     <Compile Include="Giao dịch\Form_CTHD.Designer.cs">
       <DependentUpon>Form_CTHD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_ChiTietHH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_ChiTietHH.Designer.cs">
-      <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_doipass.cs">
       <SubType>Form</SubType>
@@ -119,42 +167,6 @@
     <Compile Include="Form_main_NV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hàng Hóa\Form_NhapHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_NhapHang.Designer.cs">
-      <DependentUpon>Form_NhapHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_QLKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_QLKho.Designer.cs">
-      <DependentUpon>Form_QLKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_QLLoaiHH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_QLLoaiHH.Designer.cs">
-      <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_QuanLiHH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_QuanLiHH.Designer.cs">
-      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_ThemSuaHangHoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_ThemSuaHangHoa.Designer.cs">
-      <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_TimKiemHH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng Hóa\Form_TimKiemHH.Designer.cs">
-      <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form_main_NV.Designer.cs">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
     </Compile>
@@ -185,6 +197,33 @@
     <Compile Include="Đối tác\Sale_viewer.Designer.cs">
       <DependentUpon>Sale_viewer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Hàng hóa\Form_ChiTietHH.resx">
+      <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_ChiTietNH.resx">
+      <DependentUpon>Form_ChiTietNH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_HoaDonNH.resx">
+      <DependentUpon>Form_HoaDonNH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_NhapHang.resx">
+      <DependentUpon>Form_NhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_QLKho.resx">
+      <DependentUpon>Form_QLKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_QLLoaiHH.resx">
+      <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_QuanLiHH.resx">
+      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_ThemSuaHangHoa.resx">
+      <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hàng hóa\Form_TimKiemHH.resx">
+      <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Đối tác\DTCC_guest_form.resx">
       <DependentUpon>DTCC_guest_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,9 +238,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Giao dịch\Form_CTHD.resx">
       <DependentUpon>Form_CTHD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng Hóa\Form_ChiTietHH.resx">
-      <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_doipass.resx">
       <DependentUpon>Form_doipass.cs</DependentUpon>
@@ -220,24 +256,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_main_NV.resx">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng Hóa\Form_NhapHang.resx">
-      <DependentUpon>Form_NhapHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng Hóa\Form_QLKho.resx">
-      <DependentUpon>Form_QLKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng Hóa\Form_QLLoaiHH.resx">
-      <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng Hóa\Form_QuanLiHH.resx">
-      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng Hóa\Form_ThemSuaHangHoa.resx">
-      <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng Hóa\Form_TimKiemHH.resx">
-      <DependentUpon>Form_TimKiemHH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân viên\Form_nv_phancong_themlich.resx">
       <DependentUpon>Form_nv_phancong_themlich.cs</DependentUpon>

@@ -39,11 +39,14 @@ namespace App_sale_manager
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.lblGiaBan = new System.Windows.Forms.Label();
             this.cbbNuocSX = new System.Windows.Forms.ComboBox();
+            this.cbbHang = new System.Windows.Forms.ComboBox();
+            this.lblHang = new System.Windows.Forms.Label();
+            this.cbbChonGia = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(500, 485);
+            this.btnHuy.Location = new System.Drawing.Point(304, 420);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(116, 62);
             this.btnHuy.TabIndex = 46;
@@ -53,7 +56,7 @@ namespace App_sale_manager
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(327, 483);
+            this.btnTim.Location = new System.Drawing.Point(28, 420);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(127, 63);
             this.btnTim.TabIndex = 47;
@@ -64,7 +67,7 @@ namespace App_sale_manager
             // cbbLoaiSP
             // 
             this.cbbLoaiSP.FormattingEnabled = true;
-            this.cbbLoaiSP.Location = new System.Drawing.Point(159, 39);
+            this.cbbLoaiSP.Location = new System.Drawing.Point(127, 43);
             this.cbbLoaiSP.Name = "cbbLoaiSP";
             this.cbbLoaiSP.Size = new System.Drawing.Size(277, 24);
             this.cbbLoaiSP.TabIndex = 55;
@@ -72,7 +75,7 @@ namespace App_sale_manager
             // lblLoaiID
             // 
             this.lblLoaiID.AutoSize = true;
-            this.lblLoaiID.Location = new System.Drawing.Point(25, 46);
+            this.lblLoaiID.Location = new System.Drawing.Point(22, 46);
             this.lblLoaiID.Name = "lblLoaiID";
             this.lblLoaiID.Size = new System.Drawing.Size(35, 17);
             this.lblLoaiID.TabIndex = 54;
@@ -80,7 +83,7 @@ namespace App_sale_manager
             // 
             // txtTenSP
             // 
-            this.txtTenSP.Location = new System.Drawing.Point(156, 100);
+            this.txtTenSP.Location = new System.Drawing.Point(127, 102);
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(280, 22);
             this.txtTenSP.TabIndex = 57;
@@ -97,7 +100,7 @@ namespace App_sale_manager
             // lblNuocSX
             // 
             this.lblNuocSX.AutoSize = true;
-            this.lblNuocSX.Location = new System.Drawing.Point(22, 163);
+            this.lblNuocSX.Location = new System.Drawing.Point(22, 217);
             this.lblNuocSX.Name = "lblNuocSX";
             this.lblNuocSX.Size = new System.Drawing.Size(98, 17);
             this.lblNuocSX.TabIndex = 58;
@@ -105,15 +108,15 @@ namespace App_sale_manager
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(156, 220);
+            this.txtGiaBan.Location = new System.Drawing.Point(127, 278);
             this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(280, 22);
+            this.txtGiaBan.Size = new System.Drawing.Size(170, 22);
             this.txtGiaBan.TabIndex = 61;
             // 
             // lblGiaBan
             // 
             this.lblGiaBan.AutoSize = true;
-            this.lblGiaBan.Location = new System.Drawing.Point(22, 220);
+            this.lblGiaBan.Location = new System.Drawing.Point(22, 283);
             this.lblGiaBan.Name = "lblGiaBan";
             this.lblGiaBan.Size = new System.Drawing.Size(58, 17);
             this.lblGiaBan.TabIndex = 60;
@@ -122,16 +125,47 @@ namespace App_sale_manager
             // cbbNuocSX
             // 
             this.cbbNuocSX.FormattingEnabled = true;
-            this.cbbNuocSX.Location = new System.Drawing.Point(159, 156);
+            this.cbbNuocSX.Location = new System.Drawing.Point(127, 218);
             this.cbbNuocSX.Name = "cbbNuocSX";
             this.cbbNuocSX.Size = new System.Drawing.Size(277, 24);
             this.cbbNuocSX.TabIndex = 62;
+            // 
+            // cbbHang
+            // 
+            this.cbbHang.FormattingEnabled = true;
+            this.cbbHang.Location = new System.Drawing.Point(127, 159);
+            this.cbbHang.Name = "cbbHang";
+            this.cbbHang.Size = new System.Drawing.Size(277, 24);
+            this.cbbHang.TabIndex = 64;
+            // 
+            // lblHang
+            // 
+            this.lblHang.AutoSize = true;
+            this.lblHang.Location = new System.Drawing.Point(22, 160);
+            this.lblHang.Name = "lblHang";
+            this.lblHang.Size = new System.Drawing.Size(42, 17);
+            this.lblHang.TabIndex = 63;
+            this.lblHang.Text = "Hãng";
+            // 
+            // cbbChonGia
+            // 
+            this.cbbChonGia.FormattingEnabled = true;
+            this.cbbChonGia.Items.AddRange(new object[] {
+            "Tối Đa",
+            "Tối Thiểu"});
+            this.cbbChonGia.Location = new System.Drawing.Point(304, 278);
+            this.cbbChonGia.Name = "cbbChonGia";
+            this.cbbChonGia.Size = new System.Drawing.Size(100, 24);
+            this.cbbChonGia.TabIndex = 65;
             // 
             // Form_TimKiemHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.ClientSize = new System.Drawing.Size(501, 653);
+            this.Controls.Add(this.cbbChonGia);
+            this.Controls.Add(this.cbbHang);
+            this.Controls.Add(this.lblHang);
             this.Controls.Add(this.cbbNuocSX);
             this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.lblGiaBan);
@@ -162,5 +196,8 @@ namespace App_sale_manager
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.Label lblGiaBan;
         private System.Windows.Forms.ComboBox cbbNuocSX;
+        private System.Windows.Forms.ComboBox cbbHang;
+        private System.Windows.Forms.Label lblHang;
+        private System.Windows.Forms.ComboBox cbbChonGia;
     }
 }

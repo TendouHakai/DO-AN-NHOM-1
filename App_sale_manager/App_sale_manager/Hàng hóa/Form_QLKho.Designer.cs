@@ -33,10 +33,10 @@ namespace App_sale_manager
             this.dgvSP = new System.Windows.Forms.DataGridView();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnHangSapHet = new System.Windows.Forms.Button();
-            this.btnNhapHang = new System.Windows.Forms.Button();
             this.lblChuY = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btn_XemHH = new System.Windows.Forms.Button();
+            this.btnHoaDonNhap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,12 +46,13 @@ namespace App_sale_manager
             this.lblTieuDeHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTieuDeHH.Location = new System.Drawing.Point(478, 166);
             this.lblTieuDeHH.Name = "lblTieuDeHH";
-            this.lblTieuDeHH.Size = new System.Drawing.Size(164, 20);
+            this.lblTieuDeHH.Size = new System.Drawing.Size(99, 20);
             this.lblTieuDeHH.TabIndex = 30;
-            this.lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
+            this.lblTieuDeHH.Text = "Hàng Hoá ";
             // 
             // dgvSP
             // 
+            this.dgvSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSP.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvSP.ColumnHeadersHeight = 70;
             this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -76,23 +77,13 @@ namespace App_sale_manager
             // 
             // btnHangSapHet
             // 
-            this.btnHangSapHet.Location = new System.Drawing.Point(347, 58);
+            this.btnHangSapHet.Location = new System.Drawing.Point(247, 60);
             this.btnHangSapHet.Name = "btnHangSapHet";
             this.btnHangSapHet.Size = new System.Drawing.Size(113, 60);
             this.btnHangSapHet.TabIndex = 32;
             this.btnHangSapHet.Text = "Hàng Hoá Sắp Hết";
             this.btnHangSapHet.UseVisualStyleBackColor = true;
             this.btnHangSapHet.Click += new System.EventHandler(this.btnHangSapHet_Click);
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Location = new System.Drawing.Point(187, 58);
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(112, 60);
-            this.btnNhapHang.TabIndex = 33;
-            this.btnNhapHang.Text = "Nhập Hàng";
-            this.btnNhapHang.UseVisualStyleBackColor = true;
-            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
             // lblChuY
             // 
@@ -106,7 +97,7 @@ namespace App_sale_manager
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(503, 58);
+            this.btnHuy.Location = new System.Drawing.Point(645, 58);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(116, 62);
             this.btnHuy.TabIndex = 46;
@@ -116,7 +107,7 @@ namespace App_sale_manager
             // 
             // btn_XemHH
             // 
-            this.btn_XemHH.Location = new System.Drawing.Point(32, 163);
+            this.btn_XemHH.Location = new System.Drawing.Point(51, 157);
             this.btn_XemHH.Name = "btn_XemHH";
             this.btn_XemHH.Size = new System.Drawing.Size(114, 42);
             this.btn_XemHH.TabIndex = 47;
@@ -124,15 +115,25 @@ namespace App_sale_manager
             this.btn_XemHH.UseVisualStyleBackColor = true;
             this.btn_XemHH.Click += new System.EventHandler(this.btn_XemHH_Click);
             // 
+            // btnHoaDonNhap
+            // 
+            this.btnHoaDonNhap.Location = new System.Drawing.Point(458, 59);
+            this.btnHoaDonNhap.Name = "btnHoaDonNhap";
+            this.btnHoaDonNhap.Size = new System.Drawing.Size(119, 61);
+            this.btnHoaDonNhap.TabIndex = 48;
+            this.btnHoaDonNhap.Text = "Hoá đơn nhập hàng";
+            this.btnHoaDonNhap.UseVisualStyleBackColor = true;
+            this.btnHoaDonNhap.Click += new System.EventHandler(this.btnHoaDonNhap_Click);
+            // 
             // Form_QLKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.btnHoaDonNhap);
             this.Controls.Add(this.btn_XemHH);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.lblChuY);
-            this.Controls.Add(this.btnNhapHang);
             this.Controls.Add(this.btnHangSapHet);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.lblTieuDeHH);
@@ -152,9 +153,9 @@ namespace App_sale_manager
         private System.Windows.Forms.DataGridView dgvSP;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnHangSapHet;
-        private System.Windows.Forms.Button btnNhapHang;
         private System.Windows.Forms.Label lblChuY;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btn_XemHH;
+        private System.Windows.Forms.Button btnHoaDonNhap;
     }
 }

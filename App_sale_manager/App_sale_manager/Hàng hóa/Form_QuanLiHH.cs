@@ -30,7 +30,7 @@ namespace App_sale_manager
             SqlCommand sqlCmd = new SqlCommand();
             sqlCon.Open();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
+            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
             sqlCmd.Connection = sqlCon;
             adapter = new SqlDataAdapter(sqlCmd);
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
@@ -50,15 +50,13 @@ namespace App_sale_manager
             dgvSP.Columns[2].HeaderText = "Loại Sản Phẩm";
             dgvSP.Columns[3].HeaderText = "Nước Sản Xuất";
             dgvSP.Columns[3].Width = 80;
-            dgvSP.Columns[4].HeaderText = "Giá Bán";
-            dgvSP.Columns[5].HeaderText = "Giá Nhập";
-            dgvSP.Columns[6].HeaderText = "Đơn Vị Tính";
-            dgvSP.Columns[6].Width = 50;
-            dgvSP.Columns[7].HeaderText = "Số Lượng";
-            dgvSP.Columns[7].Width = 50;
-            dgvSP.Columns[8].HeaderText = "Số Lượng Tối Thiểu";
-            dgvSP.Columns[8].Width = 50;
-            dgvSP.Columns[9].HeaderText = "Mô Tả";
+            dgvSP.Columns[4].HeaderText = "Hãng";
+            dgvSP.Columns[4].Width = 70;
+            dgvSP.Columns[5].HeaderText = "Giá Bán";
+            dgvSP.Columns[6].HeaderText = "Giá Nhập";
+            dgvSP.Columns[7].HeaderText = "Đơn Vị Tính";
+            dgvSP.Columns[7].Width = 50;           
+            dgvSP.Columns[8].HeaderText = "Mô Tả";
         }
        
         private void XemChiTiet()
@@ -69,9 +67,10 @@ namespace App_sale_manager
                 MessageBox.Show("Chưa chọn hàng để xem chi tiết");
                 return;
             }
-            Form_ChiTietHH f = new Form_ChiTietHH(dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["SOLUONG"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
+            Form_ChiTietHH f = new Form_ChiTietHH(dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["HANGSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
             this.Hide();
             f.ShowDialog();
+            f.Close();
             this.Show();
         }
 
@@ -82,7 +81,6 @@ namespace App_sale_manager
             f.ShowDialog();
             LoadHangHoa();
             this.Show();
-
         }
 
         private void btnSuaHH_Click(object sender, EventArgs e)
@@ -92,7 +90,7 @@ namespace App_sale_manager
                 MessageBox.Show("Chưa chọn hàng để sửa");
                 return;
             }
-            Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(2, dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["SOLUONG"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
+            Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(2, dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
             this.Hide();
             f.ShowDialog();
             LoadHangHoa();
@@ -107,15 +105,21 @@ namespace App_sale_manager
             {
                 MessageBox.Show("Chưa chọn hàng để xoá");
                 return;
-            }           
-            string strquery = "delete from SANPHAM where SPID='" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + "'";
-            FileInfo info = new FileInfo(@"..\..\..\..\HangHoa\"+ dgvSP.CurrentRow.Cells["SPID"].Value.ToString()+".jpg");
-            info.Delete();
-            SqlCommand sqlCmd = new SqlCommand(strquery, sqlCon);
-            sqlCmd.ExecuteNonQuery();
-            sqlCon.Close();
-            LoadHangHoa();
-            MessageBox.Show("Đã xoá");
+            }
+            DialogResult dar = MessageBox.Show("Xoá sản phẩm sẽ làm thông tin liên quan bị xoá.Ví dụ các hoá đơn.\nBạn có chắc chắn xoá ", "Chú ý", MessageBoxButtons.YesNo);
+            if (dar == DialogResult.Yes)
+            {
+                string strquery = "delete CTHDNH where SPID in (select SPID from SANPHAM where LOAIID = '" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + "')" +
+                              "delete CTHDBH where SPID in (select SPID from SANPHAM where LOAIID = '" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + "')" +
+                              "delete from SANPHAM where SPID='" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + "'";
+                FileInfo info = new FileInfo(@"..\..\HangHoa\" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + ".jpg");
+                info.Delete();
+                SqlCommand sqlCmd = new SqlCommand(strquery, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+                LoadHangHoa();
+                MessageBox.Show("Đã xoá");
+            }
         }
 
         private void btnXemChiTietHH_Click(object sender, EventArgs e)
@@ -139,6 +143,7 @@ namespace App_sale_manager
             this.Hide();
             f.ShowDialog();            
             this.Show();
+            LoadHangHoa();
         }
     }
 }

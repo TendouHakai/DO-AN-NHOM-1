@@ -36,7 +36,7 @@ namespace App_sale_manager
             // tạo ra đối tượng thực thi truy vấn.
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select PASSWD from NHANVIEN where USERNAME = '"+textBox_usr.Text+"'";
+            sqlCmd.CommandText = "select PASSWD,NVID,HOTEN from NHANVIEN where USERNAME = '"+textBox_usr.Text+"'";
             // gửi truy vấn tới kết nối.
             sqlCmd.Connection = sqlCon;
             // nhận kết quả
@@ -45,13 +45,15 @@ namespace App_sale_manager
             if(reader.Read())
             {
                 passwd = reader.GetString(0);
+                
+              
             }
             // kiểm tra passwd
             if (passwd == textBox_passwd.Text)
             {
                 if(textBox_usr.Text == "admin")
                 {
-                    Form_main_admin frm = new Form_main_admin();
+                    Form_main_admin frm = new Form_main_admin(reader.GetString(1),  reader.GetString(2));
                     frm.Thoat += Frm_Thoat;
                     frm.Show();
                     this.Hide();

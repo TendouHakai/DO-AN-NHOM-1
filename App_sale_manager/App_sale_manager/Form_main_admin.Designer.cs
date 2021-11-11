@@ -733,13 +733,13 @@ namespace App_sale_manager
             this.dgvSP.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvSP.ColumnHeadersHeight = 70;
             this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvSP.Location = new System.Drawing.Point(-4, 230);
+            this.dgvSP.Location = new System.Drawing.Point(3, 230);
             this.dgvSP.Name = "dgvSP";
             this.dgvSP.ReadOnly = true;
             this.dgvSP.RowHeadersWidth = 51;
             this.dgvSP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSP.RowTemplate.Height = 24;
-            this.dgvSP.Size = new System.Drawing.Size(1197, 417);
+            this.dgvSP.Size = new System.Drawing.Size(1168, 417);
             this.dgvSP.TabIndex = 8;
             this.dgvSP.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSP_CellMouseDoubleClick);
             // 

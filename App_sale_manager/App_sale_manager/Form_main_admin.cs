@@ -15,9 +15,10 @@ using System.Configuration;
 namespace App_sale_manager
 {
     public partial class Form_main_admin : Form
-    {   
+    {
         public string filepath = "";
-        string manv = "nv01";
+        string manv = string.Empty;
+        string tennv = string.Empty;
         SqlConnection sqlCon = null;
         string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlCommand cmd;
@@ -39,9 +40,10 @@ namespace App_sale_manager
             pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
         }
-        public Form_main_admin(string manv)
+        public Form_main_admin(string manv,string tennv)
         {
             this.manv = manv;
+            this.tennv = tennv;
             sqlCon = new SqlConnection(strCon);
             cmd = sqlCon.CreateCommand();
             InitializeComponent();
@@ -1664,9 +1666,6 @@ namespace App_sale_manager
         private void GridView_Data_GiaoDich_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (GridView_Data_GiaoDich.CurrentRow.Index == GridView_Data_GiaoDich.RowCount -1)
-                return;
-
             Form_CTHD cthd = new Form_CTHD((string)GridView_Data_GiaoDich.CurrentRow.Cells[0].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[2].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[3].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[5].Value, (string)GridView_Data_GiaoDich.CurrentRow.Cells[6].Value, Convert.ToString(GridView_Data_GiaoDich.CurrentRow.Cells[4].Value));
             cthd.Show();
         }
@@ -1674,9 +1673,6 @@ namespace App_sale_manager
         Bitmap bmp;
         private void bnt_inDS_Click(object sender, EventArgs e)
         {
-            if (GridView_Data_GiaoDich.RowCount== 1)
-                return;
-
             int height = GridView_Data_GiaoDich.Height;
             GridView_Data_GiaoDich.Height = GridView_Data_GiaoDich.RowCount * GridView_Data_GiaoDich.RowTemplate.Height + 2 * GridView_Data_GiaoDich.RowTemplate.Height;
             GridView_Data_GiaoDich.CurrentRow.Selected = false;
@@ -1685,7 +1681,6 @@ namespace App_sale_manager
             GridView_Data_GiaoDich.Height = height;
             printPreviewDialog1.ShowDialog();
         }
-
         private void printDocument1_PrintPage_GD(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(bmp, 30, 0);
@@ -1698,7 +1693,7 @@ namespace App_sale_manager
             SqlCommand sqlCmd = new SqlCommand();
             sqlCon.Open();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
+            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
             sqlCmd.Connection = sqlCon;
             adapter = new SqlDataAdapter(sqlCmd);
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
@@ -1718,15 +1713,16 @@ namespace App_sale_manager
             dgvSP.Columns[2].HeaderText = "Loại Sản Phẩm";
             dgvSP.Columns[3].HeaderText = "Nước Sản Xuất";
             dgvSP.Columns[3].Width = 80;
-            dgvSP.Columns[4].HeaderText = "Giá Bán";
-            dgvSP.Columns[5].HeaderText = "Giá Nhập";
-            dgvSP.Columns[6].HeaderText = "Đơn Vị Tính";
-            dgvSP.Columns[6].Width = 50;
-            dgvSP.Columns[7].HeaderText = "Số Lượng";
+            dgvSP.Columns[4].HeaderText = "Hãng";
+            dgvSP.Columns[5].HeaderText = "Giá Bán";
+            dgvSP.Columns[6].HeaderText = "Giá Nhập";
+            dgvSP.Columns[7].HeaderText = "Đơn Vị Tính";
             dgvSP.Columns[7].Width = 50;
-            dgvSP.Columns[8].HeaderText = "Số Lượng Tối Thiểu";
+            dgvSP.Columns[8].HeaderText = "Số Lượng";
             dgvSP.Columns[8].Width = 50;
-            dgvSP.Columns[9].HeaderText = "Mô Tả";
+            dgvSP.Columns[9].HeaderText = "Số Lượng Tối Thiểu";
+            dgvSP.Columns[9].Width = 50;
+            dgvSP.Columns[10].HeaderText = "Mô Tả";
         }
         private void dgvSP_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -1740,12 +1736,12 @@ namespace App_sale_manager
                 MessageBox.Show("Chưa chọn hàng để xem chi tiết");
                 return;
             }
-            Form_ChiTietHH f = new Form_ChiTietHH(dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["SOLUONG"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
+            Form_ChiTietHH f = new Form_ChiTietHH(dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["SOLUONG"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["HANGSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
             this.Hide();
             f.ShowDialog();
+            f.Close();
             this.Show();
         }
-
         private void btnQuanLiHH_Click(object sender, EventArgs e)
         {
             Form_QuanLiHH f = new Form_QuanLiHH();
@@ -1756,7 +1752,7 @@ namespace App_sale_manager
         }
         private void btnQLKho_Click(object sender, EventArgs e)
         {
-            Form_QLKho f = new Form_QLKho();
+            Form_QLKho f = new Form_QLKho(manv,tennv);
             this.Hide();
             f.ShowDialog();
             LoadHangHoa();

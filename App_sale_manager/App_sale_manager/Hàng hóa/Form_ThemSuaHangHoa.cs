@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace App_sale_manager
 {
@@ -19,8 +18,7 @@ namespace App_sale_manager
         public SqlConnection sqlCon = null;
         static public SqlDataAdapter adapter = null;
         static int ModeHH = 0;
-        static int trangthai = 0;
-        string linksave;
+        string linksave=string.Empty;
         public Form_ThemSuaHangHoa(int n)
         {
 
@@ -31,26 +29,25 @@ namespace App_sale_manager
             sqlCon.Open();
             adapter = new SqlDataAdapter("select TENLOAI from [LOAISP] group by TENLOAI", sqlCon);
             DataTable table = new DataTable();
-            adapter.Fill(table);     
+            adapter.Fill(table);
             cbLoaiSP.DataSource = table;
             cbLoaiSP.DisplayMember = "TenLoai";
             cbLoaiSP.ValueMember = "TenLoai";
+            txtSPID.Text = "MBA"; 
             sqlCon.Close();
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
 
         }
-        public Form_ThemSuaHangHoa(int n, string SPID, string TenSP, string SL, string NuocSX, string GiaBan, string GiaNhap, string DVT, string SLTT, string LoaiSP, string MoTa)
+        public Form_ThemSuaHangHoa(int n, string SPID, string TenSP, string NuocSX, string GiaBan, string GiaNhap, string DVT, string LoaiSP, string MoTa)
         {
             InitializeComponent();
             ModeHH = n;
             txtSPID.Text = SPID;
             txtTenSP.Text = TenSP;
-            txtSL.Text = SL;
             txtNuocSX.Text = NuocSX;
             txtGiaBan.Text = GiaNhap;
             txtGiaNhap.Text = GiaBan;
             txtDVT.Text = DVT;
-            txtSLTT.Text = SLTT;
             cbLoaiSP.Text = LoaiSP;
             txtMoTa.Text = MoTa;
             if (ModeHH == 2)
@@ -66,43 +63,51 @@ namespace App_sale_manager
             sqlCmd.CommandText = "select LOAIID from LOAISP where TENLOAI = N'" + cbLoaiSP.Text + "'";
             sqlCon = new SqlConnection(strCon);
             sqlCmd.Connection = sqlCon;
-            SqlDataAdapter adapter2 = new SqlDataAdapter(sqlCmd);
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapter2);
-            DataTable tbHH = new DataTable();
-            tbHH.Clear();
-            adapter2.Fill(tbHH);
-            LoaiID = tbHH.Rows[0]["LOAIID"].ToString();
             sqlCon = new SqlConnection(strCon);
-            if (ModeHH == 1 && trangthai==1)
+            if (ModeHH == 1)
             {
-                if (txtSPID.Text != string.Empty)
+                if (txtSPID.Text == string.Empty || txtTenSP.Text == string.Empty || txtNuocSX.Text == string.Empty || txtHang.Text == string.Empty || txtGiaNhap.Text == string.Empty || txtGiaBan.Text == string.Empty || txtDVT.Text == string.Empty)
                 {
-                   
-                        sqlCon.Open();
-                        string strquery = "insert into SANPHAM values('" + LoaiID + txtSPID.Text + "',N'" + txtTenSP.Text + "',N'" + LoaiID + "',N'" + txtNuocSX.Text + "'," + txtGiaNhap.Text + "," + txtGiaBan.Text
-                            + ",N'" + txtDVT.Text + "'," + txtSL.Text + "," + txtSLTT.Text + ",N'" + txtMoTa.Text + "')";
-                        sqlCmd = new SqlCommand(strquery, sqlCon);
-                        sqlCmd.ExecuteNonQuery();
-                        sqlCon.Close();                        
-                        ptrbHinhAnh.Image.Save(linksave);
+                    MessageBox.Show("Cần nhập đầy đủ thông tin");
+                    return;
+
+                }
+                else if (linksave != string.Empty)
+                {
+                    sqlCon.Open();
+                    string strquery = "insert into SANPHAM values('" + txtSPID.Text + "',N'" + txtTenSP.Text + "',N'" + LoaiID + "',N'" + txtHang.Text + "',N'" + txtNuocSX.Text + "'," + txtGiaBan.Text + "," + txtGiaNhap.Text
+                        + ",N'" + txtDVT.Text + "'," + 0 + "," + 0 + ",N'" + txtMoTa.Text + "')";
+                    sqlCmd = new SqlCommand(strquery, sqlCon);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlCon.Close();
+                    ptrbHinhAnh.Image.Save(linksave);
                     MessageBox.Show("Thêm thành công");
                     this.Close();
                 }
-                
+                else MessageBox.Show("Chưa chọn hình");
             }
             else if (ModeHH == 2)
             {
-                sqlCon.Open();
-                string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',LOAIID='" + LoaiID + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
-                    + ",DVT=N'" + txtDVT.Text + "',SOLUONG=" + txtSL.Text + ",SLTT=" + txtSLTT.Text + ",MOTA=N'" + txtMoTa.Text + "'WHERE SPID='" + txtSPID.Text + "'";
-                sqlCmd = new SqlCommand(strquery, sqlCon);
-                sqlCmd.ExecuteNonQuery();
-                sqlCon.Close();
-                MessageBox.Show("Sửa thành công");
-                this.Close();
+                if (txtSPID.Text == string.Empty || txtTenSP.Text == string.Empty || txtNuocSX.Text == string.Empty || txtHang.Text == string.Empty || txtGiaNhap.Text == string.Empty || txtGiaBan.Text == string.Empty || txtDVT.Text == string.Empty)
+                {
+                    MessageBox.Show("Cần nhập đầy đủ thông tin");
+                    return;
+
+                }
+                else
+                {
+                    sqlCon.Open();
+                    string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',LOAIID='" + LoaiID + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
+                        + ",DVT=N'" + txtDVT.Text + "',SOLUONG=" + 0 + ",SLTT=" + 0 + ",MOTA=N'" + txtMoTa.Text + "'WHERE SPID='" + txtSPID.Text + "'";
+                    sqlCmd = new SqlCommand(strquery, sqlCon);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlCon.Close();
+                    MessageBox.Show("Sửa thành công");
+                    this.Close();
+                }
             }
         }
-     
+
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -124,14 +129,31 @@ namespace App_sale_manager
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "File .jpg (*.jpg)|*.jpg";
             DialogResult result = open.ShowDialog();
-            linksave = @"..\..\HangHoa\"+LoaiID+txtSPID.Text+".jpg";
+            linksave = @"..\..\HangHoa\" + txtSPID.Text + ".jpg";
             if (result == DialogResult.OK)
             {
                 ptrbHinhAnh.Image = Image.FromFile(open.FileName);
-                trangthai = 1;
             }
             else MessageBox.Show("Chưa chọn hình");
-           
+
+        }
+
+        private void cbLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbLoaiSP.Text != "Chọn Loại" && cbLoaiSP.Text != "System.Data.DataRowView")
+            {
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.CommandText = "select LOAIID from LOAISP where TENLOAI = N'" + cbLoaiSP.Text + "'";
+                sqlCon = new SqlConnection(strCon);
+                sqlCmd.Connection = sqlCon;
+                SqlDataAdapter adapter2 = new SqlDataAdapter(sqlCmd);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter2);
+                DataTable tbHH = new DataTable();
+                tbHH.Clear();
+                adapter2.Fill(tbHH);
+                LoaiID = tbHH.Rows[0]["LOAIID"].ToString();
+                txtSPID.Text = LoaiID;
+            }
         }
     }
 }

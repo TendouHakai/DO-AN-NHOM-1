@@ -51,13 +51,15 @@ namespace App_sale_manager
             this.txtNDSLToiThieu = new System.Windows.Forms.TextBox();
             this.txtNDGiaBan = new System.Windows.Forms.TextBox();
             this.txtNDGiaNhap = new System.Windows.Forms.TextBox();
+            this.txtNDHang = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLoaiID
             // 
             this.lblLoaiID.AutoSize = true;
-            this.lblLoaiID.Location = new System.Drawing.Point(30, 295);
+            this.lblLoaiID.Location = new System.Drawing.Point(30, 189);
             this.lblLoaiID.Name = "lblLoaiID";
             this.lblLoaiID.Size = new System.Drawing.Size(101, 17);
             this.lblLoaiID.TabIndex = 48;
@@ -66,7 +68,7 @@ namespace App_sale_manager
             // lblSLToiThieu
             // 
             this.lblSLToiThieu.AutoSize = true;
-            this.lblSLToiThieu.Location = new System.Drawing.Point(30, 407);
+            this.lblSLToiThieu.Location = new System.Drawing.Point(30, 588);
             this.lblSLToiThieu.Name = "lblSLToiThieu";
             this.lblSLToiThieu.Size = new System.Drawing.Size(118, 17);
             this.lblSLToiThieu.TabIndex = 47;
@@ -75,7 +77,7 @@ namespace App_sale_manager
             // lblGiaBan
             // 
             this.lblGiaBan.AutoSize = true;
-            this.lblGiaBan.Location = new System.Drawing.Point(30, 463);
+            this.lblGiaBan.Location = new System.Drawing.Point(30, 417);
             this.lblGiaBan.Name = "lblGiaBan";
             this.lblGiaBan.Size = new System.Drawing.Size(58, 17);
             this.lblGiaBan.TabIndex = 46;
@@ -84,7 +86,7 @@ namespace App_sale_manager
             // lblDVT
             // 
             this.lblDVT.AutoSize = true;
-            this.lblDVT.Location = new System.Drawing.Point(30, 183);
+            this.lblDVT.Location = new System.Drawing.Point(30, 360);
             this.lblDVT.Name = "lblDVT";
             this.lblDVT.Size = new System.Drawing.Size(75, 17);
             this.lblDVT.TabIndex = 45;
@@ -93,7 +95,7 @@ namespace App_sale_manager
             // lblGiaNhap
             // 
             this.lblGiaNhap.AutoSize = true;
-            this.lblGiaNhap.Location = new System.Drawing.Point(30, 519);
+            this.lblGiaNhap.Location = new System.Drawing.Point(30, 474);
             this.lblGiaNhap.Name = "lblGiaNhap";
             this.lblGiaNhap.Size = new System.Drawing.Size(66, 17);
             this.lblGiaNhap.TabIndex = 44;
@@ -102,7 +104,7 @@ namespace App_sale_manager
             // lblSoLuong
             // 
             this.lblSoLuong.AutoSize = true;
-            this.lblSoLuong.Location = new System.Drawing.Point(30, 351);
+            this.lblSoLuong.Location = new System.Drawing.Point(30, 531);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(64, 17);
             this.lblSoLuong.TabIndex = 43;
@@ -111,7 +113,7 @@ namespace App_sale_manager
             // lblNuocSX
             // 
             this.lblNuocSX.AutoSize = true;
-            this.lblNuocSX.Location = new System.Drawing.Point(30, 239);
+            this.lblNuocSX.Location = new System.Drawing.Point(30, 303);
             this.lblNuocSX.Name = "lblNuocSX";
             this.lblNuocSX.Size = new System.Drawing.Size(98, 17);
             this.lblNuocSX.TabIndex = 42;
@@ -190,7 +192,7 @@ namespace App_sale_manager
             // 
             // txtNDDVT
             // 
-            this.txtNDDVT.Location = new System.Drawing.Point(163, 183);
+            this.txtNDDVT.Location = new System.Drawing.Point(163, 355);
             this.txtNDDVT.Name = "txtNDDVT";
             this.txtNDDVT.ReadOnly = true;
             this.txtNDDVT.Size = new System.Drawing.Size(209, 22);
@@ -198,7 +200,7 @@ namespace App_sale_manager
             // 
             // txtNDNuocSX
             // 
-            this.txtNDNuocSX.Location = new System.Drawing.Point(163, 234);
+            this.txtNDNuocSX.Location = new System.Drawing.Point(163, 298);
             this.txtNDNuocSX.Name = "txtNDNuocSX";
             this.txtNDNuocSX.ReadOnly = true;
             this.txtNDNuocSX.Size = new System.Drawing.Size(209, 22);
@@ -206,7 +208,7 @@ namespace App_sale_manager
             // 
             // txtNDLoaiID
             // 
-            this.txtNDLoaiID.Location = new System.Drawing.Point(163, 290);
+            this.txtNDLoaiID.Location = new System.Drawing.Point(163, 184);
             this.txtNDLoaiID.Name = "txtNDLoaiID";
             this.txtNDLoaiID.ReadOnly = true;
             this.txtNDLoaiID.Size = new System.Drawing.Size(209, 22);
@@ -214,7 +216,7 @@ namespace App_sale_manager
             // 
             // txtNDSoLuong
             // 
-            this.txtNDSoLuong.Location = new System.Drawing.Point(163, 346);
+            this.txtNDSoLuong.Location = new System.Drawing.Point(163, 526);
             this.txtNDSoLuong.Name = "txtNDSoLuong";
             this.txtNDSoLuong.ReadOnly = true;
             this.txtNDSoLuong.Size = new System.Drawing.Size(209, 22);
@@ -222,7 +224,7 @@ namespace App_sale_manager
             // 
             // txtNDSLToiThieu
             // 
-            this.txtNDSLToiThieu.Location = new System.Drawing.Point(163, 402);
+            this.txtNDSLToiThieu.Location = new System.Drawing.Point(163, 583);
             this.txtNDSLToiThieu.Name = "txtNDSLToiThieu";
             this.txtNDSLToiThieu.ReadOnly = true;
             this.txtNDSLToiThieu.Size = new System.Drawing.Size(209, 22);
@@ -230,7 +232,7 @@ namespace App_sale_manager
             // 
             // txtNDGiaBan
             // 
-            this.txtNDGiaBan.Location = new System.Drawing.Point(163, 458);
+            this.txtNDGiaBan.Location = new System.Drawing.Point(163, 412);
             this.txtNDGiaBan.Name = "txtNDGiaBan";
             this.txtNDGiaBan.ReadOnly = true;
             this.txtNDGiaBan.Size = new System.Drawing.Size(209, 22);
@@ -238,17 +240,36 @@ namespace App_sale_manager
             // 
             // txtNDGiaNhap
             // 
-            this.txtNDGiaNhap.Location = new System.Drawing.Point(163, 514);
+            this.txtNDGiaNhap.Location = new System.Drawing.Point(163, 469);
             this.txtNDGiaNhap.Name = "txtNDGiaNhap";
             this.txtNDGiaNhap.ReadOnly = true;
             this.txtNDGiaNhap.Size = new System.Drawing.Size(209, 22);
             this.txtNDGiaNhap.TabIndex = 70;
+            // 
+            // txtNDHang
+            // 
+            this.txtNDHang.Location = new System.Drawing.Point(163, 241);
+            this.txtNDHang.Name = "txtNDHang";
+            this.txtNDHang.ReadOnly = true;
+            this.txtNDHang.Size = new System.Drawing.Size(209, 22);
+            this.txtNDHang.TabIndex = 72;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 246);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.TabIndex = 71;
+            this.label1.Text = "Hãng";
             // 
             // Form_ChiTietHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.txtNDHang);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNDGiaNhap);
             this.Controls.Add(this.txtNDGiaBan);
             this.Controls.Add(this.txtNDSLToiThieu);
@@ -304,5 +325,7 @@ namespace App_sale_manager
         private System.Windows.Forms.TextBox txtNDSLToiThieu;
         private System.Windows.Forms.TextBox txtNDGiaBan;
         private System.Windows.Forms.TextBox txtNDGiaNhap;
+        private System.Windows.Forms.TextBox txtNDHang;
+        private System.Windows.Forms.Label label1;
     }
 }

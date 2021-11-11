@@ -27,25 +27,47 @@ namespace App_sale_manager
             adapter.Fill(tableLoai);
             cbbLoaiSP.DataSource = tableLoai;
             cbbLoaiSP.DisplayMember = "TenLoai";
-            cbbLoaiSP.ValueMember = "TenLoai";
+            cbbLoaiSP.ValueMember = "TenLoai";            
             adapter = new SqlDataAdapter("select NUOCSX from [SANPHAM] group by NUOCSX", sqlCon);
             DataTable tableNuoc = new DataTable();
             adapter.Fill(tableNuoc);
             cbbNuocSX.DataSource = tableNuoc;
             cbbNuocSX.DisplayMember = "NUOCSX";
             cbbNuocSX.ValueMember = "NUOCSX";
+            adapter = new SqlDataAdapter("select HANGSX from [SANPHAM] group by HANGSX", sqlCon);
+            DataTable tableHang = new DataTable();
+            adapter.Fill(tableHang);
+            cbbHang.DataSource = tableHang;
+            cbbHang.DisplayMember = "HANGSX";
+            cbbHang.ValueMember = "HANGSX";
             sqlCon.Close();
         }
         
         public DataTable TimKiem()
         {
             DataTable tb = new DataTable();
+            string query;
             if (txtGiaBan.Text == String.Empty)
             {
                 txtGiaBan.Text = "999999999999999999";
             }
-            string query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
-                " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN < " + txtGiaBan.Text + "and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%')";
+            if (cbbChonGia.Text == "Tối Đa")
+            {
+               query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                  " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN < " + txtGiaBan.Text + "and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + "and HANGSX Like N'%" + cbbHang.Text + "%')";
+            }
+            else if (cbbChonGia.Text == "Tối Thiểu")
+            {
+               query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                  " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN > " + txtGiaBan.Text + "and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + "and HANGSX Like N'%" + cbbHang.Text + "%')";
+
+            }
+            else
+            {
+               query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%'" + "and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + "and HANGSX Like N'%" + cbbHang.Text + "%')";
+
+            }
             adapter = new SqlDataAdapter(query, sqlCon);
             adapter.Fill(tb);
             sqlCon.Close();

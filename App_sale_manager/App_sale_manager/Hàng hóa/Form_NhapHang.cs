@@ -17,31 +17,68 @@ namespace App_sale_manager
 
         public string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         public SqlConnection sqlCon = null;
-        static public SqlDataAdapter adapter = null;
-        int MaDonNhap;
-        string IDNV=" ";
-        string IDDoiTac;
-        public string MaSp;
-        int TongGia;
-        public Form_NhapHang()
+        static public SqlDataAdapter adapter = null;        
+        int trangthai = -1;             
+        public Form_NhapHang(string manv,string tennv)
         {
+           
             InitializeComponent();
             LoadCBB();
-            MaDonNhap = LoadMaDN();
-            LoadDonNhap();
+            txtSoHDNH.Text = LoadMaDN();           
+            txtNVNhap.Text = tennv;
+            txtMaNV.Text= manv;
+            txtMaDT.Text = LayIDDoiTac();
+            sqlCon = new SqlConnection(strCon);
+            sqlCon.Open();
+            string strquery = "set dateformat dmy insert into HDNH values('" + txtSoHDNH.Text + "',null,null,null,null)";
+            SqlCommand sqlCmd;
+            sqlCmd = new SqlCommand(strquery, sqlCon);
+            sqlCmd.ExecuteNonQuery();
+            sqlCon.Close();
         }
-        private int LoadMaDN()
+        public Form_NhapHang(string sohd)
         {
-            int max;
+            trangthai = 1;
+            InitializeComponent();
+            LoadCBB();
+            LoadDonNhap();
+            sqlCon = new SqlConnection(strCon);
+            sqlCon.Open();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "select HDNH.SOHD_NH,NGNHAP,HDNH.DTID,DTCC.TENDT,HDNH.NVID,NHANVIEN.HOTEN,TRIGIA from HDNH,DTCC,NHANVIEN where DTCC.DTID=HDNH.DTID and NHANVIEN.NVID=HDNH.NVID and HDNH.SOHD_NH='" + sohd + "'";
+            sqlCmd.Connection = sqlCon;       
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            if (reader.Read())
+            {
+                txtSoHDNH.Text = reader.GetString(0);
+                dateNgayNhap.Text = reader.GetDateTime(1).ToString();
+                txtMaDT.Text = reader.GetString(2);
+                cbbDoiTac.Text = reader.GetString(3);
+                txtMaNV.Text = reader.GetString(4);
+                txtNVNhap.Text = reader.GetString(5);
+                reader.Close();
+            }
+            sqlCon.Close();
+        }
+        private string LoadMaDN()
+        {
+            string max;
             sqlCon = new SqlConnection(strCon);
             sqlCon.Open();
             SqlCommand sqlCmd = new SqlCommand("select max(SOHD_NH) from HDNH", sqlCon);
             var reader = sqlCmd.ExecuteReader();
             if (reader.Read())
-            { max = Convert.ToInt32(reader.GetString(0)); }
-            else max = 0;
+            {
+                if (reader.IsDBNull(0))
+                {
+                    max = "0";
+                }
+                else max = reader.GetString(0);
+            }
+            else max = "0";
             sqlCon.Close();
-            return max + 1;
+            return (Convert.ToInt32(max) + 1).ToString();
         }
         private void LoadCBB()
         {
@@ -90,8 +127,11 @@ namespace App_sale_manager
             adapter.Fill(tableSoLuong);
             txtSoLuong.Text = tableSoLuong.Rows[0][0].ToString();
             txtSLTT.Text = tableSoLuong.Rows[0][1].ToString();
-            MaSp = tableSoLuong.Rows[0][2].ToString();
+            txtMaSP.Text = tableSoLuong.Rows[0][2].ToString();
             sqlCon.Close();
+            ptrbHinhAnh.Image = Image.FromFile(@"..\..\HangHoa\" + txtMaSP.Text + ".jpg");
+            ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
 
         private void cbbDoiTac_KeyPress(object sender, KeyPressEventArgs e)
@@ -108,37 +148,36 @@ namespace App_sale_manager
 
         private void LoadDonNhap()
         {
-            sqlCon = new SqlConnection(strCon);
-            sqlCon.Open();
-            adapter = new SqlDataAdapter("select SPID,SL from CTHDNH where SOHD_NH=" + MaDonNhap, sqlCon);
-            DataTable tableNH = new DataTable();
-            adapter.Fill(tableNH);
-            dgvChiTietNH.DataSource = tableNH;     
-            sqlCon.Close();
+            if (txtSoHDNH.Text != string.Empty)
+            {
+                sqlCon = new SqlConnection(strCon);
+                sqlCon.Open();
+                adapter = new SqlDataAdapter("select SPID,SL from CTHDNH where SOHD_NH=" + txtSoHDNH.Text, sqlCon);
+                DataTable tableSPNH = new DataTable();
+                adapter.Fill(tableSPNH);
+                dgvChiTietNH.DataSource = tableSPNH;
+                dgvChiTietNH.Columns[0].HeaderText = "Mã Sản Phẩm";
+                dgvChiTietNH.Columns[1].HeaderText = "Số Lượng Nhập";
+                sqlCon.Close();
+            }
         }
-        private void cbbTenSP_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.KeyChar = (char)Keys.None;
-            return;
-        }
+     
 
         private void button1_Click(object sender, EventArgs e)
         {
             sqlCon = new SqlConnection(strCon);
-            sqlCon.Open();           
-            string strquery ="insert into CTHDNH values('"+MaDonNhap+"','"+MaSp+"',"+txtSLNhap.Text+")";
-            SqlCommand sqlCmd;
-            sqlCmd = new SqlCommand(strquery, sqlCon);
-            try
-            { sqlCmd.ExecuteNonQuery(); }
-            catch
+            sqlCon.Open();
+            if (txtSLNhap.Text != string.Empty || txtMaSP.Text != string.Empty||txtSLNhap.Text!=string.Empty)
             {
-                MessageBox.Show("Có lỗi sảy ra");
+                string strquery = "insert into CTHDNH values('" + txtSoHDNH.Text + "','" + txtMaSP.Text + "'," + txtSLNhap.Text + ") update SANPHAM set SLTT = " + txtSLTT.Text + " where SPID='" + txtMaSP.Text + "'";
+                SqlCommand sqlCmd;
+                sqlCmd = new SqlCommand(strquery, sqlCon);
+                sqlCmd.ExecuteNonQuery();
             }
-            
-            sqlCon.Close();
-            
+            else MessageBox.Show("Chưa nhập đủ thông tin"); 
+            sqlCon.Close();           
             LoadDonNhap();
+            txtGiaTriDN.Text = LayGia();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -160,14 +199,17 @@ namespace App_sale_manager
 
         private void button4_Click(object sender, EventArgs e)
         {
-            sqlCon.Open();
-       
-                string strquery = "delete from CTHDNH where SOHD_NH ='" + MaDonNhap+ "'";
+            if (trangthai == 0)
+            {
+                sqlCon.Open();
+                string strquery = "delete from CTHDNH where SOHD_NH ='" + txtSoHDNH.Text + "' delete from HDNH where SOHD_NH ='" + txtSoHDNH.Text + "' ";
                 SqlCommand sqlCmd;
                 sqlCmd = new SqlCommand(strquery, sqlCon);
                 sqlCmd.ExecuteNonQuery();
-            sqlCon.Close();
-            this.Close();
+                sqlCon.Close();
+                trangthai = 0;
+                this.Close();
+            }
         }
         private string LayIDDoiTac()
         {
@@ -181,7 +223,7 @@ namespace App_sale_manager
             sqlCon.Close();
             return id;
         }
-        private int LayGia()
+        private string LayGia()
         {
             sqlCon = new SqlConnection(strCon);
             sqlCon.Open();
@@ -199,14 +241,14 @@ namespace App_sale_manager
                 }
             }
             sqlCon.Close();
-            return Gia;
+            return Gia.ToString() ;
         }
         private void ThemSL()
         {
             for (int i = 0; i < dgvChiTietNH.Rows.Count - 1; i++)
             {
                 sqlCon.Open();
-                string strquery = "update SANPHAM set SoLuong = SoLuong + "+ dgvChiTietNH.Rows[i].Cells["SL"].Value.ToString() + " where SPID=N'" + dgvChiTietNH.Rows[i].Cells["SPID"].Value.ToString() + "'";
+                string strquery = "update SANPHAM set SoLuong = SoLuong + "+ dgvChiTietNH.Rows[i].Cells["SL"].Value.ToString() + " where SPID=N'" + txtMaSP.Text + "'";
                 SqlCommand sqlCmd;
                 sqlCmd = new SqlCommand(strquery, sqlCon);
                 sqlCmd.ExecuteNonQuery();
@@ -217,17 +259,47 @@ namespace App_sale_manager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            IDDoiTac = LayIDDoiTac();
-            TongGia = LayGia();
-            ThemSL();
-            sqlCon.Open();
-                string strquery = "set dateformat dmy insert into HDNH values('" + MaDonNhap + "','"+dateNgayNhap.Text+"','"+IDDoiTac+"','"+IDNV+"',"+TongGia+")";
+            if (txtMaDT.Text == string.Empty || txtMaNV.Text == string.Empty || txtGiaTriDN.Text == string.Empty)
+            {
+                MessageBox.Show("Chưa đủ thông tin");
+                return;
+            }    
+            else
+            {
+                ThemSL();
+                sqlCon.Open();
+                string strquery = "set dateformat dmy update HDNH set NGNHAP='" + dateNgayNhap.Text + "',DTID='" + txtMaDT.Text + "',NVID='" + txtMaNV.Text + "',TRIGIA=" + txtGiaTriDN.Text + " where SOHD_NH=" + txtSoHDNH.Text;
                 SqlCommand sqlCmd;
                 sqlCmd = new SqlCommand(strquery, sqlCon);
                 sqlCmd.ExecuteNonQuery();
-                
-            sqlCon.Close();
-            this.Close();
+                sqlCon.Close();
+                this.Close();
+                trangthai = 0;
+            }
+        }
+
+        private void Form_NhapHang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (trangthai == -1)
+            {
+                sqlCon.Open();
+                string strquery = "delete from CTHDNH where SOHD_NH ='" + txtSoHDNH.Text + "' delete from HDNH where SOHD_NH ='" + txtSoHDNH.Text + "' ";
+                SqlCommand sqlCmd;
+                sqlCmd = new SqlCommand(strquery, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+                this.Close();
+            }
+        }
+
+        private void cbbDoiTac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaDT.Text = LayIDDoiTac();
+        }
+
+        private void dgvChiTietNH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
