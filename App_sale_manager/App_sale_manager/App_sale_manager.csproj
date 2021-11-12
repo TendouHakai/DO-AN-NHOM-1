@@ -298,5 +298,20 @@
   <ItemGroup>
     <None Include="icon\images %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\Vương miện vàng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\vương miện bạc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\vương miện đồng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\Dấu tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\dấu X.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
