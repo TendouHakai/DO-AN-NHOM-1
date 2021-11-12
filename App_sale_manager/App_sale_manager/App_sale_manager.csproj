@@ -74,23 +74,11 @@
     <Compile Include="Hàng hóa\Form_NhapHang.Designer.cs">
       <DependentUpon>Form_NhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hàng hóa\Form_QLKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng hóa\Form_QLKho.Designer.cs">
-      <DependentUpon>Form_QLKho.cs</DependentUpon>
-    </Compile>
     <Compile Include="Hàng hóa\Form_QLLoaiHH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Hàng hóa\Form_QLLoaiHH.Designer.cs">
       <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hàng hóa\Form_QuanLiHH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hàng hóa\Form_QuanLiHH.Designer.cs">
-      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
     </Compile>
     <Compile Include="Hàng hóa\Form_ThemSuaHangHoa.cs">
       <SubType>Form</SubType>
@@ -214,14 +202,8 @@
     <EmbeddedResource Include="Hàng hóa\Form_NhapHang.resx">
       <DependentUpon>Form_NhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hàng hóa\Form_QLKho.resx">
-      <DependentUpon>Form_QLKho.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Hàng hóa\Form_QLLoaiHH.resx">
       <DependentUpon>Form_QLLoaiHH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hàng hóa\Form_QuanLiHH.resx">
-      <DependentUpon>Form_QuanLiHH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hàng hóa\Form_ThemSuaHangHoa.resx">
       <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
@@ -312,6 +294,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon\dấu X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\mắt đóng.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

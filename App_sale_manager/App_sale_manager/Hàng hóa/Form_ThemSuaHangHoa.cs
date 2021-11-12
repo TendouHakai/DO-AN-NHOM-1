@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace App_sale_manager
         public SqlConnection sqlCon = null;
         static public SqlDataAdapter adapter = null;
         static int ModeHH = 0;
-        string linksave=string.Empty;
+       
         public Form_ThemSuaHangHoa(int n)
         {
 
@@ -33,37 +34,49 @@ namespace App_sale_manager
             cbLoaiSP.DataSource = table;
             cbLoaiSP.DisplayMember = "TenLoai";
             cbLoaiSP.ValueMember = "TenLoai";
-            txtSPID.Text = "MBA"; 
+            txtSPID.Text = "Chọn lại loại sản phẩm"; 
             sqlCon.Close();
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
 
         }
-        public Form_ThemSuaHangHoa(int n, string SPID, string TenSP, string NuocSX, string GiaBan, string GiaNhap, string DVT, string LoaiSP, string MoTa)
+        public Form_ThemSuaHangHoa(int n, string SPID, string TenSP, string NuocSX,string HangSX, string GiaBan, string GiaNhap,string SLTT, string DVT, string LoaiSP, string MoTa)
         {
             InitializeComponent();
             ModeHH = n;
             txtSPID.Text = SPID;
             txtTenSP.Text = TenSP;
             txtNuocSX.Text = NuocSX;
-            txtGiaBan.Text = GiaNhap;
-            txtGiaNhap.Text = GiaBan;
+            txtHang.Text = HangSX;
+            txtGiaBan.Text = GiaBan;
+            txtSLTT.Text = SLTT;
+            txtGiaNhap.Text = GiaNhap;
             txtDVT.Text = DVT;
             cbLoaiSP.Text = LoaiSP;
             txtMoTa.Text = MoTa;
             if (ModeHH == 2)
                 txtSPID.ReadOnly = true;
             this.Text = "Sửa hàng hoá";
-            ptrbHinhAnh.Image = Image.FromFile(@"..\..\HangHoa\" + txtSPID.Text + ".jpg");
+            Image img = GetCopyImage(@"..\..\HangHoa\" + txtSPID.Text + ".jpg");
+            File.Delete(@"..\..\HangHoa\" + txtSPID.Text + ".jpg");
+            ptrbHinhAnh.Image = img;
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-
-        private void btnHoanTat_Click(object sender, EventArgs e)
+        private Image GetCopyImage(string path)
         {
+            using (Image image = Image.FromFile(path))
+            {
+                Bitmap bitmap = new Bitmap(image);
+                return bitmap;
+            }
+        }
+        private void btnHoanTat_Click(object sender, EventArgs e)
+        {  
+            sqlCon = new SqlConnection(strCon);
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandText = "select LOAIID from LOAISP where TENLOAI = N'" + cbLoaiSP.Text + "'";
             sqlCon = new SqlConnection(strCon);
             sqlCmd.Connection = sqlCon;
-            sqlCon = new SqlConnection(strCon);
+          
             if (ModeHH == 1)
             {
                 if (txtSPID.Text == string.Empty || txtTenSP.Text == string.Empty || txtNuocSX.Text == string.Empty || txtHang.Text == string.Empty || txtGiaNhap.Text == string.Empty || txtGiaBan.Text == string.Empty || txtDVT.Text == string.Empty)
@@ -72,19 +85,19 @@ namespace App_sale_manager
                     return;
 
                 }
-                else if (linksave != string.Empty)
+            else 
                 {
                     sqlCon.Open();
                     string strquery = "insert into SANPHAM values('" + txtSPID.Text + "',N'" + txtTenSP.Text + "',N'" + LoaiID + "',N'" + txtHang.Text + "',N'" + txtNuocSX.Text + "'," + txtGiaBan.Text + "," + txtGiaNhap.Text
-                        + ",N'" + txtDVT.Text + "'," + 0 + "," + 0 + ",N'" + txtMoTa.Text + "')";
+                        + ",N'" + txtDVT.Text + "'," + 0 + "," + txtSLTT.Text + ",N'" + txtMoTa.Text + "')";
                     sqlCmd = new SqlCommand(strquery, sqlCon);
                     sqlCmd.ExecuteNonQuery();
                     sqlCon.Close();
-                    ptrbHinhAnh.Image.Save(linksave);
+                    ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg");
                     MessageBox.Show("Thêm thành công");
                     this.Close();
                 }
-                else MessageBox.Show("Chưa chọn hình");
+               
             }
             else if (ModeHH == 2)
             {
@@ -98,10 +111,11 @@ namespace App_sale_manager
                 {
                     sqlCon.Open();
                     string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',LOAIID='" + LoaiID + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
-                        + ",DVT=N'" + txtDVT.Text + "',SOLUONG=" + 0 + ",SLTT=" + 0 + ",MOTA=N'" + txtMoTa.Text + "'WHERE SPID='" + txtSPID.Text + "'";
+                        + ",DVT=N'" + txtDVT.Text + "',SOLUONG=" + 0 + ",SLTT=" + txtSLTT.Text + ",MOTA=N'" + txtMoTa.Text + "'WHERE SPID='" + txtSPID.Text + "'";
                     sqlCmd = new SqlCommand(strquery, sqlCon);
                     sqlCmd.ExecuteNonQuery();
                     sqlCon.Close();
+                    ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg");
                     MessageBox.Show("Sửa thành công");
                     this.Close();
                 }
@@ -111,6 +125,8 @@ namespace App_sale_manager
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
+            if (ModeHH == 2)
+            { ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg"); }
             this.Close();
         }
 
@@ -128,10 +144,9 @@ namespace App_sale_manager
             LoaiID = tbHH.Rows[0]["LOAIID"].ToString();
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "File .jpg (*.jpg)|*.jpg";
-            DialogResult result = open.ShowDialog();
-            linksave = @"..\..\HangHoa\" + txtSPID.Text + ".jpg";
+            DialogResult result = open.ShowDialog();           
             if (result == DialogResult.OK)
-            {
+            {              
                 ptrbHinhAnh.Image = Image.FromFile(open.FileName);
             }
             else MessageBox.Show("Chưa chọn hình");
@@ -154,6 +169,12 @@ namespace App_sale_manager
                 LoaiID = tbHH.Rows[0]["LOAIID"].ToString();
                 txtSPID.Text = LoaiID;
             }
+        }
+
+        private void Form_ThemSuaHangHoa_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (ModeHH == 2)
+            { ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg"); }
         }
     }
 }

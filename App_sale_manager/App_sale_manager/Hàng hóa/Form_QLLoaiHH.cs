@@ -125,8 +125,9 @@ namespace App_sale_manager
                     sqlCmd.ExecuteNonQuery();
                     sqlCon.Close();
                 }
-                LoadLoaiHH();
 
+                LoadLoaiHH();
+                MessageBox.Show("Đã thêm loại hàng hoá");
             }  
             
             if (ModeLHH==2)
@@ -145,6 +146,7 @@ namespace App_sale_manager
                     sqlCon.Close();
                 }
                 LoadLoaiHH();
+                MessageBox.Show("Đã sửa thông tin loại hàng hoá");
             }    
         }
     }

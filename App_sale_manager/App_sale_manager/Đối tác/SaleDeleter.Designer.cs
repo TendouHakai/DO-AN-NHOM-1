@@ -43,9 +43,10 @@ namespace App_sale_manager
             // 
             this.label_deleteObj.AutoSize = true;
             this.label_deleteObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_deleteObj.Location = new System.Drawing.Point(22, 47);
+            this.label_deleteObj.Location = new System.Drawing.Point(29, 58);
+            this.label_deleteObj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_deleteObj.Name = "label_deleteObj";
-            this.label_deleteObj.Size = new System.Drawing.Size(106, 16);
+            this.label_deleteObj.Size = new System.Drawing.Size(135, 20);
             this.label_deleteObj.TabIndex = 0;
             this.label_deleteObj.Text = "Đối tượng ưu đãi:";
             // 
@@ -56,9 +57,10 @@ namespace App_sale_manager
             "Tất cả",
             "Khách thường",
             "Khách vip"});
-            this.comboBox_deleteObj.Location = new System.Drawing.Point(25, 67);
+            this.comboBox_deleteObj.Location = new System.Drawing.Point(33, 82);
+            this.comboBox_deleteObj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_deleteObj.Name = "comboBox_deleteObj";
-            this.comboBox_deleteObj.Size = new System.Drawing.Size(292, 21);
+            this.comboBox_deleteObj.Size = new System.Drawing.Size(388, 24);
             this.comboBox_deleteObj.TabIndex = 1;
             this.comboBox_deleteObj.Text = "Tất cả";
             this.comboBox_deleteObj.TextChanged += new System.EventHandler(this.comboBox_deleteObj_TextChanged);
@@ -71,9 +73,10 @@ namespace App_sale_manager
             "Đang áp dụng",
             "Sắp diễn ra",
             "Đã kết thúc"});
-            this.comboBox_saleState.Location = new System.Drawing.Point(25, 125);
+            this.comboBox_saleState.Location = new System.Drawing.Point(33, 154);
+            this.comboBox_saleState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_saleState.Name = "comboBox_saleState";
-            this.comboBox_saleState.Size = new System.Drawing.Size(292, 21);
+            this.comboBox_saleState.Size = new System.Drawing.Size(388, 24);
             this.comboBox_saleState.TabIndex = 3;
             this.comboBox_saleState.Text = "Tất cả";
             this.comboBox_saleState.TextChanged += new System.EventHandler(this.comboBox_saleState_TextChanged);
@@ -82,9 +85,10 @@ namespace App_sale_manager
             // 
             this.label_saleState.AutoSize = true;
             this.label_saleState.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleState.Location = new System.Drawing.Point(22, 105);
+            this.label_saleState.Location = new System.Drawing.Point(29, 129);
+            this.label_saleState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleState.Name = "label_saleState";
-            this.label_saleState.Size = new System.Drawing.Size(110, 16);
+            this.label_saleState.Size = new System.Drawing.Size(139, 20);
             this.label_saleState.TabIndex = 2;
             this.label_saleState.Text = "Trạng thái ưu đãi:";
             // 
@@ -92,9 +96,10 @@ namespace App_sale_manager
             // 
             this.comboBox_sale.FormattingEnabled = true;
             this.comboBox_sale.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox_sale.Location = new System.Drawing.Point(25, 189);
+            this.comboBox_sale.Location = new System.Drawing.Point(33, 233);
+            this.comboBox_sale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_sale.Name = "comboBox_sale";
-            this.comboBox_sale.Size = new System.Drawing.Size(292, 21);
+            this.comboBox_sale.Size = new System.Drawing.Size(388, 24);
             this.comboBox_sale.TabIndex = 5;
             this.comboBox_sale.Text = "- Chưa chọn -";
             // 
@@ -102,19 +107,21 @@ namespace App_sale_manager
             // 
             this.label_sale.AutoSize = true;
             this.label_sale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_sale.Location = new System.Drawing.Point(22, 169);
+            this.label_sale.Location = new System.Drawing.Point(29, 208);
+            this.label_sale.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_sale.Name = "label_sale";
-            this.label_sale.Size = new System.Drawing.Size(111, 16);
+            this.label_sale.Size = new System.Drawing.Size(139, 20);
             this.label_sale.TabIndex = 4;
             this.label_sale.Text = "Ưu đãi muốn xóa:";
             // 
             // button_OK
             // 
-            this.button_OK.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_OK.Location = new System.Drawing.Point(169, 237);
+            this.button_OK.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_OK.Location = new System.Drawing.Point(225, 292);
+            this.button_OK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_OK.Name = "button_OK";
-            this.button_OK.Size = new System.Drawing.Size(75, 23);
+            this.button_OK.Size = new System.Drawing.Size(100, 28);
             this.button_OK.TabIndex = 6;
             this.button_OK.Text = "Xóa";
             this.button_OK.UseVisualStyleBackColor = false;
@@ -122,11 +129,12 @@ namespace App_sale_manager
             // 
             // button_cancel
             // 
-            this.button_cancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cancel.Location = new System.Drawing.Point(267, 237);
+            this.button_cancel.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_cancel.Location = new System.Drawing.Point(356, 292);
+            this.button_cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(75, 23);
+            this.button_cancel.Size = new System.Drawing.Size(100, 28);
             this.button_cancel.TabIndex = 7;
             this.button_cancel.Text = "Hủy";
             this.button_cancel.UseVisualStyleBackColor = false;
@@ -134,10 +142,10 @@ namespace App_sale_manager
             // 
             // SaleDeleter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(365, 281);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(487, 346);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.comboBox_sale);
@@ -147,6 +155,7 @@ namespace App_sale_manager
             this.Controls.Add(this.comboBox_deleteObj);
             this.Controls.Add(this.label_deleteObj);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SaleDeleter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xóa ưu đãi";

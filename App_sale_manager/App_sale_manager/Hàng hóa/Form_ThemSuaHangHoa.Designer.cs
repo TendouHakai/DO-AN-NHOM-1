@@ -51,6 +51,8 @@
             this.btnChonHinh = new System.Windows.Forms.Button();
             this.txtHang = new System.Windows.Forms.TextBox();
             this.lblHang = new System.Windows.Forms.Label();
+            this.txtSLTT = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,22 +138,26 @@
             // 
             // btnHoanTat
             // 
+            this.btnHoanTat.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnHoanTat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHoanTat.Location = new System.Drawing.Point(25, 542);
             this.btnHoanTat.Name = "btnHoanTat";
-            this.btnHoanTat.Size = new System.Drawing.Size(111, 55);
+            this.btnHoanTat.Size = new System.Drawing.Size(168, 40);
             this.btnHoanTat.TabIndex = 42;
             this.btnHoanTat.Text = "Hoàn Tất";
-            this.btnHoanTat.UseVisualStyleBackColor = true;
+            this.btnHoanTat.UseVisualStyleBackColor = false;
             this.btnHoanTat.Click += new System.EventHandler(this.btnHoanTat_Click);
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(219, 542);
+            this.btnHuy.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(262, 542);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(111, 55);
+            this.btnHuy.Size = new System.Drawing.Size(170, 40);
             this.btnHuy.TabIndex = 43;
             this.btnHuy.Text = "Huỷ";
-            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // txtSPID
@@ -193,7 +199,7 @@
             // 
             this.txtGiaNhap.Location = new System.Drawing.Point(156, 446);
             this.txtGiaNhap.Name = "txtGiaNhap";
-            this.txtGiaNhap.Size = new System.Drawing.Size(280, 22);
+            this.txtGiaNhap.Size = new System.Drawing.Size(277, 22);
             this.txtGiaNhap.TabIndex = 52;
             // 
             // cbLoaiSP
@@ -226,12 +232,14 @@
             // 
             // btnChonHinh
             // 
+            this.btnChonHinh.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnChonHinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChonHinh.Location = new System.Drawing.Point(556, 201);
             this.btnChonHinh.Name = "btnChonHinh";
             this.btnChonHinh.Size = new System.Drawing.Size(97, 41);
             this.btnChonHinh.TabIndex = 64;
             this.btnChonHinh.Text = "Chọn Hình";
-            this.btnChonHinh.UseVisualStyleBackColor = true;
+            this.btnChonHinh.UseVisualStyleBackColor = false;
             this.btnChonHinh.Click += new System.EventHandler(this.btnChonHinh_Click);
             // 
             // txtHang
@@ -250,11 +258,29 @@
             this.lblHang.TabIndex = 65;
             this.lblHang.Text = "Hãng";
             // 
+            // txtSLTT
+            // 
+            this.txtSLTT.Location = new System.Drawing.Point(155, 494);
+            this.txtSLTT.Name = "txtSLTT";
+            this.txtSLTT.Size = new System.Drawing.Size(277, 22);
+            this.txtSLTT.TabIndex = 74;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 501);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 17);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Số lượng tối thiểu";
+            // 
             // Form_ThemSuaHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.txtSLTT);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtHang);
             this.Controls.Add(this.lblHang);
             this.Controls.Add(this.btnChonHinh);
@@ -281,6 +307,7 @@
             this.Name = "Form_ThemSuaHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_ThemXoaSuaHangHoa";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_ThemSuaHangHoa_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -312,5 +339,7 @@
         private System.Windows.Forms.Button btnChonHinh;
         private System.Windows.Forms.TextBox txtHang;
         private System.Windows.Forms.Label lblHang;
+        private System.Windows.Forms.TextBox txtSLTT;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -91,9 +91,11 @@ namespace App_sale_manager
             this.groupBox_general.Controls.Add(this.label_saleObj);
             this.groupBox_general.Controls.Add(this.textBox_saleName);
             this.groupBox_general.Controls.Add(this.label_saleName);
-            this.groupBox_general.Location = new System.Drawing.Point(12, 25);
+            this.groupBox_general.Location = new System.Drawing.Point(18, 31);
+            this.groupBox_general.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox_general.Name = "groupBox_general";
-            this.groupBox_general.Size = new System.Drawing.Size(598, 249);
+            this.groupBox_general.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_general.Size = new System.Drawing.Size(897, 306);
             this.groupBox_general.TabIndex = 0;
             this.groupBox_general.TabStop = false;
             this.groupBox_general.Text = "Thông tin ưu đãi chung";
@@ -101,9 +103,11 @@ namespace App_sale_manager
             // checkBox_autoDelete
             // 
             this.checkBox_autoDelete.AutoSize = true;
-            this.checkBox_autoDelete.Location = new System.Drawing.Point(336, 123);
+            this.checkBox_autoDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_autoDelete.Location = new System.Drawing.Point(504, 151);
+            this.checkBox_autoDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox_autoDelete.Name = "checkBox_autoDelete";
-            this.checkBox_autoDelete.Size = new System.Drawing.Size(179, 17);
+            this.checkBox_autoDelete.Size = new System.Drawing.Size(228, 21);
             this.checkBox_autoDelete.TabIndex = 14;
             this.checkBox_autoDelete.Text = "Tự động xóa ưu đãi khi kết thúc";
             this.checkBox_autoDelete.UseVisualStyleBackColor = true;
@@ -111,41 +115,50 @@ namespace App_sale_manager
             // dateTimePicker_endDate
             // 
             this.dateTimePicker_endDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            this.dateTimePicker_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(336, 82);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(504, 101);
+            this.dateTimePicker_endDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
-            this.dateTimePicker_endDate.Size = new System.Drawing.Size(170, 20);
+            this.dateTimePicker_endDate.Size = new System.Drawing.Size(253, 22);
             this.dateTimePicker_endDate.TabIndex = 13;
             // 
             // label_endDate
             // 
             this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(333, 66);
+            this.label_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_endDate.Location = new System.Drawing.Point(500, 81);
+            this.label_endDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_endDate.Name = "label_endDate";
-            this.label_endDate.Size = new System.Drawing.Size(74, 13);
+            this.label_endDate.Size = new System.Drawing.Size(95, 17);
             this.label_endDate.TabIndex = 12;
             this.label_endDate.Text = "Ngày kết thúc";
             // 
             // dateTimePicker_startDate
             // 
             this.dateTimePicker_startDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            this.dateTimePicker_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(336, 42);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(504, 52);
+            this.dateTimePicker_startDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
-            this.dateTimePicker_startDate.Size = new System.Drawing.Size(170, 20);
+            this.dateTimePicker_startDate.Size = new System.Drawing.Size(253, 22);
             this.dateTimePicker_startDate.TabIndex = 11;
             // 
             // label_startDate
             // 
             this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(333, 26);
+            this.label_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_startDate.Location = new System.Drawing.Point(500, 32);
+            this.label_startDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_startDate.Name = "label_startDate";
-            this.label_startDate.Size = new System.Drawing.Size(72, 13);
+            this.label_startDate.Size = new System.Drawing.Size(93, 17);
             this.label_startDate.TabIndex = 10;
             this.label_startDate.Text = "Ngày bắt đầu";
             // 
             // comboBox_Condition
             // 
+            this.comboBox_Condition.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Condition.FormattingEnabled = true;
             this.comboBox_Condition.Items.AddRange(new object[] {
             "Laptop - Macbook",
@@ -157,30 +170,35 @@ namespace App_sale_manager
             "Bo mạch chủ",
             "Ổ cứng (SSD)",
             "Ổ cứng (HDD)"});
-            this.comboBox_Condition.Location = new System.Drawing.Point(19, 203);
+            this.comboBox_Condition.Location = new System.Drawing.Point(28, 250);
+            this.comboBox_Condition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_Condition.Name = "comboBox_Condition";
-            this.comboBox_Condition.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_Condition.Size = new System.Drawing.Size(224, 24);
             this.comboBox_Condition.TabIndex = 9;
             this.comboBox_Condition.Text = "- Chưa chọn -";
             // 
             // label_Condition
             // 
             this.label_Condition.AutoSize = true;
-            this.label_Condition.Location = new System.Drawing.Point(16, 187);
+            this.label_Condition.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Condition.Location = new System.Drawing.Point(24, 230);
+            this.label_Condition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Condition.Name = "label_Condition";
-            this.label_Condition.Size = new System.Drawing.Size(88, 13);
+            this.label_Condition.Size = new System.Drawing.Size(114, 17);
             this.label_Condition.TabIndex = 8;
             this.label_Condition.Text = "Mặt hàng ưu đãi:";
             // 
             // comboBox_saleCondition
             // 
+            this.comboBox_saleCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_saleCondition.FormattingEnabled = true;
             this.comboBox_saleCondition.Items.AddRange(new object[] {
             "Mặt hàng",
             "Nhà cung cấp"});
-            this.comboBox_saleCondition.Location = new System.Drawing.Point(19, 163);
+            this.comboBox_saleCondition.Location = new System.Drawing.Point(28, 201);
+            this.comboBox_saleCondition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_saleCondition.Name = "comboBox_saleCondition";
-            this.comboBox_saleCondition.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_saleCondition.Size = new System.Drawing.Size(224, 24);
             this.comboBox_saleCondition.TabIndex = 7;
             this.comboBox_saleCondition.Text = "Mặt hàng";
             this.comboBox_saleCondition.TextChanged += new System.EventHandler(this.comboBox_saleCondition_TextChanged);
@@ -188,22 +206,26 @@ namespace App_sale_manager
             // label_saleCondition
             // 
             this.label_saleCondition.AutoSize = true;
-            this.label_saleCondition.Location = new System.Drawing.Point(16, 147);
+            this.label_saleCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_saleCondition.Location = new System.Drawing.Point(24, 181);
+            this.label_saleCondition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleCondition.Name = "label_saleCondition";
-            this.label_saleCondition.Size = new System.Drawing.Size(66, 13);
+            this.label_saleCondition.Size = new System.Drawing.Size(85, 17);
             this.label_saleCondition.TabIndex = 6;
             this.label_saleCondition.Text = "Ưu đãi theo:";
             // 
             // comboBox_saleMethod
             // 
+            this.comboBox_saleMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_saleMethod.FormattingEnabled = true;
             this.comboBox_saleMethod.Items.AddRange(new object[] {
             "Giảm giá",
             "Giảm giá & Tặng kèm",
             "Tặng kèm"});
-            this.comboBox_saleMethod.Location = new System.Drawing.Point(19, 123);
+            this.comboBox_saleMethod.Location = new System.Drawing.Point(28, 151);
+            this.comboBox_saleMethod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_saleMethod.Name = "comboBox_saleMethod";
-            this.comboBox_saleMethod.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_saleMethod.Size = new System.Drawing.Size(224, 24);
             this.comboBox_saleMethod.TabIndex = 5;
             this.comboBox_saleMethod.Text = "Giảm giá";
             this.comboBox_saleMethod.TextChanged += new System.EventHandler(this.comboBox_saleMethod_TextChanged);
@@ -211,47 +233,57 @@ namespace App_sale_manager
             // label_saleMethod
             // 
             this.label_saleMethod.AutoSize = true;
-            this.label_saleMethod.Location = new System.Drawing.Point(16, 107);
+            this.label_saleMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_saleMethod.Location = new System.Drawing.Point(24, 132);
+            this.label_saleMethod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleMethod.Name = "label_saleMethod";
-            this.label_saleMethod.Size = new System.Drawing.Size(63, 13);
+            this.label_saleMethod.Size = new System.Drawing.Size(82, 17);
             this.label_saleMethod.TabIndex = 4;
             this.label_saleMethod.Text = "Loại ưu đãi:";
             // 
             // comboBox_saleObj
             // 
+            this.comboBox_saleObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_saleObj.FormattingEnabled = true;
             this.comboBox_saleObj.Items.AddRange(new object[] {
             "Khách thường",
             "Khách vip",
             "Tất cả"});
-            this.comboBox_saleObj.Location = new System.Drawing.Point(19, 83);
+            this.comboBox_saleObj.Location = new System.Drawing.Point(28, 102);
+            this.comboBox_saleObj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_saleObj.Name = "comboBox_saleObj";
-            this.comboBox_saleObj.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_saleObj.Size = new System.Drawing.Size(224, 24);
             this.comboBox_saleObj.TabIndex = 3;
             this.comboBox_saleObj.Text = "Tất cả";
             // 
             // label_saleObj
             // 
             this.label_saleObj.AutoSize = true;
-            this.label_saleObj.Location = new System.Drawing.Point(16, 66);
+            this.label_saleObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_saleObj.Location = new System.Drawing.Point(24, 81);
+            this.label_saleObj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleObj.Name = "label_saleObj";
-            this.label_saleObj.Size = new System.Drawing.Size(89, 13);
+            this.label_saleObj.Size = new System.Drawing.Size(116, 17);
             this.label_saleObj.TabIndex = 2;
             this.label_saleObj.Text = "Đối tượng ưu đãi:";
             // 
             // textBox_saleName
             // 
-            this.textBox_saleName.Location = new System.Drawing.Point(19, 43);
+            this.textBox_saleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_saleName.Location = new System.Drawing.Point(28, 53);
+            this.textBox_saleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_saleName.Name = "textBox_saleName";
-            this.textBox_saleName.Size = new System.Drawing.Size(270, 20);
+            this.textBox_saleName.Size = new System.Drawing.Size(403, 22);
             this.textBox_saleName.TabIndex = 1;
             // 
             // label_saleName
             // 
             this.label_saleName.AutoSize = true;
-            this.label_saleName.Location = new System.Drawing.Point(16, 26);
+            this.label_saleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_saleName.Location = new System.Drawing.Point(24, 32);
+            this.label_saleName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleName.Name = "label_saleName";
-            this.label_saleName.Size = new System.Drawing.Size(62, 13);
+            this.label_saleName.Size = new System.Drawing.Size(80, 17);
             this.label_saleName.TabIndex = 0;
             this.label_saleName.Text = "Tên ưu đãi:";
             // 
@@ -259,9 +291,11 @@ namespace App_sale_manager
             // 
             this.groupBox_detail.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox_detail.Controls.Add(this.groupBox_sale);
-            this.groupBox_detail.Location = new System.Drawing.Point(12, 280);
+            this.groupBox_detail.Location = new System.Drawing.Point(18, 345);
+            this.groupBox_detail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox_detail.Name = "groupBox_detail";
-            this.groupBox_detail.Size = new System.Drawing.Size(598, 398);
+            this.groupBox_detail.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_detail.Size = new System.Drawing.Size(897, 490);
             this.groupBox_detail.TabIndex = 1;
             this.groupBox_detail.TabStop = false;
             this.groupBox_detail.Text = "Chi tiết ưu đãi";
@@ -278,9 +312,11 @@ namespace App_sale_manager
             this.groupBox_sale.Controls.Add(this.comboBox_priceMethod);
             this.groupBox_sale.Controls.Add(this.label_priceReduced);
             this.groupBox_sale.Controls.Add(this.label_priceMethod);
-            this.groupBox_sale.Location = new System.Drawing.Point(19, 140);
+            this.groupBox_sale.Location = new System.Drawing.Point(28, 172);
+            this.groupBox_sale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox_sale.Name = "groupBox_sale";
-            this.groupBox_sale.Size = new System.Drawing.Size(568, 252);
+            this.groupBox_sale.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_sale.Size = new System.Drawing.Size(852, 310);
             this.groupBox_sale.TabIndex = 0;
             this.groupBox_sale.TabStop = false;
             this.groupBox_sale.Text = "Giảm giá";
@@ -290,18 +326,21 @@ namespace App_sale_manager
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(140, 171);
+            this.label1.Location = new System.Drawing.Point(210, 210);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 16);
+            this.label1.Size = new System.Drawing.Size(45, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "VND";
             // 
             // numericUpDown_Condition_Quantity
             // 
             this.numericUpDown_Condition_Quantity.Enabled = false;
-            this.numericUpDown_Condition_Quantity.Location = new System.Drawing.Point(9, 211);
+            this.numericUpDown_Condition_Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_Condition_Quantity.Location = new System.Drawing.Point(14, 260);
+            this.numericUpDown_Condition_Quantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDown_Condition_Quantity.Name = "numericUpDown_Condition_Quantity";
-            this.numericUpDown_Condition_Quantity.Size = new System.Drawing.Size(125, 20);
+            this.numericUpDown_Condition_Quantity.Size = new System.Drawing.Size(188, 22);
             this.numericUpDown_Condition_Quantity.TabIndex = 17;
             this.numericUpDown_Condition_Quantity.Click += new System.EventHandler(this.numericUpDown_Condition_Quantity_Click);
             // 
@@ -309,18 +348,22 @@ namespace App_sale_manager
             // 
             this.label_Condition_quantity.AutoSize = true;
             this.label_Condition_quantity.Enabled = false;
-            this.label_Condition_quantity.Location = new System.Drawing.Point(6, 194);
+            this.label_Condition_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Condition_quantity.Location = new System.Drawing.Point(9, 239);
+            this.label_Condition_quantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Condition_quantity.Name = "label_Condition_quantity";
-            this.label_Condition_quantity.Size = new System.Drawing.Size(96, 13);
+            this.label_Condition_quantity.Size = new System.Drawing.Size(128, 17);
             this.label_Condition_quantity.TabIndex = 16;
             this.label_Condition_quantity.Text = "Số lượng mua trên:";
             // 
             // numericUpDown_Condition_price
             // 
             this.numericUpDown_Condition_price.Enabled = false;
-            this.numericUpDown_Condition_price.Location = new System.Drawing.Point(9, 171);
+            this.numericUpDown_Condition_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_Condition_price.Location = new System.Drawing.Point(14, 210);
+            this.numericUpDown_Condition_price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDown_Condition_price.Name = "numericUpDown_Condition_price";
-            this.numericUpDown_Condition_price.Size = new System.Drawing.Size(125, 20);
+            this.numericUpDown_Condition_price.Size = new System.Drawing.Size(188, 22);
             this.numericUpDown_Condition_price.TabIndex = 15;
             this.numericUpDown_Condition_price.Click += new System.EventHandler(this.numericUpDown_Condition_price_Click);
             // 
@@ -328,18 +371,22 @@ namespace App_sale_manager
             // 
             this.label_Condition_price.AutoSize = true;
             this.label_Condition_price.Enabled = false;
-            this.label_Condition_price.Location = new System.Drawing.Point(6, 154);
+            this.label_Condition_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Condition_price.Location = new System.Drawing.Point(9, 190);
+            this.label_Condition_price.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Condition_price.Name = "label_Condition_price";
-            this.label_Condition_price.Size = new System.Drawing.Size(94, 13);
+            this.label_Condition_price.Size = new System.Drawing.Size(126, 17);
             this.label_Condition_price.TabIndex = 14;
             this.label_Condition_price.Text = "Giá mặt hàng trên:";
             // 
             // checkBox_priceCondition
             // 
             this.checkBox_priceCondition.AutoSize = true;
-            this.checkBox_priceCondition.Location = new System.Drawing.Point(9, 121);
+            this.checkBox_priceCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_priceCondition.Location = new System.Drawing.Point(14, 149);
+            this.checkBox_priceCondition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox_priceCondition.Name = "checkBox_priceCondition";
-            this.checkBox_priceCondition.Size = new System.Drawing.Size(113, 17);
+            this.checkBox_priceCondition.Size = new System.Drawing.Size(146, 21);
             this.checkBox_priceCondition.TabIndex = 13;
             this.checkBox_priceCondition.Text = "Điều kiện giảm giá";
             this.checkBox_priceCondition.UseVisualStyleBackColor = true;
@@ -347,21 +394,25 @@ namespace App_sale_manager
             // 
             // numericUpDown_priceReduced
             // 
-            this.numericUpDown_priceReduced.Location = new System.Drawing.Point(9, 83);
+            this.numericUpDown_priceReduced.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_priceReduced.Location = new System.Drawing.Point(14, 102);
+            this.numericUpDown_priceReduced.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDown_priceReduced.Name = "numericUpDown_priceReduced";
-            this.numericUpDown_priceReduced.Size = new System.Drawing.Size(125, 20);
+            this.numericUpDown_priceReduced.Size = new System.Drawing.Size(188, 22);
             this.numericUpDown_priceReduced.TabIndex = 12;
             this.numericUpDown_priceReduced.Click += new System.EventHandler(this.numericUpDown_priceReduced_Click);
             // 
             // comboBox_priceMethod
             // 
+            this.comboBox_priceMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_priceMethod.FormattingEnabled = true;
             this.comboBox_priceMethod.Items.AddRange(new object[] {
             "Giảm theo số",
             "Giảm theo phần trăm"});
-            this.comboBox_priceMethod.Location = new System.Drawing.Point(9, 42);
+            this.comboBox_priceMethod.Location = new System.Drawing.Point(14, 52);
+            this.comboBox_priceMethod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_priceMethod.Name = "comboBox_priceMethod";
-            this.comboBox_priceMethod.Size = new System.Drawing.Size(151, 21);
+            this.comboBox_priceMethod.Size = new System.Drawing.Size(224, 24);
             this.comboBox_priceMethod.TabIndex = 11;
             this.comboBox_priceMethod.Text = "Giảm theo phần trăm";
             this.comboBox_priceMethod.TextChanged += new System.EventHandler(this.comboBox_priceMethod_TextChanged);
@@ -369,39 +420,49 @@ namespace App_sale_manager
             // label_priceReduced
             // 
             this.label_priceReduced.AutoSize = true;
-            this.label_priceReduced.Location = new System.Drawing.Point(6, 66);
+            this.label_priceReduced.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_priceReduced.Location = new System.Drawing.Point(9, 81);
+            this.label_priceReduced.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_priceReduced.Name = "label_priceReduced";
-            this.label_priceReduced.Size = new System.Drawing.Size(100, 13);
+            this.label_priceReduced.Size = new System.Drawing.Size(137, 17);
             this.label_priceReduced.TabIndex = 10;
             this.label_priceReduced.Text = "Phần trăm giảm (%):";
             // 
             // label_priceMethod
             // 
             this.label_priceMethod.AutoSize = true;
-            this.label_priceMethod.Location = new System.Drawing.Point(6, 26);
+            this.label_priceMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_priceMethod.Location = new System.Drawing.Point(9, 32);
+            this.label_priceMethod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_priceMethod.Name = "label_priceMethod";
-            this.label_priceMethod.Size = new System.Drawing.Size(73, 13);
+            this.label_priceMethod.Size = new System.Drawing.Size(97, 17);
             this.label_priceMethod.TabIndex = 10;
             this.label_priceMethod.Text = "Kiểu giảm giá:";
             // 
             // button_quit
             // 
-            this.button_quit.Location = new System.Drawing.Point(530, 684);
+            this.button_quit.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_quit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_quit.Location = new System.Drawing.Point(795, 842);
+            this.button_quit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_quit.Name = "button_quit";
-            this.button_quit.Size = new System.Drawing.Size(75, 23);
+            this.button_quit.Size = new System.Drawing.Size(112, 28);
             this.button_quit.TabIndex = 2;
             this.button_quit.Text = "Thoát";
-            this.button_quit.UseVisualStyleBackColor = true;
+            this.button_quit.UseVisualStyleBackColor = false;
             this.button_quit.Click += new System.EventHandler(this.button_quit_Click);
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(425, 684);
+            this.button_save.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_save.Location = new System.Drawing.Point(638, 842);
+            this.button_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(75, 23);
+            this.button_save.Size = new System.Drawing.Size(112, 28);
             this.button_save.TabIndex = 3;
             this.button_save.Text = "Lưu";
-            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.UseVisualStyleBackColor = false;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
             // groupBox_gift
@@ -411,56 +472,68 @@ namespace App_sale_manager
             this.groupBox_gift.Controls.Add(this.textBox_gift);
             this.groupBox_gift.Controls.Add(this.label_gift);
             this.groupBox_gift.Enabled = false;
-            this.groupBox_gift.Location = new System.Drawing.Point(31, 299);
+            this.groupBox_gift.Location = new System.Drawing.Point(46, 368);
+            this.groupBox_gift.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox_gift.Name = "groupBox_gift";
-            this.groupBox_gift.Size = new System.Drawing.Size(568, 115);
+            this.groupBox_gift.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_gift.Size = new System.Drawing.Size(852, 142);
             this.groupBox_gift.TabIndex = 0;
             this.groupBox_gift.TabStop = false;
             this.groupBox_gift.Text = "Ưu đãi tặng kèm";
             // 
             // textBox_note
             // 
-            this.textBox_note.Location = new System.Drawing.Point(9, 82);
+            this.textBox_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_note.Location = new System.Drawing.Point(14, 101);
+            this.textBox_note.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_note.Name = "textBox_note";
-            this.textBox_note.Size = new System.Drawing.Size(336, 20);
+            this.textBox_note.Size = new System.Drawing.Size(502, 22);
             this.textBox_note.TabIndex = 13;
             // 
             // label_note
             // 
             this.label_note.AutoSize = true;
-            this.label_note.Location = new System.Drawing.Point(6, 65);
+            this.label_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_note.Location = new System.Drawing.Point(9, 80);
+            this.label_note.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_note.Name = "label_note";
-            this.label_note.Size = new System.Drawing.Size(128, 13);
+            this.label_note.Size = new System.Drawing.Size(167, 17);
             this.label_note.TabIndex = 12;
             this.label_note.Text = "Chú thích thêm ( nếu có):";
             // 
             // textBox_gift
             // 
-            this.textBox_gift.Location = new System.Drawing.Point(9, 42);
+            this.textBox_gift.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_gift.Location = new System.Drawing.Point(14, 52);
+            this.textBox_gift.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_gift.Name = "textBox_gift";
-            this.textBox_gift.Size = new System.Drawing.Size(336, 20);
+            this.textBox_gift.Size = new System.Drawing.Size(502, 22);
             this.textBox_gift.TabIndex = 11;
             // 
             // label_gift
             // 
             this.label_gift.AutoSize = true;
-            this.label_gift.Location = new System.Drawing.Point(6, 25);
+            this.label_gift.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_gift.Location = new System.Drawing.Point(9, 31);
+            this.label_gift.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_gift.Name = "label_gift";
-            this.label_gift.Size = new System.Drawing.Size(97, 13);
+            this.label_gift.Size = new System.Drawing.Size(127, 17);
             this.label_gift.TabIndex = 10;
             this.label_gift.Text = "Tên quà tặng kèm:";
             // 
             // Sale_manager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(622, 743);
+            this.ClientSize = new System.Drawing.Size(933, 914);
             this.Controls.Add(this.groupBox_gift);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.button_quit);
             this.Controls.Add(this.groupBox_detail);
             this.Controls.Add(this.groupBox_general);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Sale_manager";
             this.Text = "Ưu đãi";
             this.groupBox_general.ResumeLayout(false);

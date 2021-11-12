@@ -85,6 +85,7 @@ namespace App_sale_manager
             {
                 this.Hide();
                 Form_NhapHang f = new Form_NhapHang(dgvHDHN.CurrentRow.Cells["SOHD_NH"].Value.ToString());
+                
                 f.ShowDialog();
                 this.Show();
                 LoadHDNH();
@@ -99,5 +100,42 @@ namespace App_sale_manager
             f.Close();
             this.Show();
         }
+        private void GiamSL()
+        {
+            for (int i = 0; i < dgvChiTietNH.Rows.Count - 1; i++)
+            {
+                sqlCon.Open();
+                string strquery = "update SANPHAM set SoLuong = SoLuong - " + dgvChiTietNH.Rows[i].Cells["SL"].Value.ToString() + " where SPID=N'" + dgvChiTietNH.Rows[i].Cells["SPID"].Value.ToString() + "'";
+                SqlCommand sqlCmd;
+                sqlCmd = new SqlCommand(strquery, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+            }
+        }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            sqlCon.Open();
+            if (dgvHDHN.CurrentRow == null)
+            {
+                MessageBox.Show("Chưa chọn hoá đơn để xoá");
+                return;
+            }
+            DialogResult dar = MessageBox.Show("Xoá hoá đơn sẽ làm số lượng sản phẩm giảm.\nBạn có chắc chắn xoá ", "Chú ý", MessageBoxButtons.YesNo);
+            if (dar == DialogResult.Yes)
+            {
+                string strquery = "delete CTHDNH where SOHD_NH= '" + dgvHDHN.CurrentRow.Cells["SOHD_NH"].Value.ToString() + "' " +                              
+                              "delete from HDNH where SOHD_NH='" + dgvHDHN.CurrentRow.Cells["SOHD_NH"].Value.ToString() + "'";
+                SqlCommand sqlCmd;
+                sqlCmd = new SqlCommand(strquery, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+                MessageBox.Show("Đã xoá");
+            }
+            sqlCon.Close();
+            GiamSL();
+            LoadHDNH();
+            LoadDonNhap("0");
+            
+        }
+        
     }
 }

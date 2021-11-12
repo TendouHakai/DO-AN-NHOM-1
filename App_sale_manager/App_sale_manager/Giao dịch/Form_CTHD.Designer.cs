@@ -53,14 +53,16 @@ namespace App_sale_manager
             this.l_Tong = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.l_TenKhachHang = new System.Windows.Forms.Label();
+            this.grb_Thongtin = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_CTHD)).BeginInit();
+            this.grb_Thongtin.SuspendLayout();
             this.SuspendLayout();
             // 
             // l_MaHoadon
             // 
             this.l_MaHoadon.AutoSize = true;
             this.l_MaHoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_MaHoadon.Location = new System.Drawing.Point(205, 10);
+            this.l_MaHoadon.Location = new System.Drawing.Point(219, 33);
             this.l_MaHoadon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_MaHoadon.Name = "l_MaHoadon";
             this.l_MaHoadon.Size = new System.Drawing.Size(45, 20);
@@ -71,7 +73,7 @@ namespace App_sale_manager
             // 
             this.l_MaKhachhang.AutoSize = true;
             this.l_MaKhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_MaKhachhang.Location = new System.Drawing.Point(205, 45);
+            this.l_MaKhachhang.Location = new System.Drawing.Point(219, 68);
             this.l_MaKhachhang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_MaKhachhang.Name = "l_MaKhachhang";
             this.l_MaKhachhang.Size = new System.Drawing.Size(45, 20);
@@ -82,7 +84,7 @@ namespace App_sale_manager
             // 
             this.l_LoaiHoaDon.AutoSize = true;
             this.l_LoaiHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_LoaiHoaDon.Location = new System.Drawing.Point(205, 145);
+            this.l_LoaiHoaDon.Location = new System.Drawing.Point(219, 168);
             this.l_LoaiHoaDon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_LoaiHoaDon.Name = "l_LoaiHoaDon";
             this.l_LoaiHoaDon.Size = new System.Drawing.Size(45, 20);
@@ -93,7 +95,7 @@ namespace App_sale_manager
             // 
             this.l_MaNhanVien.AutoSize = true;
             this.l_MaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_MaNhanVien.Location = new System.Drawing.Point(205, 110);
+            this.l_MaNhanVien.Location = new System.Drawing.Point(219, 133);
             this.l_MaNhanVien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_MaNhanVien.Name = "l_MaNhanVien";
             this.l_MaNhanVien.Size = new System.Drawing.Size(45, 20);
@@ -104,7 +106,7 @@ namespace App_sale_manager
             // 
             this.l_TrangThai.AutoSize = true;
             this.l_TrangThai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_TrangThai.Location = new System.Drawing.Point(205, 180);
+            this.l_TrangThai.Location = new System.Drawing.Point(219, 203);
             this.l_TrangThai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_TrangThai.Name = "l_TrangThai";
             this.l_TrangThai.Size = new System.Drawing.Size(45, 20);
@@ -115,7 +117,7 @@ namespace App_sale_manager
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 180);
+            this.label5.Location = new System.Drawing.Point(40, 203);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 20);
@@ -125,7 +127,8 @@ namespace App_sale_manager
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 45);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 20);
             this.label1.TabIndex = 6;
@@ -134,7 +137,8 @@ namespace App_sale_manager
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 10);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(40, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 7;
@@ -143,7 +147,8 @@ namespace App_sale_manager
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 110);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(40, 133);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 20);
             this.label6.TabIndex = 8;
@@ -152,7 +157,8 @@ namespace App_sale_manager
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 145);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(40, 168);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 20);
             this.label7.TabIndex = 9;
@@ -179,13 +185,13 @@ namespace App_sale_manager
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGV_CTHD.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DGV_CTHD.Location = new System.Drawing.Point(30, 246);
+            this.DGV_CTHD.Location = new System.Drawing.Point(30, 255);
             this.DGV_CTHD.Name = "DGV_CTHD";
             this.DGV_CTHD.ReadOnly = true;
             this.DGV_CTHD.RowHeadersVisible = false;
             this.DGV_CTHD.RowHeadersWidth = 51;
             this.DGV_CTHD.RowTemplate.Height = 24;
-            this.DGV_CTHD.Size = new System.Drawing.Size(466, 411);
+            this.DGV_CTHD.Size = new System.Drawing.Size(466, 402);
             this.DGV_CTHD.TabIndex = 10;
             // 
             // Column1
@@ -214,12 +220,14 @@ namespace App_sale_manager
             // 
             // bnt_trangthai
             // 
+            this.bnt_trangthai.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bnt_trangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnt_trangthai.Location = new System.Drawing.Point(394, 101);
             this.bnt_trangthai.Name = "bnt_trangthai";
             this.bnt_trangthai.Size = new System.Drawing.Size(96, 69);
             this.bnt_trangthai.TabIndex = 11;
             this.bnt_trangthai.Text = "Đổi Trạng Thái";
-            this.bnt_trangthai.UseVisualStyleBackColor = true;
+            this.bnt_trangthai.UseVisualStyleBackColor = false;
             this.bnt_trangthai.Click += new System.EventHandler(this.bnt_trangthai_Click);
             // 
             // Print_HoaDon
@@ -239,12 +247,14 @@ namespace App_sale_manager
             // 
             // bnt_Print
             // 
+            this.bnt_Print.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bnt_Print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnt_Print.Location = new System.Drawing.Point(394, 10);
             this.bnt_Print.Name = "bnt_Print";
             this.bnt_Print.Size = new System.Drawing.Size(96, 65);
             this.bnt_Print.TabIndex = 12;
             this.bnt_Print.Text = "Print";
-            this.bnt_Print.UseVisualStyleBackColor = true;
+            this.bnt_Print.UseVisualStyleBackColor = false;
             this.bnt_Print.Click += new System.EventHandler(this.bnt_Print_Click);
             // 
             // label2
@@ -268,7 +278,8 @@ namespace App_sale_manager
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 76);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(40, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 20);
             this.label4.TabIndex = 15;
@@ -278,41 +289,54 @@ namespace App_sale_manager
             // 
             this.l_TenKhachHang.AutoSize = true;
             this.l_TenKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_TenKhachHang.Location = new System.Drawing.Point(205, 76);
+            this.l_TenKhachHang.Location = new System.Drawing.Point(219, 99);
             this.l_TenKhachHang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_TenKhachHang.Name = "l_TenKhachHang";
             this.l_TenKhachHang.Size = new System.Drawing.Size(58, 20);
             this.l_TenKhachHang.TabIndex = 16;
             this.l_TenKhachHang.Text = "<Null>";
             // 
+            // grb_Thongtin
+            // 
+            this.grb_Thongtin.Controls.Add(this.label3);
+            this.grb_Thongtin.Controls.Add(this.l_TenKhachHang);
+            this.grb_Thongtin.Controls.Add(this.l_MaHoadon);
+            this.grb_Thongtin.Controls.Add(this.label4);
+            this.grb_Thongtin.Controls.Add(this.l_MaKhachhang);
+            this.grb_Thongtin.Controls.Add(this.l_LoaiHoaDon);
+            this.grb_Thongtin.Controls.Add(this.l_MaNhanVien);
+            this.grb_Thongtin.Controls.Add(this.l_TrangThai);
+            this.grb_Thongtin.Controls.Add(this.label5);
+            this.grb_Thongtin.Controls.Add(this.label1);
+            this.grb_Thongtin.Controls.Add(this.label7);
+            this.grb_Thongtin.Controls.Add(this.label6);
+            this.grb_Thongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_Thongtin.Location = new System.Drawing.Point(13, 13);
+            this.grb_Thongtin.Name = "grb_Thongtin";
+            this.grb_Thongtin.Size = new System.Drawing.Size(356, 236);
+            this.grb_Thongtin.TabIndex = 17;
+            this.grb_Thongtin.TabStop = false;
+            this.grb_Thongtin.Text = "Thông tin hóa đơn";
+            // 
             // Form_CTHD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 711);
-            this.Controls.Add(this.l_TenKhachHang);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.grb_Thongtin);
             this.Controls.Add(this.l_Tong);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.bnt_Print);
             this.Controls.Add(this.bnt_trangthai);
             this.Controls.Add(this.DGV_CTHD);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.l_TrangThai);
-            this.Controls.Add(this.l_MaNhanVien);
-            this.Controls.Add(this.l_LoaiHoaDon);
-            this.Controls.Add(this.l_MaKhachhang);
-            this.Controls.Add(this.l_MaHoadon);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_CTHD";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form_CTHD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_CTHD)).EndInit();
+            this.grb_Thongtin.ResumeLayout(false);
+            this.grb_Thongtin.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,5 +366,6 @@ namespace App_sale_manager
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label l_TenKhachHang;
+        private System.Windows.Forms.GroupBox grb_Thongtin;
     }
 }

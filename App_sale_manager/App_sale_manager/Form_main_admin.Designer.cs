@@ -30,24 +30,24 @@ namespace App_sale_manager
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_admin));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label1_GD = new System.Windows.Forms.Label();
             this.label2_GD = new System.Windows.Forms.Label();
             this.label3_GD = new System.Windows.Forms.Label();
@@ -79,12 +79,17 @@ namespace App_sale_manager
             this.label_kqbh = new System.Windows.Forms.Label();
             this.btn_dangxuat = new System.Windows.Forms.Button();
             this.tabPage_HangHoa = new System.Windows.Forms.TabPage();
-            this.lblGhiChu2 = new System.Windows.Forms.Label();
-            this.lblGhiChu = new System.Windows.Forms.Label();
-            this.btnQLKho = new System.Windows.Forms.Button();
-            this.btnQuanLiHH = new System.Windows.Forms.Button();
-            this.lblTieuDeHH = new System.Windows.Forms.Label();
+            this.btn_XemHH = new System.Windows.Forms.Button();
+            this.btnHoaDonNhap = new System.Windows.Forms.Button();
+            this.btnHangSapHet = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnXemChiTietHH = new System.Windows.Forms.Button();
+            this.btnQLLoaiHH = new System.Windows.Forms.Button();
+            this.btnXoaHH = new System.Windows.Forms.Button();
+            this.btnSuaHH = new System.Windows.Forms.Button();
+            this.btnThemHH = new System.Windows.Forms.Button();
             this.lblChuY = new System.Windows.Forms.Label();
+            this.lblTieuDeHH = new System.Windows.Forms.Label();
             this.dgvSP = new System.Windows.Forms.DataGridView();
             this.lblLoaiSP = new System.Windows.Forms.Label();
             this.tabPage_DoiTac = new System.Windows.Forms.TabPage();
@@ -257,6 +262,11 @@ namespace App_sale_manager
             this.label_bc_nv_thoigian = new System.Windows.Forms.Label();
             this.comboBox_bc_Nv_kieutinh = new System.Windows.Forms.ComboBox();
             this.label_bc_nv_kieutinh = new System.Windows.Forms.Label();
+            this.grb_hanghoa_thaotac = new System.Windows.Forms.GroupBox();
+            this.grb_Hanghoa_cdXem = new System.Windows.Forms.GroupBox();
+            this.grb_Hanghoa_khac = new System.Windows.Forms.GroupBox();
+            this.lbl_Hanghoa_hdnh = new System.Windows.Forms.Label();
+            this.lbl_Hanghoa_LoaiHH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Data_GiaoDich)).BeginInit();
             this.tabCtrl.SuspendLayout();
             this.tabPage_tongquan.SuspendLayout();
@@ -303,6 +313,9 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.chart_bc_Doanhthu)).BeginInit();
             this.tabPage_Baocao_nhanvien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_bc_nv)).BeginInit();
+            this.grb_hanghoa_thaotac.SuspendLayout();
+            this.grb_Hanghoa_cdXem.SuspendLayout();
+            this.grb_Hanghoa_khac.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1_GD
@@ -560,25 +573,25 @@ namespace App_sale_manager
             // 
             // chart_hangbanchay
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart_hangbanchay.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_hangbanchay.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chart_hangbanchay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_hangbanchay.Legends.Add(legend1);
             this.chart_hangbanchay.Location = new System.Drawing.Point(37, 421);
             this.chart_hangbanchay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_hangbanchay.Name = "chart_hangbanchay";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series7.Legend = "Legend1";
-            series7.LegendText = "Doanh thu";
-            series7.Name = "Series_hanghoa";
-            this.chart_hangbanchay.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Doanh thu";
+            series1.Name = "Series_hanghoa";
+            this.chart_hangbanchay.Series.Add(series1);
             this.chart_hangbanchay.Size = new System.Drawing.Size(739, 220);
             this.chart_hangbanchay.TabIndex = 4;
             this.chart_hangbanchay.Text = "chart1";
-            title5.Name = "Title_hangbanchay";
-            title5.Text = "danh sách hàng hóa bán chạy tháng";
-            this.chart_hangbanchay.Titles.Add(title5);
+            title1.Name = "Title_hangbanchay";
+            title1.Text = "danh sách hàng hóa bán chạy tháng";
+            this.chart_hangbanchay.Titles.Add(title1);
             // 
             // gB_doanhthuthang
             // 
@@ -595,30 +608,30 @@ namespace App_sale_manager
             // 
             // chart_doanhthuthang
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart_doanhthuthang.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chart_doanhthuthang.ChartAreas.Add(chartArea2);
             this.chart_doanhthuthang.Dock = System.Windows.Forms.DockStyle.Right;
-            legend6.Name = "Legend1";
-            this.chart_doanhthuthang.Legends.Add(legend6);
+            legend2.Name = "Legend1";
+            this.chart_doanhthuthang.Legends.Add(legend2);
             this.chart_doanhthuthang.Location = new System.Drawing.Point(-16, 19);
             this.chart_doanhthuthang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_doanhthuthang.Name = "chart_doanhthuthang";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.LegendText = "Thu";
-            series8.Name = "Series_Thu";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.LegendText = "Chi";
-            series9.Name = "Series_Chi";
-            this.chart_doanhthuthang.Series.Add(series8);
-            this.chart_doanhthuthang.Series.Add(series9);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.LegendText = "Thu";
+            series2.Name = "Series_Thu";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.LegendText = "Chi";
+            series3.Name = "Series_Chi";
+            this.chart_doanhthuthang.Series.Add(series2);
+            this.chart_doanhthuthang.Series.Add(series3);
             this.chart_doanhthuthang.Size = new System.Drawing.Size(752, 237);
             this.chart_doanhthuthang.TabIndex = 0;
             this.chart_doanhthuthang.Text = "chart1";
-            title6.Name = "Title1";
-            title6.Text = "Doanh thu tháng";
-            this.chart_doanhthuthang.Titles.Add(title6);
+            title2.Name = "Title1";
+            title2.Text = "Doanh thu tháng";
+            this.chart_doanhthuthang.Titles.Add(title2);
             // 
             // dgv_DonDatHang
             // 
@@ -678,12 +691,11 @@ namespace App_sale_manager
             // tabPage_HangHoa
             // 
             this.tabPage_HangHoa.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu2);
-            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu);
-            this.tabPage_HangHoa.Controls.Add(this.btnQLKho);
-            this.tabPage_HangHoa.Controls.Add(this.btnQuanLiHH);
-            this.tabPage_HangHoa.Controls.Add(this.lblTieuDeHH);
+            this.tabPage_HangHoa.Controls.Add(this.grb_Hanghoa_khac);
+            this.tabPage_HangHoa.Controls.Add(this.grb_Hanghoa_cdXem);
+            this.tabPage_HangHoa.Controls.Add(this.grb_hanghoa_thaotac);
             this.tabPage_HangHoa.Controls.Add(this.lblChuY);
+            this.tabPage_HangHoa.Controls.Add(this.lblTieuDeHH);
             this.tabPage_HangHoa.Controls.Add(this.dgvSP);
             this.tabPage_HangHoa.Controls.Add(this.lblLoaiSP);
             this.tabPage_HangHoa.ImageIndex = 1;
@@ -695,49 +707,112 @@ namespace App_sale_manager
             this.tabPage_HangHoa.TabIndex = 1;
             this.tabPage_HangHoa.Text = "Hàng hóa";
             // 
-            // lblGhiChu2
+            // btn_XemHH
             // 
-            this.lblGhiChu2.AutoSize = true;
-            this.lblGhiChu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGhiChu2.Location = new System.Drawing.Point(707, 76);
-            this.lblGhiChu2.Name = "lblGhiChu2";
-            this.lblGhiChu2.Size = new System.Drawing.Size(417, 17);
-            this.lblGhiChu2.TabIndex = 32;
-            this.lblGhiChu2.Text = "Quản lí kho: tìm kiếm, nhập hàng, xem hàng hoá sắp hết";
+            this.btn_XemHH.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btn_XemHH.Location = new System.Drawing.Point(131, 23);
+            this.btn_XemHH.Name = "btn_XemHH";
+            this.btn_XemHH.Size = new System.Drawing.Size(114, 33);
+            this.btn_XemHH.TabIndex = 65;
+            this.btn_XemHH.Text = "Xem tất cả";
+            this.btn_XemHH.UseVisualStyleBackColor = false;
             // 
-            // lblGhiChu
+            // btnHoaDonNhap
             // 
-            this.lblGhiChu.AutoSize = true;
-            this.lblGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGhiChu.Location = new System.Drawing.Point(707, 25);
-            this.lblGhiChu.Name = "lblGhiChu";
-            this.lblGhiChu.Size = new System.Drawing.Size(381, 17);
-            this.lblGhiChu.TabIndex = 31;
-            this.lblGhiChu.Text = "Quản lí hàng hoá: thêm xoá sửa thông tin hàng hoá";
+            this.btnHoaDonNhap.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnHoaDonNhap.Location = new System.Drawing.Point(187, 44);
+            this.btnHoaDonNhap.Name = "btnHoaDonNhap";
+            this.btnHoaDonNhap.Size = new System.Drawing.Size(142, 52);
+            this.btnHoaDonNhap.TabIndex = 64;
+            this.btnHoaDonNhap.Text = "Xem";
+            this.btnHoaDonNhap.UseVisualStyleBackColor = false;
+            this.btnHoaDonNhap.Click += new System.EventHandler(this.btnHoaDonNhap_Click);
             // 
-            // btnQLKho
+            // btnHangSapHet
             // 
-            this.btnQLKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLKho.Location = new System.Drawing.Point(320, 27);
-            this.btnQLKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnQLKho.Name = "btnQLKho";
-            this.btnQLKho.Size = new System.Drawing.Size(157, 89);
-            this.btnQLKho.TabIndex = 30;
-            this.btnQLKho.Text = "Quản lí kho";
-            this.btnQLKho.UseVisualStyleBackColor = true;
-            this.btnQLKho.Click += new System.EventHandler(this.btnQLKho_Click);
+            this.btnHangSapHet.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnHangSapHet.Location = new System.Drawing.Point(251, 23);
+            this.btnHangSapHet.Name = "btnHangSapHet";
+            this.btnHangSapHet.Size = new System.Drawing.Size(139, 33);
+            this.btnHangSapHet.TabIndex = 63;
+            this.btnHangSapHet.Text = "Hàng Hoá Sắp Hết";
+            this.btnHangSapHet.UseVisualStyleBackColor = false;
+            this.btnHangSapHet.Click += new System.EventHandler(this.btnHangSapHet_Click);
             // 
-            // btnQuanLiHH
+            // btnTimKiem
             // 
-            this.btnQuanLiHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLiHH.Location = new System.Drawing.Point(41, 27);
-            this.btnQuanLiHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnQuanLiHH.Name = "btnQuanLiHH";
-            this.btnQuanLiHH.Size = new System.Drawing.Size(157, 89);
-            this.btnQuanLiHH.TabIndex = 29;
-            this.btnQuanLiHH.Text = "Quản lí hàng hoá";
-            this.btnQuanLiHH.UseVisualStyleBackColor = true;
-            this.btnQuanLiHH.Click += new System.EventHandler(this.btnQuanLiHH_Click);
+            this.btnTimKiem.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnTimKiem.Location = new System.Drawing.Point(381, 23);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(119, 38);
+            this.btnTimKiem.TabIndex = 62;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnXemChiTietHH
+            // 
+            this.btnXemChiTietHH.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnXemChiTietHH.Location = new System.Drawing.Point(6, 23);
+            this.btnXemChiTietHH.Name = "btnXemChiTietHH";
+            this.btnXemChiTietHH.Size = new System.Drawing.Size(119, 33);
+            this.btnXemChiTietHH.TabIndex = 60;
+            this.btnXemChiTietHH.Text = "Xem chi tiết";
+            this.btnXemChiTietHH.UseVisualStyleBackColor = false;
+            this.btnXemChiTietHH.Click += new System.EventHandler(this.btnXemChiTietHH_Click);
+            // 
+            // btnQLLoaiHH
+            // 
+            this.btnQLLoaiHH.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnQLLoaiHH.Location = new System.Drawing.Point(190, 128);
+            this.btnQLLoaiHH.Name = "btnQLLoaiHH";
+            this.btnQLLoaiHH.Size = new System.Drawing.Size(142, 52);
+            this.btnQLLoaiHH.TabIndex = 61;
+            this.btnQLLoaiHH.Text = "Xem";
+            this.btnQLLoaiHH.UseVisualStyleBackColor = false;
+            this.btnQLLoaiHH.Click += new System.EventHandler(this.btnQLLoaiHH_Click);
+            // 
+            // btnXoaHH
+            // 
+            this.btnXoaHH.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnXoaHH.Location = new System.Drawing.Point(131, 23);
+            this.btnXoaHH.Name = "btnXoaHH";
+            this.btnXoaHH.Size = new System.Drawing.Size(119, 38);
+            this.btnXoaHH.TabIndex = 59;
+            this.btnXoaHH.Text = "Xoá";
+            this.btnXoaHH.UseVisualStyleBackColor = false;
+            this.btnXoaHH.Click += new System.EventHandler(this.btnXoaHH_Click);
+            // 
+            // btnSuaHH
+            // 
+            this.btnSuaHH.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnSuaHH.Location = new System.Drawing.Point(256, 23);
+            this.btnSuaHH.Name = "btnSuaHH";
+            this.btnSuaHH.Size = new System.Drawing.Size(119, 38);
+            this.btnSuaHH.TabIndex = 58;
+            this.btnSuaHH.Text = "Sửa";
+            this.btnSuaHH.UseVisualStyleBackColor = false;
+            this.btnSuaHH.Click += new System.EventHandler(this.btnSuaHH_Click);
+            // 
+            // btnThemHH
+            // 
+            this.btnThemHH.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnThemHH.Location = new System.Drawing.Point(6, 23);
+            this.btnThemHH.Name = "btnThemHH";
+            this.btnThemHH.Size = new System.Drawing.Size(119, 38);
+            this.btnThemHH.TabIndex = 57;
+            this.btnThemHH.Text = "Thêm";
+            this.btnThemHH.UseVisualStyleBackColor = false;
+            this.btnThemHH.Click += new System.EventHandler(this.btnThemHH_Click);
+            // 
+            // lblChuY
+            // 
+            this.lblChuY.AutoSize = true;
+            this.lblChuY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChuY.Location = new System.Drawing.Point(454, 17);
+            this.lblChuY.Name = "lblChuY";
+            this.lblChuY.Size = new System.Drawing.Size(0, 20);
+            this.lblChuY.TabIndex = 56;
             // 
             // lblTieuDeHH
             // 
@@ -745,18 +820,9 @@ namespace App_sale_manager
             this.lblTieuDeHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTieuDeHH.Location = new System.Drawing.Point(483, 183);
             this.lblTieuDeHH.Name = "lblTieuDeHH";
-            this.lblTieuDeHH.Size = new System.Drawing.Size(224, 29);
+            this.lblTieuDeHH.Size = new System.Drawing.Size(242, 29);
             this.lblTieuDeHH.TabIndex = 28;
-            this.lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
-            // 
-            // lblChuY
-            // 
-            this.lblChuY.AutoSize = true;
-            this.lblChuY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChuY.Location = new System.Drawing.Point(445, 16);
-            this.lblChuY.Name = "lblChuY";
-            this.lblChuY.Size = new System.Drawing.Size(0, 20);
-            this.lblChuY.TabIndex = 27;
+            this.lblTieuDeHH.Text = "Danh mục hàng hóa";
             // 
             // dgvSP
             // 
@@ -1416,7 +1482,7 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.ReadOnly = true;
             this.dataGridView_dtcc_guest.RowHeadersWidth = 51;
             this.dataGridView_dtcc_guest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(680, 390);
+            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(686, 390);
             this.dataGridView_dtcc_guest.TabIndex = 42;
             this.dataGridView_dtcc_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dtcc_guest_CellClick);
             // 
@@ -2609,30 +2675,30 @@ namespace App_sale_manager
             // 
             // chart_bc_Doanhthu
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart_bc_Doanhthu.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart_bc_Doanhthu.Legends.Add(legend7);
+            chartArea3.Name = "ChartArea1";
+            this.chart_bc_Doanhthu.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart_bc_Doanhthu.Legends.Add(legend3);
             this.chart_bc_Doanhthu.Location = new System.Drawing.Point(243, 43);
             this.chart_bc_Doanhthu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_bc_Doanhthu.Name = "chart_bc_Doanhthu";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.LegendText = "Tổng Thu";
-            series10.Name = "Series_Thu";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.LegendText = "Tổng Chi";
-            series11.Name = "Series_Chi";
-            this.chart_bc_Doanhthu.Series.Add(series10);
-            this.chart_bc_Doanhthu.Series.Add(series11);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.LegendText = "Tổng Thu";
+            series4.Name = "Series_Thu";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.LegendText = "Tổng Chi";
+            series5.Name = "Series_Chi";
+            this.chart_bc_Doanhthu.Series.Add(series4);
+            this.chart_bc_Doanhthu.Series.Add(series5);
             this.chart_bc_Doanhthu.Size = new System.Drawing.Size(919, 441);
             this.chart_bc_Doanhthu.TabIndex = 5;
             this.chart_bc_Doanhthu.Text = "chart1";
-            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title7.Name = "Title_chart_bc_Doanhthu";
-            title7.Text = "Báo cáo doanh thu tháng";
-            this.chart_bc_Doanhthu.Titles.Add(title7);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "Title_chart_bc_Doanhthu";
+            title3.Text = "Báo cáo doanh thu tháng";
+            this.chart_bc_Doanhthu.Titles.Add(title3);
             // 
             // textBox_bc_DoanhThu_nhap2
             // 
@@ -2810,25 +2876,25 @@ namespace App_sale_manager
             // 
             // chart_bc_nv
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart_bc_nv.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart_bc_nv.Legends.Add(legend8);
+            chartArea4.Name = "ChartArea1";
+            this.chart_bc_nv.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart_bc_nv.Legends.Add(legend4);
             this.chart_bc_nv.Location = new System.Drawing.Point(243, 32);
             this.chart_bc_nv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_bc_nv.Name = "chart_bc_nv";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series12.Legend = "Legend1";
-            series12.LegendText = "doanh số";
-            series12.Name = "Series1";
-            this.chart_bc_nv.Series.Add(series12);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series6.Legend = "Legend1";
+            series6.LegendText = "doanh số";
+            series6.Name = "Series1";
+            this.chart_bc_nv.Series.Add(series6);
             this.chart_bc_nv.Size = new System.Drawing.Size(915, 460);
             this.chart_bc_nv.TabIndex = 5;
             this.chart_bc_nv.Text = "chart1";
-            title8.Name = "Title1";
-            title8.Text = "Biểu đồ doanh số bán hàng nhân viên tháng";
-            this.chart_bc_nv.Titles.Add(title8);
+            title4.Name = "Title1";
+            title4.Text = "Biểu đồ doanh số bán hàng nhân viên tháng";
+            this.chart_bc_nv.Titles.Add(title4);
             // 
             // textBox_bc_nv_nhap2
             // 
@@ -2889,6 +2955,65 @@ namespace App_sale_manager
             this.label_bc_nv_kieutinh.Size = new System.Drawing.Size(73, 18);
             this.label_bc_nv_kieutinh.TabIndex = 0;
             this.label_bc_nv_kieutinh.Text = "Kiểu tính";
+            // 
+            // grb_hanghoa_thaotac
+            // 
+            this.grb_hanghoa_thaotac.Controls.Add(this.btnThemHH);
+            this.grb_hanghoa_thaotac.Controls.Add(this.btnXoaHH);
+            this.grb_hanghoa_thaotac.Controls.Add(this.btnSuaHH);
+            this.grb_hanghoa_thaotac.Controls.Add(this.btnTimKiem);
+            this.grb_hanghoa_thaotac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_hanghoa_thaotac.Location = new System.Drawing.Point(19, 17);
+            this.grb_hanghoa_thaotac.Name = "grb_hanghoa_thaotac";
+            this.grb_hanghoa_thaotac.Size = new System.Drawing.Size(542, 96);
+            this.grb_hanghoa_thaotac.TabIndex = 66;
+            this.grb_hanghoa_thaotac.TabStop = false;
+            this.grb_hanghoa_thaotac.Text = "Nhóm lệnh thao tác";
+            // 
+            // grb_Hanghoa_cdXem
+            // 
+            this.grb_Hanghoa_cdXem.Controls.Add(this.btn_XemHH);
+            this.grb_Hanghoa_cdXem.Controls.Add(this.btnXemChiTietHH);
+            this.grb_Hanghoa_cdXem.Controls.Add(this.btnHangSapHet);
+            this.grb_Hanghoa_cdXem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_Hanghoa_cdXem.Location = new System.Drawing.Point(25, 120);
+            this.grb_Hanghoa_cdXem.Name = "grb_Hanghoa_cdXem";
+            this.grb_Hanghoa_cdXem.Size = new System.Drawing.Size(429, 68);
+            this.grb_Hanghoa_cdXem.TabIndex = 67;
+            this.grb_Hanghoa_cdXem.TabStop = false;
+            this.grb_Hanghoa_cdXem.Text = "Chế độ xem";
+            // 
+            // grb_Hanghoa_khac
+            // 
+            this.grb_Hanghoa_khac.Controls.Add(this.lbl_Hanghoa_LoaiHH);
+            this.grb_Hanghoa_khac.Controls.Add(this.lbl_Hanghoa_hdnh);
+            this.grb_Hanghoa_khac.Controls.Add(this.btnHoaDonNhap);
+            this.grb_Hanghoa_khac.Controls.Add(this.btnQLLoaiHH);
+            this.grb_Hanghoa_khac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_Hanghoa_khac.Location = new System.Drawing.Point(792, 17);
+            this.grb_Hanghoa_khac.Name = "grb_Hanghoa_khac";
+            this.grb_Hanghoa_khac.Size = new System.Drawing.Size(395, 195);
+            this.grb_Hanghoa_khac.TabIndex = 68;
+            this.grb_Hanghoa_khac.TabStop = false;
+            this.grb_Hanghoa_khac.Text = "Khác";
+            // 
+            // lbl_Hanghoa_hdnh
+            // 
+            this.lbl_Hanghoa_hdnh.AutoSize = true;
+            this.lbl_Hanghoa_hdnh.Location = new System.Drawing.Point(42, 23);
+            this.lbl_Hanghoa_hdnh.Name = "lbl_Hanghoa_hdnh";
+            this.lbl_Hanghoa_hdnh.Size = new System.Drawing.Size(237, 18);
+            this.lbl_Hanghoa_hdnh.TabIndex = 65;
+            this.lbl_Hanghoa_hdnh.Text = "Danh mục hóa đơn nhập hàng:";
+            // 
+            // lbl_Hanghoa_LoaiHH
+            // 
+            this.lbl_Hanghoa_LoaiHH.AutoSize = true;
+            this.lbl_Hanghoa_LoaiHH.Location = new System.Drawing.Point(42, 103);
+            this.lbl_Hanghoa_LoaiHH.Name = "lbl_Hanghoa_LoaiHH";
+            this.lbl_Hanghoa_LoaiHH.Size = new System.Drawing.Size(231, 18);
+            this.lbl_Hanghoa_LoaiHH.TabIndex = 65;
+            this.lbl_Hanghoa_LoaiHH.Text = "Danh sách các loại hàng hóa:";
             // 
             // Form_main_admin
             // 
@@ -2961,6 +3086,10 @@ namespace App_sale_manager
             this.tabPage_Baocao_nhanvien.ResumeLayout(false);
             this.tabPage_Baocao_nhanvien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_bc_nv)).EndInit();
+            this.grb_hanghoa_thaotac.ResumeLayout(false);
+            this.grb_Hanghoa_cdXem.ResumeLayout(false);
+            this.grb_Hanghoa_khac.ResumeLayout(false);
+            this.grb_Hanghoa_khac.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3164,12 +3293,7 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label5_GD;
         private System.Windows.Forms.Label lblLoaiSP;
         private System.Windows.Forms.DataGridView dgvSP;
-        private System.Windows.Forms.Label lblChuY;
         private System.Windows.Forms.Label lblTieuDeHH;
-        private System.Windows.Forms.Button btnQLKho;
-        private System.Windows.Forms.Button btnQuanLiHH;
-        private System.Windows.Forms.Label lblGhiChu2;
-        private System.Windows.Forms.Label lblGhiChu;
         private System.Windows.Forms.GroupBox grb_bc_qt;
         private System.Windows.Forms.GroupBox GroupB_GD_TimKiem;
         private System.Windows.Forms.GroupBox grb_nv_luong_timkiem;
@@ -3177,5 +3301,20 @@ namespace App_sale_manager
         private System.Windows.Forms.ImageList imageList_icon;
         private System.Windows.Forms.NumericUpDown nud_Thuong_nv_bangluong;
         private System.Windows.Forms.Label label_thuong_nv_bangluong;
+        private System.Windows.Forms.Button btn_XemHH;
+        private System.Windows.Forms.Button btnHoaDonNhap;
+        private System.Windows.Forms.Button btnHangSapHet;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnXemChiTietHH;
+        private System.Windows.Forms.Button btnQLLoaiHH;
+        private System.Windows.Forms.Button btnXoaHH;
+        private System.Windows.Forms.Button btnSuaHH;
+        private System.Windows.Forms.Button btnThemHH;
+        private System.Windows.Forms.Label lblChuY;
+        private System.Windows.Forms.GroupBox grb_Hanghoa_khac;
+        private System.Windows.Forms.Label lbl_Hanghoa_LoaiHH;
+        private System.Windows.Forms.Label lbl_Hanghoa_hdnh;
+        private System.Windows.Forms.GroupBox grb_Hanghoa_cdXem;
+        private System.Windows.Forms.GroupBox grb_hanghoa_thaotac;
     }
 }

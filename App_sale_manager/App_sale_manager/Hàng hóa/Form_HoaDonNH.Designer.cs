@@ -37,16 +37,19 @@ namespace App_sale_manager
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.btnNhapHang = new System.Windows.Forms.Button();
+            this.grb_nhomlenh = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDHN)).BeginInit();
+            this.grb_nhomlenh.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(743, 118);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 17);
+            this.label7.Size = new System.Drawing.Size(135, 18);
             this.label7.TabIndex = 85;
             this.label7.Text = "Chi tiết đơn nhập";
             // 
@@ -65,11 +68,12 @@ namespace App_sale_manager
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 17);
+            this.label1.Size = new System.Drawing.Size(203, 18);
             this.label1.TabIndex = 87;
-            this.label1.Text = "Đơn hàng đã nhập";
+            this.label1.Text = "Danh sách đơn nhập hàng";
             // 
             // dgvHDHN
             // 
@@ -86,52 +90,68 @@ namespace App_sale_manager
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(235, 29);
+            this.btnSua.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnSua.Location = new System.Drawing.Point(183, 21);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(107, 65);
+            this.btnSua.Size = new System.Drawing.Size(116, 44);
             this.btnSua.TabIndex = 88;
             this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(397, 29);
+            this.btnXoa.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnXoa.Location = new System.Drawing.Point(317, 21);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(107, 65);
+            this.btnXoa.Size = new System.Drawing.Size(120, 44);
             this.btnXoa.TabIndex = 89;
             this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(551, 29);
+            this.btnChiTiet.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnChiTiet.Location = new System.Drawing.Point(459, 21);
             this.btnChiTiet.Name = "btnChiTiet";
-            this.btnChiTiet.Size = new System.Drawing.Size(107, 65);
+            this.btnChiTiet.Size = new System.Drawing.Size(115, 44);
             this.btnChiTiet.TabIndex = 90;
             this.btnChiTiet.Text = "Chi tiết";
-            this.btnChiTiet.UseVisualStyleBackColor = true;
+            this.btnChiTiet.UseVisualStyleBackColor = false;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // btnNhapHang
             // 
-            this.btnNhapHang.Location = new System.Drawing.Point(53, 29);
+            this.btnNhapHang.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnNhapHang.Location = new System.Drawing.Point(50, 21);
             this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(112, 60);
+            this.btnNhapHang.Size = new System.Drawing.Size(112, 44);
             this.btnNhapHang.TabIndex = 91;
             this.btnNhapHang.Text = "Nhập Hàng";
-            this.btnNhapHang.UseVisualStyleBackColor = true;
+            this.btnNhapHang.UseVisualStyleBackColor = false;
             this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            // 
+            // grb_nhomlenh
+            // 
+            this.grb_nhomlenh.Controls.Add(this.btnNhapHang);
+            this.grb_nhomlenh.Controls.Add(this.btnChiTiet);
+            this.grb_nhomlenh.Controls.Add(this.btnSua);
+            this.grb_nhomlenh.Controls.Add(this.btnXoa);
+            this.grb_nhomlenh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_nhomlenh.Location = new System.Drawing.Point(12, 12);
+            this.grb_nhomlenh.Name = "grb_nhomlenh";
+            this.grb_nhomlenh.Size = new System.Drawing.Size(646, 73);
+            this.grb_nhomlenh.TabIndex = 92;
+            this.grb_nhomlenh.TabStop = false;
+            this.grb_nhomlenh.Text = "Nhóm lệnh thao tác";
             // 
             // Form_HoaDonNH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 653);
-            this.Controls.Add(this.btnNhapHang);
-            this.Controls.Add(this.btnChiTiet);
-            this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.grb_nhomlenh);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvHDHN);
             this.Controls.Add(this.label7);
@@ -140,6 +160,7 @@ namespace App_sale_manager
             this.Text = "Form_HoaDonNH";
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDHN)).EndInit();
+            this.grb_nhomlenh.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +176,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnChiTiet;
         private System.Windows.Forms.Button btnNhapHang;
+        private System.Windows.Forms.GroupBox grb_nhomlenh;
     }
 }

@@ -1774,22 +1774,101 @@ namespace App_sale_manager
             f.ShowDialog();
             f.Close();
             this.Show();
-        }
-        private void btnQuanLiHH_Click(object sender, EventArgs e)
+        }         
+        private void btnThemHH_Click(object sender, EventArgs e)
         {
-            Form_QuanLiHH f = new Form_QuanLiHH();
+            Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(1);
             this.Hide();
             f.ShowDialog();
             LoadHangHoa();
             this.Show();
         }
-        private void btnQLKho_Click(object sender, EventArgs e)
+
+        private void btnXoaHH_Click(object sender, EventArgs e)
         {
-            Form_QLKho f = new Form_QLKho(manv,tennv);
+            sqlCon.Open();
+            if (dgvSP.CurrentRow == null)
+            {
+                MessageBox.Show("Chưa chọn hàng để xoá");
+                return;
+            }
+            DialogResult dar = MessageBox.Show("Xoá sản phẩm sẽ làm thông tin liên quan bị xoá.Ví dụ các hoá đơn.\nBạn có chắc chắn xoá ", "Chú ý", MessageBoxButtons.YesNo);
+            if (dar == DialogResult.Yes)
+            {
+                string strquery = "delete CTHDNH where SPID in (select SPID from SANPHAM where LOAIID = '" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + "')" +
+                              "delete CTHDBH where SPID in (select SPID from SANPHAM where LOAIID = '" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + "')" +
+                              "delete from SANPHAM where SPID='" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + "'";
+                FileInfo info = new FileInfo(@"..\..\HangHoa\" + dgvSP.CurrentRow.Cells["SPID"].Value.ToString() + ".jpg");
+                info.Delete();
+                SqlCommand sqlCmd = new SqlCommand(strquery, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+                LoadHangHoa();
+                MessageBox.Show("Đã xoá");
+            }
+        }
+
+        private void btnSuaHH_Click(object sender, EventArgs e)
+        {
+            if (dgvSP.CurrentRow == null)
+            {
+                MessageBox.Show("Chưa chọn hàng để sửa");
+                return;
+            }
+            Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(2, dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["HANGSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(),  dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
             this.Hide();
             f.ShowDialog();
             LoadHangHoa();
             this.Show();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            Form_TimKiemHH f = new Form_TimKiemHH();
+            f.ShowDialog();
+            dgvSP.DataSource = f.TimKiem();
+            f.Close();
+
+        }
+
+        private void btnQLLoaiHH_Click(object sender, EventArgs e)
+        {
+            Form_QLLoaiHH f = new Form_QLLoaiHH();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+            LoadHangHoa();
+        }
+
+        private void btnHangSapHet_Click(object sender, EventArgs e)
+        {
+
+            sqlCon = new SqlConnection(strCon);
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID and SoLuong<SLTT";
+            // gửi truy vấn tới kết nối.
+            sqlCmd.Connection = sqlCon;
+            adapter = new SqlDataAdapter(sqlCmd);
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            DataTable tbHHSH = new DataTable();
+            tbHHSH.Clear();
+            adapter.Fill(tbHHSH);
+            dgvSP.DataSource = tbHHSH;
+        }
+
+        private void btnHoaDonNhap_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_HoaDonNH f = new Form_HoaDonNH(manv, tennv);
+            f.ShowDialog();
+            this.Show();
+            LoadHangHoa();
+        }
+
+        private void btnXemChiTietHH_Click(object sender, EventArgs e)
+        {
+            XemChiTiet();
         }
     }
 }

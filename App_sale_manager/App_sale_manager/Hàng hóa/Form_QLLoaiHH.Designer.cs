@@ -111,52 +111,62 @@ namespace App_sale_manager
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(34, 349);
+            this.btnThem.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Location = new System.Drawing.Point(21, 349);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(112, 63);
+            this.btnThem.Size = new System.Drawing.Size(112, 42);
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(219, 349);
+            this.btnXoa.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Location = new System.Drawing.Point(153, 349);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(112, 63);
+            this.btnXoa.Size = new System.Drawing.Size(112, 42);
             this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(34, 440);
+            this.btnSua.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Location = new System.Drawing.Point(285, 349);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(112, 63);
+            this.btnSua.Size = new System.Drawing.Size(112, 42);
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnHoanTat
             // 
-            this.btnHoanTat.Location = new System.Drawing.Point(34, 551);
+            this.btnHoanTat.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnHoanTat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoanTat.Location = new System.Drawing.Point(21, 478);
             this.btnHoanTat.Name = "btnHoanTat";
-            this.btnHoanTat.Size = new System.Drawing.Size(112, 63);
+            this.btnHoanTat.Size = new System.Drawing.Size(161, 51);
             this.btnHoanTat.TabIndex = 10;
             this.btnHoanTat.Text = "Hoàn tất";
-            this.btnHoanTat.UseVisualStyleBackColor = true;
+            this.btnHoanTat.UseVisualStyleBackColor = false;
             this.btnHoanTat.Click += new System.EventHandler(this.btnHoanTat_Click);
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(219, 551);
+            this.btnHuy.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(231, 478);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(112, 63);
+            this.btnHuy.Size = new System.Drawing.Size(166, 51);
             this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Huỷ";
-            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // label1

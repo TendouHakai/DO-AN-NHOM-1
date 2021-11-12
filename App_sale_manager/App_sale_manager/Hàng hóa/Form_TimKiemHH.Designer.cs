@@ -46,22 +46,26 @@ namespace App_sale_manager
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(304, 420);
+            this.btnHuy.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(256, 420);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(116, 62);
+            this.btnHuy.Size = new System.Drawing.Size(164, 49);
             this.btnHuy.TabIndex = 46;
             this.btnHuy.Text = "Huỷ";
-            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(28, 420);
+            this.btnTim.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTim.Location = new System.Drawing.Point(25, 419);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(127, 63);
+            this.btnTim.Size = new System.Drawing.Size(155, 50);
             this.btnTim.TabIndex = 47;
             this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.UseVisualStyleBackColor = false;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // cbbLoaiSP
