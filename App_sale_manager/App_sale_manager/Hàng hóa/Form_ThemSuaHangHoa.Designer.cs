@@ -51,6 +51,8 @@
             this.btnChonHinh = new System.Windows.Forms.Button();
             this.txtHang = new System.Windows.Forms.TextBox();
             this.lblHang = new System.Windows.Forms.Label();
+            this.txtSLTT = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,7 +195,7 @@
             // 
             this.txtGiaNhap.Location = new System.Drawing.Point(156, 446);
             this.txtGiaNhap.Name = "txtGiaNhap";
-            this.txtGiaNhap.Size = new System.Drawing.Size(280, 22);
+            this.txtGiaNhap.Size = new System.Drawing.Size(277, 22);
             this.txtGiaNhap.TabIndex = 52;
             // 
             // cbLoaiSP
@@ -250,11 +252,29 @@
             this.lblHang.TabIndex = 65;
             this.lblHang.Text = "Hãng";
             // 
+            // txtSLTT
+            // 
+            this.txtSLTT.Location = new System.Drawing.Point(155, 494);
+            this.txtSLTT.Name = "txtSLTT";
+            this.txtSLTT.Size = new System.Drawing.Size(277, 22);
+            this.txtSLTT.TabIndex = 74;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 501);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 17);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Số lượng tối thiểu";
+            // 
             // Form_ThemSuaHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.txtSLTT);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtHang);
             this.Controls.Add(this.lblHang);
             this.Controls.Add(this.btnChonHinh);
@@ -281,6 +301,7 @@
             this.Name = "Form_ThemSuaHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_ThemXoaSuaHangHoa";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_ThemSuaHangHoa_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -312,5 +333,7 @@
         private System.Windows.Forms.Button btnChonHinh;
         private System.Windows.Forms.TextBox txtHang;
         private System.Windows.Forms.Label lblHang;
+        private System.Windows.Forms.TextBox txtSLTT;
+        private System.Windows.Forms.Label label3;
     }
 }

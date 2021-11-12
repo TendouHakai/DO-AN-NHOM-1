@@ -31,7 +31,9 @@ namespace App_sale_manager
             txtNDSLToiThieu.Text = SLTT;
             txtNDLoaiID.Text = LoaiSP;
             txtNDMoTa.Text = MoTa;
-            ptrbHinhAnh.Image = Image.FromFile(@"..\..\HangHoa\"+txtNDMaSP.Text + ".jpg");
+            Image img = GetCopyImage(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
+            ptrbHinhAnh.Image = img;
+            System.IO.File.Delete(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         public Form_ChiTietHH(string SPID, string TenSP, string NuocSX, string Hang, string GiaBan, string GiaNhap, string DVT, string LoaiSP, string MoTa)
@@ -51,8 +53,23 @@ namespace App_sale_manager
             txtNDSLToiThieu.Visible = false ;
             txtNDLoaiID.Text = LoaiSP;
             txtNDMoTa.Text = MoTa;
-            ptrbHinhAnh.Image = Image.FromFile(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
+            Image img = GetCopyImage(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");           
+            ptrbHinhAnh.Image = img;
+            System.IO.File.Delete(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+        private Image GetCopyImage(string path)
+        {
+            using (Image image = Image.FromFile(path))
+            {
+                Bitmap bitmap = new Bitmap(image);
+                return bitmap;
+            }
+        }
+        private void Form_ChiTietHH_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
+            this.Close();
         }
     }
 }

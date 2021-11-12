@@ -295,6 +295,7 @@ namespace App_sale_manager
             this.Name = "Form_ChiTietHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_ChiTietHH";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_ChiTietHH_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -30,24 +30,24 @@ namespace App_sale_manager
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_admin));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label1_GD = new System.Windows.Forms.Label();
             this.label2_GD = new System.Windows.Forms.Label();
             this.label3_GD = new System.Windows.Forms.Label();
@@ -79,12 +79,17 @@ namespace App_sale_manager
             this.label_kqbh = new System.Windows.Forms.Label();
             this.btn_dangxuat = new System.Windows.Forms.Button();
             this.tabPage_HangHoa = new System.Windows.Forms.TabPage();
-            this.lblGhiChu2 = new System.Windows.Forms.Label();
-            this.lblGhiChu = new System.Windows.Forms.Label();
-            this.btnQLKho = new System.Windows.Forms.Button();
-            this.btnQuanLiHH = new System.Windows.Forms.Button();
-            this.lblTieuDeHH = new System.Windows.Forms.Label();
+            this.btn_XemHH = new System.Windows.Forms.Button();
+            this.btnHoaDonNhap = new System.Windows.Forms.Button();
+            this.btnHangSapHet = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnXemChiTietHH = new System.Windows.Forms.Button();
+            this.btnQLLoaiHH = new System.Windows.Forms.Button();
+            this.btnXoaHH = new System.Windows.Forms.Button();
+            this.btnSuaHH = new System.Windows.Forms.Button();
+            this.btnThemHH = new System.Windows.Forms.Button();
             this.lblChuY = new System.Windows.Forms.Label();
+            this.lblTieuDeHH = new System.Windows.Forms.Label();
             this.dgvSP = new System.Windows.Forms.DataGridView();
             this.lblLoaiSP = new System.Windows.Forms.Label();
             this.tabPage_DoiTac = new System.Windows.Forms.TabPage();
@@ -192,6 +197,8 @@ namespace App_sale_manager
             this.cb_ThutuLuong_nv_bangluong = new System.Windows.Forms.ComboBox();
             this.tb_search_nv_bangluong = new System.Windows.Forms.TextBox();
             this.grb_nv_luong_ìnfo = new System.Windows.Forms.GroupBox();
+            this.nud_Thuong_nv_bangluong = new System.Windows.Forms.NumericUpDown();
+            this.label_thuong_nv_bangluong = new System.Windows.Forms.Label();
             this.tb_TenNV_nv_bangluong = new System.Windows.Forms.TextBox();
             this.tb_MaNV_nv_bangluong = new System.Windows.Forms.TextBox();
             this.label_manv_nv_bangluong = new System.Windows.Forms.Label();
@@ -255,8 +262,6 @@ namespace App_sale_manager
             this.label_bc_nv_thoigian = new System.Windows.Forms.Label();
             this.comboBox_bc_Nv_kieutinh = new System.Windows.Forms.ComboBox();
             this.label_bc_nv_kieutinh = new System.Windows.Forms.Label();
-            this.label_thuong_nv_bangluong = new System.Windows.Forms.Label();
-            this.nud_Thuong_nv_bangluong = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Data_GiaoDich)).BeginInit();
             this.tabCtrl.SuspendLayout();
             this.tabPage_tongquan.SuspendLayout();
@@ -290,6 +295,7 @@ namespace App_sale_manager
             this.tabPage3.SuspendLayout();
             this.grb_nv_luong_timkiem.SuspendLayout();
             this.grb_nv_luong_ìnfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Thuong_nv_bangluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Heso_nv_bangluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Luong_nv_bangluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nv_bangluong)).BeginInit();
@@ -302,7 +308,6 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.chart_bc_Doanhthu)).BeginInit();
             this.tabPage_Baocao_nhanvien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_bc_nv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Thuong_nv_bangluong)).BeginInit();
             this.SuspendLayout();
             // 
             // label1_GD
@@ -560,25 +565,25 @@ namespace App_sale_manager
             // 
             // chart_hangbanchay
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart_hangbanchay.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_hangbanchay.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chart_hangbanchay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_hangbanchay.Legends.Add(legend1);
             this.chart_hangbanchay.Location = new System.Drawing.Point(37, 421);
             this.chart_hangbanchay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_hangbanchay.Name = "chart_hangbanchay";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series7.Legend = "Legend1";
-            series7.LegendText = "Doanh thu";
-            series7.Name = "Series_hanghoa";
-            this.chart_hangbanchay.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Doanh thu";
+            series1.Name = "Series_hanghoa";
+            this.chart_hangbanchay.Series.Add(series1);
             this.chart_hangbanchay.Size = new System.Drawing.Size(739, 220);
             this.chart_hangbanchay.TabIndex = 4;
             this.chart_hangbanchay.Text = "chart1";
-            title5.Name = "Title_hangbanchay";
-            title5.Text = "danh sách hàng hóa bán chạy tháng";
-            this.chart_hangbanchay.Titles.Add(title5);
+            title1.Name = "Title_hangbanchay";
+            title1.Text = "danh sách hàng hóa bán chạy tháng";
+            this.chart_hangbanchay.Titles.Add(title1);
             // 
             // gB_doanhthuthang
             // 
@@ -595,30 +600,30 @@ namespace App_sale_manager
             // 
             // chart_doanhthuthang
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart_doanhthuthang.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chart_doanhthuthang.ChartAreas.Add(chartArea2);
             this.chart_doanhthuthang.Dock = System.Windows.Forms.DockStyle.Right;
-            legend6.Name = "Legend1";
-            this.chart_doanhthuthang.Legends.Add(legend6);
+            legend2.Name = "Legend1";
+            this.chart_doanhthuthang.Legends.Add(legend2);
             this.chart_doanhthuthang.Location = new System.Drawing.Point(-16, 19);
             this.chart_doanhthuthang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_doanhthuthang.Name = "chart_doanhthuthang";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.LegendText = "Thu";
-            series8.Name = "Series_Thu";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.LegendText = "Chi";
-            series9.Name = "Series_Chi";
-            this.chart_doanhthuthang.Series.Add(series8);
-            this.chart_doanhthuthang.Series.Add(series9);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.LegendText = "Thu";
+            series2.Name = "Series_Thu";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.LegendText = "Chi";
+            series3.Name = "Series_Chi";
+            this.chart_doanhthuthang.Series.Add(series2);
+            this.chart_doanhthuthang.Series.Add(series3);
             this.chart_doanhthuthang.Size = new System.Drawing.Size(752, 237);
             this.chart_doanhthuthang.TabIndex = 0;
             this.chart_doanhthuthang.Text = "chart1";
-            title6.Name = "Title1";
-            title6.Text = "Doanh thu tháng";
-            this.chart_doanhthuthang.Titles.Add(title6);
+            title2.Name = "Title1";
+            title2.Text = "Doanh thu tháng";
+            this.chart_doanhthuthang.Titles.Add(title2);
             // 
             // dgv_DonDatHang
             // 
@@ -678,12 +683,17 @@ namespace App_sale_manager
             // tabPage_HangHoa
             // 
             this.tabPage_HangHoa.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu2);
-            this.tabPage_HangHoa.Controls.Add(this.lblGhiChu);
-            this.tabPage_HangHoa.Controls.Add(this.btnQLKho);
-            this.tabPage_HangHoa.Controls.Add(this.btnQuanLiHH);
-            this.tabPage_HangHoa.Controls.Add(this.lblTieuDeHH);
+            this.tabPage_HangHoa.Controls.Add(this.btn_XemHH);
+            this.tabPage_HangHoa.Controls.Add(this.btnHoaDonNhap);
+            this.tabPage_HangHoa.Controls.Add(this.btnHangSapHet);
+            this.tabPage_HangHoa.Controls.Add(this.btnTimKiem);
+            this.tabPage_HangHoa.Controls.Add(this.btnXemChiTietHH);
+            this.tabPage_HangHoa.Controls.Add(this.btnQLLoaiHH);
+            this.tabPage_HangHoa.Controls.Add(this.btnXoaHH);
+            this.tabPage_HangHoa.Controls.Add(this.btnSuaHH);
+            this.tabPage_HangHoa.Controls.Add(this.btnThemHH);
             this.tabPage_HangHoa.Controls.Add(this.lblChuY);
+            this.tabPage_HangHoa.Controls.Add(this.lblTieuDeHH);
             this.tabPage_HangHoa.Controls.Add(this.dgvSP);
             this.tabPage_HangHoa.Controls.Add(this.lblLoaiSP);
             this.tabPage_HangHoa.ImageIndex = 1;
@@ -695,49 +705,103 @@ namespace App_sale_manager
             this.tabPage_HangHoa.TabIndex = 1;
             this.tabPage_HangHoa.Text = "Hàng hóa";
             // 
-            // lblGhiChu2
+            // btn_XemHH
             // 
-            this.lblGhiChu2.AutoSize = true;
-            this.lblGhiChu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGhiChu2.Location = new System.Drawing.Point(707, 76);
-            this.lblGhiChu2.Name = "lblGhiChu2";
-            this.lblGhiChu2.Size = new System.Drawing.Size(417, 17);
-            this.lblGhiChu2.TabIndex = 32;
-            this.lblGhiChu2.Text = "Quản lí kho: tìm kiếm, nhập hàng, xem hàng hoá sắp hết";
+            this.btn_XemHH.Location = new System.Drawing.Point(19, 184);
+            this.btn_XemHH.Name = "btn_XemHH";
+            this.btn_XemHH.Size = new System.Drawing.Size(114, 42);
+            this.btn_XemHH.TabIndex = 65;
+            this.btn_XemHH.Text = "Xem tất cả";
+            this.btn_XemHH.UseVisualStyleBackColor = true;
             // 
-            // lblGhiChu
+            // btnHoaDonNhap
             // 
-            this.lblGhiChu.AutoSize = true;
-            this.lblGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGhiChu.Location = new System.Drawing.Point(707, 25);
-            this.lblGhiChu.Name = "lblGhiChu";
-            this.lblGhiChu.Size = new System.Drawing.Size(381, 17);
-            this.lblGhiChu.TabIndex = 31;
-            this.lblGhiChu.Text = "Quản lí hàng hoá: thêm xoá sửa thông tin hàng hoá";
+            this.btnHoaDonNhap.Location = new System.Drawing.Point(488, 17);
+            this.btnHoaDonNhap.Name = "btnHoaDonNhap";
+            this.btnHoaDonNhap.Size = new System.Drawing.Size(119, 61);
+            this.btnHoaDonNhap.TabIndex = 64;
+            this.btnHoaDonNhap.Text = "Hoá đơn nhập hàng";
+            this.btnHoaDonNhap.UseVisualStyleBackColor = true;
+            this.btnHoaDonNhap.Click += new System.EventHandler(this.btnHoaDonNhap_Click);
             // 
-            // btnQLKho
+            // btnHangSapHet
             // 
-            this.btnQLKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLKho.Location = new System.Drawing.Point(320, 27);
-            this.btnQLKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnQLKho.Name = "btnQLKho";
-            this.btnQLKho.Size = new System.Drawing.Size(157, 89);
-            this.btnQLKho.TabIndex = 30;
-            this.btnQLKho.Text = "Quản lí kho";
-            this.btnQLKho.UseVisualStyleBackColor = true;
-            this.btnQLKho.Click += new System.EventHandler(this.btnQLKho_Click);
+            this.btnHangSapHet.Location = new System.Drawing.Point(315, 99);
+            this.btnHangSapHet.Name = "btnHangSapHet";
+            this.btnHangSapHet.Size = new System.Drawing.Size(139, 61);
+            this.btnHangSapHet.TabIndex = 63;
+            this.btnHangSapHet.Text = "Hàng Hoá Sắp Hết";
+            this.btnHangSapHet.UseVisualStyleBackColor = true;
+            this.btnHangSapHet.Click += new System.EventHandler(this.btnHangSapHet_Click);
             // 
-            // btnQuanLiHH
+            // btnTimKiem
             // 
-            this.btnQuanLiHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLiHH.Location = new System.Drawing.Point(41, 27);
-            this.btnQuanLiHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnQuanLiHH.Name = "btnQuanLiHH";
-            this.btnQuanLiHH.Size = new System.Drawing.Size(157, 89);
-            this.btnQuanLiHH.TabIndex = 29;
-            this.btnQuanLiHH.Text = "Quản lí hàng hoá";
-            this.btnQuanLiHH.UseVisualStyleBackColor = true;
-            this.btnQuanLiHH.Click += new System.EventHandler(this.btnQuanLiHH_Click);
+            this.btnTimKiem.Location = new System.Drawing.Point(160, 99);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(119, 61);
+            this.btnTimKiem.TabIndex = 62;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnXemChiTietHH
+            // 
+            this.btnXemChiTietHH.Location = new System.Drawing.Point(488, 99);
+            this.btnXemChiTietHH.Name = "btnXemChiTietHH";
+            this.btnXemChiTietHH.Size = new System.Drawing.Size(119, 61);
+            this.btnXemChiTietHH.TabIndex = 60;
+            this.btnXemChiTietHH.Text = "Xem chi tiết";
+            this.btnXemChiTietHH.UseVisualStyleBackColor = true;
+            this.btnXemChiTietHH.Click += new System.EventHandler(this.btnXemChiTietHH_Click);
+            // 
+            // btnQLLoaiHH
+            // 
+            this.btnQLLoaiHH.Location = new System.Drawing.Point(315, 17);
+            this.btnQLLoaiHH.Name = "btnQLLoaiHH";
+            this.btnQLLoaiHH.Size = new System.Drawing.Size(139, 61);
+            this.btnQLLoaiHH.TabIndex = 61;
+            this.btnQLLoaiHH.Text = "Thêm,Xoá,Sửa Loại hàng hoá";
+            this.btnQLLoaiHH.UseVisualStyleBackColor = true;
+            this.btnQLLoaiHH.Click += new System.EventHandler(this.btnQLLoaiHH_Click);
+            // 
+            // btnXoaHH
+            // 
+            this.btnXoaHH.Location = new System.Drawing.Point(160, 17);
+            this.btnXoaHH.Name = "btnXoaHH";
+            this.btnXoaHH.Size = new System.Drawing.Size(119, 61);
+            this.btnXoaHH.TabIndex = 59;
+            this.btnXoaHH.Text = "Xoá";
+            this.btnXoaHH.UseVisualStyleBackColor = true;
+            this.btnXoaHH.Click += new System.EventHandler(this.btnXoaHH_Click);
+            // 
+            // btnSuaHH
+            // 
+            this.btnSuaHH.Location = new System.Drawing.Point(19, 99);
+            this.btnSuaHH.Name = "btnSuaHH";
+            this.btnSuaHH.Size = new System.Drawing.Size(119, 61);
+            this.btnSuaHH.TabIndex = 58;
+            this.btnSuaHH.Text = "Sửa";
+            this.btnSuaHH.UseVisualStyleBackColor = true;
+            this.btnSuaHH.Click += new System.EventHandler(this.btnSuaHH_Click);
+            // 
+            // btnThemHH
+            // 
+            this.btnThemHH.Location = new System.Drawing.Point(19, 17);
+            this.btnThemHH.Name = "btnThemHH";
+            this.btnThemHH.Size = new System.Drawing.Size(119, 61);
+            this.btnThemHH.TabIndex = 57;
+            this.btnThemHH.Text = "Thêm";
+            this.btnThemHH.UseVisualStyleBackColor = true;
+            this.btnThemHH.Click += new System.EventHandler(this.btnThemHH_Click);
+            // 
+            // lblChuY
+            // 
+            this.lblChuY.AutoSize = true;
+            this.lblChuY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChuY.Location = new System.Drawing.Point(454, 17);
+            this.lblChuY.Name = "lblChuY";
+            this.lblChuY.Size = new System.Drawing.Size(0, 20);
+            this.lblChuY.TabIndex = 56;
             // 
             // lblTieuDeHH
             // 
@@ -748,15 +812,6 @@ namespace App_sale_manager
             this.lblTieuDeHH.Size = new System.Drawing.Size(224, 29);
             this.lblTieuDeHH.TabIndex = 28;
             this.lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
-            // 
-            // lblChuY
-            // 
-            this.lblChuY.AutoSize = true;
-            this.lblChuY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChuY.Location = new System.Drawing.Point(445, 16);
-            this.lblChuY.Name = "lblChuY";
-            this.lblChuY.Size = new System.Drawing.Size(0, 20);
-            this.lblChuY.TabIndex = 27;
             // 
             // dgvSP
             // 
@@ -802,7 +857,7 @@ namespace App_sale_manager
             this.tabControl_DTCC_in.Controls.Add(this.tabPage__DTCC_DTGD);
             this.tabControl_DTCC_in.Controls.Add(this.tabPage_DTCC_Guest);
             this.tabControl_DTCC_in.Location = new System.Drawing.Point(0, 0);
-            this.tabControl_DTCC_in.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl_DTCC_in.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl_DTCC_in.Multiline = true;
             this.tabControl_DTCC_in.Name = "tabControl_DTCC_in";
             this.tabControl_DTCC_in.SelectedIndex = 0;
@@ -835,9 +890,9 @@ namespace App_sale_manager
             this.tabPage__DTCC_DTGD.Controls.Add(this.pictureBox_Logo);
             this.tabPage__DTCC_DTGD.Controls.Add(this.dataGridView_DTCC);
             this.tabPage__DTCC_DTGD.Location = new System.Drawing.Point(28, 4);
-            this.tabPage__DTCC_DTGD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage__DTCC_DTGD.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage__DTCC_DTGD.Name = "tabPage__DTCC_DTGD";
-            this.tabPage__DTCC_DTGD.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage__DTCC_DTGD.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage__DTCC_DTGD.Size = new System.Drawing.Size(1169, 644);
             this.tabPage__DTCC_DTGD.TabIndex = 0;
             this.tabPage__DTCC_DTGD.Text = "Đối tác giao dịch";
@@ -847,7 +902,7 @@ namespace App_sale_manager
             this.button_refresh.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_refresh.Location = new System.Drawing.Point(357, 290);
-            this.button_refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.button_refresh.Name = "button_refresh";
             this.button_refresh.Size = new System.Drawing.Size(100, 64);
             this.button_refresh.TabIndex = 41;
@@ -876,7 +931,7 @@ namespace App_sale_manager
             "Năm trở thành đối tác",
             "Địa chỉ"});
             this.comboBox_searchOption.Location = new System.Drawing.Point(543, 69);
-            this.comboBox_searchOption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox_searchOption.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_searchOption.Name = "comboBox_searchOption";
             this.comboBox_searchOption.Size = new System.Drawing.Size(167, 26);
             this.comboBox_searchOption.TabIndex = 39;
@@ -898,7 +953,7 @@ namespace App_sale_manager
             // textBox_search
             // 
             this.textBox_search.Location = new System.Drawing.Point(719, 69);
-            this.textBox_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_search.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_search.Name = "textBox_search";
             this.textBox_search.Size = new System.Drawing.Size(304, 24);
             this.textBox_search.TabIndex = 37;
@@ -909,7 +964,7 @@ namespace App_sale_manager
             this.button_searchDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_searchDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_searchDTCC.Location = new System.Drawing.Point(1032, 65);
-            this.button_searchDTCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_searchDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_searchDTCC.Name = "button_searchDTCC";
             this.button_searchDTCC.Size = new System.Drawing.Size(100, 28);
             this.button_searchDTCC.TabIndex = 36;
@@ -922,7 +977,7 @@ namespace App_sale_manager
             this.button_deleteDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_deleteDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_deleteDTCC.Location = new System.Drawing.Point(965, 540);
-            this.button_deleteDTCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_deleteDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_deleteDTCC.Name = "button_deleteDTCC";
             this.button_deleteDTCC.Size = new System.Drawing.Size(129, 47);
             this.button_deleteDTCC.TabIndex = 35;
@@ -935,7 +990,7 @@ namespace App_sale_manager
             this.button_modDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_modDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_modDTCC.Location = new System.Drawing.Point(719, 540);
-            this.button_modDTCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_modDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_modDTCC.Name = "button_modDTCC";
             this.button_modDTCC.Size = new System.Drawing.Size(129, 47);
             this.button_modDTCC.TabIndex = 34;
@@ -948,7 +1003,7 @@ namespace App_sale_manager
             this.button_addDTCC.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_addDTCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_addDTCC.Location = new System.Drawing.Point(465, 540);
-            this.button_addDTCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_addDTCC.Margin = new System.Windows.Forms.Padding(4);
             this.button_addDTCC.Name = "button_addDTCC";
             this.button_addDTCC.Size = new System.Drawing.Size(129, 47);
             this.button_addDTCC.TabIndex = 33;
@@ -1056,7 +1111,7 @@ namespace App_sale_manager
             this.pictureBox_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox_Logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox_Logo.Location = new System.Drawing.Point(95, 126);
-            this.pictureBox_Logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox_Logo.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_Logo.Name = "pictureBox_Logo";
             this.pictureBox_Logo.Size = new System.Drawing.Size(197, 157);
             this.pictureBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1076,7 +1131,7 @@ namespace App_sale_manager
             this.dataGridView_DTCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DTCC.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView_DTCC.Location = new System.Drawing.Point(465, 126);
-            this.dataGridView_DTCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView_DTCC.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_DTCC.MultiSelect = false;
             this.dataGridView_DTCC.Name = "dataGridView_DTCC";
             this.dataGridView_DTCC.ReadOnly = true;
@@ -1116,9 +1171,9 @@ namespace App_sale_manager
             this.tabPage_DTCC_Guest.Controls.Add(this.pictureBox_dtcc_guestFace);
             this.tabPage_DTCC_Guest.Controls.Add(this.dataGridView_dtcc_guest);
             this.tabPage_DTCC_Guest.Location = new System.Drawing.Point(28, 4);
-            this.tabPage_DTCC_Guest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage_DTCC_Guest.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_DTCC_Guest.Name = "tabPage_DTCC_Guest";
-            this.tabPage_DTCC_Guest.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage_DTCC_Guest.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage_DTCC_Guest.Size = new System.Drawing.Size(1169, 644);
             this.tabPage_DTCC_Guest.TabIndex = 1;
             this.tabPage_DTCC_Guest.Text = "Khách hàng thành viên";
@@ -1128,7 +1183,7 @@ namespace App_sale_manager
             this.button_sale.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_sale.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_sale.Location = new System.Drawing.Point(8, 592);
-            this.button_sale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_sale.Margin = new System.Windows.Forms.Padding(4);
             this.button_sale.Name = "button_sale";
             this.button_sale.Size = new System.Drawing.Size(185, 38);
             this.button_sale.TabIndex = 67;
@@ -1179,7 +1234,7 @@ namespace App_sale_manager
             this.button_guest_refresh.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_guest_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_refresh.Location = new System.Drawing.Point(357, 290);
-            this.button_guest_refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_guest_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_refresh.Name = "button_guest_refresh";
             this.button_guest_refresh.Size = new System.Drawing.Size(100, 64);
             this.button_guest_refresh.TabIndex = 62;
@@ -1209,7 +1264,7 @@ namespace App_sale_manager
             "Loại khách hàng",
             "Năm đăng kí"});
             this.comboBox_guest_filter.Location = new System.Drawing.Point(543, 69);
-            this.comboBox_guest_filter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox_guest_filter.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_guest_filter.Name = "comboBox_guest_filter";
             this.comboBox_guest_filter.Size = new System.Drawing.Size(167, 26);
             this.comboBox_guest_filter.TabIndex = 60;
@@ -1231,7 +1286,7 @@ namespace App_sale_manager
             // textBox_guest_search
             // 
             this.textBox_guest_search.Location = new System.Drawing.Point(719, 69);
-            this.textBox_guest_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_guest_search.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_guest_search.Name = "textBox_guest_search";
             this.textBox_guest_search.Size = new System.Drawing.Size(304, 24);
             this.textBox_guest_search.TabIndex = 58;
@@ -1242,7 +1297,7 @@ namespace App_sale_manager
             this.button_guest_search.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_guest_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_search.Location = new System.Drawing.Point(1032, 65);
-            this.button_guest_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_guest_search.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_search.Name = "button_guest_search";
             this.button_guest_search.Size = new System.Drawing.Size(100, 28);
             this.button_guest_search.TabIndex = 57;
@@ -1255,7 +1310,7 @@ namespace App_sale_manager
             this.button_guest_delete.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_guest_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_delete.Location = new System.Drawing.Point(965, 540);
-            this.button_guest_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_guest_delete.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_delete.Name = "button_guest_delete";
             this.button_guest_delete.Size = new System.Drawing.Size(129, 47);
             this.button_guest_delete.TabIndex = 56;
@@ -1268,7 +1323,7 @@ namespace App_sale_manager
             this.button_guest_mod.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_guest_mod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_mod.Location = new System.Drawing.Point(719, 540);
-            this.button_guest_mod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_guest_mod.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_mod.Name = "button_guest_mod";
             this.button_guest_mod.Size = new System.Drawing.Size(129, 47);
             this.button_guest_mod.TabIndex = 55;
@@ -1281,7 +1336,7 @@ namespace App_sale_manager
             this.button_guest_add.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button_guest_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_guest_add.Location = new System.Drawing.Point(465, 540);
-            this.button_guest_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_guest_add.Margin = new System.Windows.Forms.Padding(4);
             this.button_guest_add.Name = "button_guest_add";
             this.button_guest_add.Size = new System.Drawing.Size(129, 47);
             this.button_guest_add.TabIndex = 54;
@@ -1389,7 +1444,7 @@ namespace App_sale_manager
             this.pictureBox_dtcc_guestFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox_dtcc_guestFace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox_dtcc_guestFace.Location = new System.Drawing.Point(95, 126);
-            this.pictureBox_dtcc_guestFace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox_dtcc_guestFace.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_dtcc_guestFace.Name = "pictureBox_dtcc_guestFace";
             this.pictureBox_dtcc_guestFace.Size = new System.Drawing.Size(197, 157);
             this.pictureBox_dtcc_guestFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1410,13 +1465,13 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_dtcc_guest.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView_dtcc_guest.Location = new System.Drawing.Point(465, 126);
-            this.dataGridView_dtcc_guest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView_dtcc_guest.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_dtcc_guest.MultiSelect = false;
             this.dataGridView_dtcc_guest.Name = "dataGridView_dtcc_guest";
             this.dataGridView_dtcc_guest.ReadOnly = true;
             this.dataGridView_dtcc_guest.RowHeadersWidth = 51;
             this.dataGridView_dtcc_guest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(677, 390);
+            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(683, 390);
             this.dataGridView_dtcc_guest.TabIndex = 42;
             this.dataGridView_dtcc_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dtcc_guest_CellClick);
             // 
@@ -2109,6 +2164,34 @@ namespace App_sale_manager
             this.grb_nv_luong_ìnfo.TabStop = false;
             this.grb_nv_luong_ìnfo.Text = "Xem thông tin";
             // 
+            // nud_Thuong_nv_bangluong
+            // 
+            this.nud_Thuong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_Thuong_nv_bangluong.Increment = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nud_Thuong_nv_bangluong.Location = new System.Drawing.Point(171, 190);
+            this.nud_Thuong_nv_bangluong.Maximum = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
+            this.nud_Thuong_nv_bangluong.Name = "nud_Thuong_nv_bangluong";
+            this.nud_Thuong_nv_bangluong.Size = new System.Drawing.Size(181, 22);
+            this.nud_Thuong_nv_bangluong.TabIndex = 9;
+            // 
+            // label_thuong_nv_bangluong
+            // 
+            this.label_thuong_nv_bangluong.AutoSize = true;
+            this.label_thuong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_thuong_nv_bangluong.Location = new System.Drawing.Point(36, 190);
+            this.label_thuong_nv_bangluong.Name = "label_thuong_nv_bangluong";
+            this.label_thuong_nv_bangluong.Size = new System.Drawing.Size(57, 17);
+            this.label_thuong_nv_bangluong.TabIndex = 8;
+            this.label_thuong_nv_bangluong.Text = "Thưởng";
+            // 
             // tb_TenNV_nv_bangluong
             // 
             this.tb_TenNV_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2581,30 +2664,30 @@ namespace App_sale_manager
             // 
             // chart_bc_Doanhthu
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart_bc_Doanhthu.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart_bc_Doanhthu.Legends.Add(legend7);
+            chartArea3.Name = "ChartArea1";
+            this.chart_bc_Doanhthu.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart_bc_Doanhthu.Legends.Add(legend3);
             this.chart_bc_Doanhthu.Location = new System.Drawing.Point(243, 43);
             this.chart_bc_Doanhthu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_bc_Doanhthu.Name = "chart_bc_Doanhthu";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.LegendText = "Tổng Thu";
-            series10.Name = "Series_Thu";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.LegendText = "Tổng Chi";
-            series11.Name = "Series_Chi";
-            this.chart_bc_Doanhthu.Series.Add(series10);
-            this.chart_bc_Doanhthu.Series.Add(series11);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.LegendText = "Tổng Thu";
+            series4.Name = "Series_Thu";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.LegendText = "Tổng Chi";
+            series5.Name = "Series_Chi";
+            this.chart_bc_Doanhthu.Series.Add(series4);
+            this.chart_bc_Doanhthu.Series.Add(series5);
             this.chart_bc_Doanhthu.Size = new System.Drawing.Size(919, 441);
             this.chart_bc_Doanhthu.TabIndex = 5;
             this.chart_bc_Doanhthu.Text = "chart1";
-            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title7.Name = "Title_chart_bc_Doanhthu";
-            title7.Text = "Báo cáo doanh thu tháng";
-            this.chart_bc_Doanhthu.Titles.Add(title7);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "Title_chart_bc_Doanhthu";
+            title3.Text = "Báo cáo doanh thu tháng";
+            this.chart_bc_Doanhthu.Titles.Add(title3);
             // 
             // textBox_bc_DoanhThu_nhap2
             // 
@@ -2782,25 +2865,25 @@ namespace App_sale_manager
             // 
             // chart_bc_nv
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart_bc_nv.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart_bc_nv.Legends.Add(legend8);
+            chartArea4.Name = "ChartArea1";
+            this.chart_bc_nv.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart_bc_nv.Legends.Add(legend4);
             this.chart_bc_nv.Location = new System.Drawing.Point(243, 32);
             this.chart_bc_nv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart_bc_nv.Name = "chart_bc_nv";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series12.Legend = "Legend1";
-            series12.LegendText = "doanh số";
-            series12.Name = "Series1";
-            this.chart_bc_nv.Series.Add(series12);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series6.Legend = "Legend1";
+            series6.LegendText = "doanh số";
+            series6.Name = "Series1";
+            this.chart_bc_nv.Series.Add(series6);
             this.chart_bc_nv.Size = new System.Drawing.Size(915, 460);
             this.chart_bc_nv.TabIndex = 5;
             this.chart_bc_nv.Text = "chart1";
-            title8.Name = "Title1";
-            title8.Text = "Biểu đồ doanh số bán hàng nhân viên tháng";
-            this.chart_bc_nv.Titles.Add(title8);
+            title4.Name = "Title1";
+            title4.Text = "Biểu đồ doanh số bán hàng nhân viên tháng";
+            this.chart_bc_nv.Titles.Add(title4);
             // 
             // textBox_bc_nv_nhap2
             // 
@@ -2862,34 +2945,6 @@ namespace App_sale_manager
             this.label_bc_nv_kieutinh.TabIndex = 0;
             this.label_bc_nv_kieutinh.Text = "Kiểu tính";
             // 
-            // label_thuong_nv_bangluong
-            // 
-            this.label_thuong_nv_bangluong.AutoSize = true;
-            this.label_thuong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_thuong_nv_bangluong.Location = new System.Drawing.Point(36, 190);
-            this.label_thuong_nv_bangluong.Name = "label_thuong_nv_bangluong";
-            this.label_thuong_nv_bangluong.Size = new System.Drawing.Size(57, 17);
-            this.label_thuong_nv_bangluong.TabIndex = 8;
-            this.label_thuong_nv_bangluong.Text = "Thưởng";
-            // 
-            // nud_Thuong_nv_bangluong
-            // 
-            this.nud_Thuong_nv_bangluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_Thuong_nv_bangluong.Increment = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nud_Thuong_nv_bangluong.Location = new System.Drawing.Point(171, 190);
-            this.nud_Thuong_nv_bangluong.Maximum = new decimal(new int[] {
-            1215752192,
-            23,
-            0,
-            0});
-            this.nud_Thuong_nv_bangluong.Name = "nud_Thuong_nv_bangluong";
-            this.nud_Thuong_nv_bangluong.Size = new System.Drawing.Size(181, 22);
-            this.nud_Thuong_nv_bangluong.TabIndex = 9;
-            // 
             // Form_main_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2944,6 +2999,7 @@ namespace App_sale_manager
             this.grb_nv_luong_timkiem.PerformLayout();
             this.grb_nv_luong_ìnfo.ResumeLayout(false);
             this.grb_nv_luong_ìnfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Thuong_nv_bangluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Heso_nv_bangluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Luong_nv_bangluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nv_bangluong)).EndInit();
@@ -2960,7 +3016,6 @@ namespace App_sale_manager
             this.tabPage_Baocao_nhanvien.ResumeLayout(false);
             this.tabPage_Baocao_nhanvien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_bc_nv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Thuong_nv_bangluong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3164,12 +3219,7 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label5_GD;
         private System.Windows.Forms.Label lblLoaiSP;
         private System.Windows.Forms.DataGridView dgvSP;
-        private System.Windows.Forms.Label lblChuY;
         private System.Windows.Forms.Label lblTieuDeHH;
-        private System.Windows.Forms.Button btnQLKho;
-        private System.Windows.Forms.Button btnQuanLiHH;
-        private System.Windows.Forms.Label lblGhiChu2;
-        private System.Windows.Forms.Label lblGhiChu;
         private System.Windows.Forms.GroupBox grb_bc_qt;
         private System.Windows.Forms.GroupBox GroupB_GD_TimKiem;
         private System.Windows.Forms.GroupBox grb_nv_luong_timkiem;
@@ -3177,5 +3227,15 @@ namespace App_sale_manager
         private System.Windows.Forms.ImageList imageList_icon;
         private System.Windows.Forms.NumericUpDown nud_Thuong_nv_bangluong;
         private System.Windows.Forms.Label label_thuong_nv_bangluong;
+        private System.Windows.Forms.Button btn_XemHH;
+        private System.Windows.Forms.Button btnHoaDonNhap;
+        private System.Windows.Forms.Button btnHangSapHet;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnXemChiTietHH;
+        private System.Windows.Forms.Button btnQLLoaiHH;
+        private System.Windows.Forms.Button btnXoaHH;
+        private System.Windows.Forms.Button btnSuaHH;
+        private System.Windows.Forms.Button btnThemHH;
+        private System.Windows.Forms.Label lblChuY;
     }
 }

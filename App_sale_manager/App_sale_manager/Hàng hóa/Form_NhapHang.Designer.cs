@@ -36,9 +36,7 @@ namespace App_sale_manager
             this.label1 = new System.Windows.Forms.Label();
             this.cbbDoiTac = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
-            this.txtSLTT = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dateNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -63,6 +61,8 @@ namespace App_sale_manager
             this.label11 = new System.Windows.Forms.Label();
             this.txtMaDT = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtGiaNhap = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +84,7 @@ namespace App_sale_manager
             this.cbbLoaiSP.Size = new System.Drawing.Size(300, 24);
             this.cbbLoaiSP.TabIndex = 64;
             this.cbbLoaiSP.SelectedIndexChanged += new System.EventHandler(this.cbbLoaiSP_SelectedIndexChanged);
-            this.cbbLoaiSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbLoaiSP_KeyPress);
+        
             // 
             // lblLoaiID
             // 
@@ -121,25 +121,16 @@ namespace App_sale_manager
             this.cbbDoiTac.Size = new System.Drawing.Size(280, 24);
             this.cbbDoiTac.TabIndex = 68;
             this.cbbDoiTac.SelectedIndexChanged += new System.EventHandler(this.cbbDoiTac_SelectedIndexChanged);
-            this.cbbDoiTac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbDoiTac_KeyPress);
+            
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(560, 140);
+            this.label2.Location = new System.Drawing.Point(561, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 69;
             this.label2.Text = "Số lượng ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(560, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 17);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "Số lượng tối thiểu";
             // 
             // txtSoLuong
             // 
@@ -148,13 +139,6 @@ namespace App_sale_manager
             this.txtSoLuong.ReadOnly = true;
             this.txtSoLuong.Size = new System.Drawing.Size(176, 22);
             this.txtSoLuong.TabIndex = 71;
-            // 
-            // txtSLTT
-            // 
-            this.txtSLTT.Location = new System.Drawing.Point(693, 174);
-            this.txtSLTT.Name = "txtSLTT";
-            this.txtSLTT.Size = new System.Drawing.Size(176, 22);
-            this.txtSLTT.TabIndex = 72;
             // 
             // label4
             // 
@@ -176,7 +160,7 @@ namespace App_sale_manager
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(560, 222);
+            this.label5.Location = new System.Drawing.Point(561, 213);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 17);
             this.label5.TabIndex = 75;
@@ -200,7 +184,7 @@ namespace App_sale_manager
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(452, 576);
+            this.button1.Location = new System.Drawing.Point(499, 576);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 50);
             this.button1.TabIndex = 78;
@@ -210,7 +194,7 @@ namespace App_sale_manager
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(591, 576);
+            this.button2.Location = new System.Drawing.Point(626, 576);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 50);
             this.button2.TabIndex = 79;
@@ -220,7 +204,7 @@ namespace App_sale_manager
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(722, 576);
+            this.button3.Location = new System.Drawing.Point(742, 576);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(96, 50);
             this.button3.TabIndex = 80;
@@ -230,7 +214,7 @@ namespace App_sale_manager
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(867, 576);
+            this.button4.Location = new System.Drawing.Point(848, 576);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(96, 50);
             this.button4.TabIndex = 81;
@@ -373,11 +357,30 @@ namespace App_sale_manager
             this.label12.TabIndex = 95;
             this.label12.Text = "Mã đối tác";
             // 
+            // txtGiaNhap
+            // 
+            this.txtGiaNhap.Location = new System.Drawing.Point(693, 174);
+            this.txtGiaNhap.Name = "txtGiaNhap";
+            this.txtGiaNhap.ReadOnly = true;
+            this.txtGiaNhap.Size = new System.Drawing.Size(176, 22);
+            this.txtGiaNhap.TabIndex = 98;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(561, 174);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.TabIndex = 97;
+            this.label3.Text = "Giá Nhập";
+            // 
             // Form_NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.txtGiaNhap);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMaDT);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtMaNV);
@@ -402,9 +405,7 @@ namespace App_sale_manager
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateNgayNhap);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtSLTT);
             this.Controls.Add(this.txtSoLuong);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbbDoiTac);
             this.Controls.Add(this.label1);
@@ -432,9 +433,7 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbDoiTac;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSoLuong;
-        private System.Windows.Forms.TextBox txtSLTT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateNgayNhap;
         private System.Windows.Forms.Label label5;
@@ -459,5 +458,7 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtMaDT;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtGiaNhap;
+        private System.Windows.Forms.Label label3;
     }
 }

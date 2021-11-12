@@ -102,6 +102,7 @@ namespace App_sale_manager
             this.btnXoa.TabIndex = 89;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnChiTiet
             // 
