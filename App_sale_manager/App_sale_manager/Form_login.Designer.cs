@@ -188,6 +188,7 @@ namespace App_sale_manager
             this.Controls.Add(this.label_tiltle_login);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form_login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

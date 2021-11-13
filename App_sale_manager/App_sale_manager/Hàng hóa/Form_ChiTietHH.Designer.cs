@@ -294,7 +294,7 @@ namespace App_sale_manager
             this.Controls.Add(this.lblMaSP);
             this.Name = "Form_ChiTietHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_ChiTietHH";
+            this.Text = "Thông tin chi tiết hàng hoá";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_ChiTietHH_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);

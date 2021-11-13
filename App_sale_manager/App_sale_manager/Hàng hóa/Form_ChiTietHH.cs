@@ -60,10 +60,22 @@ namespace App_sale_manager
         }
         private Image GetCopyImage(string path)
         {
-            using (Image image = Image.FromFile(path))
+            try
             {
-                Bitmap bitmap = new Bitmap(image);
-                return bitmap;
+                using (Image image = Image.FromFile(path))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    return bitmap;
+                }
+            }
+            catch
+            {
+                using (Image image = Image.FromFile(@"..\..\HangHoa\No image.jpg"))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    return bitmap;
+                }
+
             }
         }
         private void Form_ChiTietHH_FormClosed(object sender, FormClosedEventArgs e)

@@ -49,7 +49,7 @@ namespace App_sale_manager
             {
                 sqlCon = new SqlConnection(strCon);
                 sqlCon.Open();
-                adapter = new SqlDataAdapter("select CTHDNH.SPID,SANPHAM.TENSP,CTHDNH.SL,SANPHAM.GIANHAP from CTHDNH,SANPHAM where SANPHAM.SPID=CTHDNH.SPID and SOHD_NH=" + txtSoHDNH.Text, sqlCon);
+                adapter = new SqlDataAdapter("select CTHDNH.SPID,SANPHAM.TENSP,CTHDNH.SL,SANPHAM.GIANHAP from CTHDNH,SANPHAM where SANPHAM.SPID=CTHDNH.SPID and SOHD_NH='" + txtSoHDNH.Text+"'", sqlCon);
                 DataTable tableSPNH = new DataTable();
                 adapter.Fill(tableSPNH);
                 dgvChiTietNH.DataSource = tableSPNH;

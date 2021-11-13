@@ -38,7 +38,7 @@ namespace App_sale_manager
             this.label2 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateNgayNhap = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSLNhap = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,8 +53,6 @@ namespace App_sale_manager
             this.label8 = new System.Windows.Forms.Label();
             this.txtSoHDNH = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.ptrbHinhAnh = new System.Windows.Forms.PictureBox();
-            this.lblHinhAnh = new System.Windows.Forms.Label();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMaNV = new System.Windows.Forms.TextBox();
@@ -64,13 +62,12 @@ namespace App_sale_manager
             this.txtGiaNhap = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTenSP
             // 
             this.lblTenSP.AutoSize = true;
-            this.lblTenSP.Location = new System.Drawing.Point(560, 58);
+            this.lblTenSP.Location = new System.Drawing.Point(30, 316);
             this.lblTenSP.Name = "lblTenSP";
             this.lblTenSP.Size = new System.Drawing.Size(99, 17);
             this.lblTenSP.TabIndex = 65;
@@ -79,16 +76,17 @@ namespace App_sale_manager
             // cbbLoaiSP
             // 
             this.cbbLoaiSP.FormattingEnabled = true;
-            this.cbbLoaiSP.Location = new System.Drawing.Point(693, 14);
+            this.cbbLoaiSP.Location = new System.Drawing.Point(163, 272);
             this.cbbLoaiSP.Name = "cbbLoaiSP";
             this.cbbLoaiSP.Size = new System.Drawing.Size(300, 24);
             this.cbbLoaiSP.TabIndex = 64;
             this.cbbLoaiSP.SelectedIndexChanged += new System.EventHandler(this.cbbLoaiSP_SelectedIndexChanged);
+            this.cbbLoaiSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbLoaiSP_KeyPress);
             // 
             // lblLoaiID
             // 
             this.lblLoaiID.AutoSize = true;
-            this.lblLoaiID.Location = new System.Drawing.Point(560, 17);
+            this.lblLoaiID.Location = new System.Drawing.Point(30, 275);
             this.lblLoaiID.Name = "lblLoaiID";
             this.lblLoaiID.Size = new System.Drawing.Size(35, 17);
             this.lblLoaiID.TabIndex = 63;
@@ -97,11 +95,12 @@ namespace App_sale_manager
             // cbbTenSP
             // 
             this.cbbTenSP.FormattingEnabled = true;
-            this.cbbTenSP.Location = new System.Drawing.Point(693, 55);
+            this.cbbTenSP.Location = new System.Drawing.Point(163, 313);
             this.cbbTenSP.Name = "cbbTenSP";
             this.cbbTenSP.Size = new System.Drawing.Size(298, 24);
             this.cbbTenSP.TabIndex = 66;
             this.cbbTenSP.SelectedIndexChanged += new System.EventHandler(this.cbbTenSP_SelectedIndexChanged);
+            this.cbbTenSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbTenSP_KeyPress);
             // 
             // label1
             // 
@@ -120,11 +119,12 @@ namespace App_sale_manager
             this.cbbDoiTac.Size = new System.Drawing.Size(280, 24);
             this.cbbDoiTac.TabIndex = 68;
             this.cbbDoiTac.SelectedIndexChanged += new System.EventHandler(this.cbbDoiTac_SelectedIndexChanged);
+            this.cbbDoiTac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbDoiTac_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(561, 135);
+            this.label2.Location = new System.Drawing.Point(31, 393);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 69;
@@ -132,7 +132,7 @@ namespace App_sale_manager
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(693, 135);
+            this.txtSoLuong.Location = new System.Drawing.Point(163, 393);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.ReadOnly = true;
             this.txtSoLuong.Size = new System.Drawing.Size(176, 22);
@@ -147,18 +147,18 @@ namespace App_sale_manager
             this.label4.TabIndex = 73;
             this.label4.Text = "Ngày nhập";
             // 
-            // dateNgayNhap
+            // dtpNgayNhap
             // 
-            this.dateNgayNhap.Location = new System.Drawing.Point(163, 54);
-            this.dateNgayNhap.Name = "dateNgayNhap";
-            this.dateNgayNhap.Size = new System.Drawing.Size(200, 22);
-            this.dateNgayNhap.TabIndex = 74;
-            this.dateNgayNhap.Value = new System.DateTime(2022, 4, 1, 0, 0, 0, 0);
+            this.dtpNgayNhap.Location = new System.Drawing.Point(163, 54);
+            this.dtpNgayNhap.Name = "dtpNgayNhap";
+            this.dtpNgayNhap.Size = new System.Drawing.Size(200, 22);
+            this.dtpNgayNhap.TabIndex = 74;
+            this.dtpNgayNhap.Value = new System.DateTime(2022, 4, 1, 0, 0, 0, 0);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(561, 213);
+            this.label5.Location = new System.Drawing.Point(31, 471);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 17);
             this.label5.TabIndex = 75;
@@ -166,10 +166,11 @@ namespace App_sale_manager
             // 
             // txtSLNhap
             // 
-            this.txtSLNhap.Location = new System.Drawing.Point(693, 213);
+            this.txtSLNhap.Location = new System.Drawing.Point(163, 471);
             this.txtSLNhap.Name = "txtSLNhap";
             this.txtSLNhap.Size = new System.Drawing.Size(175, 22);
             this.txtSLNhap.TabIndex = 76;
+            this.txtSLNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSLNhap_KeyPress);
             // 
             // label6
             // 
@@ -184,7 +185,7 @@ namespace App_sale_manager
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(499, 576);
+            this.button1.Location = new System.Drawing.Point(163, 591);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 50);
             this.button1.TabIndex = 78;
@@ -196,7 +197,7 @@ namespace App_sale_manager
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(622, 576);
+            this.button2.Location = new System.Drawing.Point(30, 591);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 50);
             this.button2.TabIndex = 79;
@@ -208,7 +209,7 @@ namespace App_sale_manager
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(748, 576);
+            this.button3.Location = new System.Drawing.Point(290, 591);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(96, 50);
             this.button3.TabIndex = 80;
@@ -220,7 +221,7 @@ namespace App_sale_manager
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(878, 576);
+            this.button4.Location = new System.Drawing.Point(420, 591);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(96, 50);
             this.button4.TabIndex = 81;
@@ -233,18 +234,19 @@ namespace App_sale_manager
             this.dgvChiTietNH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiTietNH.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvChiTietNH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChiTietNH.Location = new System.Drawing.Point(32, 291);
+            this.dgvChiTietNH.Location = new System.Drawing.Point(559, 32);
             this.dgvChiTietNH.Name = "dgvChiTietNH";
+            this.dgvChiTietNH.ReadOnly = true;
             this.dgvChiTietNH.RowHeadersWidth = 51;
             this.dgvChiTietNH.RowTemplate.Height = 24;
-            this.dgvChiTietNH.Size = new System.Drawing.Size(385, 361);
+            this.dgvChiTietNH.Size = new System.Drawing.Size(561, 432);
             this.dgvChiTietNH.TabIndex = 82;
             this.dgvChiTietNH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietNH_CellClick);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 271);
+            this.label7.Location = new System.Drawing.Point(556, 12);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 17);
             this.label7.TabIndex = 83;
@@ -261,7 +263,7 @@ namespace App_sale_manager
             // txtGiaTriDN
             // 
             this.txtGiaTriDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaTriDN.Location = new System.Drawing.Point(683, 525);
+            this.txtGiaTriDN.Location = new System.Drawing.Point(805, 487);
             this.txtGiaTriDN.Name = "txtGiaTriDN";
             this.txtGiaTriDN.ReadOnly = true;
             this.txtGiaTriDN.Size = new System.Drawing.Size(280, 26);
@@ -271,7 +273,7 @@ namespace App_sale_manager
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(470, 528);
+            this.label8.Location = new System.Drawing.Point(611, 490);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(144, 20);
             this.label8.TabIndex = 85;
@@ -294,27 +296,9 @@ namespace App_sale_manager
             this.label9.TabIndex = 87;
             this.label9.Text = "Số hoá đơn nhập";
             // 
-            // ptrbHinhAnh
-            // 
-            this.ptrbHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ptrbHinhAnh.Location = new System.Drawing.Point(560, 283);
-            this.ptrbHinhAnh.Name = "ptrbHinhAnh";
-            this.ptrbHinhAnh.Size = new System.Drawing.Size(384, 210);
-            this.ptrbHinhAnh.TabIndex = 90;
-            this.ptrbHinhAnh.TabStop = false;
-            // 
-            // lblHinhAnh
-            // 
-            this.lblHinhAnh.AutoSize = true;
-            this.lblHinhAnh.Location = new System.Drawing.Point(560, 258);
-            this.lblHinhAnh.Name = "lblHinhAnh";
-            this.lblHinhAnh.Size = new System.Drawing.Size(69, 17);
-            this.lblHinhAnh.TabIndex = 89;
-            this.lblHinhAnh.Text = "Hình ảnh ";
-            // 
             // txtMaSP
             // 
-            this.txtMaSP.Location = new System.Drawing.Point(693, 96);
+            this.txtMaSP.Location = new System.Drawing.Point(163, 354);
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.ReadOnly = true;
             this.txtMaSP.Size = new System.Drawing.Size(300, 22);
@@ -323,7 +307,7 @@ namespace App_sale_manager
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(560, 99);
+            this.label10.Location = new System.Drawing.Point(30, 357);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 17);
             this.label10.TabIndex = 91;
@@ -365,7 +349,7 @@ namespace App_sale_manager
             // 
             // txtGiaNhap
             // 
-            this.txtGiaNhap.Location = new System.Drawing.Point(693, 174);
+            this.txtGiaNhap.Location = new System.Drawing.Point(163, 432);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.ReadOnly = true;
             this.txtGiaNhap.Size = new System.Drawing.Size(176, 22);
@@ -374,7 +358,7 @@ namespace App_sale_manager
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(561, 174);
+            this.label3.Location = new System.Drawing.Point(31, 432);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 97;
@@ -393,8 +377,6 @@ namespace App_sale_manager
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.ptrbHinhAnh);
-            this.Controls.Add(this.lblHinhAnh);
             this.Controls.Add(this.txtSoHDNH);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtGiaTriDN);
@@ -409,7 +391,7 @@ namespace App_sale_manager
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtSLNhap);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateNgayNhap);
+            this.Controls.Add(this.dtpNgayNhap);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.label2);
@@ -421,10 +403,8 @@ namespace App_sale_manager
             this.Controls.Add(this.lblLoaiID);
             this.Name = "Form_NhapHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_NhapHang";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_NhapHang_FormClosed);
+            this.Text = "Nhập hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,7 +421,7 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateNgayNhap;
+        private System.Windows.Forms.DateTimePicker dtpNgayNhap;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSLNhap;
         private System.Windows.Forms.Label label6;
@@ -456,8 +436,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSoHDNH;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox ptrbHinhAnh;
-        private System.Windows.Forms.Label lblHinhAnh;
         private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtMaNV;

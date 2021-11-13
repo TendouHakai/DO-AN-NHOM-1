@@ -198,7 +198,7 @@ namespace App_sale_manager
             this.Controls.Add(this.lblMaLoai);
             this.Name = "Form_QLLoaiHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_QLLoaiHH";
+            this.Text = "Quản lý loại hàng hoá";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiHH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

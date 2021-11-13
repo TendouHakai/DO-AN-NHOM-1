@@ -156,6 +156,7 @@ namespace App_sale_manager
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form_doipass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi password";
             this.Load += new System.EventHandler(this.Form_doipass_Load);
             this.ResumeLayout(false);

@@ -63,10 +63,22 @@ namespace App_sale_manager
         }
         private Image GetCopyImage(string path)
         {
-            using (Image image = Image.FromFile(path))
+            try
             {
-                Bitmap bitmap = new Bitmap(image);
-                return bitmap;
+                using (Image image = Image.FromFile(path))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    return bitmap;
+                }
+            }
+            catch
+            {
+                using (Image image = Image.FromFile(@"..\..\HangHoa\No image.jpg"))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    return bitmap;
+                }
+
             }
         }
         private void btnHoanTat_Click(object sender, EventArgs e)
@@ -110,7 +122,7 @@ namespace App_sale_manager
                 else
                 {
                     sqlCon.Open();
-                    string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',LOAIID='" + LoaiID + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
+                    string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
                         + ",DVT=N'" + txtDVT.Text + "',SOLUONG=" + 0 + ",SLTT=" + txtSLTT.Text + ",MOTA=N'" + txtMoTa.Text + "'WHERE SPID='" + txtSPID.Text + "'";
                     sqlCmd = new SqlCommand(strquery, sqlCon);
                     sqlCmd.ExecuteNonQuery();

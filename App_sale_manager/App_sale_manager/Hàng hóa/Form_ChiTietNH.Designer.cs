@@ -154,6 +154,7 @@ namespace App_sale_manager
             this.dgvChiTietNH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiTietNH.Location = new System.Drawing.Point(12, 310);
             this.dgvChiTietNH.Name = "dgvChiTietNH";
+            this.dgvChiTietNH.ReadOnly = true;
             this.dgvChiTietNH.RowHeadersWidth = 51;
             this.dgvChiTietNH.RowTemplate.Height = 24;
             this.dgvChiTietNH.Size = new System.Drawing.Size(568, 437);
@@ -243,7 +244,7 @@ namespace App_sale_manager
             this.Controls.Add(this.label1);
             this.Name = "Form_ChiTietNH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_ChiTietNH";
+            this.Text = "Chi tiết đơn nhập hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

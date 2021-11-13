@@ -215,7 +215,7 @@
             // ptrbHinhAnh
             // 
             this.ptrbHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ptrbHinhAnh.Location = new System.Drawing.Point(484, 243);
+            this.ptrbHinhAnh.Location = new System.Drawing.Point(482, 257);
             this.ptrbHinhAnh.Name = "ptrbHinhAnh";
             this.ptrbHinhAnh.Size = new System.Drawing.Size(643, 320);
             this.ptrbHinhAnh.TabIndex = 63;
@@ -224,7 +224,7 @@
             // lblHinhAnh
             // 
             this.lblHinhAnh.AutoSize = true;
-            this.lblHinhAnh.Location = new System.Drawing.Point(481, 223);
+            this.lblHinhAnh.Location = new System.Drawing.Point(479, 237);
             this.lblHinhAnh.Name = "lblHinhAnh";
             this.lblHinhAnh.Size = new System.Drawing.Size(69, 17);
             this.lblHinhAnh.TabIndex = 62;
@@ -234,7 +234,7 @@
             // 
             this.btnChonHinh.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnChonHinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonHinh.Location = new System.Drawing.Point(556, 201);
+            this.btnChonHinh.Location = new System.Drawing.Point(554, 215);
             this.btnChonHinh.Name = "btnChonHinh";
             this.btnChonHinh.Size = new System.Drawing.Size(97, 41);
             this.btnChonHinh.TabIndex = 64;
@@ -306,7 +306,7 @@
             this.Controls.Add(this.lblMaSP);
             this.Name = "Form_ThemSuaHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_ThemXoaSuaHangHoa";
+            this.Text = "Thêm, sửa loại hàng hoá";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_ThemSuaHangHoa_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).EndInit();
             this.ResumeLayout(false);
