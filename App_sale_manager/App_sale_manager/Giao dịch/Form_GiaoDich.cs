@@ -168,7 +168,7 @@ namespace App_sale_manager
             try
             {
                 
-                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_Tong.Text + "','" + Box_LoaiHD.Text + "','" + Box_TrangThai.Text + "') ";
+                cmd.CommandText = "set dateformat dmy insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_Tong.Text + "','" + Box_LoaiHD.Text + "','" + Box_TrangThai.Text + "') ";
                 cmd.ExecuteNonQuery();
                 foreach (DataGridViewRow i in CT_HD.Rows)
                 {
@@ -218,9 +218,6 @@ namespace App_sale_manager
                 Box_TrangThai.Text = "NHANDON";
             }
         }
-
-
-
         private void Box_IDKH_TextChanged(object sender, EventArgs e)
         {
 

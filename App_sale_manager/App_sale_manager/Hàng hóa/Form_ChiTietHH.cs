@@ -68,9 +68,9 @@ namespace App_sale_manager
                     return bitmap;
                 }
             }
-            catch(Exception)
+            catch
             {
-                using (Image image = Image.FromFile(@"..\..\HangHoa\No Image.jpg"))
+                using (Image image = Image.FromFile(@"..\..\HangHoa\No image.jpg"))
                 {
                     Bitmap bitmap = new Bitmap(image);
                     return bitmap;

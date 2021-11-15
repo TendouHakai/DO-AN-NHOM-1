@@ -71,6 +71,7 @@ namespace App_sale_manager
             }
             else if(tabCtrl.SelectedIndex==1)
             {
+                LoadCBBHH();
                 LoadHangHoa();
             }
             else if(tabCtrl.SelectedIndex==4)
@@ -100,9 +101,9 @@ namespace App_sale_manager
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
-            cmd = sqlCon.CreateCommand();
+           cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            string day = date.ToString("d");
+            string day = date.ToString("MM/dd/yyyy");
             cmd.CommandText = "SELECT COUNT(SOHD_BH) as SoHoaDon, SUM(TRIGIA) as DoanhThu FROM HDBH WHERE lOAIHD = 'DTT' AND NGHD ='" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -117,7 +118,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            string day = date.ToString("d");
+            string day = date.ToString("MM/dd/yyyy");
             cmd.CommandText = "SELECT COUNT(SOHD_BH) as SoDonDatHang, SUM(TRIGIA) as DoanhThu FROM HDBH WHERE LOAIHD = 'DDH'AND NGHD ='" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -232,7 +233,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            string day = dtp_bc_time.Value.ToString("d");
+            string day = dtp_bc_time.Value.ToString("MM/dd/yyyy");
             cmd.CommandText = "SELECT * FROM HDBH WHERE HDBH.NGHD='" + day + "' ORDER BY HDBH.LOAIHD DESC";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -281,7 +282,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            string day = dtp_bc_time.Value.ToString("d");
+            string day = dtp_bc_time.Value.ToString("MM/dd/yyyy");
             cmd.CommandText = "SELECT * FROM HDNH WHERE NGNHAP= '" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -313,7 +314,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            string day = dtp_bc_time.Value.ToString("d");
+            string day = dtp_bc_time.Value.ToString("MM/dd/yyyy");
             cmd.CommandText = "SELECT SOHD_BH AS SOHD, NGHD, KHID AS DOITAC, NVID, TRIGIA FROM HDBH WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD = '" + day + "' UNION SELECT* FROM HDNH WHERE NGNHAP = '" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -1733,7 +1734,14 @@ namespace App_sale_manager
 
             sqlCon = new SqlConnection(strCon);
             SqlCommand sqlCmd = new SqlCommand();
-            sqlCon.Open();
+            if (sqlCon == null)
+            {
+                sqlCon = new SqlConnection(strCon);
+            }
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
             sqlCmd.Connection = sqlCon;
@@ -1743,11 +1751,52 @@ namespace App_sale_manager
             tbHH.Clear();
             adapter.Fill(tbHH);
             dgvSP.DataSource = tbHH;
-            DinhDangdgvHH();
+            HH_DinhDangdgv();
             lblTieuDeHH.Text = "Hàng Hoá Còn Lại";
             sqlCon.Close();
         }
-        public void DinhDangdgvHH()
+        private void LoadCBBHH()
+        {
+
+            if (sqlCon == null)
+            {
+                sqlCon = new SqlConnection(strCon);
+            }
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+            adapter = new SqlDataAdapter("select TENLOAI from [LOAISP] group by TENLOAI", sqlCon);
+            DataTable tableLoai = new DataTable();
+            adapter.Fill(tableLoai);
+            cbbLoaiSP.DataSource = tableLoai;
+            cbbLoaiSP.DisplayMember = "TenLoai";
+            cbbLoaiSP.ValueMember = "TenLoai";
+            adapter = new SqlDataAdapter("select NUOCSX from [SANPHAM] group by NUOCSX", sqlCon);
+            DataTable tableNuoc = new DataTable();
+            adapter.Fill(tableNuoc);
+            cbbNuocSX.DataSource = tableNuoc;
+            cbbNuocSX.DisplayMember = "NUOCSX";
+            cbbNuocSX.ValueMember = "NUOCSX";
+            adapter = new SqlDataAdapter("select HANGSX from [SANPHAM] group by HANGSX", sqlCon);
+            DataTable tableHang = new DataTable();
+            adapter.Fill(tableHang);
+            cbbHang.DataSource = tableHang;
+            cbbHang.DisplayMember = "HANGSX";
+            cbbHang.ValueMember = "HANGSX";           
+            sqlCon.Close();
+            HH_ClearCBBTB();
+        }
+        public void HH_ClearCBBTB()
+        {
+            cbbLoaiSP.Text = "";
+            cbbHang.Text = "";
+            cbbNuocSX.Text = "";
+            cbbChonGia.Text = "";
+            txtTenSP.Text = string.Empty;
+            txtGiaBan.Text = string.Empty;
+        }
+        public void HH_DinhDangdgv()
         {
             dgvSP.Columns[0].HeaderText = "Mã Sản Phẩm";
             dgvSP.Columns[0].Width = 60;
@@ -1765,10 +1814,13 @@ namespace App_sale_manager
             dgvSP.Columns[9].HeaderText = "Số Lượng Tối Thiểu";
             dgvSP.Columns[9].Width = 50;
             dgvSP.Columns[10].HeaderText = "Mô Tả";
-        }
-        private void dgvSP_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            XemChiTiet();
+            for(int i=0;i<dgvSP.RowCount-1;i++)
+            {
+                
+                    dgvSP.Rows[i].Cells["GIABAN"].Value = double.Parse(dgvSP.Rows[i].Cells["GIABAN"].Value.ToString());
+                    dgvSP.Rows[i].Cells["GIANHAP"].Value = double.Parse(dgvSP.Rows[i].Cells["GIANHAP"].Value.ToString());
+                   
+            }    
         }
         private void XemChiTiet()
 
@@ -1783,7 +1835,56 @@ namespace App_sale_manager
             f.ShowDialog();
             f.Close();
             this.Show();
-        }         
+        }
+        public DataTable HH_TimKiem()
+        {
+            DataTable tb = new DataTable();
+            string query = string.Empty;
+            if (txtGiaBan.Text != string.Empty)
+            {
+                switch (cbbChonGia.SelectedIndex)
+                {
+                    case 0:
+                        {
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                         " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN = " + txtGiaBan.Text + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
+                            break;
+                        }
+                    case 1:
+                        {
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                               " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN < " + txtGiaBan.Text + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
+                            break;
+
+                        }
+                    case 2:
+                        {
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                            " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN > " + txtGiaBan.Text + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
+                            break;
+                        }
+                    default:
+                        {
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                                " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%'" + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
+                            break;
+                        }
+                }
+
+            }
+            else query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                 " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%'" + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
+
+            adapter = new SqlDataAdapter(query, sqlCon);
+            adapter.Fill(tb);
+            sqlCon.Close();
+            return tb;
+        }
+        private void dgvSP_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            XemChiTiet();
+        }
+           
         private void btnThemHH_Click(object sender, EventArgs e)
         {
             Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(1);
@@ -1830,16 +1931,6 @@ namespace App_sale_manager
             LoadHangHoa();
             this.Show();
         }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            Form_TimKiemHH f = new Form_TimKiemHH();
-            f.ShowDialog();
-            dgvSP.DataSource = f.TimKiem();
-            f.Close();
-
-        }
-
         private void btnQLLoaiHH_Click(object sender, EventArgs e)
         {
             Form_QLLoaiHH f = new Form_QLLoaiHH();
@@ -1851,7 +1942,7 @@ namespace App_sale_manager
 
         private void btnHangSapHet_Click(object sender, EventArgs e)
         {
-
+            
             sqlCon = new SqlConnection(strCon);
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -1869,7 +1960,7 @@ namespace App_sale_manager
         private void btnHoaDonNhap_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_HoaDonNH f = new Form_HoaDonNH(manv, tennv);
+            Form_HoaDonNH f = new Form_HoaDonNH(manv, tennv);            
             f.ShowDialog();
             this.Show();
             LoadHangHoa();
@@ -1879,12 +1970,98 @@ namespace App_sale_manager
         {
             XemChiTiet();
         }
-
-        private void btn_XemHH_Click(object sender, EventArgs e)
+      
+        private void cbbLoaiSP_TextChanged(object sender, EventArgs e)
         {
-            LoadHangHoa();
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
         }
 
-        
+        private void txtTenSP_TextChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void txtGiaBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar))
+            {  
+                e.Handled = true;                
+            }
+            if(Char.IsLetter(e.KeyChar))
+            {
+                MessageBox.Show("Vui lòng nhập số");
+            }    
+        }
+
+        private void txtGiaBan_TextChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void cbbChonGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void cbbHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void cbbNuocSX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void cbbLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void btn_XemHH_Click(object sender, EventArgs e)
+        { 
+            HH_ClearCBBTB();
+            LoadHangHoa();
+           
+        }
+
+        private void cbbLoaiSP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cbbHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cbbNuocSX_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cbbChonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

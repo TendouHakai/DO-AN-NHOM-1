@@ -1036,6 +1036,7 @@ namespace App_sale_manager
             this.ClientSize = new System.Drawing.Size(1219, 690);
             this.Controls.Add(this.tabctrl_Nhanvien);
             this.Name = "Form_main_NV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_main_NV";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_main_NV_FormClosed);
             this.Load += new System.EventHandler(this.Form_main_NV_Load);
