@@ -110,7 +110,7 @@ namespace App_sale_manager
                 else
                 {
                     sqlCon.Open();
-                    string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',LOAIID='" + LoaiID + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
+                    string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
                         + ",DVT=N'" + txtDVT.Text + "',SOLUONG=" + 0 + ",SLTT=" + txtSLTT.Text + ",MOTA=N'" + txtMoTa.Text + "'WHERE SPID='" + txtSPID.Text + "'";
                     sqlCmd = new SqlCommand(strquery, sqlCon);
                     sqlCmd.ExecuteNonQuery();

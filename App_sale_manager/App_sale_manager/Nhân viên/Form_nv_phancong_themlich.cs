@@ -124,7 +124,7 @@ namespace App_sale_manager
             string CHEDO="";
             if (cbo_chedo.Text == "Chỉ một lần trong tuần này")
             {
-                CHEDO = "Khong lap";
+                CHEDO = "Không lặp";
                 if(dtp_phancong_ngay.Value < DateTime.Today)
                 {
                     MessageBox.Show("Ngày này đã qua. Bạn không thêm vào được!", "Thông báo");
@@ -142,7 +142,7 @@ namespace App_sale_manager
                         {
                             try
                             {
-                                cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "', '" + CAIDs[j].Nglam.ToString("d") + "', 'null', '" + CHEDO +  "')";
+                                cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "', '" + CAIDs[j].Nglam.ToString("d") + "', N'Chưa điểm danh', N'" + CHEDO +", N'"+txt_tieude.Text+"')";
                                 cmd.ExecuteNonQuery();
                             }
                             catch(Exception)
@@ -168,7 +168,7 @@ namespace App_sale_manager
                             DialogResult dlg=  MessageBox.Show("Ca lam viec " + THU + " " + giobd +" đến "+ gionghi+ " của " + chkL_phancong_NVID.Items[i].ToString() + " đã có trong lịch hàng tuần.\nBạn có muốn tiếp tục thay đổi không?", "Thông báo", MessageBoxButtons.YesNo);
                             if(dlg == DialogResult.Yes)
                             {
-                                cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "', '" + CAIDs[j].Nglam.ToString("d") + "', 'null', '" + CHEDO +  "')";
+                                cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "', '" + CAIDs[j].Nglam.ToString("d") + "', N'Chưa điểm danh', N'" + CHEDO +  "', N'"+txt_tieude.Text+"')";
                                 cmd.ExecuteNonQuery();
                                 cmd.CommandText = "DELETE FROM CT_LAM_VIEC_HANGTUAN WHERE NVID = '" + chkL_phancong_NVID.Items[i].ToString() + "' AND CAID ='" + CAIDs[j].CA + "'";
                                 cmd.ExecuteNonQuery();
@@ -183,14 +183,14 @@ namespace App_sale_manager
             }
             else if (cbo_chedo.Text == "Lặp lại hàng tuần")
             {
-                CHEDO = "Lap lai";
+                CHEDO = "Lặp lại";
                 for (int i = 0; i < chkL_phancong_NVID.Items.Count; i++)
                 {
                     for (int j = 0; j < CAIDs.Count; j++)
                     {
                         try
                         {
-                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "')";
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "',N'"+txt_tieude.Text+"')";
                             cmd.ExecuteNonQuery();
                         }
                         catch(Exception)
@@ -274,5 +274,7 @@ namespace App_sale_manager
                 chkL_phancong_NVID.Items.Remove(chkL_phancong_NVID.CheckedItems[j].ToString());
             }    
         }
+
+        
     }
 }

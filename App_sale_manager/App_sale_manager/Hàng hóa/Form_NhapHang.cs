@@ -158,10 +158,21 @@ namespace App_sale_manager
         }
         private Image GetCopyImage(string path)
         {
-            using (Image image = Image.FromFile(path))
+            try
             {
-                Bitmap bitmap = new Bitmap(image);
-                return bitmap;
+                using (Image image = Image.FromFile(path))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    return bitmap;
+                }
+            }
+            catch(Exception)
+            {
+                using (Image image = Image.FromFile(@"..\..\HangHoa\No Image.jpg"))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    return bitmap;
+                }
             }
         }
         private void dgvChiTietNH_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -339,10 +350,11 @@ namespace App_sale_manager
             else
             {                
                 sqlCon.Open();
-                string strquery = "set dateformat dmy update HDNH set NGNHAP='" + dateNgayNhap.Text + "',DTID='" + txtMaDT.Text + "',NVID='" + txtMaNV.Text + "',TRIGIA=" + txtGiaTriDN.Text + " where SOHD_NH=" + txtSoHDNH.Text;
+                string strquery = "update HDNH set NGNHAP='" + dateNgayNhap.Value.ToString("d") + "',DTID='" + txtMaDT.Text + "',NVID='" + txtMaNV.Text + "',TRIGIA=" + txtGiaTriDN.Text + " where SOHD_NH=" + txtSoHDNH.Text;
+                MessageBox.Show(strquery);
                 SqlCommand sqlCmd;
                 sqlCmd = new SqlCommand(strquery, sqlCon);
-                sqlCmd.ExecuteNonQuery();
+                //sqlCmd.ExecuteNonQuery();
                 sqlCon.Close();
                 this.Close();
                 trangthai = 0;

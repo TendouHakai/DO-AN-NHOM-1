@@ -148,6 +148,7 @@ namespace App_sale_manager
                     }
                 }
             }
+            MessageBox.Show("Đã lưu thành công");
             sqlCon.Close();
         }
 

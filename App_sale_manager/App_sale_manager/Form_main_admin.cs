@@ -934,9 +934,9 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "SELECT CT_LAMVIEC.NVID, HOTEN, CV, CAID, CHEDO FROM CT_LAMVIEC INNER JOIN NHANVIEN ON CT_LAMVIEC.NVID = NHANVIEN.NVID WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "' "
+            cmd.CommandText = "SELECT CT_LAMVIEC.NVID, HOTEN, CV, CAID, TIEUDE, CHEDO FROM CT_LAMVIEC INNER JOIN NHANVIEN ON CT_LAMVIEC.NVID = NHANVIEN.NVID WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "' "
                                 + "UNION "
-                                + "SELECT CT_LAMVIEC_HANGTUAN.NVID, HOTEN, CV, CT_LAMVIEC_HANGTUAN.CAID, CHEDO = 'Lap lai' "
+                                + "SELECT CT_LAMVIEC_HANGTUAN.NVID, HOTEN, CV, CT_LAMVIEC_HANGTUAN.CAID, TIEUDE, CHEDO = N'Lặp lại' "
                                 + "FROM CT_LAMVIEC_HANGTUAN, NHANVIEN, CALAMVIEC "
                                 + "WHERE CT_LAMVIEC_HANGTUAN.NVID = NHANVIEN.NVID AND CT_LAMVIEC_HANGTUAN.CAID = CALAMVIEC.CAID AND THU = '"+mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek.ToString()+"' "
                                 + "order by NVID";
@@ -949,7 +949,7 @@ namespace App_sale_manager
 
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                dgv_nv_phancong_lich.Rows.Add(table.Rows[i]["NVID"], table.Rows[i]["HOTEN"], table.Rows[i]["CV"], false, false, false, table.Rows[i]["CHEDO"]);
+                dgv_nv_phancong_lich.Rows.Add(table.Rows[i]["NVID"], table.Rows[i]["HOTEN"], table.Rows[i]["CV"], false, false, false, table.Rows[i]["TIEUDE"], table.Rows[i]["CHEDO"]);
                 string NVID = table.Rows[i]["NVID"].ToString();
 
                 while (table.Rows[i]["NVID"].ToString() == NVID)
@@ -1021,7 +1021,10 @@ namespace App_sale_manager
         private void btn_nv_phancong_luu_Click(object sender, EventArgs e)
         {
             if (mon_nv_phancong_lich.SelectionRange.Start < DateTime.Today)
+            {
+                MessageBox.Show("Bạn không thể thay đổi lịch trong quá khứ");
                 return;
+            }
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
@@ -1031,21 +1034,21 @@ namespace App_sale_manager
             cmd.ExecuteNonQuery();
             for (int i = 0; i < dgv_nv_phancong_lich.Rows.Count - 1; i++)
             {
-                if (dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() == "Lap lai")
+                if (dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() == "Lặp lại")
                 {
                     if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', N'Lịch làm việc hàng tuần')";
                         cmd.ExecuteNonQuery();
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', N'Lịch làm việc hàng tuần')";
                         cmd.ExecuteNonQuery();
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', N'Lịch làm việc hàng tuần')";
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -1053,29 +1056,30 @@ namespace App_sale_manager
                 {
                     if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "', null, '" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'"+dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString()+"' )";
                         cmd.ExecuteNonQuery();
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "', null, '" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
                         cmd.ExecuteNonQuery();
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "', null, '" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
                         cmd.ExecuteNonQuery();
                     }
                 }
 
             }
+            MessageBox.Show("Đã lưu thành công");
             sqlCon.Close();
         }
         private void btn_nv_phancong_xoa_Click(object sender, EventArgs e)
         {
-            if(mon_nv_phancong_lich.SelectionRange.Start <DateTime.Today)
+            if(mon_nv_phancong_lich.SelectionRange.Start <=DateTime.Today)
             {
-                MessageBox.Show("Bạn không thể xóa lịch trong quá khứ", "Thông báo");
+                MessageBox.Show("Bạn không thể xóa lịch trong quá khứ và ngày hôm nay", "Thông báo");
             }    
             dgv_nv_phancong_lich.Rows.RemoveAt(dgv_nv_phancong_lich.CurrentRow.Index);
         }
@@ -1090,6 +1094,11 @@ namespace App_sale_manager
         {
             Form_lichhangtuan frm = new Form_lichhangtuan();
             frm.Load_form_main += event_load_tabp_phancong;
+            frm.ShowDialog();
+        }
+        private void btn_nv_phancong_chamcong_Click(object sender, EventArgs e)
+        {
+            Form_nv_phancong_chamcong frm = new Form_nv_phancong_chamcong();
             frm.ShowDialog();
         }
         //nhóm tabpage bảng lương nhân viên
@@ -1403,11 +1412,11 @@ namespace App_sale_manager
                 SqlCommand newcmd = new SqlCommand(str, sqlCon);
                 newcmd.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công!", "Thông báo");
-                /*if(File.Exists(@"\Image samples for testing\Đối tác giao dịch\"+label_TENDTtext.Text+".jpg"))
+                /*if(file.exists(@"\image samples for testing\đối tác giao dịch\"+label_tendttext.text+".jpg"))
                 {
-                    System.GC.Collect();
-                    System.GC.WaitForPendingFinalizers();
-                    File.Delete(@"\Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg");
+                    system.gc.collect();
+                    system.gc.waitforpendingfinalizers();
+                    file.delete(@"\image samples for testing\đối tác giao dịch\" + label_tendttext.text + ".jpg");
                 }    
                 */
                 DTCC_dtgd_dataInitialize();
@@ -1870,5 +1879,12 @@ namespace App_sale_manager
         {
             XemChiTiet();
         }
+
+        private void btn_XemHH_Click(object sender, EventArgs e)
+        {
+            LoadHangHoa();
+        }
+
+        
     }
 }

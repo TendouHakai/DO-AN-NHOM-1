@@ -53,6 +53,7 @@ namespace App_sale_manager
             tabctrl_Nhanvien_SelectedIndexChanged(this, new EventArgs());
         }
         // TABPAGE TỔNG QUAN.
+        Timer timer = new Timer();
         private void tabctrl_Nhanvien_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(tabctrl_Nhanvien.SelectedIndex==0)
@@ -61,9 +62,15 @@ namespace App_sale_manager
             }   
             else if(tabctrl_Nhanvien.SelectedIndex==3)
             {
+                timer.Tick += Timer_Tick;
+                timer.Start();
+                timer.Interval = 1000;
                 load_lich();
             }    
         }
+
+        
+
         void load_tongquan_dsNgay()
         {
             if (sqlCon.State == ConnectionState.Closed)
@@ -213,13 +220,14 @@ namespace App_sale_manager
             load_tongquan_danhsachdoanhso();
         }
         //TABPAGE LỊCH LÀM VIỆC
+        TimeSpan GIO_BD = new TimeSpan();
+        TimeSpan GIO_KT = new TimeSpan();
         void load_lich_calamHienTai()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             DateTime date = DateTime.Now;
             cmd.CommandText = "SELECT CAID, GIO_BD, GIO_NGHI FROM CALAMVIEC WHERE GIO_BD<'"+date.ToString("HH:mm:ss")+ "' AND GIO_NGHI>'" + date.ToString("HH:mm:ss") + "' AND SUBSTRING(CAID,2,1)='" + ((int)date.DayOfWeek).ToString()+"'";
-            MessageBox.Show(cmd.CommandText);
             var reader = cmd.ExecuteReader();
             while(reader.Read())
             {
@@ -236,18 +244,311 @@ namespace App_sale_manager
                         lbl_lich_buoi.Text = "Tối";
                         break;
                 }
-                lbl_lich_BD.Text = reader.GetString(1);
-                lbl_lich_KT.Text = reader.GetString(2);
-                 
+                lbl_lich_BD.Text = reader.GetTimeSpan(1).ToString();
+                GIO_BD = reader.GetTimeSpan(1);
+                lbl_lich_KT.Text = reader.GetTimeSpan(2).ToString();
+                GIO_KT = reader.GetTimeSpan(2);
             }
             lbl_lich_ngaylam.Text = date.ToString("d");
+            sqlCon.Close();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            lbl_lich_dongho.Text = DateTime.Now.ToString("HH:mm:ss");
+            if (DateTime.Now.TimeOfDay > GIO_BD || DateTime.Now.TimeOfDay > GIO_KT)
+                load_lich_calamHienTai();
+        }
+        private void btn_lich_diemdanh_Click(object sender, EventArgs e)
+        {
+            if (lbl_lich_buoi.Text == "<trống>")
+                MessageBox.Show("Vẫn chưa đến ca làm");
+            else
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                    sqlCon.Open();
+                String CAID = "C" + ((int)DateTime.Today.DayOfWeek);
+                switch(lbl_lich_buoi.Text)
+                {
+                    case "Sáng":
+                        CAID = CAID + "S";
+                        break;
+                    case "Chiều":
+                        CAID = CAID + "C";
+                        break;
+                    case "Tối":
+                        CAID = CAID + "T";
+                        break;
+                }
+                cmd.CommandText = "SELECT TIEUDE, TRANGTHAI FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND CAID = '"+CAID+"'";
+                adapter.SelectCommand = cmd;
+                DataTable table = new DataTable();
+                table.Clear();
+                adapter.Fill(table);
+                if(table.Rows.Count==0)
+                {
+                    cmd.CommandText = "SELECT TIEUDE FROM CT_LAMVIEC_HANGTUAN WHERE NVID = '" + NVID + "' AND CAID = '" + CAID + "'";
+                    adapter.SelectCommand = cmd;
+                    table.Rows.Clear();
+                    adapter.Fill(table);
+                    if (table.Rows.Count == 0)
+                        MessageBox.Show("Bạn không có ca làm ngày hôm nay");
+                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('"+NVID+"', '"+CAID+"', '"+DateTime.Today.ToString("d")+"', N'Đã điểm danh', N'Lặp lại', '"+table.Rows[0]["TIEUDE"].ToString()+"')";
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    if (table.Rows[0]["TRANGTHAI"].ToString() == "Đẫ điểm danh")
+                    {
+                        MessageBox.Show("Bạn đã điểm danh rồi");
+                        return;
+                    }
+                    else
+                    {
+                        cmd.CommandText = "UPDATE CT_LAMVIEC TRANGTHAI = N'Đã điểm danh";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Điểm danh thành công");
+                sqlCon.Close();
+            } 
+                
+        }
+        void week(DateTime today, ref DateTime finish, ref DateTime begin)
+        {
+            finish = today;
+            while(finish.DayOfWeek != DayOfWeek.Sunday)
+            {
+                finish = finish.AddDays(1);
+            }
+            begin = today;
+            while(begin.DayOfWeek!=DayOfWeek.Monday)
+            {
+                begin = begin.AddDays(-1);
+            }
+        }
+        struct caID
+        {
+            public string TIEUDE;
+            public string CAID;
+        };
+        void load_lich_banglichhangtuan(DateTime today)
+        {
+            if(sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+            cmd.CommandText = "SELECT DISTINCT GIO_BD, GIO_NGHI FROM CALAMVIEC ";
+            adapter.SelectCommand = cmd;
+            DataTable table = new DataTable();
+            table.Clear();
+            adapter.Fill(table);
+            dgv_lich_tuan.Rows.Clear();
+            dgv_lich_tuan.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Regular);
+            dgv_lich_tuan.Rows.Add("Sáng \n(" + table.Rows[0]["GIO_BD"] + " - " + table.Rows[0]["GIO_NGHI"] + ")");
+            dgv_lich_tuan.Rows[0].Height = 80;
+            dgv_lich_tuan.Rows.Add("Nghỉ trưa \n(" + table.Rows[0]["GIO_NGHI"] + " - " + table.Rows[1]["GIO_BD"] + ")");
+            dgv_lich_tuan.Rows[1].Height = 40;
+            dgv_lich_tuan.Rows.Add("Chiều \n(" + table.Rows[1]["GIO_BD"] + " - " + table.Rows[1]["GIO_NGHI"] + ")");
+            dgv_lich_tuan.Rows[2].Height = 80;
+            dgv_lich_tuan.Rows.Add("Tối \n(" + table.Rows[2]["GIO_BD"] + " - " + table.Rows[2]["GIO_NGHI"] + ")");
+            dgv_lich_tuan.Rows[3].Height = 80;
+            DateTime finish = new DateTime();
+            DateTime begin = new DateTime();
+            week(today, ref finish, ref begin);
+            cmd.CommandText = "SELECT CAID, TIEUDE"
+                            +" FROM CT_LAMVIEC"
+                            + " WHERE NGAYLAM >="+begin.ToString("d")+"AND NGAYLAM <= "+finish.ToString("d")+" AND NVID = '" + NVID+"'"
+                            +" UNION"
+                            +" SELECT CAID, TIEUDE"
+                            +" FROM CT_LAMVIEC_HANGTUAN"
+                            +" WHERE NVID = '"+NVID+"'";
+            var reader = cmd.ExecuteReader();
+            List<caID> caid = new List<caID>();
+            while (reader.Read())
+            {
+                caID ca = new caID();
+                ca.CAID = reader.GetString(0);
+                ca.TIEUDE = reader.GetString(1);
+                caid.Add(ca);
+            }
+            reader.Close();
+            for(int i =0; i<caid.Count; i++)
+            {
+                if(caid[i].CAID.Substring(1,1)=="0")
+                {
+                    switch(caid[i].CAID.Substring(2,1))
+                    {
+                        case "S":
+                            dgv_lich_tuan.Rows[0].Cells[8].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[0].Cells[8].Value = caid[i].TIEUDE;
+                            break;
+                        case "C":
+                            dgv_lich_tuan.Rows[2].Cells[8].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[2].Cells[8].Value = caid[i].TIEUDE;
+                            break;
+                        case "T":
+                            dgv_lich_tuan.Rows[3].Cells[8].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[3].Cells[8].Value = caid[i].TIEUDE;
+                            break;
+                    }
+                }
+                else
+                {
+                    int temp = Convert.ToInt32(caid[i].CAID.Substring(1, 1));
+                    switch (caid[i].CAID.Substring(2, 1))
+                    {
+                        
+                        case "S":
+                            dgv_lich_tuan.Rows[0].Cells[temp].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[0].Cells[temp].Value = caid[i].TIEUDE;
+                            break;
+                        case "C":
+                            dgv_lich_tuan.Rows[2].Cells[temp].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[2].Cells[temp].Value = caid[i].TIEUDE;
+                            break;
+                        case "T":
+                            dgv_lich_tuan.Rows[3].Cells[temp].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[3].Cells[temp].Value = caid[i].TIEUDE;
+                            break;
+                    }
+                } 
+                    
+            }
+            reader.Close();
+            // tô màu cho ngày đã làm và ngày nghỉ
+            List<string> CAIDS = new List<string>();
+            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='"+NVID+ "' AND TRANGTHAI = N'Đã điểm danh' AND NGAYLAM >='"+begin.ToString("d")+"' AND NGAYLAM <='"+today.ToString("d")+"'";
+            reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                CAIDS.Add(reader.GetString(0));
+            }
+            for (int i = 0; i < CAIDS.Count; i++)
+            {
+                if (CAIDS[i].Substring(1, 1) == "0")
+                {
+                    switch (CAIDS[i].Substring(2, 1))
+                    {
+                        case "S":
+                            dgv_lich_tuan.Rows[0].Cells[8].Style.BackColor = Color.SpringGreen;
+                            break;
+                        case "C":
+                            dgv_lich_tuan.Rows[2].Cells[8].Style.BackColor = Color.SpringGreen;
+                            break;
+                        case "T":
+                            dgv_lich_tuan.Rows[3].Cells[8].Style.BackColor = Color.SpringGreen;
+                            break;
+                    }
+                }
+                else
+                {
+                    int temp = Convert.ToInt32(caid[i].CAID.Substring(1, 1));
+                    switch (CAIDS[i].Substring(2, 1))
+                    {
+
+                        case "S":
+                            dgv_lich_tuan.Rows[0].Cells[temp].Style.BackColor = Color.SpringGreen;
+                            break;
+                        case "C":
+                            dgv_lich_tuan.Rows[2].Cells[temp].Style.BackColor = Color.SpringGreen;
+                            break;
+                        case "T":
+                            dgv_lich_tuan.Rows[3].Cells[temp].Style.BackColor = Color.SpringGreen;
+                            break;
+                    }
+                }
+
+            }
+            reader.Close();
+            CAIDS.Clear();
+            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Chưa điểm danh' AND NGAYLAM >='" + begin.ToString("d") + "' AND NGAYLAM <='" + today.ToString("d") + "'";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                CAIDS.Add(reader.GetString(0));
+            }
+            for (int i = 0; i < CAIDS.Count; i++)
+            {
+                if (CAIDS[i].Substring(1, 1) == "0")
+                {
+                    switch (CAIDS[i].Substring(2, 1))
+                    {
+                        case "S":
+                            dgv_lich_tuan.Rows[0].Cells[8].Style.BackColor = Color.OrangeRed;
+                            break;
+                        case "C":
+                            dgv_lich_tuan.Rows[2].Cells[8].Style.BackColor = Color.OrangeRed;
+                            break;
+                        case "T":
+                            dgv_lich_tuan.Rows[3].Cells[8].Style.BackColor = Color.OrangeRed;
+                            break;
+                    }
+                }
+                else
+                {
+                    int temp = Convert.ToInt32(caid[i].CAID.Substring(1, 1));
+                    switch (CAIDS[i].Substring(2, 1))
+                    {
+
+                        case "S":
+                            dgv_lich_tuan.Rows[0].Cells[temp].Style.BackColor = Color.OrangeRed;
+                            break;
+                        case "C":
+                            dgv_lich_tuan.Rows[2].Cells[temp].Style.BackColor = Color.OrangeRed;
+                            break;
+                        case "T":
+                            dgv_lich_tuan.Rows[3].Cells[temp].Style.BackColor = Color.OrangeRed;
+                            break;
+                    }
+                }
+
+            }
+            reader.Close();
+            sqlCon.Close();
+        }
+        void load_lich_songayDiemDanh()
+        {
+            // update lại bảng CT_LAMVIEC
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            DateTime i = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            for(; i<= DateTime.Today; i = i.AddDays(1))
+            {
+                cmd.CommandText = "SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC_HANGTUAN WHERE NVID = '"+NVID+"'AND SUBSTRING(CAID,2,1) = '"+((int)i.DayOfWeek)+"'"
+                                + " EXCEPT"
+                                + " SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC WHERE NVID='"+NVID+"' AND NGAYLAM = '"+i.ToString("d")+"'";
+                DataTable table = new DataTable();
+                table.Clear();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(table);
+                for(int j =0; j<table.Rows.Count; j++)
+                {
+                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("d") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
+                    cmd.ExecuteNonQuery();
+                }    
+            }
+            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Đã điểm danh' AND MONTH(NGAYLAM) =" +DateTime.Today.Month;
+            txt_ngaylam.Text = cmd.ExecuteScalar().ToString();
+            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Chưa điểm danh' AND MONTH(NGAYLAM) =" + DateTime.Today.Month;
+            txt_ngaynghi.Text = cmd.ExecuteScalar().ToString();
             sqlCon.Close();
         }    
         void load_lich()
         {
             load_lich_calamHienTai();
+            load_lich_songayDiemDanh();
+            load_lich_banglichhangtuan(DateTime.Today);
         }
 
-        
+        private void btn_lich_xemCT_Click(object sender, EventArgs e)
+        {
+            Form_NV_chamcong frm = new Form_NV_chamcong(NVID);
+            frm.ShowDialog();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            load_lich_banglichhangtuan((sender as MonthCalendar).SelectionStart.Date);
+        }
     }
 }

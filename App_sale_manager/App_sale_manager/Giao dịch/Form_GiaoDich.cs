@@ -257,8 +257,16 @@ namespace App_sale_manager
 
         private void DGV_LuaChon_SelectionChanged(object sender, EventArgs e)
         {
-            PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\" + DGV_LuaChon.CurrentRow.Cells[0].Value + ".jpg");
-            PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
+            try
+            {
+                PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\" + DGV_LuaChon.CurrentRow.Cells[0].Value + ".jpg");
+                PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch(Exception)
+            {
+                PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\No Image.jpg");
+                PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
 
     }

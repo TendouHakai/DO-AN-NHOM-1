@@ -50,9 +50,13 @@ namespace App_sale_manager
             this.btn_phancong_xoaNVID = new System.Windows.Forms.Button();
             this.chkL_phancong_NVID = new System.Windows.Forms.CheckedListBox();
             this.btn_phancong_hoantat = new System.Windows.Forms.Button();
+            this.grb_mota = new System.Windows.Forms.GroupBox();
+            this.txt_tieude = new System.Windows.Forms.TextBox();
+            this.lbl_tieude = new System.Windows.Forms.Label();
             this.grb_themlich_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_phancong_nvid)).BeginInit();
             this.grb_phancong_lich.SuspendLayout();
+            this.grb_mota.SuspendLayout();
             this.SuspendLayout();
             // 
             // grb_themlich_thongtin
@@ -288,7 +292,7 @@ namespace App_sale_manager
             // 
             this.btn_phancong_hoantat.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btn_phancong_hoantat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_phancong_hoantat.Location = new System.Drawing.Point(599, 379);
+            this.btn_phancong_hoantat.Location = new System.Drawing.Point(608, 448);
             this.btn_phancong_hoantat.Name = "btn_phancong_hoantat";
             this.btn_phancong_hoantat.Size = new System.Drawing.Size(221, 43);
             this.btn_phancong_hoantat.TabIndex = 3;
@@ -296,12 +300,42 @@ namespace App_sale_manager
             this.btn_phancong_hoantat.UseVisualStyleBackColor = false;
             this.btn_phancong_hoantat.Click += new System.EventHandler(this.btn_phancong_hoantat_Click);
             // 
+            // grb_mota
+            // 
+            this.grb_mota.Controls.Add(this.txt_tieude);
+            this.grb_mota.Controls.Add(this.lbl_tieude);
+            this.grb_mota.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_mota.Location = new System.Drawing.Point(13, 364);
+            this.grb_mota.Name = "grb_mota";
+            this.grb_mota.Size = new System.Drawing.Size(838, 68);
+            this.grb_mota.TabIndex = 4;
+            this.grb_mota.TabStop = false;
+            this.grb_mota.Text = "Mô tả";
+            // 
+            // txt_tieude
+            // 
+            this.txt_tieude.Location = new System.Drawing.Point(136, 13);
+            this.txt_tieude.Name = "txt_tieude";
+            this.txt_tieude.Size = new System.Drawing.Size(434, 24);
+            this.txt_tieude.TabIndex = 1;
+            // 
+            // lbl_tieude
+            // 
+            this.lbl_tieude.AutoSize = true;
+            this.lbl_tieude.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tieude.Location = new System.Drawing.Point(13, 20);
+            this.lbl_tieude.Name = "lbl_tieude";
+            this.lbl_tieude.Size = new System.Drawing.Size(68, 17);
+            this.lbl_tieude.TabIndex = 0;
+            this.lbl_tieude.Text = "Tiêu đề:";
+            // 
             // Form_nv_phancong_themlich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(863, 444);
+            this.ClientSize = new System.Drawing.Size(863, 509);
+            this.Controls.Add(this.grb_mota);
             this.Controls.Add(this.btn_phancong_hoantat);
             this.Controls.Add(this.grb_phancong_lich);
             this.Controls.Add(this.grb_themlich_thongtin);
@@ -311,6 +345,8 @@ namespace App_sale_manager
             this.grb_themlich_thongtin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_phancong_nvid)).EndInit();
             this.grb_phancong_lich.ResumeLayout(false);
+            this.grb_mota.ResumeLayout(false);
+            this.grb_mota.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -338,5 +374,8 @@ namespace App_sale_manager
         private System.Windows.Forms.DataGridView dgv_phancong_nvid;
         private System.Windows.Forms.Button btn_phancong_xoaNVID;
         private System.Windows.Forms.CheckedListBox chkL_phancong_NVID;
+        private System.Windows.Forms.GroupBox grb_mota;
+        private System.Windows.Forms.TextBox txt_tieude;
+        private System.Windows.Forms.Label lbl_tieude;
     }
 }

@@ -91,7 +91,7 @@ namespace App_sale_manager
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnSua.Location = new System.Drawing.Point(183, 21);
+            this.btnSua.Location = new System.Drawing.Point(216, 21);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(116, 44);
             this.btnSua.TabIndex = 88;
@@ -102,7 +102,7 @@ namespace App_sale_manager
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnXoa.Location = new System.Drawing.Point(317, 21);
+            this.btnXoa.Location = new System.Drawing.Point(350, 21);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(120, 44);
             this.btnXoa.TabIndex = 89;
@@ -113,7 +113,7 @@ namespace App_sale_manager
             // btnChiTiet
             // 
             this.btnChiTiet.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnChiTiet.Location = new System.Drawing.Point(459, 21);
+            this.btnChiTiet.Location = new System.Drawing.Point(492, 21);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(115, 44);
             this.btnChiTiet.TabIndex = 90;
@@ -126,7 +126,7 @@ namespace App_sale_manager
             this.btnNhapHang.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnNhapHang.Location = new System.Drawing.Point(50, 21);
             this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(112, 44);
+            this.btnNhapHang.Size = new System.Drawing.Size(150, 44);
             this.btnNhapHang.TabIndex = 91;
             this.btnNhapHang.Text = "Nhập Hàng";
             this.btnNhapHang.UseVisualStyleBackColor = false;

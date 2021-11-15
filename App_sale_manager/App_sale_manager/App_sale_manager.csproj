@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_NV_chamcong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_NV_chamcong.Designer.cs">
+      <DependentUpon>Form_NV_chamcong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nhân viên\Form_nv_phancong_chamcong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nhân viên\Form_nv_phancong_chamcong.Designer.cs">
+      <DependentUpon>Form_nv_phancong_chamcong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hàng hóa\Form_ChiTietNH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +203,12 @@
     <Compile Include="Đối tác\Sale_viewer.Designer.cs">
       <DependentUpon>Sale_viewer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form_NV_chamcong.resx">
+      <DependentUpon>Form_NV_chamcong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nhân viên\Form_nv_phancong_chamcong.resx">
+      <DependentUpon>Form_nv_phancong_chamcong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Hàng hóa\Form_ChiTietHH.resx">
       <DependentUpon>Form_ChiTietHH.cs</DependentUpon>
     </EmbeddedResource>

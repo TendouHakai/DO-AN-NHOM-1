@@ -33,6 +33,14 @@ namespace App_sale_manager
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main_NV));
             this.tabctrl_Nhanvien = new System.Windows.Forms.TabControl();
             this.tabP_Tongquan = new System.Windows.Forms.TabPage();
@@ -84,8 +92,8 @@ namespace App_sale_manager
             this.lbl_lich_dongho = new System.Windows.Forms.Label();
             this.grb_lich_thongke = new System.Windows.Forms.GroupBox();
             this.btn_lich_xemCT = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_ngaynghi = new System.Windows.Forms.TextBox();
+            this.txt_ngaylam = new System.Windows.Forms.TextBox();
             this.lbl_lich_socanghi = new System.Windows.Forms.Label();
             this.lbl_lich_socalam = new System.Windows.Forms.Label();
             this.ptb_lich_X = new System.Windows.Forms.PictureBox();
@@ -93,8 +101,8 @@ namespace App_sale_manager
             this.grb_lich_thang = new System.Windows.Forms.GroupBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.grb_lich_tuannay = new System.Windows.Forms.GroupBox();
-            this.btn_lich_tuansau = new System.Windows.Forms.Button();
             this.dgv_lich_tuan = new System.Windows.Forms.DataGridView();
+            this.Calam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvC_thu2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvC_thu3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvC_thu4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -288,7 +296,7 @@ namespace App_sale_manager
             // 
             this.lbl_tongquan_ten0.AutoSize = true;
             this.lbl_tongquan_ten0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tongquan_ten0.Location = new System.Drawing.Point(201, 157);
+            this.lbl_tongquan_ten0.Location = new System.Drawing.Point(220, 158);
             this.lbl_tongquan_ten0.Name = "lbl_tongquan_ten0";
             this.lbl_tongquan_ten0.Size = new System.Drawing.Size(82, 17);
             this.lbl_tongquan_ten0.TabIndex = 2;
@@ -645,18 +653,18 @@ namespace App_sale_manager
             // lbl_lich_dongho
             // 
             this.lbl_lich_dongho.AutoSize = true;
-            this.lbl_lich_dongho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_lich_dongho.Location = new System.Drawing.Point(62, 29);
+            this.lbl_lich_dongho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lich_dongho.Location = new System.Drawing.Point(165, 29);
             this.lbl_lich_dongho.Name = "lbl_lich_dongho";
-            this.lbl_lich_dongho.Size = new System.Drawing.Size(60, 18);
+            this.lbl_lich_dongho.Size = new System.Drawing.Size(87, 25);
             this.lbl_lich_dongho.TabIndex = 0;
             this.lbl_lich_dongho.Text = "<trống>";
             // 
             // grb_lich_thongke
             // 
             this.grb_lich_thongke.Controls.Add(this.btn_lich_xemCT);
-            this.grb_lich_thongke.Controls.Add(this.textBox2);
-            this.grb_lich_thongke.Controls.Add(this.textBox1);
+            this.grb_lich_thongke.Controls.Add(this.txt_ngaynghi);
+            this.grb_lich_thongke.Controls.Add(this.txt_ngaylam);
             this.grb_lich_thongke.Controls.Add(this.lbl_lich_socanghi);
             this.grb_lich_thongke.Controls.Add(this.lbl_lich_socalam);
             this.grb_lich_thongke.Controls.Add(this.ptb_lich_X);
@@ -678,20 +686,22 @@ namespace App_sale_manager
             this.btn_lich_xemCT.TabIndex = 4;
             this.btn_lich_xemCT.Text = "Xem chi tiết";
             this.btn_lich_xemCT.UseVisualStyleBackColor = false;
+            this.btn_lich_xemCT.Click += new System.EventHandler(this.btn_lich_xemCT_Click);
             // 
-            // textBox2
+            // txt_ngaynghi
             // 
-            this.textBox2.Location = new System.Drawing.Point(204, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 24);
-            this.textBox2.TabIndex = 2;
+            this.txt_ngaynghi.Location = new System.Drawing.Point(204, 85);
+            this.txt_ngaynghi.Name = "txt_ngaynghi";
+            this.txt_ngaynghi.Size = new System.Drawing.Size(154, 24);
+            this.txt_ngaynghi.TabIndex = 2;
             // 
-            // textBox1
+            // txt_ngaylam
             // 
-            this.textBox1.Location = new System.Drawing.Point(204, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 24);
-            this.textBox1.TabIndex = 2;
+            this.txt_ngaylam.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.txt_ngaylam.Location = new System.Drawing.Point(204, 39);
+            this.txt_ngaylam.Name = "txt_ngaylam";
+            this.txt_ngaylam.Size = new System.Drawing.Size(154, 24);
+            this.txt_ngaylam.TabIndex = 2;
             // 
             // lbl_lich_socanghi
             // 
@@ -744,13 +754,13 @@ namespace App_sale_manager
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(41, 29);
+            this.monthCalendar1.Location = new System.Drawing.Point(26, 29);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // grb_lich_tuannay
             // 
-            this.grb_lich_tuannay.Controls.Add(this.btn_lich_tuansau);
             this.grb_lich_tuannay.Controls.Add(this.dgv_lich_tuan);
             this.grb_lich_tuannay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_lich_tuannay.Location = new System.Drawing.Point(9, 101);
@@ -760,20 +770,14 @@ namespace App_sale_manager
             this.grb_lich_tuannay.TabStop = false;
             this.grb_lich_tuannay.Text = "Lịch tuần này";
             // 
-            // btn_lich_tuansau
-            // 
-            this.btn_lich_tuansau.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btn_lich_tuansau.Location = new System.Drawing.Point(615, 318);
-            this.btn_lich_tuansau.Name = "btn_lich_tuansau";
-            this.btn_lich_tuansau.Size = new System.Drawing.Size(143, 32);
-            this.btn_lich_tuansau.TabIndex = 4;
-            this.btn_lich_tuansau.Text = "Tuần sau";
-            this.btn_lich_tuansau.UseVisualStyleBackColor = false;
-            // 
             // dgv_lich_tuan
             // 
+            this.dgv_lich_tuan.AllowUserToAddRows = false;
+            this.dgv_lich_tuan.AllowUserToDeleteRows = false;
+            this.dgv_lich_tuan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_lich_tuan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_lich_tuan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Calam,
             this.dgvC_thu2,
             this.dgvC_thu3,
             this.dgvC_thu4,
@@ -786,64 +790,90 @@ namespace App_sale_manager
             this.dgv_lich_tuan.ReadOnly = true;
             this.dgv_lich_tuan.RowHeadersWidth = 51;
             this.dgv_lich_tuan.RowTemplate.Height = 24;
-            this.dgv_lich_tuan.Size = new System.Drawing.Size(812, 283);
+            this.dgv_lich_tuan.Size = new System.Drawing.Size(812, 328);
             this.dgv_lich_tuan.TabIndex = 0;
+            // 
+            // Calam
+            // 
+            this.Calam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Calam.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Calam.Frozen = true;
+            this.Calam.HeaderText = "Ca làm";
+            this.Calam.MinimumWidth = 6;
+            this.Calam.Name = "Calam";
+            this.Calam.ReadOnly = true;
+            this.Calam.Width = 90;
             // 
             // dgvC_thu2
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvC_thu2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvC_thu2.HeaderText = "Thứ 2";
             this.dgvC_thu2.MinimumWidth = 6;
             this.dgvC_thu2.Name = "dgvC_thu2";
             this.dgvC_thu2.ReadOnly = true;
-            this.dgvC_thu2.Width = 125;
             // 
             // dgvC_thu3
             // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvC_thu3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvC_thu3.HeaderText = "Thứ 3";
             this.dgvC_thu3.MinimumWidth = 6;
             this.dgvC_thu3.Name = "dgvC_thu3";
             this.dgvC_thu3.ReadOnly = true;
-            this.dgvC_thu3.Width = 125;
             // 
             // dgvC_thu4
             // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvC_thu4.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvC_thu4.HeaderText = "Thứ 4";
             this.dgvC_thu4.MinimumWidth = 6;
             this.dgvC_thu4.Name = "dgvC_thu4";
             this.dgvC_thu4.ReadOnly = true;
-            this.dgvC_thu4.Width = 125;
             // 
             // dgvC_thu5
             // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvC_thu5.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvC_thu5.HeaderText = "Thứ 5";
             this.dgvC_thu5.MinimumWidth = 6;
             this.dgvC_thu5.Name = "dgvC_thu5";
             this.dgvC_thu5.ReadOnly = true;
-            this.dgvC_thu5.Width = 125;
             // 
             // dgvC_thu6
             // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvC_thu6.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvC_thu6.HeaderText = "Thứ 6";
             this.dgvC_thu6.MinimumWidth = 6;
             this.dgvC_thu6.Name = "dgvC_thu6";
             this.dgvC_thu6.ReadOnly = true;
-            this.dgvC_thu6.Width = 125;
             // 
             // dgvC_thu7
             // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvC_thu7.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvC_thu7.HeaderText = "Thứ 7";
             this.dgvC_thu7.MinimumWidth = 6;
             this.dgvC_thu7.Name = "dgvC_thu7";
             this.dgvC_thu7.ReadOnly = true;
-            this.dgvC_thu7.Width = 125;
             // 
             // dgvC_CN
             // 
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvC_CN.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvC_CN.HeaderText = "Chủ nhật";
             this.dgvC_CN.MinimumWidth = 6;
             this.dgvC_CN.Name = "dgvC_CN";
             this.dgvC_CN.ReadOnly = true;
-            this.dgvC_CN.Width = 125;
             // 
             // grb_lich_diemdanh
             // 
@@ -884,6 +914,7 @@ namespace App_sale_manager
             this.btn_lich_diemdanh.TabIndex = 4;
             this.btn_lich_diemdanh.Text = "Điểm danh";
             this.btn_lich_diemdanh.UseVisualStyleBackColor = false;
+            this.btn_lich_diemdanh.Click += new System.EventHandler(this.btn_lich_diemdanh_Click);
             // 
             // lbl_lich_gioKT
             // 
@@ -1094,15 +1125,7 @@ namespace App_sale_manager
         private System.Windows.Forms.GroupBox grb_lich_thang;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.GroupBox grb_lich_tuannay;
-        private System.Windows.Forms.Button btn_lich_tuansau;
         private System.Windows.Forms.DataGridView dgv_lich_tuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_CN;
         private System.Windows.Forms.GroupBox grb_lich_diemdanh;
         private System.Windows.Forms.Button btn_lich_diemdanh;
         private System.Windows.Forms.Label lbl_lich_gioKT;
@@ -1113,8 +1136,8 @@ namespace App_sale_manager
         private System.Windows.Forms.Label lbl_lich_BD;
         private System.Windows.Forms.Label lbl_lich_buoi;
         private System.Windows.Forms.Label lbl_lich_ca;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_ngaynghi;
+        private System.Windows.Forms.TextBox txt_ngaylam;
         private System.Windows.Forms.Label lbl_lich_socanghi;
         private System.Windows.Forms.Label lbl_lich_socalam;
         private System.Windows.Forms.GroupBox grb_lich_dongho;
@@ -1122,5 +1145,13 @@ namespace App_sale_manager
         private System.Windows.Forms.Button btn_lich_xemCT;
         private System.Windows.Forms.Label lbl_lich_trangthai;
         private System.Windows.Forms.Label lbl_lich_TT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Calam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_thu7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvC_CN;
     }
 }
