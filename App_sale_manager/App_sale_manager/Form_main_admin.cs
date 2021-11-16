@@ -23,8 +23,7 @@ namespace App_sale_manager
         string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
-        bool canExit;
-        Sale_viewer A = new Sale_viewer();
+        bool canExit;      
         DataTable table = new DataTable();
         DataTable table_nv_bangluong = new DataTable();
 
@@ -39,6 +38,7 @@ namespace App_sale_manager
             canExit = true;
             pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
+            button_refresh.BackgroundImage = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\refresh.jpg");
         }
         public Form_main_admin(string manv,string tennv)
         {
@@ -1634,6 +1634,7 @@ namespace App_sale_manager
 
         private void button_sale_Click(object sender, EventArgs e)
         {
+            Sale_viewer A = new Sale_viewer();
             A.Show();
         }
         //

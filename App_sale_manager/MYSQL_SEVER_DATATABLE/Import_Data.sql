@@ -23,12 +23,12 @@ INSERT into DTCC VALUES ('PV09',N'Lazy Chick Gaming','0941 401 401','15/7/2017',
 INSERT into DTCC VALUES ('PV10',N'GearCN','0777 943 585','16/8/2017',N'20 Dân Chủ, Hoà Lợi, Bến Cát, Bình Dương, Việt Nam')	
 
 
-INSERT into KHACHHANG VALUES ('RC01',N'Triệu Tuấn Tiến',N'365 Hẻm 24/8, đường Cộng Hòa, Quận 10, thành phố HCM','0915 401 635','1/1/2017',1660000)
-INSERT into KHACHHANG VALUES ('RC02',N'Nguyễn Trung Kiên',N'Khu phố 6, KTX khu A ĐHQG HCM','0777 471 457','29/2/2016',15950000)
-INSERT into KHACHHANG VALUES ('RC03',N'Nguyễn Tuấn Kiệt',N'35 hẻm 18/24, phường Linh Trung, thành phố Thủ Đức.','0943 450 960','20/2/2016',10000)
-INSERT into KHACHHANG VALUES ('RC04',N'Danny Nguyễn',N'144 hẻm 16/24, phường Linh Trung, thành phố Thủ Đức.','0888 453 945','29/2/2016',30478000)
-INSERT into KHACHHANG VALUES ('RC05',N'Nguyễn Phùng Vân',N'Khu phố 6, KTX khu A ĐHQG HCM','0941 523 325','20/2/2016',1950400)
-INSERT into KHACHHANG VALUES ('RC06',N'Trịnh Thị Nở',N'Khu phố 6, KTX khu A ĐHQG HCM','0963 645 445','20/2/2016',2153400)
+INSERT into KHACHHANG VALUES ('RC01',N'Triệu Tuấn Tiến',N'365 Hẻm 24/8, đường Cộng Hòa, Quận 10, thành phố HCM','0915 401 635','1/1/2017',1660000, 'NOR')
+INSERT into KHACHHANG VALUES ('RC02',N'Nguyễn Trung Kiên',N'Khu phố 6, KTX khu A ĐHQG HCM','0777 471 457','29/2/2016',15950000,'VIP')
+INSERT into KHACHHANG VALUES ('RC03',N'Nguyễn Tuấn Kiệt',N'35 hẻm 18/24, phường Linh Trung, thành phố Thủ Đức.','0943 450 960','20/2/2016',10000,'NOR')
+INSERT into KHACHHANG VALUES ('RC04',N'Danny Nguyễn',N'144 hẻm 16/24, phường Linh Trung, thành phố Thủ Đức.','0888 453 945','29/2/2016',30478000,'VIP')
+INSERT into KHACHHANG VALUES ('RC05',N'Nguyễn Phùng Vân',N'Khu phố 6, KTX khu A ĐHQG HCM','0941 523 325','20/2/2016',1950400,'NOR')
+INSERT into KHACHHANG VALUES ('RC06',N'Trịnh Thị Nở',N'Khu phố 6, KTX khu A ĐHQG HCM','0963 645 445','20/2/2016',2153400,'NOR')
 
 INSERT into CALAMVIEC VALUES ('C1S',N'Monday','7:30:00','11:00:00')				
 INSERT into CALAMVIEC VALUES ('C1C',N'Monday','13:30:00','17:00:00')				

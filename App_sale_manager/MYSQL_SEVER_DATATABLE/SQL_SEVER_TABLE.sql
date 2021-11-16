@@ -28,6 +28,7 @@ CREATE TABLE KHACHHANG
 	SDT VARCHAR (15), 
 	NGDK SMALLDATETIME,
 	DOANHSO MONEY,
+	LOAIKH varchar(5),
 	CONSTRAINT PK_KH PRIMARY KEY (KHID)
 )
 
@@ -141,6 +142,24 @@ CREATE TABLE DOANHTHUNGAY
 	DOANHTHU MONEY,
 	TONGCHI MONEY
 	CONSTRAINT PK_DTN PRIMARY KEY (TODAY)
+)
+create table KHUYENMAI
+(
+	TENKM nvarchar(100),
+	DTKM nvarchar(20),
+	LOAIKM nvarchar(20),
+	KMTHEO nvarchar(20),
+	TENDKKM nvarchar(40),
+	NGAYBD smalldatetime,
+	NGAYKT smalldatetime,
+	QUAKEM nvarchar(70),
+	CHUTHICH nvarchar(200),
+	KIEUSALE nvarchar(40),
+	SALE int,
+	SOLUONGHANG smallint,
+	GIAGIAM int,
+	TUDONGXOA smallint,
+	CODIEUKIEN smallint
 )
 
  -- CAC KHOA NGOAI --

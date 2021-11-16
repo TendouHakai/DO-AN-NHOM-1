@@ -308,5 +308,8 @@
   <ItemGroup>
     <None Include="icon\mắt đóng.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Image samples for testing\Đối tác giao dịch\refresh.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

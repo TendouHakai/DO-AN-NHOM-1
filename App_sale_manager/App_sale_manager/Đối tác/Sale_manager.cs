@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace App_sale_manager
 {
-    public delegate void SaleSaveEvent(object sender, EventArgs e, Sale_manager A);
+    
     public partial class Sale_manager : Form
     {
+        public bool is_modify = false;
+        public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        SqlConnection con = new SqlConnection(strCon);
         void Sale_items_addWithProducts()
         {
             comboBox_Condition.Items.Clear();
@@ -55,7 +59,7 @@ namespace App_sale_manager
         {
             InitializeComponent();
         }
-        public event SaleSaveEvent sale_Save;
+        public event EventHandler dataRefresh;
 
         private void comboBox_saleCondition_TextChanged(object sender, EventArgs e)
         {
@@ -76,6 +80,39 @@ namespace App_sale_manager
                 groupBox_sale.Enabled = false;
             else
                 groupBox_sale.Enabled = true;
+        }
+
+        private void openconnect()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+        }
+        public event EventHandler RefreshData;
+        private void closeconnect()
+        {
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+        }
+        public Boolean exedata(string cmd)
+        {
+            openconnect();
+            Boolean check = false;
+            try
+            {
+                SqlCommand sc = new SqlCommand(cmd, con);
+                sc.ExecuteNonQuery();
+                check = true;
+            }
+            catch (Exception)
+            {
+                check = false;
+            }
+            closeconnect();
+            return check;
         }
 
         private void numericUpDown_priceReduced_Click(object sender, EventArgs e)
@@ -115,13 +152,34 @@ namespace App_sale_manager
 
         private void button_quit_Click(object sender, EventArgs e)
         {
+            if (is_modify)
+                button_save_Click(null, null);
             Close();
         }
 
         private void button_save_Click(object sender, EventArgs e)
         {
-            sale_Save(this, e, this);
-            Close();
+            int Tudongxoa = 0, Codieukien = 0;
+            if (checkBox_autoDelete.CheckState == CheckState.Checked)
+                Tudongxoa = 1;
+            if (checkBox_priceCondition.CheckState == CheckState.Checked)
+                Codieukien = 1;
+            string commandline;
+            commandline = "insert into KHUYENMAI values(N'" + textBox_saleName.Text + "', N'" + comboBox_saleObj.Text + "', N'" + comboBox_saleMethod.Text + "', N'"
+                + comboBox_saleCondition.Text + "', N'" + comboBox_Condition.Text + "', '" + dateTimePicker_startDate.Value + "', '" + dateTimePicker_endDate.Value + "', N'"
+                + textBox_gift.Text + "', N'" + textBox_note.Text + "', N'" + comboBox_priceMethod.Text + "', '" + numericUpDown_priceReduced.Value + "', '" + numericUpDown_Condition_Quantity.Value + "', '"
+                + numericUpDown_Condition_price.Value + "', '" + Tudongxoa + "', '" + Codieukien + "')";
+            if (con.State == ConnectionState.Closed)
+                openconnect();
+           if (exedata(commandline))
+            {
+                MessageBox.Show("Thêm thành công.");
+                Close();
+            }
+            else
+                MessageBox.Show("Thêm không thành công");
+            dataRefresh(this, e);
+            
         }
 
         private void comboBox_priceMethod_TextChanged(object sender, EventArgs e)
