@@ -26,11 +26,11 @@ namespace App_sale_manager
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            if(sqlCon==null)
+            if (sqlCon == null)
             {
                 sqlCon = new SqlConnection(strCon);
-            }   
-            if(sqlCon.State==ConnectionState.Closed)
+            }
+            if (sqlCon.State == ConnectionState.Closed)
             {
                 sqlCon.Open();
             }

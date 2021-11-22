@@ -35,14 +35,14 @@ namespace App_sale_manager
             l_MaNhanVien.Text = manhanvien;
             l_LoaiHoaDon.Text = loaihd;
             l_TrangThai.Text = trangthai;
-            l_Tong.Text =tong;
+            l_Tong.Text =string.Format("{0:0,0}",Convert.ToDouble(tong));
 
             sqlCon = new SqlConnection(strCon);
             sqlCon.Open();
             cmd = sqlCon.CreateCommand();
 
 
-            cmd.CommandText = "select TENSP,SL,GIABAN from CTHDBH, SANPHAM where SOHD_BH = '"+mahoadon+"' and SANPHAM.SPID = CTHDBH.SPID " ;
+            cmd.CommandText = "select TENSP,SL,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from CTHDBH, SANPHAM where SOHD_BH = '" + mahoadon+"' and SANPHAM.SPID = CTHDBH.SPID " ;
             var reader =  cmd.ExecuteReader();
             
             while(reader.Read())
@@ -50,7 +50,7 @@ namespace App_sale_manager
                 DataGridViewRow row = (DataGridViewRow)DGV_CTHD.Rows[0].Clone();
                 row.Cells[0].Value = reader.GetString(0);
                 row.Cells[1].Value = reader.GetByte(1).ToString();
-                row.Cells[2].Value = reader.GetDecimal(2).ToString();
+                row.Cells[2].Value = reader.GetString(2);
                 DGV_CTHD.Rows.Add(row);
             }
 

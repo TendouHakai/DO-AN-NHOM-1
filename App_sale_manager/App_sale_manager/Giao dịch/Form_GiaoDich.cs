@@ -61,15 +61,18 @@ namespace App_sale_manager
 
             }
 
-            DTP_NGHD.Value = DateTime.Today;
-            cmd.CommandText = "Select SPID, TENSP ,GIABAN from SANPHAM";
+            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from SANPHAM";
             adapter.SelectCommand = cmd;
             table = new DataTable();
             adapter.Fill(table);
             DGV_LuaChon.DataSource = table;
 
-            Box_LoaiHD.Text = "DTT";
-            Box_TrangThai.Text = "HOANTAT";
+            DGV_LuaChon.Columns[0].HeaderText = "Mã sản phẩm";
+            DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
+            DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
+
+            Box_LoaiHD.Text = "Đơn trực tiếp";
+            Box_TrangThai.Text = "Đơn đặt hàng";
 
         }
 
@@ -124,11 +127,15 @@ namespace App_sale_manager
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             table = new DataTable();
-            cmd.CommandText = "Select SPID, TENSP ,GIABAN from SANPHAM WHERE (SPID like '%"+Box_MASP.Text+ "%' and TENSP like '%" + Box_TenSP.Text + "%')";
+            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from SANPHAM WHERE (SPID like '%" + Box_MASP.Text+ "%' and TENSP like '%" + Box_TenSP.Text + "%')";
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
             DGV_LuaChon.DataSource = table;
+
+            DGV_LuaChon.Columns[0].HeaderText = "Mã sản phẩm";
+            DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
+            DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
         }
         private void bnt_xoaSP_Click(object sender, EventArgs e)
         {
@@ -160,15 +167,13 @@ namespace App_sale_manager
                 MessageBox.Show("vui long nhap day du du lieu");
                 return;
             }
-
-            DateTime dt = DTP_NGHD.Value;
-            string x = dt.ToShortDateString();
+            string x = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
             cmd.CommandText = "set dateformat dmy";
             adapter.SelectCommand = cmd;
             try
             {
                 
-                cmd.CommandText = "set dateformat dmy insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_Tong.Text + "','" + Box_LoaiHD.Text + "','" + Box_TrangThai.Text + "') ";
+                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_Tong.Text + "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
                 cmd.ExecuteNonQuery();
                 foreach (DataGridViewRow i in CT_HD.Rows)
                 {
@@ -181,12 +186,12 @@ namespace App_sale_manager
                     cmd.CommandText = "insert into CTHDBH values ('" + Box_IDHD.Text + "','" + i.Cells[0].Value + "','" + i.Cells[3].Value + "')";
                     cmd.ExecuteNonQuery();
                 }
-                if (Box_LoaiHD.SelectedItem.ToString() == "DTT")
+                if (Box_LoaiHD.SelectedItem.ToString() == "Đơn trực tiếp")
                 {
                     DialogResult dialogResult = MessageBox.Show("In hóa đơn không ?", "Yes/No ?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        Form_CTHD cthd = new Form_CTHD(Box_IDHD.Text, Box_IDKH.Text, Box_IDNV.Text, Box_LoaiHD.Text, Box_TrangThai.Text, Box_Tong.Text);
+                        Form_CTHD cthd = new Form_CTHD(Box_IDHD.Text ,Box_IDKH.Text, Box_IDNV.Text, Box_LoaiHD.Text, Box_TrangThai.Text, Box_Tong.Text);
                         cthd.Show();
                     }
                 }
@@ -209,13 +214,13 @@ namespace App_sale_manager
 
         private void Box_LoaiHD_TextChanged(object sender, EventArgs e)
         {
-            if(Box_LoaiHD.Text =="DTT")
+            if(Box_LoaiHD.Text =="Đơn trực tiếp")
             {
-                Box_TrangThai.Text = "HOANTAT";
+                Box_TrangThai.Text = "Hoàn thành";
             }
             else
             {
-                Box_TrangThai.Text = "NHANDON";
+                Box_TrangThai.Text = "Nhận đơn";
             }
         }
         private void Box_IDKH_TextChanged(object sender, EventArgs e)
@@ -254,17 +259,19 @@ namespace App_sale_manager
 
         private void DGV_LuaChon_SelectionChanged(object sender, EventArgs e)
         {
+            if (DGV_LuaChon.CurrentRow == null)
+                return;
+
             try
             {
                 PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\" + DGV_LuaChon.CurrentRow.Cells[0].Value + ".jpg");
                 PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\No Image.jpg");
                 PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
-
     }
 }
