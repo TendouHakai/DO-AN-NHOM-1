@@ -79,11 +79,11 @@ namespace App_sale_manager
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT COUNT(SOHD_BH) AS SL, SUM(TRIGIA) AS TRIGIA"
                                 +" FROM HDBH"
-                                +" WHERE LOAIHD = 'DTT' AND NVID = '"+NVID+"' AND NGHD = '"+date.ToString("d")+"'"
+                                +" WHERE LOAIHD = 'DTT' AND NVID = '"+NVID+"' AND NGHD = '"+date.ToString("MM/dd/yyyy")+"'"
                                 +" UNION"
                                 +" SELECT COUNT(SOHD_BH), SUM(TRIGIA)"
                                 +" FROM HDBH"
-                                +" WHERE LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT' AND NVID = '"+NVID+"' AND NGHD = '"+date.ToString("d")+"'";
+                                +" WHERE LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT' AND NVID = '"+NVID+"' AND NGHD = '"+date.ToString("MM/dd/yyyy")+"'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -91,9 +91,10 @@ namespace App_sale_manager
             try
             {
                 txt_tongquan_slhdbh.Text = table.Rows[0]["SL"].ToString();
-                txt_tongquan_trigiabh.Text = table.Rows[0]["TRIGIA"].ToString();
-                if (txt_tongquan_trigiabh.Text == "")
+                if (table.Rows[0]["TRIGIA"].ToString() == "")
                     txt_tongquan_trigiabh.Text = "0";
+                else txt_tongquan_trigiabh.Text = String.Format("{0:0,0}", table.Rows[0]["TRIGIA"]);
+
             }
             catch(Exception)
             {
@@ -103,16 +104,23 @@ namespace App_sale_manager
             try
             {
                 txt_tongquan_slhddh.Text = table.Rows[1]["SL"].ToString();
-                txt_tongquan_trigiadh.Text = table.Rows[1]["TRIGIA"].ToString();
-                if (txt_tongquan_trigiadh.Text == "")
+                if (table.Rows[1]["TRIGIA"].ToString() == "")
                     txt_tongquan_trigiadh.Text = "0";
+                else txt_tongquan_trigiadh.Text = string.Format("{0:0,0}", table.Rows[1]["TRIGIA"]);
             }
             catch
             {
                 txt_tongquan_slhddh.Text = "0";
                 txt_tongquan_trigiadh.Text = "0";
             }
-            txt_tongquan_dsNgay.Text = (Convert.ToDouble(txt_tongquan_trigiabh.Text) + Convert.ToDouble(txt_tongquan_trigiadh.Text)).ToString();
+            try
+            {
+                txt_tongquan_dsNgay.Text = string.Format("{0:0,0}", (Convert.ToDouble(table.Rows[0]["TRIGIA"]) + Convert.ToDouble(table.Rows[0]["TRIGIA"])));
+            }
+            catch(Exception)
+            {
+                txt_tongquan_dsNgay.Text = "0";
+            }
             sqlCon.Close();
         }
         void load_tongquan_dsThang()
@@ -164,11 +172,11 @@ namespace App_sale_manager
             try
             {
                 lbl_tongquan_ten1.Text = table.Rows[0]["HOTEN"].ToString();
-                txt_tongquan_ds1.Text = Convert.ToDouble(table.Rows[0]["DOANHSO"]).ToString();
+                txt_tongquan_ds1.Text = string.Format("{0:0,0}", Convert.ToDouble(table.Rows[0]["DOANHSO"]));
                 lbl_tongquan_ten2.Text = table.Rows[1]["HOTEN"].ToString();
-                txt_tongquan_ds2.Text = Convert.ToDouble(table.Rows[1]["DOANHSO"]).ToString();
+                txt_tongquan_ds2.Text = string.Format("{0:0,0}", Convert.ToDouble(table.Rows[1]["DOANHSO"]));
                 lbl_tongquan_ten3.Text = table.Rows[2]["HOTEN"].ToString();
-                txt_tongquan_ds3.Text = Convert.ToDouble(table.Rows[1]["DOANHSO"]).ToString();
+                txt_tongquan_ds3.Text = string.Format("{0:0,0}", Convert.ToDouble(table.Rows[1]["DOANHSO"]));
             }
             catch(Exception)
             {
@@ -189,7 +197,7 @@ namespace App_sale_manager
             while(reader.Read())
             {
                 lbl_tongquan_ten0.Text = reader.GetString(0);
-                txt_tongquan_ds0.Text = reader.GetString(1);
+                txt_tongquan_ds0.Text = string.Format("{0:0,0}", Convert.ToDouble(reader.GetString(1)));
             }
             reader.Close();
             sqlCon.Close();
@@ -201,7 +209,7 @@ namespace App_sale_manager
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT HDBH.NVID, HOTEN, SUM(TRIGIA) AS DOANHSO"
                                 + " FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID"
-                                + " WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD = '" + date.ToString("d") + "'"
+                                + " WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD = '" + date.ToString("MM/dd/yyyy") + "'"
                                 + " GROUP BY HDBH.NVID, HOTEN"
                                 + " ORDER BY DOANHSO DESC";
             adapter.SelectCommand = cmd;
@@ -417,7 +425,7 @@ namespace App_sale_manager
             reader.Close();
             // tô màu cho ngày đã làm và ngày nghỉ
             List<string> CAIDS = new List<string>();
-            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='"+NVID+ "' AND TRANGTHAI = N'Đã điểm danh' AND NGAYLAM >='"+begin.ToString("d")+"' AND NGAYLAM <='"+today.ToString("d")+"'";
+            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='"+NVID+ "' AND TRANGTHAI = N'Đã điểm danh' AND NGAYLAM >='"+begin.ToString("MM/dd/yyyy")+"' AND NGAYLAM <='"+today.ToString("MM/dd/yyyy")+"'";
             reader = cmd.ExecuteReader();
             while(reader.Read())
             {
@@ -461,7 +469,7 @@ namespace App_sale_manager
             }
             reader.Close();
             CAIDS.Clear();
-            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Chưa điểm danh' AND NGAYLAM >='" + begin.ToString("d") + "' AND NGAYLAM <='" + today.ToString("d") + "'";
+            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Chưa điểm danh' AND NGAYLAM >='" + begin.ToString("MM/dd/yyyy") + "' AND NGAYLAM <='" + today.ToString("MM/dd/yyyy") + "'";
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -516,14 +524,14 @@ namespace App_sale_manager
             {
                 cmd.CommandText = "SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC_HANGTUAN WHERE NVID = '"+NVID+"'AND SUBSTRING(CAID,2,1) = '"+((int)i.DayOfWeek)+"'"
                                 + " EXCEPT"
-                                + " SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC WHERE NVID='"+NVID+"' AND NGAYLAM = '"+i.ToString("d")+"'";
+                                + " SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC WHERE NVID='"+NVID+"' AND NGAYLAM = '"+i.ToString("MM/dd/yyyy")+"'";
                 DataTable table = new DataTable();
                 table.Clear();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(table);
                 for(int j =0; j<table.Rows.Count; j++)
                 {
-                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("d") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
+                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
                     cmd.ExecuteNonQuery();
                 }    
             }

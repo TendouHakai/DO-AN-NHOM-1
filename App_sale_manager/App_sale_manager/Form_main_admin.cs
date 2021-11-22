@@ -109,7 +109,11 @@ namespace App_sale_manager
             DataTable table = new DataTable();
             table.Clear();
             adapter.Fill(table);
-            dgv_HoaDon.DataSource = table;
+            txtSoHD.Text = table.Rows[0]["SoHoaDon"].ToString();
+            if (table.Rows[0]["DoanhThu"].ToString() == "")
+                txtTrigiaHD.Text = "0";
+            else
+                txtTrigiaHD.Text = String.Format("{0:0,0}", Convert.ToDouble(table.Rows[0]["DoanhThu"]));
             sqlCon.Close();
         }
         void load_gv_DonDatHang()
@@ -124,7 +128,11 @@ namespace App_sale_manager
             DataTable table = new DataTable();
             table.Clear();
             adapter.Fill(table);
-            dgv_DonDatHang.DataSource = table;
+            txtSoDDH.Text = table.Rows[0]["SoDonDatHang"].ToString();
+            if (table.Rows[0]["DoanhThu"].ToString() == "")
+                txtTrigiaDDH.Text = "0";
+            else
+                txtTrigiaDDH.Text = String.Format("{0:0,0}", Convert.ToDouble(table.Rows[0]["DoanhThu"].ToString()));
             sqlCon.Close();
         }
         void load_chart_doanhthuthang()
@@ -184,18 +192,25 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            cmd.CommandText = "SELECT NHANVIEN.HOTEN, HDBH.SOHD_BH, NGHD, TRIGIA, LOAIHD FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID WHERE NGHD>='" + date.AddDays(-5).ToString("d") + "' ORDER BY NGHD DESC";
+            cmd.CommandText = "SELECT NHANVIEN.HOTEN, HDBH.SOHD_BH, NGHD, TRIGIA, LOAIHD FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID WHERE NGHD>='" + date.AddDays(-5).ToString("MM/dd/yyyy") +"'"
+                            + " UNION"
+                            + " SELECT NHANVIEN.HOTEN, HDNH.SOHD_NH, NGNHAP, TRIGIA, LOAIHD = 'DNH' FROM HDNH INNER JOIN NHANVIEN ON HDNH.NVID = NHANVIEN.NVID WHERE NGNHAP>='" + date.AddDays(-5).ToString("MM/dd/yyyy") + "'"
+                            + " ORDER BY NGHD DESC";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
             adapter.Fill(table);
             listView_hanhdong.Clear();
+            
             for (int i = 0; i < table.Rows.Count; i++)
             {
+                string Trigia = String.Format("{0:0,0}", Convert.ToInt32(table.Rows[i]["TRIGIA"]));
                 if (table.Rows[i]["LOAIHD"].Equals("DTT"))
-                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Convert.ToDouble(table.Rows[i]["TRIGIA"]) + " vào ngày " + table.Rows[i]["NGHD"]);
+                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
+                else if(table.Rows[i]["LOAIHD"].Equals("DDH"))
+                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn đặt hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
                 else
-                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn đặt hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Convert.ToDouble(table.Rows[i]["TRIGIA"]) + " vào ngày " + table.Rows[i]["NGHD"]);
+                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa nhập 1 đơn hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
             }
         }
         void load_tab_Tongquan()
@@ -234,7 +249,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             string day = dtp_bc_time.Value.ToString("MM/dd/yyyy");
-            cmd.CommandText = "SELECT * FROM HDBH WHERE HDBH.NGHD='" + day + "' ORDER BY HDBH.LOAIHD DESC";
+            cmd.CommandText = "SELECT SOHD_BH AS 'Số hóa đơn', NGHD as 'Ngày mua', KHID as 'Mã khách hàng', NVID as 'Mã nhân viên', REPLACE(CONVERT(varchar(20), TRIGIA, 1), '.00', '') as 'Trị giá', LOAIHD as 'Loại hóa đơn', TRANGTHAI as 'Trạng thái' FROM HDBH WHERE HDBH.NGHD='" + day + "' ORDER BY HDBH.LOAIHD DESC";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -254,8 +269,8 @@ namespace App_sale_manager
                 textBox_bcCuoingay1.Text = Convert.ToDouble(table1.Rows[0]["TONGTIEN"]).ToString();
             else
             {
-                textBox_bcCuoingay1.Text = Convert.ToDouble(table1.Rows[0]["TONGTIEN"]).ToString();
-                textBox_bcCuoingay2.Text = Convert.ToDouble(table1.Rows[1]["TONGTIEN"]).ToString();
+                textBox_bcCuoingay1.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["TONGTIEN"]).ToString()); 
+                textBox_bcCuoingay2.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[1]["TONGTIEN"]).ToString());
             }
             cmd.CommandText = "SELECT SUM(TRIGIA) AS TONG FROM HDBH WHERE (LOAIHD='DTT' OR (LOAIHD='DDH' AND TRANGTHAI='HOANTAT')) AND NGHD='" + day + "'";
             adapter.SelectCommand = cmd;
@@ -272,7 +287,7 @@ namespace App_sale_manager
             }
             else
             {
-                textBox_bcCuoingay3.Text = Convert.ToDouble(table2.Rows[0]["TONG"]).ToString();
+                textBox_bcCuoingay3.Text = String.Format("{0:0,0}", Convert.ToDouble(table2.Rows[0]["TONG"]).ToString());
             }
 
             sqlCon.Close();
@@ -283,7 +298,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             string day = dtp_bc_time.Value.ToString("MM/dd/yyyy");
-            cmd.CommandText = "SELECT * FROM HDNH WHERE NGNHAP= '" + day + "'";
+            cmd.CommandText = "SELECT SOHD_NH as 'Số hóa đơn', NGNHAP as 'Ngày nhập', DTID as 'Mã đối tác', NVID as 'Mã nhân viên', REPLACE(CONVERT(varchar(20), TRIGIA, 1), '.00', '') as 'Trị giá' FROM HDNH WHERE NGNHAP= '" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -305,7 +320,7 @@ namespace App_sale_manager
             }
             else
             {
-                textBox_bcCuoingay1.Text = Convert.ToDouble(table1.Rows[0]["TONG"]).ToString();
+                textBox_bcCuoingay1.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["TONG"]));
             }
             sqlCon.Close();
         }
@@ -333,7 +348,7 @@ namespace App_sale_manager
             textBox_bcCuoingay3.Hide();
             if (table1.Rows[0]["DOANHTHU"].ToString() == "")
                 textBox_bcCuoingay1.Text = "0";
-            else textBox_bcCuoingay1.Text = Convert.ToDouble(table1.Rows[0]["DOANHTHU"]).ToString();
+            else textBox_bcCuoingay1.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["DOANHTHU"]));
             sqlCon.Close();
         }
         private void rBtn_bc_qt1_CheckedChanged(object sender, EventArgs e)
@@ -386,18 +401,18 @@ namespace App_sale_manager
             adapter.Fill(table1);
             if (table1.Rows[0]["TONGTHU"].ToString() == "")
                 textBox_bc_Doanhthu_thu.Text = "0";
-            else textBox_bc_Doanhthu_thu.Text = Convert.ToDouble(table1.Rows[0]["TONGTHU"]).ToString();
+            else textBox_bc_Doanhthu_thu.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["TONGTHU"]));
             if (table1.Rows[0]["TONGCHI"].ToString() == "")
                 textBox_bc_Doanhthu_chi.Text = "0";
-            else textBox_bc_Doanhthu_chi.Text = Convert.ToDouble(table1.Rows[0]["TONGCHI"]).ToString();
-            cmd.CommandText = "SELECT (TONGTHU-TONGCHI) AS DOANHTHU FROM (SELECT SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = '')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " UNION SELECT THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K) AS H";
+            else textBox_bc_Doanhthu_chi.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["TONGCHI"]));
+            cmd.CommandText = "SELECT (TONGTHU-TONGCHI) AS DOANHTHU FROM (SELECT SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " UNION SELECT THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K) AS H";
             adapter.SelectCommand = cmd;
             DataTable table2 = new DataTable();
             table2.Clear();
             adapter.Fill(table2);
             if (table2.Rows[0]["DOANHTHU"].ToString() == "")
                 textBox_bc_Doanhthu_doanhthu.Text = "0";
-            else textBox_bc_Doanhthu_doanhthu.Text = Convert.ToDouble(table2.Rows[0]["DOANHTHU"]).ToString();
+            else textBox_bc_Doanhthu_doanhthu.Text = String.Format("{0:0,0}", Convert.ToDouble(table2.Rows[0]["DOANHTHU"]));
             sqlCon.Close();
         }
         void event_bc_DoanhThu_TheoQuy()
@@ -541,7 +556,7 @@ namespace App_sale_manager
 
             textBox_bc_nv_kq1.Text = table.Rows[0]["MANV"].ToString();
             textBox_bc_nv_kq2.Text = table.Rows[0]["HOTEN"].ToString();
-            textBox_bc_nv_kq3.Text = Convert.ToDouble(table.Rows[0]["DOANHSO"]).ToString();
+            textBox_bc_nv_kq3.Text = String.Format("{0:0,0}", Convert.ToDouble(table.Rows[0]["DOANHSO"]));
 
             sqlCon.Close();
         }
@@ -578,7 +593,7 @@ namespace App_sale_manager
             }
             textBox_bc_nv_kq1.Text = table.Rows[0]["MANV"].ToString();
             textBox_bc_nv_kq2.Text = table.Rows[0]["HOTEN"].ToString();
-            textBox_bc_nv_kq3.Text = Convert.ToDouble(table.Rows[0]["DOANHSO"]).ToString();
+            textBox_bc_nv_kq3.Text = String.Format("{0:0,0}", Convert.ToDouble(table.Rows[0]["DOANHSO"]).ToString());
 
             sqlCon.Close();
         }
@@ -935,7 +950,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "SELECT CT_LAMVIEC.NVID, HOTEN, CV, CAID, TIEUDE, CHEDO FROM CT_LAMVIEC INNER JOIN NHANVIEN ON CT_LAMVIEC.NVID = NHANVIEN.NVID WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "' "
+            cmd.CommandText = "SELECT CT_LAMVIEC.NVID, HOTEN, CV, CAID, TIEUDE, CHEDO FROM CT_LAMVIEC INNER JOIN NHANVIEN ON CT_LAMVIEC.NVID = NHANVIEN.NVID WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("MM/dd/yyyy") + "' "
                                 + "UNION "
                                 + "SELECT CT_LAMVIEC_HANGTUAN.NVID, HOTEN, CV, CT_LAMVIEC_HANGTUAN.CAID, TIEUDE, CHEDO = N'Lặp lại' "
                                 + "FROM CT_LAMVIEC_HANGTUAN, NHANVIEN, CALAMVIEC "
