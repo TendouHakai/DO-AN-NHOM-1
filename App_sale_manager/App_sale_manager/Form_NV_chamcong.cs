@@ -76,7 +76,7 @@ namespace App_sale_manager
                 column.Image = Image.FromFile("../../icon/ảnh trắng.jpg");
                 column.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 dataGridView1.Columns.Add(column);
-                cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND NGAYLAM = '" + i.ToString("d") + "' AND TRANGTHAI=N'Đã điểm danh'";
+                cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND NGAYLAM = '" + i.ToString("MM/dd/yyyy") + "' AND TRANGTHAI=N'Đã điểm danh'";
                 adapter.SelectCommand = cmd;
                 DataTable table = new DataTable();
                 table.Clear();
@@ -96,7 +96,7 @@ namespace App_sale_manager
                             break;
                     }
                 }
-                cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND NGAYLAM = '" + i.ToString("d") + "' AND TRANGTHAI=N'Chưa điểm danh'";
+                cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND NGAYLAM = '" + i.ToString("MM/dd/yyyy") + "' AND TRANGTHAI=N'Chưa điểm danh'";
                 adapter.SelectCommand = cmd;
                 table.Rows.Clear();
                 adapter.Fill(table);

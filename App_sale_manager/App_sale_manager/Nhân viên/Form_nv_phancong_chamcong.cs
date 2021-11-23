@@ -70,14 +70,14 @@ namespace App_sale_manager
             {
                 cmd.CommandText = "SELECT NVID, CAID FROM CT_LAMVIEC_HANGTUAN WHERE SUBSTRING(CAID,2,1) = '" + ((int)i.DayOfWeek) + "'"
                                + " EXCEPT"
-                               + " SELECT NVID, CAID FROM CT_LAMVIEC WHERE NGAYLAM = '" + i.ToString("d") + "'";
+                               + " SELECT NVID, CAID FROM CT_LAMVIEC WHERE NGAYLAM = '" + i.ToString("MM/dd/yyyy") + "'";
                 DataTable table = new DataTable();
                 table.Clear();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(table);
                 for (int j = 0; j < table.Rows.Count; j++)
                 {
-                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + table.Rows[j]["NVID"] + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("d") + "', N'Chưa điểm danh',N'Lặp lại',N'Lịch làm việc hàng tuần')";
+                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + table.Rows[j]["NVID"] + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'Lịch làm việc hàng tuần')";
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -228,7 +228,7 @@ namespace App_sale_manager
             {
                 for(int j =0; j<n; j++)
                 {
-                    cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '"+dataGridView1.Rows[j].Cells[0].Value.ToString()+"' AND NGAYLAM = '"+i.ToString("d")+"' AND TRANGTHAI = N'Đã điểm danh'";
+                    cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '"+dataGridView1.Rows[j].Cells[0].Value.ToString()+"' AND NGAYLAM = '"+i.ToString("MM/dd/yyyy")+"' AND TRANGTHAI = N'Đã điểm danh'";
                     var reader = cmd.ExecuteReader();
                     while(reader.Read())
                     {
@@ -246,7 +246,7 @@ namespace App_sale_manager
                         }
                     }
                     reader.Close();
-                    cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + dataGridView1.Rows[j].Cells[0].Value.ToString() + "' AND NGAYLAM = '" + i.ToString("d") + "' AND TRANGTHAI = N'Chưa điểm danh'";
+                    cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + dataGridView1.Rows[j].Cells[0].Value.ToString() + "' AND NGAYLAM = '" + i.ToString("MM/dd/yyyy") + "' AND TRANGTHAI = N'Chưa điểm danh'";
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
