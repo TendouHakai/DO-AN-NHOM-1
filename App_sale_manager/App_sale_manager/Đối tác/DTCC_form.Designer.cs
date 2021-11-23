@@ -151,9 +151,9 @@ namespace App_sale_manager
             this.button_DTCC_Accept.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button_DTCC_Accept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_DTCC_Accept.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_DTCC_Accept.Location = new System.Drawing.Point(285, 476);
+            this.button_DTCC_Accept.Location = new System.Drawing.Point(285, 469);
             this.button_DTCC_Accept.Name = "button_DTCC_Accept";
-            this.button_DTCC_Accept.Size = new System.Drawing.Size(75, 23);
+            this.button_DTCC_Accept.Size = new System.Drawing.Size(75, 30);
             this.button_DTCC_Accept.TabIndex = 10;
             this.button_DTCC_Accept.Text = "Đồng Ý";
             this.button_DTCC_Accept.UseVisualStyleBackColor = false;
@@ -164,9 +164,9 @@ namespace App_sale_manager
             this.button_DTCC_Reject.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button_DTCC_Reject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_DTCC_Reject.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_DTCC_Reject.Location = new System.Drawing.Point(377, 476);
+            this.button_DTCC_Reject.Location = new System.Drawing.Point(377, 469);
             this.button_DTCC_Reject.Name = "button_DTCC_Reject";
-            this.button_DTCC_Reject.Size = new System.Drawing.Size(75, 23);
+            this.button_DTCC_Reject.Size = new System.Drawing.Size(75, 30);
             this.button_DTCC_Reject.TabIndex = 11;
             this.button_DTCC_Reject.Text = "Hủy";
             this.button_DTCC_Reject.UseVisualStyleBackColor = false;
@@ -200,7 +200,7 @@ namespace App_sale_manager
             this.button_Image_import.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Image_import.Location = new System.Drawing.Point(208, 168);
             this.button_Image_import.Name = "button_Image_import";
-            this.button_Image_import.Size = new System.Drawing.Size(75, 23);
+            this.button_Image_import.Size = new System.Drawing.Size(75, 25);
             this.button_Image_import.TabIndex = 14;
             this.button_Image_import.Text = "Chọn ảnh";
             this.button_Image_import.UseVisualStyleBackColor = false;
@@ -216,7 +216,7 @@ namespace App_sale_manager
             // 
             // dateTimePicker_NGDT_z
             // 
-            this.dateTimePicker_NGDT_z.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_NGDT_z.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dateTimePicker_NGDT_z.Location = new System.Drawing.Point(208, 101);
             this.dateTimePicker_NGDT_z.Name = "dateTimePicker_NGDT_z";
             this.dateTimePicker_NGDT_z.Size = new System.Drawing.Size(200, 20);

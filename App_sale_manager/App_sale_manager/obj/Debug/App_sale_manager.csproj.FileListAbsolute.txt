@@ -23,7 +23,6 @@ D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\A
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.Form_main_admin.resources
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.Form_main_NV.resources
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.Form_nv_phancong_themlich.resources
-D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.SaleDeleter.resources
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.Sale_manager.resources
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.Sale_viewer.resources
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.csproj.GenerateResource.cache

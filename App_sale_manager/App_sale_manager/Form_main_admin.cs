@@ -1375,14 +1375,16 @@ namespace App_sale_manager
         }
 
         private void dataGridView_DTCC_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {            
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView_DTCC.Rows[e.RowIndex];
+                DateTime Date = new DateTime();
                 label_IDtext.Text = row.Cells[0].Value.ToString();
                 label_TENDTtext.Text = row.Cells[1].Value.ToString();
                 label_SDTtext.Text = row.Cells[2].Value.ToString();
-                label_NGDTtext.Text = row.Cells[3].Value.ToString();
+                Date = Convert.ToDateTime(row.Cells[3].Value.ToString());
+                label_NGDTtext.Text = Date.ToString("dd/MM/yyyy HH:mm:ss");
                 label_DIACHItext.Text = row.Cells[4].Value.ToString();
                 string filepath = @"Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg";
                 if (File.Exists(filepath))
@@ -1493,6 +1495,7 @@ namespace App_sale_manager
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView_dtcc_guest.Rows[e.RowIndex];
+                DateTime Date = new DateTime();
                 string loaiKH = row.Cells[6].Value.ToString();
                 if (string.IsNullOrEmpty(loaiKH) != true)
                     if (loaiKH == "NOR")
@@ -1502,7 +1505,8 @@ namespace App_sale_manager
                 label_guestID_Text.Text = row.Cells[0].Value.ToString();
                 label_guestName_Text.Text = row.Cells[1].Value.ToString();
                 label_guestSDT_Text.Text = row.Cells[3].Value.ToString();
-                label_guestReg_Text.Text = row.Cells[4].Value.ToString();
+                Date = Convert.ToDateTime(row.Cells[4].Value.ToString());
+                label_guestReg_Text.Text = Date.ToString("dd/MM/yyyy HH:mm:ss");
                 label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
                 label_guestMoney_Text.Text = row.Cells[5].Value.ToString();
                 string filepath = @"Image samples for testing\Khách hàng đăng kí\" + label_guestName_Text.Text + ".jpg";

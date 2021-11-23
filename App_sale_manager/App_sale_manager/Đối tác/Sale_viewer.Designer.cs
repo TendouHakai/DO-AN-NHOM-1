@@ -46,8 +46,10 @@ namespace App_sale_manager
             this.label2 = new System.Windows.Forms.Label();
             this.listBox_VIP_waiting = new System.Windows.Forms.ListBox();
             this.button_saleDelete = new System.Windows.Forms.Button();
+            this.dataGridView_sale = new System.Windows.Forms.DataGridView();
             this.groupBox_forNOR.SuspendLayout();
             this.groupBox_forVIP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_sale)).BeginInit();
             this.SuspendLayout();
             // 
             // button_quit
@@ -112,6 +114,7 @@ namespace App_sale_manager
             this.listBox_NOR_ended.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listBox_NOR_ended.Size = new System.Drawing.Size(398, 84);
             this.listBox_NOR_ended.TabIndex = 5;
+            this.listBox_NOR_ended.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_NOR_ended_MouseClick);
             this.listBox_NOR_ended.DoubleClick += new System.EventHandler(this.listBox_NOR_ended_DoubleClick);
             this.listBox_NOR_ended.Leave += new System.EventHandler(this.listBox_NOR_ended_Leave);
             // 
@@ -135,6 +138,7 @@ namespace App_sale_manager
             this.listBox_NOR_waiting.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listBox_NOR_waiting.Size = new System.Drawing.Size(398, 84);
             this.listBox_NOR_waiting.TabIndex = 3;
+            this.listBox_NOR_waiting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_NOR_waiting_MouseClick);
             this.listBox_NOR_waiting.DoubleClick += new System.EventHandler(this.listBox_NOR_waiting_DoubleClick);
             this.listBox_NOR_waiting.Leave += new System.EventHandler(this.listBox_NOR_waiting_Leave);
             // 
@@ -158,6 +162,7 @@ namespace App_sale_manager
             this.listBox_NOR_ongoing.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listBox_NOR_ongoing.Size = new System.Drawing.Size(398, 84);
             this.listBox_NOR_ongoing.TabIndex = 1;
+            this.listBox_NOR_ongoing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_NOR_ongoing_MouseClick);
             this.listBox_NOR_ongoing.DoubleClick += new System.EventHandler(this.listBox_NOR_ongoing_DoubleClick);
             this.listBox_NOR_ongoing.Leave += new System.EventHandler(this.listBox_NOR_ongoing_Leave);
             // 
@@ -197,6 +202,7 @@ namespace App_sale_manager
             this.listBox_VIP_ongoing.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listBox_VIP_ongoing.Size = new System.Drawing.Size(398, 84);
             this.listBox_VIP_ongoing.TabIndex = 7;
+            this.listBox_VIP_ongoing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_VIP_ongoing_MouseClick);
             this.listBox_VIP_ongoing.DoubleClick += new System.EventHandler(this.listBox_VIP_ongoing_DoubleClick);
             this.listBox_VIP_ongoing.Leave += new System.EventHandler(this.listBox_VIP_ongoing_Leave);
             // 
@@ -210,6 +216,7 @@ namespace App_sale_manager
             this.listBox_VIP_ended.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listBox_VIP_ended.Size = new System.Drawing.Size(398, 84);
             this.listBox_VIP_ended.TabIndex = 11;
+            this.listBox_VIP_ended.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_VIP_ended_MouseClick);
             this.listBox_VIP_ended.DoubleClick += new System.EventHandler(this.listBox_VIP_ended_DoubleClick);
             this.listBox_VIP_ended.Leave += new System.EventHandler(this.listBox_VIP_ended_Leave);
             // 
@@ -243,6 +250,7 @@ namespace App_sale_manager
             this.listBox_VIP_waiting.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listBox_VIP_waiting.Size = new System.Drawing.Size(398, 84);
             this.listBox_VIP_waiting.TabIndex = 9;
+            this.listBox_VIP_waiting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_VIP_waiting_MouseClick);
             this.listBox_VIP_waiting.DoubleClick += new System.EventHandler(this.listBox_VIP_waiting_DoubleClick);
             this.listBox_VIP_waiting.Leave += new System.EventHandler(this.listBox_VIP_waiting_Leave);
             // 
@@ -259,12 +267,26 @@ namespace App_sale_manager
             this.button_saleDelete.UseVisualStyleBackColor = false;
             this.button_saleDelete.Click += new System.EventHandler(this.button_saleDelete_Click);
             // 
+            // dataGridView_sale
+            // 
+            this.dataGridView_sale.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_sale.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView_sale.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView_sale.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView_sale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_sale.Location = new System.Drawing.Point(1, 615);
+            this.dataGridView_sale.Name = "dataGridView_sale";
+            this.dataGridView_sale.ReadOnly = true;
+            this.dataGridView_sale.Size = new System.Drawing.Size(15, 20);
+            this.dataGridView_sale.TabIndex = 10;
+            // 
             // Sale_viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(956, 635);
+            this.Controls.Add(this.dataGridView_sale);
             this.Controls.Add(this.button_saleDelete);
             this.Controls.Add(this.groupBox_forVIP);
             this.Controls.Add(this.groupBox_forNOR);
@@ -277,6 +299,7 @@ namespace App_sale_manager
             this.groupBox_forNOR.PerformLayout();
             this.groupBox_forVIP.ResumeLayout(false);
             this.groupBox_forVIP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_sale)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,7 +310,6 @@ namespace App_sale_manager
         private System.Windows.Forms.GroupBox groupBox_forNOR;
         private System.Windows.Forms.Label label_NOR_ongoing;
         private System.Windows.Forms.ListBox listBox_NOR_ongoing;
-        private System.Windows.Forms.DataGridView dataGridView_sale;
         private System.Windows.Forms.GroupBox groupBox_forVIP;
         private System.Windows.Forms.Label label_NOR_end;
         private System.Windows.Forms.ListBox listBox_NOR_ended;
@@ -300,5 +322,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox_VIP_waiting;
         private System.Windows.Forms.Button button_saleDelete;
+        private System.Windows.Forms.DataGridView dataGridView_sale;
     }
 }

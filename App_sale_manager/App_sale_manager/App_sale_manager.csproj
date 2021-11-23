@@ -179,12 +179,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Đối tác\Sale.cs" />
-    <Compile Include="Đối tác\SaleDeleter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Đối tác\SaleDeleter.Designer.cs">
-      <DependentUpon>SaleDeleter.cs</DependentUpon>
-    </Compile>
     <Compile Include="Đối tác\Sale_manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,9 +256,6 @@
       <DependentUpon>Form_nv_phancong_themlich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Đối tác\SaleDeleter.resx">
-      <DependentUpon>SaleDeleter.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Đối tác\Sale_manager.resx">
       <DependentUpon>Sale_manager.cs</DependentUpon>
     </EmbeddedResource>
