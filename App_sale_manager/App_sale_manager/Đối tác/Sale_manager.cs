@@ -14,7 +14,6 @@ namespace App_sale_manager
     
     public partial class Sale_manager : Form
     {
-        public bool is_modify = false;
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlConnection con = new SqlConnection(strCon);
         void Sale_items_addWithProducts()
@@ -23,12 +22,11 @@ namespace App_sale_manager
             comboBox_Condition.Items.Add("Laptop - Macbook");
             comboBox_Condition.Items.Add("Chuột - Bàn phím");
             comboBox_Condition.Items.Add("Tai nghe");
-            comboBox_Condition.Items.Add("Máy chơi game (console)");
+            comboBox_Condition.Items.Add("Console");
             comboBox_Condition.Items.Add("Card màn hình (vga)");
-            comboBox_Condition.Items.Add("Ram");
-            comboBox_Condition.Items.Add("Bo mạch chủ");
-            comboBox_Condition.Items.Add("Ổ cứng SSD");
-            comboBox_Condition.Items.Add("Ổ cứng HDD");
+            comboBox_Condition.Items.Add("Bộ nhớ trong (Ram)");
+            comboBox_Condition.Items.Add("Bo mạch chủ (Mainboard)");
+            comboBox_Condition.Items.Add("Ổ cứng");
         }
         void Sale_items_addWithProducer()
         {
@@ -152,11 +150,26 @@ namespace App_sale_manager
 
         private void button_quit_Click(object sender, EventArgs e)
         {
-            if (is_modify)
-                button_save_Click(null, null);
             Close();
         }
-
+        private bool Check_if_existed(string name)
+        {
+            SqlCommand cmd;
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            DataTable Table = new DataTable();
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            cmd = con.CreateCommand();
+            cmd.CommandText = "Select * from KHUYENMAI where TENKM = N'" + name + "'";
+            Adapter.SelectCommand = cmd;
+            Table.Clear();
+            Adapter.Fill(Table);
+            dataGridView_manager.DataSource = Table;
+            if (dataGridView_manager.RowCount > 1)
+                return true;
+            else 
+                return false;
+        }
         private void button_save_Click(object sender, EventArgs e)
         {
             int Tudongxoa = 0, Codieukien = 0;
@@ -165,13 +178,34 @@ namespace App_sale_manager
             if (checkBox_priceCondition.CheckState == CheckState.Checked)
                 Codieukien = 1;
             string commandline;
+            if (string.IsNullOrEmpty(textBox_saleName.Text))
+                textBox_saleName.Text = "(Chưa đặt tên)";
+            if (Check_if_existed(textBox_saleName.Text))
+            {
+                int count = 1;
+                string name = textBox_saleName.Text + " (" + count + ")";
+                while (Check_if_existed(name))
+                {
+                    count++;
+                    name = textBox_saleName.Text + " (" + count + ")";
+                }
+                DialogResult result = MessageBox.Show("Tên khuyến mãi bị trùng lặp.\nĐể tránh lỗi dữ liệu phát sinh, hệ thống đề cử đổi tên khuyến mãi thành:\n"
+                    + name + "\nBạn đồng ý chứ?", "Chú ý", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                    textBox_saleName.Text = name;
+                else
+                {
+                    textBox_saleName.Focus();
+                    return;
+                }
+            }
             commandline = "insert into KHUYENMAI values(N'" + textBox_saleName.Text + "', N'" + comboBox_saleObj.Text + "', N'" + comboBox_saleMethod.Text + "', N'"
                 + comboBox_saleCondition.Text + "', N'" + comboBox_Condition.Text + "', '" + dateTimePicker_startDate.Value + "', '" + dateTimePicker_endDate.Value + "', N'"
                 + textBox_gift.Text + "', N'" + textBox_note.Text + "', N'" + comboBox_priceMethod.Text + "', '" + numericUpDown_priceReduced.Value + "', '" + numericUpDown_Condition_Quantity.Value + "', '"
                 + numericUpDown_Condition_price.Value + "', '" + Tudongxoa + "', '" + Codieukien + "')";
             if (con.State == ConnectionState.Closed)
                 openconnect();
-           if (exedata(commandline))
+            if (exedata(commandline))
             {
                 MessageBox.Show("Thêm thành công.");
                 Close();
@@ -179,7 +213,7 @@ namespace App_sale_manager
             else
                 MessageBox.Show("Thêm không thành công");
             dataRefresh(this, e);
-            
+
         }
 
         private void comboBox_priceMethod_TextChanged(object sender, EventArgs e)

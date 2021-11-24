@@ -581,7 +581,7 @@ namespace App_sale_manager
             cmd.CommandText = "set dateformat dmy";
             adapter.UpdateCommand = cmd;
 
-            cmd.CommandText = "select SOHD_BH,NGHD,KHID,NVID , REPLACE(CONVERT(varchar(20),TRIGIA, 1), '.00','') , LOAIHD,TRANGTHAI from HDBH";
+            cmd.CommandText = "select SOHD_BH,CONVERT(varchar,NGHD,21) as [DD-MM-YYYY HH:MM:SS],KHID,NVID , REPLACE(CONVERT(varchar(20),TRIGIA, 1), '.00','') , LOAIHD,TRANGTHAI from HDBH";
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
@@ -612,27 +612,27 @@ namespace App_sale_manager
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
-            cmd.CommandText = "select SOHD_BH,NGHD,KHID,NVID , REPLACE(CONVERT(varchar(20),TRIGIA, 1), '.00','') , LOAIHD,TRANGTHAI from HDBH where (SOHD_BH like '%" + Box_GD_MaHoaDon.Text + "%' and KHID like '%" + Box_GD_MaKhachHang.Text + "%'AND NVID like '%" + BOX_GD_MaNhanVien.Text + "%'  ";
+            cmd.CommandText = "select SOHD_BH,CONVERT(varchar,NGHD,21) as [DD-MM-YYYY HH:MM:SS],KHID,NVID , REPLACE(CONVERT(varchar(20),TRIGIA, 1), '.00','') , LOAIHD,TRANGTHAI from HDBH where (SOHD_BH like '%" + Box_GD_MaHoaDon.Text + "%' and KHID like '%" + Box_GD_MaKhachHang.Text + "%'AND NVID like '%" + BOX_GD_MaNhanVien.Text + "%'  ";
             if (CLB_GD_LoaiDon.CheckedIndices.Contains(0) == false)
             {
-                cmd.CommandText += " and LOAIHD != 'DDH'";
+                cmd.CommandText += " and LOAIHD != N'Đơn đặt hàng'";
             }
             if (CLB_GD_LoaiDon.CheckedIndices.Contains(1) == false)
             {
-                cmd.CommandText += " and LOAIHD != 'DTT'";
+                cmd.CommandText += " and LOAIHD != N'Đơn trực tiếp'";
             }
             if (CLB_GD_TrangThai.CheckedIndices.Contains(0) == false)
             {
-                cmd.CommandText += " and TRANGTHAI != 'NHANDON'";
+                cmd.CommandText += " and TRANGTHAI != N'Nhận đơn'";
             }
             if (CLB_GD_TrangThai.CheckedIndices.Contains(1) == false)
             {
-                cmd.CommandText += " and TRANGTHAI != 'DANGGIAO'";
+                cmd.CommandText += " and TRANGTHAI != N'Đang giao'";
             }
 
             if (CLB_GD_TrangThai.CheckedIndices.Contains(2) == false)
             {
-                cmd.CommandText += " and TRANGTHAI != 'HOANTAT'";
+                cmd.CommandText += " and TRANGTHAI != N'Hoàn thành'";
             }
 
             if (CB_GD_HDCB.Checked == true)

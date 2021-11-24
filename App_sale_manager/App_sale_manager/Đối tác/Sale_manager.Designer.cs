@@ -64,6 +64,7 @@ namespace App_sale_manager
             this.label_priceMethod = new System.Windows.Forms.Label();
             this.button_quit = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
+            this.dataGridView_manager = new System.Windows.Forms.DataGridView();
             this.groupBox_general.SuspendLayout();
             this.groupBox_detail.SuspendLayout();
             this.groupBox_gift.SuspendLayout();
@@ -71,6 +72,7 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Condition_Quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Condition_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_priceReduced)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_manager)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_general
@@ -91,9 +93,9 @@ namespace App_sale_manager
             this.groupBox_general.Controls.Add(this.label_saleObj);
             this.groupBox_general.Controls.Add(this.textBox_saleName);
             this.groupBox_general.Controls.Add(this.label_saleName);
-            this.groupBox_general.Location = new System.Drawing.Point(10, 10);
+            this.groupBox_general.Location = new System.Drawing.Point(10, 12);
             this.groupBox_general.Name = "groupBox_general";
-            this.groupBox_general.Size = new System.Drawing.Size(718, 219);
+            this.groupBox_general.Size = new System.Drawing.Size(718, 217);
             this.groupBox_general.TabIndex = 0;
             this.groupBox_general.TabStop = false;
             this.groupBox_general.Text = "Thông tin ưu đãi chung";
@@ -485,12 +487,24 @@ namespace App_sale_manager
             this.button_save.UseVisualStyleBackColor = false;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
+            // dataGridView_manager
+            // 
+            this.dataGridView_manager.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView_manager.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView_manager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_manager.Location = new System.Drawing.Point(747, 22);
+            this.dataGridView_manager.Name = "dataGridView_manager";
+            this.dataGridView_manager.ReadOnly = true;
+            this.dataGridView_manager.Size = new System.Drawing.Size(10, 10);
+            this.dataGridView_manager.TabIndex = 4;
+            // 
             // Sale_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(769, 666);
+            this.Controls.Add(this.dataGridView_manager);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.button_quit);
             this.Controls.Add(this.groupBox_detail);
@@ -509,6 +523,7 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Condition_Quantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Condition_price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_priceReduced)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_manager)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,5 +565,6 @@ namespace App_sale_manager
         public System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
         public System.Windows.Forms.Label label_endDate;
         public System.Windows.Forms.CheckBox checkBox_autoDelete;
+        private System.Windows.Forms.DataGridView dataGridView_manager;
     }
 }

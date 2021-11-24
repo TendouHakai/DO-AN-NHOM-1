@@ -19,6 +19,7 @@ namespace App_sale_manager
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table;
+        DataTable Table_GiamGia;
         public Form_GiaoDich()
         {
             InitializeComponent();            
@@ -40,7 +41,7 @@ namespace App_sale_manager
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
-            Box_IDHD.Text = "hd" + Convert.ToString(table.Rows.Count + 1);
+            Box_IDHD.Text =Convert.ToString(table.Rows.Count + 1);
 
             table = new DataTable();
             cmd.CommandText = "Select KHID,HOTEN from KHACHHANG";
@@ -74,6 +75,21 @@ namespace App_sale_manager
             Box_LoaiHD.Text = "Đơn trực tiếp";
             Box_TrangThai.Text = "Đơn đặt hàng";
 
+
+            Table_GiamGia = new DataTable();
+            cmd.CommandText = "Select * from KHUYENMAI WHERE NGAYKT > '"+DateTime.Now+"' ";
+            adapter.SelectCommand = cmd;
+            Table_GiamGia.Clear();
+            if (adapter != null)
+            {
+                adapter.Fill(Table_GiamGia);
+                foreach (DataRow i  in Table_GiamGia.Rows)
+                {
+                    Box_TenUuDai.Items.Add(i.ItemArray[0]);
+                }
+
+            }
+            Box_TenUuDai.Items.Add("<Trống>");
         }
 
         private void CT_HD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -89,6 +105,7 @@ namespace App_sale_manager
                 sum += Convert.ToDouble(i.Cells[2].Value) * Convert.ToDouble(i.Cells[3].Value);
             }
             Box_Tong.Text = Convert.ToString(sum);
+            Gia_Giam();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -173,7 +190,7 @@ namespace App_sale_manager
             try
             {
                 
-                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_Tong.Text + "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
+                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_GiaDaGiam.Text + "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
                 cmd.ExecuteNonQuery();
                 foreach (DataGridViewRow i in CT_HD.Rows)
                 {
@@ -191,7 +208,7 @@ namespace App_sale_manager
                     DialogResult dialogResult = MessageBox.Show("In hóa đơn không ?", "Yes/No ?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        Form_CTHD cthd = new Form_CTHD(Box_IDHD.Text ,Box_IDKH.Text, Box_IDNV.Text, Box_LoaiHD.Text, Box_TrangThai.Text, Box_Tong.Text);
+                        Form_CTHD cthd = new Form_CTHD(Box_IDHD.Text ,Box_IDKH.Text, Box_IDNV.Text, Box_LoaiHD.Text, Box_TrangThai.Text, Box_GiaDaGiam.Text);
                         cthd.Show();
                     }
                 }
@@ -272,6 +289,139 @@ namespace App_sale_manager
                 PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\No Image.jpg");
                 PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void Box_TenUuDai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (Box_TenUuDai.Text == "<Trống>")
+            {
+                Box_DoiTuong.Text = "";
+                Box_Giam.Text = "";
+                Box_QuaTang.Text = "";
+                Label_Loai.Text = " ";
+                Box_SP.Text = "";
+            }
+            else
+            {
+
+                Box_DoiTuong.Text = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[1].ToString();
+                Box_QuaTang.Text = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[7].ToString();
+                Box_Giam.Text = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[10].ToString();
+                Box_SP.Text = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString();
+                if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[9].ToString() == "Giảm theo phần trăm")
+                {
+                    Label_Loai.Text = "%";
+                }
+                else
+                {
+                    Label_Loai.Text = "VNĐ";
+                }
+            }
+            if (Box_QuaTang.Text == string.Empty)
+                Box_QuaTang.Enabled = false;
+            else
+                Box_QuaTang.Enabled = true;
+
+            if (Box_Giam.Text == string.Empty)
+                Box_Giam.Enabled = false;
+            else
+                Box_Giam.Enabled = true;
+            if (Box_DoiTuong.Text == string.Empty)
+                Box_DoiTuong.Enabled = false;
+            else
+                Box_DoiTuong.Enabled = true;  
+            if(Box_SP.Text == string.Empty)
+            {
+                Box_SP.Enabled = false;
+            }
+            else
+            {
+                Box_SP.Enabled = true;
+            }
+
+            Gia_Giam();
+        }
+        private void Gia_Giam()
+        {
+            Box_GiaDaGiam.Text = Box_Tong.Text;
+
+            if (Box_SP.Text == string.Empty)
+                return;
+
+            //neu giam gia theo mat hang la mat hang
+            if(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[3].ToString() == "Mặt hàng")
+            {
+                cmd.CommandText = "select LOAIID FROM LOAISP WHERE TENLOAI = '" + Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() + "' ";
+                adapter.SelectCommand = cmd;
+
+                DataTable temp = new DataTable();
+                
+                adapter.Fill(temp);
+
+                string x;
+
+                try
+                {
+                    x = temp.Rows[0].ItemArray[0].ToString();
+                }
+                catch
+                {
+                    return;
+                }
+
+
+                for(int i = 0;i<CT_HD.RowCount - 1;i++)
+                {
+                    if(CT_HD.Rows[i].Cells[0].Value.ToString().Contains(x))
+                    {
+                        //kiem tra dieu kien giam gia
+                        if( Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() == "1")
+                        {
+                            if( (int)CT_HD.Rows[i].Cells[3].Value < Convert.ToInt32( Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12]) )
+                            {
+                                return;
+                            }
+                        }
+                        //giamgia
+                        if (Label_Loai.Text == "%")
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(CT_HD.Rows[i].Cells[2].Value) * Convert.ToDouble(Box_Giam.Text) / 100 * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value));
+                        else
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble(CT_HD.Rows[i].Cells[3]));
+                    }
+                }
+
+
+            }
+            //giam theo nha sx
+            if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[3].ToString() == "Nhà cung cấp")
+            {
+               
+
+                for (int i = 0; i < CT_HD.RowCount - 1; i++)
+                {
+                    cmd.CommandText = "select HANGSX FROM SANPHAM WHERE SPID = '" + CT_HD.Rows[i].Cells[0].Value.ToString() + "' ";
+                    adapter.SelectCommand = cmd;
+                    if (adapter != null)
+                    {
+
+                        //kiem tra dieu kien giam gia
+                        if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() == "1")
+                        {
+                            if ((int)CT_HD.Rows[i].Cells[3].Value < Convert.ToInt32(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12]))
+                            {
+                                return;
+                            }
+                        }
+                        //giam gia
+                        if (Label_Loai.Text == "%")
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(CT_HD.Rows[i].Cells[2].Value) * Convert.ToDouble(Box_Giam.Text) / 100 * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value));
+                        else
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble( CT_HD.Rows[i].Cells[3]));
+                    }
+                }
+            }
+
         }
     }
 }

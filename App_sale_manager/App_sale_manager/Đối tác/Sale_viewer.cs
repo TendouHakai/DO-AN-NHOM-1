@@ -15,7 +15,7 @@ namespace App_sale_manager
     {
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlConnection con = new SqlConnection(strCon);
-
+        string selectedSale = "";
         public void Database_Init()
         {
             SqlCommand cmd;
@@ -92,7 +92,9 @@ namespace App_sale_manager
             listBox_NOR_ongoing.Items.Clear();
             listBox_NOR_ended.Items.Clear();
             listBox_NOR_waiting.Items.Clear();
-            for (int i = 0; i < dataGridView_sale.RowCount; i++)
+            button_saleDelete.Enabled = false;
+            selectedSale = "";
+            for (int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[1].Value.ToString() == "Khách thường")
                 {
@@ -150,10 +152,9 @@ namespace App_sale_manager
             }
         }
         public Sale_viewer()
-        {
-            this.dataGridView_sale = new DataGridView();
-            InitializeComponent();          
-            DataRefresh(this, null);
+        {           
+            InitializeComponent();
+            DataRefresh(this, null);            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -170,13 +171,14 @@ namespace App_sale_manager
 
         private void listBox_NOR_ongoing_DoubleClick(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView_sale.RowCount; i++)
+            for (int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_NOR_ongoing.SelectedItem.ToString())
                 {
                     Sale_manager A = Sale_get(dataGridView_sale.Rows[i]);
-                    A.is_modify = true;
+                    A.dataRefresh += DataRefresh;
                     SqlCommand cmd = new SqlCommand("delete from KHUYENMAI where TENKM='" + listBox_NOR_ongoing.SelectedItem.ToString() + "'", con);
+                    cmd.ExecuteNonQuery();
                     A.Show();
                 }
             }
@@ -184,13 +186,14 @@ namespace App_sale_manager
 
         private void listBox_NOR_waiting_DoubleClick(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView_sale.RowCount; i++)
+            for (int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_NOR_waiting.SelectedItem.ToString())
                 {
-                    Sale_manager A = Sale_get(dataGridView_sale.Rows[i]);   
-                    A.is_modify = true;
+                    Sale_manager A = Sale_get(dataGridView_sale.Rows[i]);
+                    A.dataRefresh += DataRefresh;
                     SqlCommand cmd = new SqlCommand("delete from KHUYENMAI where TENKM='" + listBox_NOR_waiting.SelectedItem.ToString() + "'", con);
+                    cmd.ExecuteNonQuery();
                     A.Show();
                 }
             }
@@ -198,13 +201,14 @@ namespace App_sale_manager
 
         private void listBox_NOR_ended_DoubleClick(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView_sale.RowCount; i++)
+            for (int i = 0; i < dataGridView_sale.RowCount -1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_NOR_ended.SelectedItem.ToString())
                 {
                     Sale_manager A = Sale_get(dataGridView_sale.Rows[i]);
-                    A.is_modify = true;
+                    A.dataRefresh += DataRefresh;
                     SqlCommand cmd = new SqlCommand("delete from KHUYENMAI where TENKM='" + listBox_NOR_ended.SelectedItem.ToString() + "'", con);
+                    cmd.ExecuteNonQuery();
                     A.Show();
                 }
             }
@@ -212,13 +216,14 @@ namespace App_sale_manager
 
         private void listBox_VIP_ongoing_DoubleClick(object sender, EventArgs e)
         {
-            for(int i = 0; i < dataGridView_sale.RowCount; i++)
+            for(int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_VIP_ongoing.SelectedItem.ToString())
                 {
                     Sale_manager A = Sale_get(dataGridView_sale.Rows[i]);
-                    A.is_modify = true;
+                    A.dataRefresh += DataRefresh;
                     SqlCommand cmd = new SqlCommand("delete from KHUYENMAI where TENKM='" + listBox_VIP_ongoing.SelectedItem.ToString() + "'", con);
+                    cmd.ExecuteNonQuery();
                     A.Show();
                 }
             }
@@ -226,13 +231,14 @@ namespace App_sale_manager
 
         private void listBox_VIP_waiting_DoubleClick(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView_sale.RowCount; i++)
+            for (int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_VIP_waiting.SelectedItem.ToString())
                 {
                     Sale_manager A = Sale_get(dataGridView_sale.Rows[i]);
-                    A.is_modify = true;
+                    A.dataRefresh += DataRefresh;
                     SqlCommand cmd = new SqlCommand("delete from KHUYENMAI where TENKM='" + listBox_VIP_waiting.SelectedItem.ToString() + "'", con);
+                    cmd.ExecuteNonQuery();
                     A.Show();
                 }
             }
@@ -240,13 +246,14 @@ namespace App_sale_manager
 
         private void listBox_VIP_ended_DoubleClick(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView_sale.RowCount; i++)
+            for (int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_VIP_ended.SelectedItem.ToString())
                 {
                     Sale_manager A = Sale_get(dataGridView_sale.Rows[i]);
-                    A.is_modify = true;
+                    A.dataRefresh += DataRefresh;
                     SqlCommand cmd = new SqlCommand("delete from KHUYENMAI where TENKM='" + listBox_VIP_ended.SelectedItem.ToString() + "'", con);
+                    cmd.ExecuteNonQuery();
                     A.Show();
                 }
             }
@@ -254,14 +261,22 @@ namespace App_sale_manager
 
         private void button_saleDelete_Click(object sender, EventArgs e)
         {
-            SaleDeleter A = new SaleDeleter();
-            A.Show();
+            if (string.IsNullOrEmpty(selectedSale) == false)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa ưu đãi này?", "Chú ý", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    SqlCommand cmd = new SqlCommand("delete from KHUYENMAI where TENKM = N'" + selectedSale + "'", con);
+                    cmd.ExecuteNonQuery();
+                    DataRefresh(this, null);
+                }
+            }
         }
         private void listBox_NOR_ongoing_Leave(object sender, EventArgs e)
         {
-            {
-                listBox_NOR_ongoing.ClearSelected();
-            }
+            listBox_NOR_ongoing.ClearSelected();
         }
 
         private void listBox_NOR_waiting_Leave(object sender, EventArgs e)
@@ -287,6 +302,55 @@ namespace App_sale_manager
         private void listBox_VIP_ended_Leave(object sender, EventArgs e)
         {
             listBox_VIP_ended.ClearSelected();
+        }
+
+        private void listBox_NOR_ongoing_MouseClick(object sender, EventArgs e)
+        {
+            if (listBox_NOR_ongoing.SelectedItems.Count != 0)
+            {
+                selectedSale = listBox_NOR_ongoing.SelectedItem.ToString();
+                button_saleDelete.Enabled = true;
+            }
+        }
+        private void listBox_NOR_waiting_MouseClick(object sender, EventArgs e)
+        {
+            if (listBox_NOR_waiting.SelectedItems.Count != 0)
+            {
+                selectedSale = listBox_NOR_waiting.SelectedItem.ToString();
+                button_saleDelete.Enabled = true;
+            }
+        }
+        private void listBox_NOR_ended_MouseClick(object sender, EventArgs e)
+        {
+            if (listBox_NOR_ended.SelectedItems.Count != 0)
+            {
+                selectedSale = listBox_NOR_ended.SelectedItem.ToString();
+                button_saleDelete.Enabled = true;
+            }
+        }
+        private void listBox_VIP_ongoing_MouseClick(object sender, EventArgs e)
+        {
+            if (listBox_VIP_ongoing.SelectedItems.Count != 0)
+            {
+                selectedSale = listBox_VIP_ongoing.SelectedItem.ToString();
+                button_saleDelete.Enabled = true;
+            }
+        }
+        private void listBox_VIP_waiting_MouseClick(object sender, EventArgs e)
+        {
+            if (listBox_VIP_waiting.SelectedItems.Count != 0)
+            {
+                selectedSale = listBox_VIP_waiting.SelectedItem.ToString();
+                button_saleDelete.Enabled = true;
+            }
+        }
+        private void listBox_VIP_ended_MouseClick(object sender, EventArgs e)
+        {
+            if (listBox_VIP_ended.SelectedItems.Count != 0)
+            {
+                selectedSale = listBox_VIP_ended.SelectedItem.ToString();
+                button_saleDelete.Enabled = true;
+            }
         }
     }
 }
