@@ -22,12 +22,11 @@ namespace App_sale_manager
             comboBox_Condition.Items.Add("Laptop - Macbook");
             comboBox_Condition.Items.Add("Chuột - Bàn phím");
             comboBox_Condition.Items.Add("Tai nghe");
-            comboBox_Condition.Items.Add("Máy chơi game (console)");
+            comboBox_Condition.Items.Add("Console");
             comboBox_Condition.Items.Add("Card màn hình (vga)");
-            comboBox_Condition.Items.Add("Ram");
-            comboBox_Condition.Items.Add("Bo mạch chủ");
-            comboBox_Condition.Items.Add("Ổ cứng SSD");
-            comboBox_Condition.Items.Add("Ổ cứng HDD");
+            comboBox_Condition.Items.Add("Bộ nhớ trong (Ram)");
+            comboBox_Condition.Items.Add("Bo mạch chủ (Mainboard)");
+            comboBox_Condition.Items.Add("Ổ cứng");
         }
         void Sale_items_addWithProducer()
         {
