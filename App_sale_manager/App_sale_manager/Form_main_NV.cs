@@ -29,8 +29,12 @@ namespace App_sale_manager
         {
             InitializeComponent();
             sqlCon = new SqlConnection(strCon);
+<<<<<<< HEAD
             DTCC_guest_dataInitialize();
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
+=======
+            
+>>>>>>> 806c1d2f2d7abd4587b002ae0a14ff1b5730ec33
         }
         public Form_main_NV(string NVID, string Ten)
         {
@@ -163,6 +167,7 @@ namespace App_sale_manager
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT TOP 3 HDBH.NVID, HOTEN, SUM(TRIGIA) AS DOANHSO"
                                 + " FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID"
@@ -210,6 +215,7 @@ namespace App_sale_manager
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT HDBH.NVID, HOTEN, SUM(TRIGIA) AS DOANHSO"
                                 + " FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID"
@@ -238,6 +244,7 @@ namespace App_sale_manager
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Now;
             cmd.CommandText = "SELECT CAID, GIO_BD, GIO_NGHI FROM CALAMVIEC WHERE GIO_BD<'" + date.ToString("HH:mm:ss") + "' AND GIO_NGHI>'" + date.ToString("HH:mm:ss") + "' AND SUBSTRING(CAID,2,1)='" + ((int)date.DayOfWeek).ToString() + "'";
             var reader = cmd.ExecuteReader();
@@ -261,6 +268,7 @@ namespace App_sale_manager
                 lbl_lich_KT.Text = reader.GetTimeSpan(2).ToString();
                 GIO_KT = reader.GetTimeSpan(2);
             }
+            reader.Close();
             lbl_lich_ngaylam.Text = date.ToString("d");
             sqlCon.Close();
         }
@@ -278,6 +286,7 @@ namespace App_sale_manager
             {
                 if (sqlCon.State == ConnectionState.Closed)
                     sqlCon.Open();
+                cmd = sqlCon.CreateCommand();
                 String CAID = "C" + ((int)DateTime.Today.DayOfWeek);
                 switch (lbl_lich_buoi.Text)
                 {
@@ -349,6 +358,7 @@ namespace App_sale_manager
             {
                 sqlCon.Open();
             }
+            cmd = sqlCon.CreateCommand();
             cmd.CommandText = "SELECT DISTINCT GIO_BD, GIO_NGHI FROM CALAMVIEC ";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -368,12 +378,22 @@ namespace App_sale_manager
             DateTime begin = new DateTime();
             week(today, ref finish, ref begin);
             cmd.CommandText = "SELECT CAID, TIEUDE"
+<<<<<<< HEAD
                             + " FROM CT_LAMVIEC"
                             + " WHERE NGAYLAM >=" + begin.ToString("d") + "AND NGAYLAM <= " + finish.ToString("d") + " AND NVID = '" + NVID + "'"
                             + " UNION"
                             + " SELECT CAID, TIEUDE"
                             + " FROM CT_LAMVIEC_HANGTUAN"
                             + " WHERE NVID = '" + NVID + "'";
+=======
+                            +" FROM CT_LAMVIEC"
+                            + " WHERE NGAYLAM >='"+begin.ToString("MM/dd/yyyy")+"' AND NGAYLAM <= '"+finish.ToString("MM/dd/yyyy")+"' AND NVID = '" + NVID+"'"
+                            +" UNION"
+                            +" SELECT CAID, TIEUDE"
+                            +" FROM CT_LAMVIEC_HANGTUAN"
+                            +" WHERE NVID = '"+NVID+"'";
+            
+>>>>>>> 806c1d2f2d7abd4587b002ae0a14ff1b5730ec33
             var reader = cmd.ExecuteReader();
             List<caID> caid = new List<caID>();
             while (reader.Read())
@@ -454,7 +474,7 @@ namespace App_sale_manager
                 }
                 else
                 {
-                    int temp = Convert.ToInt32(caid[i].CAID.Substring(1, 1));
+                    int temp = Convert.ToInt32(CAIDS[i].Substring(1, 1));
                     switch (CAIDS[i].Substring(2, 1))
                     {
 
@@ -498,7 +518,7 @@ namespace App_sale_manager
                 }
                 else
                 {
-                    int temp = Convert.ToInt32(caid[i].CAID.Substring(1, 1));
+                    int temp = Convert.ToInt32(CAIDS[i].Substring(1, 1));
                     switch (CAIDS[i].Substring(2, 1))
                     {
 
