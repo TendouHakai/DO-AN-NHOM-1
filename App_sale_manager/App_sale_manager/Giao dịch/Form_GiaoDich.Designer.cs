@@ -654,7 +654,6 @@ namespace App_sale_manager
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientSize = new System.Drawing.Size(1608, 894);
             this.Controls.Add(this.Box_GiaDaGiam);
             this.Controls.Add(this.Label_tong);
