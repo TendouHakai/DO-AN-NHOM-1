@@ -200,7 +200,7 @@ namespace App_sale_manager
                 }
             }
             commandline = "insert into KHUYENMAI values(N'" + textBox_saleName.Text + "', N'" + comboBox_saleObj.Text + "', N'" + comboBox_saleMethod.Text + "', N'"
-                + comboBox_saleCondition.Text + "', N'" + comboBox_Condition.Text + "', '" + dateTimePicker_startDate.Value + "', '" + dateTimePicker_endDate.Value + "', N'"
+                + comboBox_saleCondition.Text + "', N'" + comboBox_Condition.Text + "', '" + dateTimePicker_startDate.Value.ToString("MM/dd/yyyy") + "', '" + dateTimePicker_endDate.Value.ToString("MM/dd/yyyy") + "', N'"
                 + textBox_gift.Text + "', N'" + textBox_note.Text + "', N'" + comboBox_priceMethod.Text + "', '" + numericUpDown_priceReduced.Value + "', '" + numericUpDown_Condition_Quantity.Value + "', '"
                 + numericUpDown_Condition_price.Value + "', '" + Tudongxoa + "', '" + Codieukien + "')";
             if (con.State == ConnectionState.Closed)

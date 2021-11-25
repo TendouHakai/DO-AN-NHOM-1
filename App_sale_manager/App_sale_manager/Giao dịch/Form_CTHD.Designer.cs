@@ -76,9 +76,8 @@ namespace App_sale_manager
             this.l_MaKhachhang.Location = new System.Drawing.Point(219, 68);
             this.l_MaKhachhang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_MaKhachhang.Name = "l_MaKhachhang";
-            this.l_MaKhachhang.Size = new System.Drawing.Size(45, 20);
+            this.l_MaKhachhang.Size = new System.Drawing.Size(0, 20);
             this.l_MaKhachhang.TabIndex = 1;
-            this.l_MaKhachhang.Text = "aaaa";
             // 
             // l_LoaiHoaDon
             // 
@@ -292,9 +291,8 @@ namespace App_sale_manager
             this.l_TenKhachHang.Location = new System.Drawing.Point(219, 99);
             this.l_TenKhachHang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_TenKhachHang.Name = "l_TenKhachHang";
-            this.l_TenKhachHang.Size = new System.Drawing.Size(58, 20);
+            this.l_TenKhachHang.Size = new System.Drawing.Size(0, 20);
             this.l_TenKhachHang.TabIndex = 16;
-            this.l_TenKhachHang.Text = "<Null>";
             // 
             // grb_Thongtin
             // 
@@ -332,6 +330,7 @@ namespace App_sale_manager
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_CTHD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form_CTHD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_CTHD)).EndInit();
