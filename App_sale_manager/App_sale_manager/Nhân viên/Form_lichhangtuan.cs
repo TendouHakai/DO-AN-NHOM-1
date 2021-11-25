@@ -133,17 +133,17 @@ namespace App_sale_manager
                 {
                     if (dgvs[j].Rows[i].Cells[3].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgvs[j].Rows[i].Cells[0].Value.ToString() + "', 'C" + j + "S')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgvs[j].Rows[i].Cells[0].Value.ToString() + "', 'C" + j + "S', N'Lịch làm việc hàng tuần')";
                         cmd.ExecuteNonQuery();
                     }
                     if (dgvs[j].Rows[i].Cells[4].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgvs[j].Rows[i].Cells[0].Value.ToString() + "', 'C" + j + "C')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgvs[j].Rows[i].Cells[0].Value.ToString() + "', 'C" + j + "C', N'Lịch làm việc hàng tuần')";
                         cmd.ExecuteNonQuery();
                     }
                     if (dgvs[j].Rows[i].Cells[5].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgvs[j].Rows[i].Cells[0].Value.ToString() + "', 'C" + +j + "T')";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgvs[j].Rows[i].Cells[0].Value.ToString() + "', 'C" + +j + "T', N'Lịch làm việc hàng tuần')";
                         cmd.ExecuteNonQuery();
                     }
                 }
