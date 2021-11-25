@@ -1399,7 +1399,7 @@ namespace App_sale_manager
                 label_TENDTtext.Text = row.Cells[1].Value.ToString();
                 label_SDTtext.Text = row.Cells[2].Value.ToString();
                 Date = Convert.ToDateTime(row.Cells[3].Value.ToString());
-                label_NGDTtext.Text = Date.ToString("dd/MM/yyyy HH:mm:ss");
+                label_NGDTtext.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
                 label_DIACHItext.Text = row.Cells[4].Value.ToString();
                 string filepath = @"Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg";
                 if (File.Exists(filepath))
@@ -1521,7 +1521,7 @@ namespace App_sale_manager
                 label_guestName_Text.Text = row.Cells[1].Value.ToString();
                 label_guestSDT_Text.Text = row.Cells[3].Value.ToString();
                 Date = Convert.ToDateTime(row.Cells[4].Value.ToString());
-                label_guestReg_Text.Text = Date.ToString("dd/MM/yyyy HH:mm:ss");
+                label_guestReg_Text.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
                 label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
                 label_guestMoney_Text.Text = row.Cells[5].Value.ToString();
                 string filepath = @"Image samples for testing\Khách hàng đăng kí\" + label_guestName_Text.Text + ".jpg";
@@ -1589,13 +1589,13 @@ namespace App_sale_manager
             if (string.IsNullOrEmpty(textBox_guest_search.Text))
             {
                 MessageBox.Show("Vui lòng nhập nội dung cần tìm.");
-                textBox_search.Focus();
+                textBox_guest_search.Focus();
                 return;
             }
             if (comboBox_guest_filter.Text == "Chưa chọn")
             {
                 MessageBox.Show("Vui lòng chọn trường cần tìm.");
-                comboBox_searchOption.Focus();
+                comboBox_guest_filter.Focus();
                 return;
             }
             switch (comboBox_guest_filter.Text)
@@ -1642,7 +1642,7 @@ namespace App_sale_manager
 
         private void textBox_search_Click(object sender, EventArgs e)
         {
-            textBox_guest_search.SelectAll();
+            textBox_search.SelectAll();
             this.AcceptButton = button_searchDTCC;
         }
 

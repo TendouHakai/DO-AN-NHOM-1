@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace App_sale_manager
 {
@@ -19,15 +20,17 @@ namespace App_sale_manager
         string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
-        bool canExit=true;
+        bool canExit = true;
         public string nvid
         {
             set { NVID = value; }
-        }    
+        }
         public Form_main_NV()
         {
             InitializeComponent();
             sqlCon = new SqlConnection(strCon);
+            DTCC_guest_dataInitialize();
+            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
         }
         public Form_main_NV(string NVID, string Ten)
         {
@@ -35,6 +38,7 @@ namespace App_sale_manager
             sqlCon = new SqlConnection(strCon);
             this.NVID = NVID;
             this.Ten = Ten;
+            DTCC_guest_dataInitialize();
         }
         public event EventHandler Thoat;
 
@@ -56,20 +60,20 @@ namespace App_sale_manager
         Timer timer = new Timer();
         private void tabctrl_Nhanvien_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabctrl_Nhanvien.SelectedIndex==0)
+            if (tabctrl_Nhanvien.SelectedIndex == 0)
             {
                 load_tongquan();
-            }   
-            else if(tabctrl_Nhanvien.SelectedIndex==3)
+            }
+            else if (tabctrl_Nhanvien.SelectedIndex == 3)
             {
                 timer.Tick += Timer_Tick;
                 timer.Start();
                 timer.Interval = 1000;
                 load_lich();
-            }    
+            }
         }
 
-        
+
 
         void load_tongquan_dsNgay()
         {
@@ -78,12 +82,12 @@ namespace App_sale_manager
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT COUNT(SOHD_BH) AS SL, SUM(TRIGIA) AS TRIGIA"
-                                +" FROM HDBH"
-                                +" WHERE LOAIHD = 'DTT' AND NVID = '"+NVID+"' AND NGHD = '"+date.ToString("MM/dd/yyyy")+"'"
-                                +" UNION"
-                                +" SELECT COUNT(SOHD_BH), SUM(TRIGIA)"
-                                +" FROM HDBH"
-                                +" WHERE LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT' AND NVID = '"+NVID+"' AND NGHD = '"+date.ToString("MM/dd/yyyy")+"'";
+                                + " FROM HDBH"
+                                + " WHERE LOAIHD = 'DTT' AND NVID = '" + NVID + "' AND NGHD = '" + date.ToString("MM/dd/yyyy") + "'"
+                                + " UNION"
+                                + " SELECT COUNT(SOHD_BH), SUM(TRIGIA)"
+                                + " FROM HDBH"
+                                + " WHERE LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT' AND NVID = '" + NVID + "' AND NGHD = '" + date.ToString("MM/dd/yyyy") + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -96,7 +100,7 @@ namespace App_sale_manager
                 else txt_tongquan_trigiabh.Text = String.Format("{0:0,0}", table.Rows[0]["TRIGIA"]);
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 txt_tongquan_slhdbh.Text = "0";
                 txt_tongquan_trigiabh.Text = "0";
@@ -117,7 +121,7 @@ namespace App_sale_manager
             {
                 txt_tongquan_dsNgay.Text = string.Format("{0:0,0}", (Convert.ToDouble(table.Rows[0]["TRIGIA"]) + Convert.ToDouble(table.Rows[0]["TRIGIA"])));
             }
-            catch(Exception)
+            catch (Exception)
             {
                 txt_tongquan_dsNgay.Text = "0";
             }
@@ -132,8 +136,8 @@ namespace App_sale_manager
             cmd.CommandText = "SELECT NGHD , SUM(TRIGIA) as TRIGIA"
                                 + " FROM HDBH"
                                 + " WHERE NVID = '" + NVID + "' AND(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)=" + date.Month.ToString()
-                                +" GROUP BY NGHD"
-                                +" ORDER BY NGHD ASC";
+                                + " GROUP BY NGHD"
+                                + " ORDER BY NGHD ASC";
 
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -143,13 +147,13 @@ namespace App_sale_manager
             chart_tongquan.ChartAreas["ChartArea1"].AxisX.Title = "Ngày";
             chart_tongquan.ChartAreas["ChartArea1"].AxisY.Title = "Triệu đồng";
             chart_tongquan.Series["DoanhSo"].Points.Clear();
-            for(int i=0; i<table.Rows.Count; i++)
+            for (int i = 0; i < table.Rows.Count; i++)
             {
-                chart_tongquan.Series["DoanhSo"].Points.AddXY(table.Rows[i]["NGHD"], Convert.ToDouble(table.Rows[i]["TRIGIA"])/1000000);
+                chart_tongquan.Series["DoanhSo"].Points.AddXY(table.Rows[i]["NGHD"], Convert.ToDouble(table.Rows[i]["TRIGIA"]) / 1000000);
             }
             cmd.CommandText = "SELECT SUM(TRIGIA)"
                                 + " FROM HDBH"
-                                + " WHERE NVID = '"+NVID+"' AND(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)= "+date.Month.ToString();
+                                + " WHERE NVID = '" + NVID + "' AND(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)= " + date.Month.ToString();
             txt_tongquan_dsThang.Text = cmd.ExecuteScalar().ToString();
             if (txt_tongquan_dsThang.Text == "")
                 txt_tongquan_dsThang.Text = "0";
@@ -162,7 +166,7 @@ namespace App_sale_manager
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT TOP 3 HDBH.NVID, HOTEN, SUM(TRIGIA) AS DOANHSO"
                                 + " FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID"
-                                + " WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)= "+date.Month.ToString()+""
+                                + " WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)= " + date.Month.ToString() + ""
                                 + " GROUP BY HDBH.NVID, HOTEN"
                                 + " ORDER BY DOANHSO DESC";
             adapter.SelectCommand = cmd;
@@ -178,9 +182,9 @@ namespace App_sale_manager
                 lbl_tongquan_ten3.Text = table.Rows[2]["HOTEN"].ToString();
                 txt_tongquan_ds3.Text = string.Format("{0:0,0}", Convert.ToDouble(table.Rows[1]["DOANHSO"]));
             }
-            catch(Exception)
+            catch (Exception)
             {
-                
+
             }
             cmd.CommandText = "SELECT HANG, DOANHSO"
                               + " FROM("
@@ -194,7 +198,7 @@ namespace App_sale_manager
                                 + ") AS H"
                                 + " WHERE NVID = '" + NVID + "'";
             var reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 lbl_tongquan_ten0.Text = reader.GetString(0);
                 txt_tongquan_ds0.Text = string.Format("{0:0,0}", Convert.ToDouble(reader.GetString(1)));
@@ -235,9 +239,9 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             DateTime date = DateTime.Now;
-            cmd.CommandText = "SELECT CAID, GIO_BD, GIO_NGHI FROM CALAMVIEC WHERE GIO_BD<'"+date.ToString("HH:mm:ss")+ "' AND GIO_NGHI>'" + date.ToString("HH:mm:ss") + "' AND SUBSTRING(CAID,2,1)='" + ((int)date.DayOfWeek).ToString()+"'";
+            cmd.CommandText = "SELECT CAID, GIO_BD, GIO_NGHI FROM CALAMVIEC WHERE GIO_BD<'" + date.ToString("HH:mm:ss") + "' AND GIO_NGHI>'" + date.ToString("HH:mm:ss") + "' AND SUBSTRING(CAID,2,1)='" + ((int)date.DayOfWeek).ToString() + "'";
             var reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 string caid = reader.GetString(0);
                 switch (caid.Substring(2))
@@ -275,7 +279,7 @@ namespace App_sale_manager
                 if (sqlCon.State == ConnectionState.Closed)
                     sqlCon.Open();
                 String CAID = "C" + ((int)DateTime.Today.DayOfWeek);
-                switch(lbl_lich_buoi.Text)
+                switch (lbl_lich_buoi.Text)
                 {
                     case "Sáng":
                         CAID = CAID + "S";
@@ -287,12 +291,12 @@ namespace App_sale_manager
                         CAID = CAID + "T";
                         break;
                 }
-                cmd.CommandText = "SELECT TIEUDE, TRANGTHAI FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND CAID = '"+CAID+"'";
+                cmd.CommandText = "SELECT TIEUDE, TRANGTHAI FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND CAID = '" + CAID + "'";
                 adapter.SelectCommand = cmd;
                 DataTable table = new DataTable();
                 table.Clear();
                 adapter.Fill(table);
-                if(table.Rows.Count==0)
+                if (table.Rows.Count == 0)
                 {
                     cmd.CommandText = "SELECT TIEUDE FROM CT_LAMVIEC_HANGTUAN WHERE NVID = '" + NVID + "' AND CAID = '" + CAID + "'";
                     adapter.SelectCommand = cmd;
@@ -300,7 +304,7 @@ namespace App_sale_manager
                     adapter.Fill(table);
                     if (table.Rows.Count == 0)
                         MessageBox.Show("Bạn không có ca làm ngày hôm nay");
-                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('"+NVID+"', '"+CAID+"', '"+DateTime.Today.ToString("d")+"', N'Đã điểm danh', N'Lặp lại', '"+table.Rows[0]["TIEUDE"].ToString()+"')";
+                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + CAID + "', '" + DateTime.Today.ToString("d") + "', N'Đã điểm danh', N'Lặp lại', '" + table.Rows[0]["TIEUDE"].ToString() + "')";
                     cmd.ExecuteNonQuery();
                 }
                 else
@@ -318,18 +322,18 @@ namespace App_sale_manager
                 }
                 MessageBox.Show("Điểm danh thành công");
                 sqlCon.Close();
-            } 
-                
+            }
+
         }
         void week(DateTime today, ref DateTime finish, ref DateTime begin)
         {
             finish = today;
-            while(finish.DayOfWeek != DayOfWeek.Sunday)
+            while (finish.DayOfWeek != DayOfWeek.Sunday)
             {
                 finish = finish.AddDays(1);
             }
             begin = today;
-            while(begin.DayOfWeek!=DayOfWeek.Monday)
+            while (begin.DayOfWeek != DayOfWeek.Monday)
             {
                 begin = begin.AddDays(-1);
             }
@@ -341,7 +345,7 @@ namespace App_sale_manager
         };
         void load_lich_banglichhangtuan(DateTime today)
         {
-            if(sqlCon.State == ConnectionState.Closed)
+            if (sqlCon.State == ConnectionState.Closed)
             {
                 sqlCon.Open();
             }
@@ -364,12 +368,12 @@ namespace App_sale_manager
             DateTime begin = new DateTime();
             week(today, ref finish, ref begin);
             cmd.CommandText = "SELECT CAID, TIEUDE"
-                            +" FROM CT_LAMVIEC"
-                            + " WHERE NGAYLAM >="+begin.ToString("d")+"AND NGAYLAM <= "+finish.ToString("d")+" AND NVID = '" + NVID+"'"
-                            +" UNION"
-                            +" SELECT CAID, TIEUDE"
-                            +" FROM CT_LAMVIEC_HANGTUAN"
-                            +" WHERE NVID = '"+NVID+"'";
+                            + " FROM CT_LAMVIEC"
+                            + " WHERE NGAYLAM >=" + begin.ToString("d") + "AND NGAYLAM <= " + finish.ToString("d") + " AND NVID = '" + NVID + "'"
+                            + " UNION"
+                            + " SELECT CAID, TIEUDE"
+                            + " FROM CT_LAMVIEC_HANGTUAN"
+                            + " WHERE NVID = '" + NVID + "'";
             var reader = cmd.ExecuteReader();
             List<caID> caid = new List<caID>();
             while (reader.Read())
@@ -380,11 +384,11 @@ namespace App_sale_manager
                 caid.Add(ca);
             }
             reader.Close();
-            for(int i =0; i<caid.Count; i++)
+            for (int i = 0; i < caid.Count; i++)
             {
-                if(caid[i].CAID.Substring(1,1)=="0")
+                if (caid[i].CAID.Substring(1, 1) == "0")
                 {
-                    switch(caid[i].CAID.Substring(2,1))
+                    switch (caid[i].CAID.Substring(2, 1))
                     {
                         case "S":
                             dgv_lich_tuan.Rows[0].Cells[8].Style.BackColor = Color.White;
@@ -405,7 +409,7 @@ namespace App_sale_manager
                     int temp = Convert.ToInt32(caid[i].CAID.Substring(1, 1));
                     switch (caid[i].CAID.Substring(2, 1))
                     {
-                        
+
                         case "S":
                             dgv_lich_tuan.Rows[0].Cells[temp].Style.BackColor = Color.White;
                             dgv_lich_tuan.Rows[0].Cells[temp].Value = caid[i].TIEUDE;
@@ -419,15 +423,15 @@ namespace App_sale_manager
                             dgv_lich_tuan.Rows[3].Cells[temp].Value = caid[i].TIEUDE;
                             break;
                     }
-                } 
-                    
+                }
+
             }
             reader.Close();
             // tô màu cho ngày đã làm và ngày nghỉ
             List<string> CAIDS = new List<string>();
-            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='"+NVID+ "' AND TRANGTHAI = N'Đã điểm danh' AND NGAYLAM >='"+begin.ToString("MM/dd/yyyy")+"' AND NGAYLAM <='"+today.ToString("MM/dd/yyyy")+"'";
+            cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Đã điểm danh' AND NGAYLAM >='" + begin.ToString("MM/dd/yyyy") + "' AND NGAYLAM <='" + today.ToString("MM/dd/yyyy") + "'";
             reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 CAIDS.Add(reader.GetString(0));
             }
@@ -520,27 +524,27 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             DateTime i = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-            for(; i<= DateTime.Today; i = i.AddDays(1))
+            for (; i <= DateTime.Today; i = i.AddDays(1))
             {
-                cmd.CommandText = "SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC_HANGTUAN WHERE NVID = '"+NVID+"'AND SUBSTRING(CAID,2,1) = '"+((int)i.DayOfWeek)+"'"
+                cmd.CommandText = "SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC_HANGTUAN WHERE NVID = '" + NVID + "'AND SUBSTRING(CAID,2,1) = '" + ((int)i.DayOfWeek) + "'"
                                 + " EXCEPT"
-                                + " SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC WHERE NVID='"+NVID+"' AND NGAYLAM = '"+i.ToString("MM/dd/yyyy")+"'";
+                                + " SELECT NVID, CAID, TIEUDE FROM CT_LAMVIEC WHERE NVID='" + NVID + "' AND NGAYLAM = '" + i.ToString("MM/dd/yyyy") + "'";
                 DataTable table = new DataTable();
                 table.Clear();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(table);
-                for(int j =0; j<table.Rows.Count; j++)
+                for (int j = 0; j < table.Rows.Count; j++)
                 {
                     cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
                     cmd.ExecuteNonQuery();
-                }    
+                }
             }
-            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Đã điểm danh' AND MONTH(NGAYLAM) =" +DateTime.Today.Month;
+            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Đã điểm danh' AND MONTH(NGAYLAM) =" + DateTime.Today.Month;
             txt_ngaylam.Text = cmd.ExecuteScalar().ToString();
             cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Chưa điểm danh' AND MONTH(NGAYLAM) =" + DateTime.Today.Month;
             txt_ngaynghi.Text = cmd.ExecuteScalar().ToString();
             sqlCon.Close();
-        }    
+        }
         void load_lich()
         {
             load_lich_calamHienTai();
@@ -557,6 +561,174 @@ namespace App_sale_manager
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             load_lich_banglichhangtuan((sender as MonthCalendar).SelectionStart.Date);
+        }
+
+        private void dataGridView_dtcc_guest_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView_dtcc_guest.Rows[e.RowIndex];
+                DateTime Date = new DateTime();
+                string loaiKH = row.Cells[6].Value.ToString();
+                if (string.IsNullOrEmpty(loaiKH) != true)
+                    if (loaiKH == "NOR")
+                        label_guestSpec_Text.Text = "Khách thường";
+                    else
+                        label_guestSpec_Text.Text = "Khách vip";
+                label_guestID_Text.Text = row.Cells[0].Value.ToString();
+                label_guestName_Text.Text = row.Cells[1].Value.ToString();
+                label_guestSDT_Text.Text = row.Cells[3].Value.ToString();
+                Date = Convert.ToDateTime(row.Cells[4].Value.ToString());
+                label_guestReg_Text.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
+                label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
+                label_guestMoney_Text.Text = row.Cells[5].Value.ToString();
+                string filepath = @"Image samples for testing\Khách hàng đăng kí\" + label_guestName_Text.Text + ".jpg";
+                if (File.Exists(filepath))
+                    pictureBox_dtcc_guestFace.Image = Image.FromFile(filepath);
+                else
+                    pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\Khách hàng đăng kí\No Image.jpg");
+                button_guest_mod.Enabled = true;
+                button_guest_delete.Enabled = true;
+            }
+        }
+        public void DTCC_guest_dataInitialize()
+        {
+            SqlCommand cmd;
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            DataTable Table = new DataTable();
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = "Select * from KHACHHANG";
+            Adapter.SelectCommand = cmd;
+            Table.Clear();
+            Adapter.Fill(Table);
+            dataGridView_dtcc_guest.DataSource = Table;
+            button_guest_mod.Enabled = false;
+            button_guest_delete.Enabled = false;
+            sqlCon.Close();
+        }
+        public void Guest_DataRefresh(object sender, EventArgs e)
+        {
+            DTCC_guest_dataInitialize();
+        }
+
+        private void button_guest_refresh_Click(object sender, EventArgs e)
+        {
+            DTCC_guest_dataInitialize();
+        }
+
+        private void button_guest_add_Click(object sender, EventArgs e)
+        {
+            DTCC_guest_form A = new DTCC_guest_form();
+            A.RefreshData += Guest_DataRefresh;
+            A.Show();
+        }
+
+        private void button_guest_mod_Click(object sender, EventArgs e)
+        {
+            DTCC_guest_modifier A = new DTCC_guest_modifier();
+            A.textBox_ID_z.Text = label_guestID_Text.Text;
+            A.dateTimePicker_NGDT_z.Value = Convert.ToDateTime(label_guestReg_Text.Text);
+            A.textBox_DIACHI_z.Text = label_guestAddress_Text.Text;
+            A.textBox_SDT_z.Text = label_guestSDT_Text.Text;
+            A.textBox_TENDT_z.Text = label_guestName_Text.Text;
+            A.textBox_budget_z.Text = label_guestMoney_Text.Text;
+            A.comboBox_loaiKH.Text = label_guestSpec_Text.Text;
+            A.pictureBox_image_import.Image = pictureBox_dtcc_guestFace.Image;
+            A.RefreshData += Guest_DataRefresh;
+            A.Show();
+        }
+
+        private void button_guest_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Xóa dữ liệu", MessageBoxButtons.YesNo);
+            if (Result == DialogResult.Yes)
+            {
+                string str;
+                str = "delete from KHACHHANG where KHID = '" + label_guestID_Text.Text + "'";
+                if (sqlCon.State == ConnectionState.Closed)
+                    sqlCon.Open();
+                SqlCommand newcmd = new SqlCommand(str, sqlCon);
+                newcmd.ExecuteNonQuery();
+                MessageBox.Show("Xóa thành công!", "Thông báo");
+                /*if(File.Exists(@"\Image samples for testing\Đối tác giao dịch\"+label_TENDTtext.Text+".jpg"))
+                {
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                    File.Delete(@"\Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg");
+                }    
+                */
+                DTCC_guest_dataInitialize();
+            }
+        }
+
+        private void button_guest_search_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox_guest_search.Text))
+            {
+                MessageBox.Show("Vui lòng nhập nội dung cần tìm.");
+                textBox_guest_search.Focus();
+                return;
+            }
+            if (comboBox_guest_filter.Text == "Chưa chọn")
+            {
+                MessageBox.Show("Vui lòng chọn trường cần tìm.");
+                comboBox_guest_filter.Focus();
+                return;
+            }
+            switch (comboBox_guest_filter.Text)
+            {
+                case "Mã khách hàng":
+                    Search_guest("KHID");
+                    break;
+                case "Tên khách hàng":
+                    Search_guest("HOTEN");
+                    break;
+                case "Số điện thoại":
+                    Search_guest("SDT");
+                    break;
+                case "Địa chỉ":
+                    Search_guest("DIACHI");
+                    break;
+                case "Năm đăng kí":
+                    Search_guest("Year(NGDK)");
+                    break;
+                case "Loại khách hàng":
+                    Search_guest("LOAIKH");
+                    break;
+            }
+        }
+        public void Search_guest(string SearchOption)
+        {
+            string str;
+            str = "select * from KHACHHANG where " + SearchOption + " like '%" + textBox_guest_search.Text + "%'";
+            SqlCommand cmd;
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            DataTable Table = new DataTable();
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
+            cmd = sqlCon.CreateCommand();
+            cmd.CommandText = str;
+            Adapter.SelectCommand = cmd;
+            Table.Clear();
+            Adapter.Fill(Table);
+            dataGridView_dtcc_guest.DataSource = Table;
+            button_guest_mod.Enabled = false;
+            button_guest_delete.Enabled = false;
+            sqlCon.Close();
+        }
+
+        private void textBox_guest_search_Click(object sender, EventArgs e)
+        {
+            textBox_guest_search.SelectAll();
+            this.AcceptButton = button_guest_search;
+        }
+
+        private void button_sale_Click(object sender, EventArgs e)
+        {
+            Sale_viewer A = new Sale_viewer();
+            A.Show();
         }
     }
 }
