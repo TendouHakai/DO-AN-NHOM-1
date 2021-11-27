@@ -155,6 +155,7 @@ namespace App_sale_manager
             this.dgvChiTietNH.Location = new System.Drawing.Point(12, 310);
             this.dgvChiTietNH.Name = "dgvChiTietNH";
             this.dgvChiTietNH.ReadOnly = true;
+            this.dgvChiTietNH.RowHeadersVisible = false;
             this.dgvChiTietNH.RowHeadersWidth = 51;
             this.dgvChiTietNH.RowTemplate.Height = 24;
             this.dgvChiTietNH.Size = new System.Drawing.Size(568, 437);

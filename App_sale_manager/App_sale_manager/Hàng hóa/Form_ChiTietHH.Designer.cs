@@ -39,19 +39,19 @@ namespace App_sale_manager
             this.lblTenSP = new System.Windows.Forms.Label();
             this.lblMaSP = new System.Windows.Forms.Label();
             this.lblMoTa = new System.Windows.Forms.Label();
-            this.txtNDMoTa = new System.Windows.Forms.TextBox();
+            this.txtMoTa = new System.Windows.Forms.TextBox();
             this.lblHinhAnh = new System.Windows.Forms.Label();
             this.ptrbHinhAnh = new System.Windows.Forms.PictureBox();
-            this.txtNDTenSP = new System.Windows.Forms.TextBox();
-            this.txtNDMaSP = new System.Windows.Forms.TextBox();
-            this.txtNDDVT = new System.Windows.Forms.TextBox();
-            this.txtNDNuocSX = new System.Windows.Forms.TextBox();
-            this.txtNDLoaiID = new System.Windows.Forms.TextBox();
-            this.txtNDSoLuong = new System.Windows.Forms.TextBox();
-            this.txtNDSLToiThieu = new System.Windows.Forms.TextBox();
-            this.txtNDGiaBan = new System.Windows.Forms.TextBox();
-            this.txtNDGiaNhap = new System.Windows.Forms.TextBox();
-            this.txtNDHang = new System.Windows.Forms.TextBox();
+            this.txtTenSP = new System.Windows.Forms.TextBox();
+            this.txtMaSP = new System.Windows.Forms.TextBox();
+            this.txtDVT = new System.Windows.Forms.TextBox();
+            this.txtNuocSX = new System.Windows.Forms.TextBox();
+            this.txtLoaiID = new System.Windows.Forms.TextBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.txtSLToiThieu = new System.Windows.Forms.TextBox();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
+            this.txtGiaNhap = new System.Windows.Forms.TextBox();
+            this.txtHang = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbHinhAnh)).BeginInit();
             this.SuspendLayout();
@@ -146,14 +146,14 @@ namespace App_sale_manager
             this.lblMoTa.TabIndex = 49;
             this.lblMoTa.Text = "Mô tả";
             // 
-            // txtNDMoTa
+            // txtMoTa
             // 
-            this.txtNDMoTa.Location = new System.Drawing.Point(431, 44);
-            this.txtNDMoTa.Multiline = true;
-            this.txtNDMoTa.Name = "txtNDMoTa";
-            this.txtNDMoTa.ReadOnly = true;
-            this.txtNDMoTa.Size = new System.Drawing.Size(664, 145);
-            this.txtNDMoTa.TabIndex = 59;
+            this.txtMoTa.Location = new System.Drawing.Point(431, 44);
+            this.txtMoTa.Multiline = true;
+            this.txtMoTa.Name = "txtMoTa";
+            this.txtMoTa.ReadOnly = true;
+            this.txtMoTa.Size = new System.Drawing.Size(664, 145);
+            this.txtMoTa.TabIndex = 59;
             // 
             // lblHinhAnh
             // 
@@ -173,86 +173,86 @@ namespace App_sale_manager
             this.ptrbHinhAnh.TabIndex = 61;
             this.ptrbHinhAnh.TabStop = false;
             // 
-            // txtNDTenSP
+            // txtTenSP
             // 
-            this.txtNDTenSP.Location = new System.Drawing.Point(163, 85);
-            this.txtNDTenSP.Multiline = true;
-            this.txtNDTenSP.Name = "txtNDTenSP";
-            this.txtNDTenSP.ReadOnly = true;
-            this.txtNDTenSP.Size = new System.Drawing.Size(209, 67);
-            this.txtNDTenSP.TabIndex = 62;
+            this.txtTenSP.Location = new System.Drawing.Point(163, 85);
+            this.txtTenSP.Multiline = true;
+            this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.ReadOnly = true;
+            this.txtTenSP.Size = new System.Drawing.Size(209, 67);
+            this.txtTenSP.TabIndex = 62;
             // 
-            // txtNDMaSP
+            // txtMaSP
             // 
-            this.txtNDMaSP.Location = new System.Drawing.Point(163, 24);
-            this.txtNDMaSP.Name = "txtNDMaSP";
-            this.txtNDMaSP.ReadOnly = true;
-            this.txtNDMaSP.Size = new System.Drawing.Size(209, 22);
-            this.txtNDMaSP.TabIndex = 63;
+            this.txtMaSP.Location = new System.Drawing.Point(163, 24);
+            this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.ReadOnly = true;
+            this.txtMaSP.Size = new System.Drawing.Size(209, 22);
+            this.txtMaSP.TabIndex = 63;
             // 
-            // txtNDDVT
+            // txtDVT
             // 
-            this.txtNDDVT.Location = new System.Drawing.Point(163, 355);
-            this.txtNDDVT.Name = "txtNDDVT";
-            this.txtNDDVT.ReadOnly = true;
-            this.txtNDDVT.Size = new System.Drawing.Size(209, 22);
-            this.txtNDDVT.TabIndex = 64;
+            this.txtDVT.Location = new System.Drawing.Point(163, 355);
+            this.txtDVT.Name = "txtDVT";
+            this.txtDVT.ReadOnly = true;
+            this.txtDVT.Size = new System.Drawing.Size(209, 22);
+            this.txtDVT.TabIndex = 64;
             // 
-            // txtNDNuocSX
+            // txtNuocSX
             // 
-            this.txtNDNuocSX.Location = new System.Drawing.Point(163, 298);
-            this.txtNDNuocSX.Name = "txtNDNuocSX";
-            this.txtNDNuocSX.ReadOnly = true;
-            this.txtNDNuocSX.Size = new System.Drawing.Size(209, 22);
-            this.txtNDNuocSX.TabIndex = 65;
+            this.txtNuocSX.Location = new System.Drawing.Point(163, 298);
+            this.txtNuocSX.Name = "txtNuocSX";
+            this.txtNuocSX.ReadOnly = true;
+            this.txtNuocSX.Size = new System.Drawing.Size(209, 22);
+            this.txtNuocSX.TabIndex = 65;
             // 
-            // txtNDLoaiID
+            // txtLoaiID
             // 
-            this.txtNDLoaiID.Location = new System.Drawing.Point(163, 184);
-            this.txtNDLoaiID.Name = "txtNDLoaiID";
-            this.txtNDLoaiID.ReadOnly = true;
-            this.txtNDLoaiID.Size = new System.Drawing.Size(209, 22);
-            this.txtNDLoaiID.TabIndex = 66;
+            this.txtLoaiID.Location = new System.Drawing.Point(163, 184);
+            this.txtLoaiID.Name = "txtLoaiID";
+            this.txtLoaiID.ReadOnly = true;
+            this.txtLoaiID.Size = new System.Drawing.Size(209, 22);
+            this.txtLoaiID.TabIndex = 66;
             // 
-            // txtNDSoLuong
+            // txtSoLuong
             // 
-            this.txtNDSoLuong.Location = new System.Drawing.Point(163, 526);
-            this.txtNDSoLuong.Name = "txtNDSoLuong";
-            this.txtNDSoLuong.ReadOnly = true;
-            this.txtNDSoLuong.Size = new System.Drawing.Size(209, 22);
-            this.txtNDSoLuong.TabIndex = 67;
+            this.txtSoLuong.Location = new System.Drawing.Point(163, 526);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.ReadOnly = true;
+            this.txtSoLuong.Size = new System.Drawing.Size(209, 22);
+            this.txtSoLuong.TabIndex = 67;
             // 
-            // txtNDSLToiThieu
+            // txtSLToiThieu
             // 
-            this.txtNDSLToiThieu.Location = new System.Drawing.Point(163, 583);
-            this.txtNDSLToiThieu.Name = "txtNDSLToiThieu";
-            this.txtNDSLToiThieu.ReadOnly = true;
-            this.txtNDSLToiThieu.Size = new System.Drawing.Size(209, 22);
-            this.txtNDSLToiThieu.TabIndex = 68;
+            this.txtSLToiThieu.Location = new System.Drawing.Point(163, 583);
+            this.txtSLToiThieu.Name = "txtSLToiThieu";
+            this.txtSLToiThieu.ReadOnly = true;
+            this.txtSLToiThieu.Size = new System.Drawing.Size(209, 22);
+            this.txtSLToiThieu.TabIndex = 68;
             // 
-            // txtNDGiaBan
+            // txtGiaBan
             // 
-            this.txtNDGiaBan.Location = new System.Drawing.Point(163, 412);
-            this.txtNDGiaBan.Name = "txtNDGiaBan";
-            this.txtNDGiaBan.ReadOnly = true;
-            this.txtNDGiaBan.Size = new System.Drawing.Size(209, 22);
-            this.txtNDGiaBan.TabIndex = 69;
+            this.txtGiaBan.Location = new System.Drawing.Point(163, 412);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.ReadOnly = true;
+            this.txtGiaBan.Size = new System.Drawing.Size(209, 22);
+            this.txtGiaBan.TabIndex = 69;
             // 
-            // txtNDGiaNhap
+            // txtGiaNhap
             // 
-            this.txtNDGiaNhap.Location = new System.Drawing.Point(163, 469);
-            this.txtNDGiaNhap.Name = "txtNDGiaNhap";
-            this.txtNDGiaNhap.ReadOnly = true;
-            this.txtNDGiaNhap.Size = new System.Drawing.Size(209, 22);
-            this.txtNDGiaNhap.TabIndex = 70;
+            this.txtGiaNhap.Location = new System.Drawing.Point(163, 469);
+            this.txtGiaNhap.Name = "txtGiaNhap";
+            this.txtGiaNhap.ReadOnly = true;
+            this.txtGiaNhap.Size = new System.Drawing.Size(209, 22);
+            this.txtGiaNhap.TabIndex = 70;
             // 
-            // txtNDHang
+            // txtHang
             // 
-            this.txtNDHang.Location = new System.Drawing.Point(163, 241);
-            this.txtNDHang.Name = "txtNDHang";
-            this.txtNDHang.ReadOnly = true;
-            this.txtNDHang.Size = new System.Drawing.Size(209, 22);
-            this.txtNDHang.TabIndex = 72;
+            this.txtHang.Location = new System.Drawing.Point(163, 241);
+            this.txtHang.Name = "txtHang";
+            this.txtHang.ReadOnly = true;
+            this.txtHang.Size = new System.Drawing.Size(209, 22);
+            this.txtHang.TabIndex = 72;
             // 
             // label1
             // 
@@ -268,20 +268,20 @@ namespace App_sale_manager
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 653);
-            this.Controls.Add(this.txtNDHang);
+            this.Controls.Add(this.txtHang);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNDGiaNhap);
-            this.Controls.Add(this.txtNDGiaBan);
-            this.Controls.Add(this.txtNDSLToiThieu);
-            this.Controls.Add(this.txtNDSoLuong);
-            this.Controls.Add(this.txtNDLoaiID);
-            this.Controls.Add(this.txtNDNuocSX);
-            this.Controls.Add(this.txtNDDVT);
-            this.Controls.Add(this.txtNDMaSP);
-            this.Controls.Add(this.txtNDTenSP);
+            this.Controls.Add(this.txtGiaNhap);
+            this.Controls.Add(this.txtGiaBan);
+            this.Controls.Add(this.txtSLToiThieu);
+            this.Controls.Add(this.txtSoLuong);
+            this.Controls.Add(this.txtLoaiID);
+            this.Controls.Add(this.txtNuocSX);
+            this.Controls.Add(this.txtDVT);
+            this.Controls.Add(this.txtMaSP);
+            this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.ptrbHinhAnh);
             this.Controls.Add(this.lblHinhAnh);
-            this.Controls.Add(this.txtNDMoTa);
+            this.Controls.Add(this.txtMoTa);
             this.Controls.Add(this.lblMoTa);
             this.Controls.Add(this.lblLoaiID);
             this.Controls.Add(this.lblSLToiThieu);
@@ -314,19 +314,19 @@ namespace App_sale_manager
         private System.Windows.Forms.Label lblTenSP;
         private System.Windows.Forms.Label lblMaSP;
         private System.Windows.Forms.Label lblMoTa;
-        private System.Windows.Forms.TextBox txtNDMoTa;
+        private System.Windows.Forms.TextBox txtMoTa;
         private System.Windows.Forms.Label lblHinhAnh;
         private System.Windows.Forms.PictureBox ptrbHinhAnh;
-        private System.Windows.Forms.TextBox txtNDTenSP;
-        private System.Windows.Forms.TextBox txtNDMaSP;
-        private System.Windows.Forms.TextBox txtNDDVT;
-        private System.Windows.Forms.TextBox txtNDNuocSX;
-        private System.Windows.Forms.TextBox txtNDLoaiID;
-        private System.Windows.Forms.TextBox txtNDSoLuong;
-        private System.Windows.Forms.TextBox txtNDSLToiThieu;
-        private System.Windows.Forms.TextBox txtNDGiaBan;
-        private System.Windows.Forms.TextBox txtNDGiaNhap;
-        private System.Windows.Forms.TextBox txtNDHang;
+        private System.Windows.Forms.TextBox txtTenSP;
+        private System.Windows.Forms.TextBox txtMaSP;
+        private System.Windows.Forms.TextBox txtDVT;
+        private System.Windows.Forms.TextBox txtNuocSX;
+        private System.Windows.Forms.TextBox txtLoaiID;
+        private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.TextBox txtSLToiThieu;
+        private System.Windows.Forms.TextBox txtGiaBan;
+        private System.Windows.Forms.TextBox txtGiaNhap;
+        private System.Windows.Forms.TextBox txtHang;
         private System.Windows.Forms.Label label1;
     }
 }

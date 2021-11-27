@@ -38,7 +38,8 @@ namespace App_sale_manager
                 txtMaNV.Text = reader.GetString(4);
                 txtNVNhap.Text = reader.GetString(5);
                 txtGiaTriDN.Text = reader.GetSqlMoney(6).ToString();
-                reader.Close();
+                txtGiaTriDN.Text = string.Format("{0:0,0}", float.Parse(txtGiaTriDN.Text));
+              reader.Close();
             }
             sqlCon.Close();
             LoadCTDonNhap();
@@ -57,6 +58,7 @@ namespace App_sale_manager
                 dgvChiTietNH.Columns[1].HeaderText = "Tên Sản Phẩm";
                 dgvChiTietNH.Columns[2].HeaderText = "Số Lượng Nhập";    
                 dgvChiTietNH.Columns[3].HeaderText = "Đơn Giá";
+                dgvChiTietNH.Columns[3].DefaultCellStyle.Format = "N0";
                 sqlCon.Close();
             }
         }

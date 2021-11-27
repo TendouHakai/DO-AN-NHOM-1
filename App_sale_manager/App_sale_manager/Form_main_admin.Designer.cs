@@ -1086,6 +1086,7 @@ namespace App_sale_manager
             this.dgvSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSP.Name = "dgvSP";
             this.dgvSP.ReadOnly = true;
+            this.dgvSP.RowHeadersVisible = false;
             this.dgvSP.RowHeadersWidth = 51;
             this.dgvSP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSP.RowTemplate.Height = 24;
@@ -1738,7 +1739,7 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.ReadOnly = true;
             this.dataGridView_dtcc_guest.RowHeadersWidth = 51;
             this.dataGridView_dtcc_guest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(673, 398);
+            this.dataGridView_dtcc_guest.Size = new System.Drawing.Size(676, 398);
             this.dataGridView_dtcc_guest.TabIndex = 42;
             this.dataGridView_dtcc_guest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dtcc_guest_CellClick);
             // 

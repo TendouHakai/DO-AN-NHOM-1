@@ -50,6 +50,7 @@ namespace App_sale_manager
             dgvHDHN.Columns[2].HeaderText = "Tên đối tác";
             dgvHDHN.Columns[3].HeaderText = "Tên nhân viên nhập";
             dgvHDHN.Columns[4].HeaderText = "Giá trị ";
+            dgvHDHN.Columns[4].DefaultCellStyle.Format = "N0";
             for (int i = 0; i < dgvHDHN.RowCount; i++)
             {
                 if(dgvHDHN.Rows[i].Cells[0].Value != null)

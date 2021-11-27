@@ -74,6 +74,7 @@ namespace App_sale_manager
             this.dgvHDHN.Location = new System.Drawing.Point(16, 337);
             this.dgvHDHN.Name = "dgvHDHN";
             this.dgvHDHN.ReadOnly = true;
+            this.dgvHDHN.RowHeadersVisible = false;
             this.dgvHDHN.RowHeadersWidth = 51;
             this.dgvHDHN.RowTemplate.Height = 24;
             this.dgvHDHN.Size = new System.Drawing.Size(769, 376);
@@ -146,6 +147,7 @@ namespace App_sale_manager
             this.dgvChiTietNH.Location = new System.Drawing.Point(791, 337);
             this.dgvChiTietNH.Name = "dgvChiTietNH";
             this.dgvChiTietNH.ReadOnly = true;
+            this.dgvChiTietNH.RowHeadersVisible = false;
             this.dgvChiTietNH.RowHeadersWidth = 51;
             this.dgvChiTietNH.RowTemplate.Height = 24;
             this.dgvChiTietNH.Size = new System.Drawing.Size(333, 376);

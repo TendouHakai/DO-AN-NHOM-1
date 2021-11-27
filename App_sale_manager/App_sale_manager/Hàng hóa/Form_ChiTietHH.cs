@@ -16,48 +16,29 @@ namespace App_sale_manager
         {
             InitializeComponent();
         }
-        public Form_ChiTietHH(string SPID, string TenSP, string SL, string NuocSX,string Hang, string GiaBan, string GiaNhap, string DVT, string SLTT, string LoaiSP, string MoTa)
-        {
-            
-            InitializeComponent();
-            txtNDMaSP.Text = SPID;
-            txtNDTenSP.Text = TenSP;
-            txtNDSoLuong.Text = SL;
-            txtNDNuocSX.Text = NuocSX;
-            txtNDHang.Text = Hang;
-            txtNDGiaBan.Text = GiaNhap;
-            txtNDGiaNhap.Text = GiaBan;
-            txtNDDVT.Text = DVT;
-            txtNDSLToiThieu.Text = SLTT;
-            txtNDLoaiID.Text = LoaiSP;
-            txtNDMoTa.Text = MoTa;
-            Image img = GetCopyImage(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
-            ptrbHinhAnh.Image = img;
-            System.IO.File.Delete(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
-            ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-        public Form_ChiTietHH(string SPID, string TenSP, string NuocSX, string Hang, string GiaBan, string GiaNhap, string DVT, string LoaiSP, string MoTa)
+        public Form_ChiTietHH(string SPID, string TenSP, string SL, string NuocSX, string Hang, string GiaBan, string GiaNhap, string DVT, string SLTT, string LoaiSP, string MoTa)
         {
 
             InitializeComponent();
-            txtNDMaSP.Text = SPID;
-            txtNDTenSP.Text = TenSP;
-            lblSoLuong.Visible = false;
-            txtNDSoLuong.Visible=false;
-            txtNDNuocSX.Text = NuocSX;
-            txtNDHang.Text = Hang;
-            txtNDGiaBan.Text = GiaNhap;
-            txtNDGiaNhap.Text = GiaBan;
-            txtNDDVT.Text = DVT;
-            lblSLToiThieu.Visible = false;
-            txtNDSLToiThieu.Visible = false ;
-            txtNDLoaiID.Text = LoaiSP;
-            txtNDMoTa.Text = MoTa;
-            Image img = GetCopyImage(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");           
+            txtMaSP.Text = SPID;
+            txtTenSP.Text = TenSP;
+            txtSoLuong.Text = SL;
+            txtNuocSX.Text = NuocSX;
+            txtHang.Text = Hang;
+            txtGiaBan.Text = GiaNhap;
+            txtGiaBan.Text = string.Format("{0:0,0}", float.Parse(txtGiaBan.Text));
+            txtGiaNhap.Text = GiaBan;
+            txtGiaNhap.Text = string.Format("{0:0,0}", float.Parse(txtGiaNhap.Text));
+            txtDVT.Text = DVT;
+            txtSLToiThieu.Text = SLTT;
+            txtLoaiID.Text = LoaiSP;
+            txtMoTa.Text = MoTa;
+            Image img = GetCopyImage(@"..\..\HangHoa\" + txtMaSP.Text + ".jpg");
             ptrbHinhAnh.Image = img;
-            System.IO.File.Delete(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
+            System.IO.File.Delete(@"..\..\HangHoa\" + txtMaSP.Text + ".jpg");
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+      
         private Image GetCopyImage(string path)
         {
             try
@@ -79,7 +60,7 @@ namespace App_sale_manager
         }
         private void Form_ChiTietHH_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
+            ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtMaSP.Text + ".jpg");
             this.Close();
         }
     }

@@ -1871,7 +1871,9 @@ namespace App_sale_manager
             dgvSP.Columns[3].Width = 80;
             dgvSP.Columns[4].HeaderText = "Hãng";
             dgvSP.Columns[5].HeaderText = "Giá Bán";
+            dgvSP.Columns[5].DefaultCellStyle.Format = "N0";
             dgvSP.Columns[6].HeaderText = "Giá Nhập";
+            dgvSP.Columns[6].DefaultCellStyle.Format = "N0";
             dgvSP.Columns[7].HeaderText = "Đơn Vị Tính";
             dgvSP.Columns[7].Width = 50;
             dgvSP.Columns[8].HeaderText = "Số Lượng";
@@ -1879,13 +1881,7 @@ namespace App_sale_manager
             dgvSP.Columns[9].HeaderText = "Số Lượng Tối Thiểu";
             dgvSP.Columns[9].Width = 50;
             dgvSP.Columns[10].HeaderText = "Mô Tả";
-            for(int i=0;i<dgvSP.RowCount-1;i++)
-            {
-                
-                    dgvSP.Rows[i].Cells["GIABAN"].Value = double.Parse(dgvSP.Rows[i].Cells["GIABAN"].Value.ToString());
-                    dgvSP.Rows[i].Cells["GIANHAP"].Value = double.Parse(dgvSP.Rows[i].Cells["GIANHAP"].Value.ToString());
-                   
-            }    
+              
         }
         private void XemChiTiet()
 

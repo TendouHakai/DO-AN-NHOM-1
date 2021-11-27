@@ -31,7 +31,8 @@ namespace App_sale_manager
             txtSLNhap.ReadOnly = false;
             tbSP.Columns.Add("SPID", typeof(string));
             tbSP.Columns.Add("SL", typeof(int));
-            tbSP.Columns.Add("GiaNhap", typeof(double));           
+            tbSP.Columns.Add("GiaNhap", typeof(double));
+            dtpNgayNhap.Value = DateTime.Now;
         }
         private void LoadCBB()
         {
@@ -125,6 +126,8 @@ namespace App_sale_manager
             txtSoLuong.Text = table.Rows[0][0].ToString();
             txtMaSP.Text = table.Rows[0][1].ToString();
             txtGiaNhap.Text = table.Rows[0][2].ToString();
+            if (txtGiaNhap.Text != string.Empty)
+                txtGiaNhap.Text = string.Format("{0:0,0}", float.Parse(txtGiaNhap.Text));
             sqlCon.Close();
 
         }
@@ -146,26 +149,6 @@ namespace App_sale_manager
             sqlCon.Close();
             txtGiaTriDN.Text = LayGia();
         }
-
-        private void LoadDonNhap()
-        {
-            if (txtSoHDNH.Text != string.Empty)
-            {
-                sqlCon = new SqlConnection(strCon);
-                sqlCon.Open();
-                adapter = new SqlDataAdapter("select SANPHAM.SPID,CTHDNH.SL,SANPHAM.GIANHAP from CTHDNH,SANPHAM,HDNH where SANPHAM.SPID=CTHDNH.SPID and CTHDNH.SOHD_NH=HDNH.SOHD_NH and CTHDNH.SOHD_NH=" + txtSoHDNH.Text, sqlCon);
-              
-                DataTable tableSPNH = new DataTable();
-                adapter.Fill(tableSPNH);
-                dgvChiTietNH.DataSource = tableSPNH;
-                dgvChiTietNH.Columns[0].HeaderText = "Mã Sản Phẩm";
-                dgvChiTietNH.Columns[1].HeaderText = "Số Lượng Nhập";
-                dgvChiTietNH.Columns[2].HeaderText = "Đơn giá nhập";
-                sqlCon.Close();
-            }
-        }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             dgvChiTietNH.AllowUserToAddRows = false;
@@ -180,7 +163,8 @@ namespace App_sale_manager
             dgvChiTietNH.Columns[0].HeaderText = "Mã Sản Phẩm";
             dgvChiTietNH.Columns[1].HeaderText = "Số Lượng Nhập";
             dgvChiTietNH.Columns[2].HeaderText = "Đơn giá nhập";
-            txtGiaTriDN.Text = LayGia();
+            dgvChiTietNH.Columns[2].DefaultCellStyle.Format = "N0";
+            txtGiaTriDN.Text = LayGia();          
         }
         private bool KiemTraHangTrung(string spid)
         {
@@ -194,19 +178,20 @@ namespace App_sale_manager
         private void button2_Click(object sender, EventArgs e)
         {
             sqlCon = new SqlConnection(strCon);
-            sqlCon.Open();
+            
             if (dgvChiTietNH.CurrentRow != null)
             {
-                string strquery = "delete from CTHDNH where SPID ='" + dgvChiTietNH.CurrentRow.Cells["SPID"].Value.ToString() + "'";
-                SqlCommand sqlCmd;
-                sqlCmd = new SqlCommand(strquery, sqlCon);
-
-                sqlCmd.ExecuteNonQuery();
+                for (int i = 0; i < dgvChiTietNH.RowCount; i++)
+                {
+                    if (dgvChiTietNH.Rows[i].Cells["SPID"].Value.ToString() == dgvChiTietNH.CurrentRow.Cells["SPID"].Value.ToString())
+                        dgvChiTietNH.Rows.RemoveAt(i);
+                       
+                }
             }
             else MessageBox.Show("Chưa chọn hàng để xoá");
-            sqlCon.Close();
-            LoadDonNhap();
             txtGiaTriDN.Text = LayGia();
+
+
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -251,7 +236,7 @@ namespace App_sale_manager
             else
             {                
                 sqlCon.Open();
-                string strquery = "set dateformat dmy insert into HDNH values('" + txtSoHDNH.Text+"','" + dtpNgayNhap.Text + "','" + txtMaDT.Text + "','" + txtMaNV.Text + "'," + txtGiaTriDN.Text + ")";
+                string strquery = "set dateformat dmy insert into HDNH values('" + txtSoHDNH.Text+"','" + dtpNgayNhap.Value.ToString("dd/MM/yyyy") + "','" + txtMaDT.Text + "','" + txtMaNV.Text + "'," + txtGiaTriDN.Text + ")";
                 SqlCommand sqlCmd;
                 sqlCmd = new SqlCommand(strquery, sqlCon);
                 sqlCmd.ExecuteNonQuery();

@@ -185,7 +185,7 @@ namespace App_sale_manager
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(163, 591);
+            this.button1.Location = new System.Drawing.Point(34, 591);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 50);
             this.button1.TabIndex = 78;
@@ -197,7 +197,7 @@ namespace App_sale_manager
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(30, 591);
+            this.button2.Location = new System.Drawing.Point(163, 591);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 50);
             this.button2.TabIndex = 79;
@@ -237,6 +237,7 @@ namespace App_sale_manager
             this.dgvChiTietNH.Location = new System.Drawing.Point(559, 32);
             this.dgvChiTietNH.Name = "dgvChiTietNH";
             this.dgvChiTietNH.ReadOnly = true;
+            this.dgvChiTietNH.RowHeadersVisible = false;
             this.dgvChiTietNH.RowHeadersWidth = 51;
             this.dgvChiTietNH.RowTemplate.Height = 24;
             this.dgvChiTietNH.Size = new System.Drawing.Size(561, 432);
