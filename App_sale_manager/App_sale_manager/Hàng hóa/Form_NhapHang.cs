@@ -251,7 +251,7 @@ namespace App_sale_manager
             else
             {                
                 sqlCon.Open();
-                string strquery = "set dateformat dmy insert into HDNH values('" + txtSoHDNH.Text+"','" + dtpNgayNhap.Text + "','" + txtMaDT.Text + "','" + txtMaNV.Text + "'," + txtGiaTriDN.Text + ")";
+                string strquery = "insert into HDNH values('" + txtSoHDNH.Text+"','" + dtpNgayNhap.Value.ToString("MM/dd/yyyy HH:mm:ss") + "','" + txtMaDT.Text + "','" + txtMaNV.Text + "'," + txtGiaTriDN.Text + ")";
                 SqlCommand sqlCmd;
                 sqlCmd = new SqlCommand(strquery, sqlCon);
                 sqlCmd.ExecuteNonQuery();

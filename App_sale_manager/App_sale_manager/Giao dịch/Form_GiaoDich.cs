@@ -22,14 +22,14 @@ namespace App_sale_manager
         DataTable Table_GiamGia;
         public Form_GiaoDich()
         {
-            InitializeComponent();            
-                      
+            InitializeComponent();
+            this.Size = new Size(1250, 770);
         }
 
         public Form_GiaoDich(string Manv)
         {
             InitializeComponent();
-
+            this.Size = new Size(1250, 770);
             Box_IDNV.Text = Manv;
 
             sqlCon = new SqlConnection(strCon);
@@ -73,7 +73,7 @@ namespace App_sale_manager
             DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
 
             Box_LoaiHD.Text = "Đơn trực tiếp";
-            Box_TrangThai.Text = "Đơn đặt hàng";
+            Box_TrangThai.Text = "Hoàn thành";
 
 
             Table_GiamGia = new DataTable();
@@ -424,5 +424,7 @@ namespace App_sale_manager
             }
 
         }
+
+        
     }
 }

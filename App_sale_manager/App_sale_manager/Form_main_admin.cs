@@ -23,7 +23,7 @@ namespace App_sale_manager
         string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         SqlCommand cmd;
         SqlDataAdapter adapter = new SqlDataAdapter();
-        bool canExit;      
+        bool canExit;
         DataTable table = new DataTable();
         DataTable table_nv_bangluong = new DataTable();
 
@@ -39,8 +39,9 @@ namespace App_sale_manager
             pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
             button_refresh.BackgroundImage = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\refresh.jpg");
+            this.Size = new Size(1275, 740);
         }
-        public Form_main_admin(string manv,string tennv)
+        public Form_main_admin(string manv, string tennv, string username)
         {
             this.manv = manv;
             this.tennv = tennv;
@@ -52,34 +53,11 @@ namespace App_sale_manager
             canExit = true;
             pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
+            this.Size = new Size(1275, 740);
+            tbtnUser.Text = username;
         }
         public event EventHandler Thoat;
-        private void tabCtrl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabCtrl.SelectedIndex == 0)
-            {
-                load_tab_Tongquan();
-            }
-            else if (tabCtrl.SelectedIndex == 5)
-            {
-                tabControl_Baocao.SelectedIndex = 0;
-                tabControl_Baocao_SelectedIndexChanged(tabControl_Baocao, new EventArgs());
-            }
-            else if (tabCtrl.SelectedIndex == 3)
-            {
-                this.Refresh_data_GD();
-            }
-            else if(tabCtrl.SelectedIndex==1)
-            {
-                LoadCBBHH();
-                LoadHangHoa();
-            }
-            else if(tabCtrl.SelectedIndex==4)
-            {
-                LoadData_nv_infonv();
-                LoadData_nv_bangluong();
-            }    
-        }
+        
         private void btn_dangxuat_Click(object sender, EventArgs e)
         {
             canExit = false;
@@ -101,7 +79,7 @@ namespace App_sale_manager
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
-           cmd = sqlCon.CreateCommand();
+            cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
             string day = date.ToString("MM/dd/yyyy");
             cmd.CommandText = "SELECT COUNT(SOHD_BH) as SoHoaDon, SUM(TRIGIA) as DoanhThu FROM HDBH WHERE lOAIHD = 'DTT' AND NGHD ='" + day + "'";
@@ -176,10 +154,10 @@ namespace App_sale_manager
             chart_hangbanchay.ChartAreas["ChartArea1"].AxisY.Title = " Triệu";
             chart_hangbanchay.Series["Series_hanghoa"].Points.Clear();
             int j = 4;
-            if(table.Rows.Count<=4)
+            if (table.Rows.Count <= 4)
             {
-                j = table.Rows.Count-1;
-            }    
+                j = table.Rows.Count - 1;
+            }
             for (int i = j; i >= 0; i--)
             {
                 chart_hangbanchay.Series["Series_hanghoa"].Points.AddXY(table.Rows[i]["SPID"], (Convert.ToDouble(table.Rows[i]["DOANHTHU"]) / 1000000));
@@ -192,7 +170,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            cmd.CommandText = "SELECT NHANVIEN.HOTEN, HDBH.SOHD_BH, NGHD, TRIGIA, LOAIHD FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID WHERE NGHD>='" + date.AddDays(-5).ToString("MM/dd/yyyy") +"'"
+            cmd.CommandText = "SELECT NHANVIEN.HOTEN, HDBH.SOHD_BH, NGHD, TRIGIA, LOAIHD FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID WHERE NGHD>='" + date.AddDays(-5).ToString("MM/dd/yyyy") + "'"
                             + " UNION"
                             + " SELECT NHANVIEN.HOTEN, HDNH.SOHD_NH, NGNHAP, TRIGIA, LOAIHD = 'DNH' FROM HDNH INNER JOIN NHANVIEN ON HDNH.NVID = NHANVIEN.NVID WHERE NGNHAP>='" + date.AddDays(-5).ToString("MM/dd/yyyy") + "'"
                             + " ORDER BY NGHD DESC";
@@ -200,18 +178,62 @@ namespace App_sale_manager
             DataTable table = new DataTable();
             table.Clear();
             adapter.Fill(table);
-            listView_hanhdong.Clear();
-            
-            for (int i = 0; i < table.Rows.Count; i++)
+            flowLayoutPanel1.Controls.Clear();
+            for(int i =0; i<table.Rows.Count;i++)
             {
                 string Trigia = String.Format("{0:0,0}", Convert.ToInt32(table.Rows[i]["TRIGIA"]));
+                FlowLayoutPanel pntemp = new FlowLayoutPanel();
+                pntemp.Size = new Size(380, 100);
+                PictureBox pttemp = new PictureBox();
+                pttemp.Size = new Size(55, 40);
+                Button btntemp = new Button();
+                btntemp.Size = new Size(300, 80);
+                btntemp.FlatStyle = FlatStyle.Flat;
+                btntemp.FlatAppearance.BorderSize = 0;
+                btntemp.TextAlign = ContentAlignment.TopLeft;
+                btntemp.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
                 if (table.Rows[i]["LOAIHD"].Equals("DTT"))
-                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
-                else if(table.Rows[i]["LOAIHD"].Equals("DDH"))
-                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn đặt hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
+                {
+                    pttemp.BackgroundImage = Image.FromFile("../../icon/icons8-bill-60.png");
+                    pttemp.BackgroundImageLayout = ImageLayout.Zoom;
+                    btntemp.Text = table.Rows[i]["HOTEN"].ToString() + " vừa bán được 1 đơn hàng \n" + table.Rows[i]["SOHD_BH"].ToString() + " trị giá " + Trigia + "\nvào ngày " + table.Rows[i]["NGHD"].ToString();
+                    pntemp.Controls.Add(pttemp);
+                    pntemp.Controls.Add(btntemp);
+                    flowLayoutPanel1.Controls.Add(pntemp);
+                }
+                else if (table.Rows[i]["LOAIHD"].Equals("DDH"))
+                {
+                    pttemp.BackgroundImage = Image.FromFile("../../icon/icons8-purchase-order-60.png");
+                    pttemp.BackgroundImageLayout = ImageLayout.Zoom;
+                    btntemp.Text = table.Rows[i]["HOTEN"].ToString() + " vừa bán được 1 đơn đặt \nhàng" + table.Rows[i]["SOHD_BH"].ToString() + " trị giá \n" + Trigia + "vào ngày " + table.Rows[i]["NGHD"].ToString();
+                    pntemp.Controls.Add(pttemp);
+                    pntemp.Controls.Add(btntemp);
+                    flowLayoutPanel1.Controls.Add(pntemp);
+                }
                 else
-                    listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa nhập 1 đơn hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
-            }
+                {
+                    pttemp.BackgroundImage = Image.FromFile("../../icon/icons8-packing-60.png");
+                    pttemp.BackgroundImageLayout = ImageLayout.Zoom;
+                    btntemp.Text = table.Rows[i]["HOTEN"] + " vừa nhập 1 đơn hàng\n " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + "\nvào ngày " + table.Rows[i]["NGHD"];
+
+                    pntemp.Controls.Add(pttemp);
+                    pntemp.Controls.Add(btntemp);
+                    
+                    flowLayoutPanel1.Controls.Add(pntemp);
+                }    
+
+            }    
+            //for (int i = 0; i < table.Rows.Count; i++)
+            //{
+            //    string Trigia = String.Format("{0:0,0}", Convert.ToInt32(table.Rows[i]["TRIGIA"]));
+            //    if (table.Rows[i]["LOAIHD"].Equals("DTT"))
+            //        listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
+            //    else if (table.Rows[i]["LOAIHD"].Equals("DDH"))
+            //        listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa bán được 1 đơn đặt hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
+            //    else
+            //        listView_hanhdong.Items.Add("- " + table.Rows[i]["HOTEN"] + " vừa nhập 1 đơn hàng " + table.Rows[i]["SOHD_BH"] + " trị giá " + Trigia + " vào ngày " + table.Rows[i]["NGHD"]);
+            //}
+            sqlCon.Close();
         }
         void load_tab_Tongquan()
         {
@@ -221,27 +243,10 @@ namespace App_sale_manager
             load_chart_hangbanchay();
             load_list_hanhdong();
         }
-        
+
         //
         // NHÓM HÀM TABPAGE BÁO CÁO
-        private void tabControl_Baocao_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl_Baocao.SelectedIndex == 0)
-            {
-                rBtn_bc_qt1_CheckedChanged(rBtn_bc_qt1, new EventArgs());
-            }
-            else if (tabControl_Baocao.SelectedIndex == 1)
-            {
-                // đặt mặc định cho biến.
-                comboBox_bc_Doanhthu_kieutinh.SelectedIndex = 0;
-                comboBox_bc_Doanhthu_kieutinh_SelectedIndexChanged(comboBox_bc_Doanhthu_kieutinh, new EventArgs());
-            }
-            else if (tabControl_Baocao.SelectedIndex == 2)
-            {
-                comboBox_bc_Nv_kieutinh.SelectedIndex = 0;
-                comboBox_bc_Nv_kieutinh_SelectedIndexChanged(comboBox_bc_Nv_kieutinh, new EventArgs());
-            }
-        }
+        
         // nhóm hàm tabpage Báo cáo cuối ngày
         void event_Cuoingay_radio1()
         {
@@ -269,7 +274,7 @@ namespace App_sale_manager
                 textBox_bcCuoingay1.Text = Convert.ToDouble(table1.Rows[0]["TONGTIEN"]).ToString();
             else
             {
-                textBox_bcCuoingay1.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["TONGTIEN"]).ToString()); 
+                textBox_bcCuoingay1.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["TONGTIEN"]).ToString());
                 textBox_bcCuoingay2.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[1]["TONGTIEN"]).ToString());
             }
             cmd.CommandText = "SELECT SUM(TRIGIA) AS TONG FROM HDBH WHERE (LOAIHD='DTT' OR (LOAIHD='DDH' AND TRANGTHAI='HOANTAT')) AND NGHD='" + day + "'";
@@ -330,7 +335,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             string day = dtp_bc_time.Value.ToString("MM/dd/yyyy");
-            cmd.CommandText = "SELECT SOHD_BH AS SOHD, NGHD, KHID AS DOITAC, NVID, TRIGIA FROM HDBH WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD = '" + day + "' UNION SELECT* FROM HDNH WHERE NGNHAP = '" + day + "'";
+            cmd.CommandText = "SELECT SOHD_BH AS 'Số hóa đơn', NGHD as 'Ngày thực hiện', KHID AS 'Mã đối tác', NVID as 'Mã nhân viên', TRIGIA as 'Trị giá' FROM HDBH WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD = '" + day + "' UNION SELECT* FROM HDNH WHERE NGNHAP = '" + day + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -391,8 +396,8 @@ namespace App_sale_manager
             chart_bc_Doanhthu.Series["Series_Chi"].Points.Clear();
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                chart_bc_Doanhthu.Series["Series_Thu"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGTHU"])/1000000));
-                chart_bc_Doanhthu.Series["Series_Chi"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGCHI"])/1000000));
+                chart_bc_Doanhthu.Series["Series_Thu"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGTHU"]) / 1000000));
+                chart_bc_Doanhthu.Series["Series_Chi"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGCHI"]) / 1000000));
             }
             cmd.CommandText = "SELECT SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = NULL FROM HDBH WHERE (LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = NULL, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K ";
             adapter.SelectCommand = cmd;
@@ -437,8 +442,8 @@ namespace App_sale_manager
 
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                chart_bc_Doanhthu.Series["Series_Thu"].Points.AddXY(table.Rows[i]["THANG"], (Convert.ToDouble(table.Rows[i]["TONGTHU"])/1000000));
-                chart_bc_Doanhthu.Series["Series_Chi"].Points.AddXY(table.Rows[i]["THANG"], (Convert.ToDouble(table.Rows[i]["TONGCHI"])/1000000));
+                chart_bc_Doanhthu.Series["Series_Thu"].Points.AddXY(table.Rows[i]["THANG"], (Convert.ToDouble(table.Rows[i]["TONGTHU"]) / 1000000));
+                chart_bc_Doanhthu.Series["Series_Chi"].Points.AddXY(table.Rows[i]["THANG"], (Convert.ToDouble(table.Rows[i]["TONGCHI"]) / 1000000));
             }
 
             sqlCon.Close();
@@ -551,7 +556,7 @@ namespace App_sale_manager
             }
             for (; i >= 0; i--)
             {
-                chart_bc_nv.Series["Series1"].Points.AddXY(table.Rows[i]["HOTEN"], (Convert.ToDouble(table.Rows[i]["DOANHSO"])/1000000));
+                chart_bc_nv.Series["Series1"].Points.AddXY(table.Rows[i]["HOTEN"], (Convert.ToDouble(table.Rows[i]["DOANHSO"]) / 1000000));
             }
 
             textBox_bc_nv_kq1.Text = table.Rows[0]["MANV"].ToString();
@@ -589,7 +594,7 @@ namespace App_sale_manager
             }
             for (; i >= 0; i--)
             {
-                chart_bc_nv.Series["Series1"].Points.AddXY(table.Rows[i]["HOTEN"], (Convert.ToDouble(table.Rows[i]["DOANHSO"])/1000000));
+                chart_bc_nv.Series["Series1"].Points.AddXY(table.Rows[i]["HOTEN"], (Convert.ToDouble(table.Rows[i]["DOANHSO"]) / 1000000));
             }
             textBox_bc_nv_kq1.Text = table.Rows[0]["MANV"].ToString();
             textBox_bc_nv_kq2.Text = table.Rows[0]["HOTEN"].ToString();
@@ -677,7 +682,7 @@ namespace App_sale_manager
                     MessageBox.Show("Thông tin không hợp lệ", "Thông báo");
                 }
             }
-            
+
         }
         // NHÓM HÀM TABPAGE NHÂN VIÊN
         private void tab_nv_SelectedIndexChanged(object sender, EventArgs e)
@@ -691,11 +696,12 @@ namespace App_sale_manager
 
                 load_tabpage_phancong();
             }
-            else if(tab_nv.SelectedIndex==2)
+            else if (tab_nv.SelectedIndex == 2)
             {
 
-            }    
+            }
         }
+        // nhóm hàm tabpage danh mục nhân viên
         void LoadData_nv_infonv()
         {
             if (sqlCon.State == ConnectionState.Closed)
@@ -707,6 +713,14 @@ namespace App_sale_manager
             table_nv_infonv.Clear();
             adapter.Fill(table_nv_infonv);
             dgv_nv_infonv.DataSource = table_nv_infonv;
+            dgv_nv_infonv.Columns[0].HeaderText = "Mã nhân viên";
+            dgv_nv_infonv.Columns[0].Width = 50;
+            dgv_nv_infonv.Columns[1].HeaderText = "Họ và tên";
+            dgv_nv_infonv.Columns[1].Width = 130;
+            dgv_nv_infonv.Columns[2].HeaderText = "Số điện thoại";
+            dgv_nv_infonv.Columns[3].HeaderText = "Ngày vào làm";
+            dgv_nv_infonv.Columns[4].HeaderText = "Chức vụ";
+            dgv_nv_infonv.Columns[5].HeaderText = "Username";
             sqlCon.Close();
         }
 
@@ -721,9 +735,16 @@ namespace App_sale_manager
             table_nv_bangluong.Clear();
             adapter.Fill(table_nv_bangluong);
             dgv_nv_bangluong.DataSource = table_nv_bangluong;
+            dgv_nv_bangluong.Columns[0].HeaderText = "Mã nhân viên";
+            dgv_nv_bangluong.Columns[0].Width = 50;
+            dgv_nv_bangluong.Columns[1].HeaderText = "Họ và tên";
+            dgv_nv_bangluong.Columns[1].Width = 130;
+            dgv_nv_bangluong.Columns[2].HeaderText = "Lương";
+            dgv_nv_bangluong.Columns[3].HeaderText = "Thưởng";
+            dgv_nv_bangluong.Columns[4].HeaderText = "Hệ số";
             sqlCon.Close();
         }
-        // nhóm hàm tabpage danh mục nhân viên
+        
         private void tb_SDT_nv_infonv_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -954,7 +975,7 @@ namespace App_sale_manager
                                 + "UNION "
                                 + "SELECT CT_LAMVIEC_HANGTUAN.NVID, HOTEN, CV, CT_LAMVIEC_HANGTUAN.CAID, TIEUDE, CHEDO = N'Lặp lại' "
                                 + "FROM CT_LAMVIEC_HANGTUAN, NHANVIEN, CALAMVIEC "
-                                + "WHERE CT_LAMVIEC_HANGTUAN.NVID = NHANVIEN.NVID AND CT_LAMVIEC_HANGTUAN.CAID = CALAMVIEC.CAID AND THU = '"+mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek.ToString()+"' "
+                                + "WHERE CT_LAMVIEC_HANGTUAN.NVID = NHANVIEN.NVID AND CT_LAMVIEC_HANGTUAN.CAID = CALAMVIEC.CAID AND THU = '" + mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek.ToString() + "' "
                                 + "order by NVID";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
@@ -1009,6 +1030,7 @@ namespace App_sale_manager
             dgvID.Width = 50;
             DataGridViewTextBoxColumn dgvTen = new DataGridViewTextBoxColumn();
             dgvTen.HeaderText = "Họ tên";
+            dgvTen.Width = 140;
             dgvTen.Frozen = true;
             DataGridViewTextBoxColumn dgvChucvu = new DataGridViewTextBoxColumn();
             dgvChucvu.HeaderText = "Chức vụ";
@@ -1022,12 +1044,16 @@ namespace App_sale_manager
 
             DataGridViewTextBoxColumn dgvChedo = new DataGridViewTextBoxColumn();
             dgvChedo.HeaderText = "Chế độ";
+          
+            DataGridViewTextBoxColumn dgvTieude = new DataGridViewTextBoxColumn();
+            dgvTieude.HeaderText = "Tiêu đề";
+            dgvTieude.Width = 150;
 
-            dgv_nv_phancong_lich.Columns.AddRange(dgvID, dgvTen, dgvChucvu, dgvSang, dgvChieu, dgvToi, dgvChedo);
-            
+            dgv_nv_phancong_lich.Columns.AddRange(dgvID, dgvTen, dgvChucvu, dgvSang, dgvChieu, dgvToi,dgvTieude, dgvChedo);
+
             sqlCon.Close();
         }
-        
+
 
         private void mon_nv_phancong_lich_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -1046,7 +1072,7 @@ namespace App_sale_manager
             cmd = sqlCon.CreateCommand();
             cmd.CommandText = "DELETE FROM CT_LAMVIEC WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "'";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "DELETE FROM CT_LAMVIEC_HANGTUAN WHERE SUBSTRING(CAID,2,1)= '" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek)+"'";
+            cmd.CommandText = "DELETE FROM CT_LAMVIEC_HANGTUAN WHERE SUBSTRING(CAID,2,1)= '" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek) + "'";
             cmd.ExecuteNonQuery();
             for (int i = 0; i < dgv_nv_phancong_lich.Rows.Count - 1; i++)
             {
@@ -1072,7 +1098,7 @@ namespace App_sale_manager
                 {
                     if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'"+dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString()+"' )";
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
                         cmd.ExecuteNonQuery();
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
@@ -1093,10 +1119,10 @@ namespace App_sale_manager
         }
         private void btn_nv_phancong_xoa_Click(object sender, EventArgs e)
         {
-            if(mon_nv_phancong_lich.SelectionRange.Start <=DateTime.Today)
+            if (mon_nv_phancong_lich.SelectionRange.Start <= DateTime.Today)
             {
                 MessageBox.Show("Bạn không thể xóa lịch trong quá khứ và ngày hôm nay", "Thông báo");
-            }    
+            }
             dgv_nv_phancong_lich.Rows.RemoveAt(dgv_nv_phancong_lich.CurrentRow.Index);
         }
         private void btn_nv_phancong_them_Click(object sender, EventArgs e)
@@ -1262,17 +1288,27 @@ namespace App_sale_manager
                 pictureBox_image_import_nv.Image = Image.FromFile(filepath);
             }
         }
-
-        private void cb_ThutuLuong_nv_bangluong_SelectedIndexChanged(object sender, EventArgs e)
+        private void rbtnLuong_macdinh_CheckedChanged(object sender, EventArgs e)
         {
-            if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(0))
-                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG ASC";
-            else if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(1))
-                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG DESC";
-            else if (cb_ThutuLuong_nv_bangluong.SelectedIndex.Equals(2))
+            if(rbtnLuong_macdinh.Checked==true)
+            {
                 (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "NVID ASC";
+            }    
         }
-
+        private void rbtnLuong_tang_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbtnLuong_tang.Checked == true)
+            {
+                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG ASC";
+            }    
+        }
+        private void rbtnLuong_giam_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnLuong_giam.Checked == true)
+            {
+                (dgv_nv_bangluong.DataSource as DataTable).DefaultView.Sort = "LUONG DESC";
+            }    
+        }
         private void dgv_nv_infonv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             tb_MaNV_nv_infonv.ReadOnly = true;
@@ -1342,8 +1378,14 @@ namespace App_sale_manager
             Table.Clear();
             Adapter.Fill(Table);
             dataGridView_DTCC.DataSource = Table;
+            dataGridView_DTCC.Columns[0].HeaderText = "Mã đối tác";
+            dataGridView_DTCC.Columns[1].HeaderText = "Tên đối tác";
+            dataGridView_DTCC.Columns[2].HeaderText = "Số điện thoại";
+            dataGridView_DTCC.Columns[3].HeaderText = "Ngày trở thành đối tác";
+            dataGridView_DTCC.Columns[4].HeaderText = "Địa chỉ";
             button_modDTCC.Enabled = false;
             button_deleteDTCC.Enabled = false;
+            textBox_search.Text = "";
             sqlCon.Close();
         }
         public void DTCC_guest_dataInitialize()
@@ -1359,8 +1401,18 @@ namespace App_sale_manager
             Table.Clear();
             Adapter.Fill(Table);
             dataGridView_dtcc_guest.DataSource = Table;
+            dataGridView_dtcc_guest.Columns[0].HeaderText = "Mã khách hàng";
+            dataGridView_dtcc_guest.Columns[0].Width = 50;
+            dataGridView_dtcc_guest.Columns[1].HeaderText = "Họ tên";
+            dataGridView_dtcc_guest.Columns[1].Width = 150;
+            dataGridView_dtcc_guest.Columns[2].HeaderText = "Địa chỉ";
+            dataGridView_dtcc_guest.Columns[3].HeaderText = "Số điện thoại";
+            dataGridView_dtcc_guest.Columns[4].HeaderText = "Ngày đăng kí";
+            dataGridView_dtcc_guest.Columns[5].HeaderText = "Doanh số";
+            dataGridView_dtcc_guest.Columns[6].HeaderText = "Loại khách hàng";
             button_guest_mod.Enabled = false;
             button_guest_delete.Enabled = false;
+            textBox_guest_search.Text = "";
             sqlCon.Close();
         }
         public void DTCC_DataRefresh(object sender, EventArgs e)
@@ -1390,7 +1442,7 @@ namespace App_sale_manager
         }
 
         private void dataGridView_DTCC_CellClick(object sender, DataGridViewCellEventArgs e)
-        {            
+        {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView_DTCC.Rows[e.RowIndex];
@@ -1485,7 +1537,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            if (SearchOption=="NGDT")
+            if (SearchOption == "NGDT")
             {
                 cmd.CommandText = "set dateformat dmy";
                 cmd.ExecuteNonQuery();
@@ -1761,7 +1813,7 @@ namespace App_sale_manager
         Bitmap bmp;
         private void bnt_inDS_Click(object sender, EventArgs e)
         {
-            if(GridView_Data_GiaoDich.RowCount > 0)
+            if (GridView_Data_GiaoDich.RowCount > 0)
             {
 
                 SaveFileDialog save = new SaveFileDialog();
@@ -1775,7 +1827,7 @@ namespace App_sale_manager
                     worksheet = workbook.Sheets["Sheet1"];
                     worksheet = workbook.ActiveSheet;
                     worksheet.Name = "Exported from gridview";
-                   
+
                     for (int i = 1; i < GridView_Data_GiaoDich.Columns.Count + 1; i++)
                     {
                         worksheet.Cells[1, i] = GridView_Data_GiaoDich.Columns[i - 1].HeaderText;
@@ -1790,7 +1842,7 @@ namespace App_sale_manager
                     workbook.SaveAs(save.FileName);
                     app.Quit();
                 }
-            }    
+            }
         }
 
         //TabPage Hàng hóa
@@ -1848,7 +1900,7 @@ namespace App_sale_manager
             adapter.Fill(tableHang);
             cbbHang.DataSource = tableHang;
             cbbHang.DisplayMember = "HANGSX";
-            cbbHang.ValueMember = "HANGSX";           
+            cbbHang.ValueMember = "HANGSX";
             sqlCon.Close();
             HH_ClearCBBTB();
         }
@@ -1879,13 +1931,13 @@ namespace App_sale_manager
             dgvSP.Columns[9].HeaderText = "Số Lượng Tối Thiểu";
             dgvSP.Columns[9].Width = 50;
             dgvSP.Columns[10].HeaderText = "Mô Tả";
-            for(int i=0;i<dgvSP.RowCount-1;i++)
+            for (int i = 0; i < dgvSP.RowCount - 1; i++)
             {
-                
-                    dgvSP.Rows[i].Cells["GIABAN"].Value = double.Parse(dgvSP.Rows[i].Cells["GIABAN"].Value.ToString());
-                    dgvSP.Rows[i].Cells["GIANHAP"].Value = double.Parse(dgvSP.Rows[i].Cells["GIANHAP"].Value.ToString());
-                   
-            }    
+
+                dgvSP.Rows[i].Cells["GIABAN"].Value = double.Parse(dgvSP.Rows[i].Cells["GIABAN"].Value.ToString());
+                dgvSP.Rows[i].Cells["GIANHAP"].Value = double.Parse(dgvSP.Rows[i].Cells["GIANHAP"].Value.ToString());
+
+            }
         }
         private void XemChiTiet()
 
@@ -1900,6 +1952,34 @@ namespace App_sale_manager
             f.ShowDialog();
             f.Close();
             this.Show();
+        }
+        private void rbtnXemtatca_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnXemtatca.Checked == true)
+            {
+                HH_ClearCBBTB();
+                LoadHangHoa();
+            }
+        }
+
+        private void rbtnHanghoasaphet_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnHanghoasaphet.Checked == true)
+            {
+
+                sqlCon = new SqlConnection(strCon);
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID and SoLuong<SLTT";
+                // gửi truy vấn tới kết nối.
+                sqlCmd.Connection = sqlCon;
+                adapter = new SqlDataAdapter(sqlCmd);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                DataTable tbHHSH = new DataTable();
+                tbHHSH.Clear();
+                adapter.Fill(tbHHSH);
+                dgvSP.DataSource = tbHHSH;
+            }
         }
         public DataTable HH_TimKiem()
         {
@@ -1949,7 +2029,7 @@ namespace App_sale_manager
         {
             XemChiTiet();
         }
-           
+
         private void btnThemHH_Click(object sender, EventArgs e)
         {
             Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(1);
@@ -1990,7 +2070,7 @@ namespace App_sale_manager
                 MessageBox.Show("Chưa chọn hàng để sửa");
                 return;
             }
-            Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(2, dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["HANGSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(),  dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
+            Form_ThemSuaHangHoa f = new Form_ThemSuaHangHoa(2, dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["HANGSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
             this.Hide();
             f.ShowDialog();
             LoadHangHoa();
@@ -2007,7 +2087,7 @@ namespace App_sale_manager
 
         private void btnHangSapHet_Click(object sender, EventArgs e)
         {
-            
+
             sqlCon = new SqlConnection(strCon);
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -2025,7 +2105,7 @@ namespace App_sale_manager
         private void btnHoaDonNhap_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_HoaDonNH f = new Form_HoaDonNH(manv, tennv);            
+            Form_HoaDonNH f = new Form_HoaDonNH(manv, tennv);
             f.ShowDialog();
             this.Show();
             LoadHangHoa();
@@ -2035,7 +2115,7 @@ namespace App_sale_manager
         {
             XemChiTiet();
         }
-      
+
         private void cbbLoaiSP_TextChanged(object sender, EventArgs e)
         {
             dgvSP.DataSource = HH_TimKiem();
@@ -2050,14 +2130,14 @@ namespace App_sale_manager
 
         private void txtGiaBan_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar))
-            {  
-                e.Handled = true;                
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
-            if(Char.IsLetter(e.KeyChar))
+            if (Char.IsLetter(e.KeyChar))
             {
                 MessageBox.Show("Vui lòng nhập số");
-            }    
+            }
         }
 
         private void txtGiaBan_TextChanged(object sender, EventArgs e)
@@ -2091,10 +2171,10 @@ namespace App_sale_manager
         }
 
         private void btn_XemHH_Click(object sender, EventArgs e)
-        { 
+        {
             HH_ClearCBBTB();
             LoadHangHoa();
-           
+
         }
 
         private void cbbLoaiSP_KeyPress(object sender, KeyPressEventArgs e)
@@ -2127,6 +2207,260 @@ namespace App_sale_manager
             {
                 e.Handled = true;
             }
+        }
+        // Cài đặt UI
+        
+       
+        private void tbtnDoictac_DropDownOpening(object sender, EventArgs e)
+        {
+            tbtnDoictac.Image = Image.FromFile("../../icon/icons8-man-30 (2).png");
+            tbtnDoictac.ForeColor = Color.FromArgb(61, 135, 255);
+            tbtnDoictac.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnDoictac_DropDownClosed(object sender, EventArgs e)
+        {
+            tbtnDoictac.Image = Image.FromFile("../../icon/icons8-man-30 (1).png");
+            tbtnDoictac.ForeColor = Color.White;
+            tbtnDoictac.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnGiaodich_DropDownOpening(object sender, EventArgs e)
+        {
+            tbtnGiaodich.Image = Image.FromFile("../../icon/icons8-exchange-30 (2).png");
+            tbtnGiaodich.ForeColor = Color.FromArgb(61, 135, 255);
+            tbtnGiaodich.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnGiaodich_DropDownClosed(object sender, EventArgs e)
+        {
+            tbtnGiaodich.Image = Image.FromFile("../../icon/icons8-exchange-30 (1).png");
+            tbtnGiaodich.ForeColor = Color.White;
+            tbtnGiaodich.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnNhanvien_DropDownOpening(object sender, EventArgs e)
+        {
+            tbtnNhanvien.Image = Image.FromFile("../../icon/icons8-staff-30 (2).png");
+            tbtnNhanvien.ForeColor = Color.FromArgb(61, 135, 255);
+            tbtnNhanvien.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnNhanvien_DropDownClosed(object sender, EventArgs e)
+        {
+            tbtnNhanvien.Image = Image.FromFile("../../icon/icons8-staff-30 (1).png");
+            tbtnNhanvien.ForeColor = Color.White;
+            tbtnNhanvien.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnBaocao_DropDownOpening(object sender, EventArgs e)
+        {
+            tbtnBaocao.Image = Image.FromFile("../../icon/icons8-increase-30 (2).png");
+            tbtnBaocao.ForeColor = Color.FromArgb(61, 135, 255);
+            tbtnBaocao.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnBaocao_DropDownClosed(object sender, EventArgs e)
+        {
+            tbtnBaocao.Image = Image.FromFile("../../icon/icons8-increase-30 (1).png");
+            tbtnBaocao.ForeColor = Color.White;
+            tbtnBaocao.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnUser_DropDownOpening(object sender, EventArgs e)
+        {
+            tbtnUser.Image = Image.FromFile("../../icon/icons8-male-user-30 (1).png");
+            tbtnUser.ForeColor = Color.FromArgb(61, 135, 255);
+            tbtnUser.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnUser_DropDownClosed(object sender, EventArgs e)
+        {
+            tbtnUser.Image = Image.FromFile("../../icon/icons8-male-user-30 (2).png");
+            tbtnUser.ForeColor = Color.White;
+            tbtnUser.ImageScaling = ToolStripItemImageScaling.None;
+        }
+        void tbtn_click(object sender, EventArgs e)
+        {
+            
+            foreach(var item in toolStripMain.Items)
+            {
+                (item as ToolStripDropDownButton).BackColor = Color.FromArgb(61, 135, 255);
+            }
+            (sender as ToolStripDropDownButton).BackColor = Color.Blue;
+        }
+
+
+        
+        private void tbtnTongquan_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_tongquan);
+            load_tab_Tongquan();
+            tbtn_click(sender, new EventArgs());
+        }
+
+        private void tbtnHanghoa_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(Tabpage_Hanghoa);
+            LoadCBBHH();
+            LoadHangHoa();
+            rbtnXemtatca.Checked = true;
+            tbtn_click(sender, new EventArgs());
+        }
+
+        private void đốiTácCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_DoiTac);
+            tabControl_DTCC_in.TabPages.Clear();
+            tabControl_DTCC_in.TabPages.Add(tabPage__DTCC_DTGD);
+            
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_DoiTac);
+            tabControl_DTCC_in.TabPages.Clear();
+            tabControl_DTCC_in.TabPages.Add(tabPage_DTCC_Guest);
+            
+        }
+
+        private void danhMụcHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_GiaoDich);
+            this.Refresh_data_GD();
+        }
+
+        private void tạoHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BNT_TaoHoaDon_Click(this, new EventArgs());
+        }
+
+        private void danhSáchNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_NhanVien);
+            tab_nv.TabPages.Clear();
+            tab_nv.TabPages.Add(tabPage1);
+            LoadData_nv_infonv();
+        }
+
+        private void lịchPhânCôngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_NhanVien);
+            tab_nv.TabPages.Clear();
+            tab_nv.TabPages.Add(tabP_nv_bangphancong);
+            load_tabpage_phancong();
+        }
+
+        private void bảngLươngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_NhanVien);
+            tab_nv.TabPages.Clear();
+            tab_nv.TabPages.Add(tabPage3);
+            LoadData_nv_bangluong();
+        }
+       
+        private void cuốiNgàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_BaoCao);
+            tabControl_Baocao.TabPages.Clear();
+            tabControl_Baocao.TabPages.Add(tabPage_Baocao_cuoingay);
+            rBtn_bc_qt1_CheckedChanged(rBtn_bc_qt1, new EventArgs());
+        }
+
+        private void daonhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_BaoCao);
+            tabControl_Baocao.TabPages.Clear();
+            tabControl_Baocao.TabPages.Add(tabPage_baocao_doanhthu);
+            comboBox_bc_Doanhthu_kieutinh.SelectedIndex = 0;
+            comboBox_bc_Doanhthu_kieutinh_SelectedIndexChanged(comboBox_bc_Doanhthu_kieutinh, new EventArgs());
+        }
+
+        private void nhânViênXuấtSắcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabCtrl.TabPages.Clear();
+            tabCtrl.TabPages.Add(tabPage_BaoCao);
+            tabControl_Baocao.TabPages.Clear();
+            tabControl_Baocao.TabPages.Add(tabPage_Baocao_nhanvien);
+            comboBox_bc_Nv_kieutinh.SelectedIndex = 0;
+            comboBox_bc_Nv_kieutinh_SelectedIndexChanged(comboBox_bc_Nv_kieutinh, new EventArgs());
+        }
+        
+
+        private void btnHanghoaTim_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(btnHanghoaTim.Tag) == 0)
+            {
+                btnHanghoaTim.Image = Image.FromFile("../../icon/icons8-triangle-arrow-24 (1).png");
+                btnHanghoaTim.ImageAlign = ContentAlignment.MiddleRight;
+                btnHanghoaTim.Tag = 1;
+                panel5.Visible = false;
+            }
+            else
+            {
+                btnHanghoaTim.Image = Image.FromFile("../../icon/icons8-triangle-24.png");
+                btnHanghoaTim.ImageAlign = ContentAlignment.MiddleRight;
+                btnHanghoaTim.Tag = 0;
+                panel5.Visible = true;
+            }
+        }
+
+        private void btnGiaodich_Tim_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(btnGiaodich_Tim.Tag) == 0)
+            {
+                btnGiaodich_Tim.Image = Image.FromFile("../../icon/icons8-triangle-arrow-24 (1).png");
+                btnGiaodich_Tim.ImageAlign = ContentAlignment.MiddleRight;
+                btnGiaodich_Tim.Tag = 1;
+                pnGiaodich_Tim.Visible = false;
+            }
+            else
+            {
+                btnGiaodich_Tim.Image = Image.FromFile("../../icon/icons8-triangle-24.png");
+                btnGiaodich_Tim.ImageAlign = ContentAlignment.MiddleRight;
+                btnGiaodich_Tim.Tag = 0;
+                pnGiaodich_Tim.Visible = true;
+            }
+        }
+
+        private void btnPhancongNV_lich_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(btnPhancongNV_lich.Tag) == 0)
+            {
+                btnPhancongNV_lich.Image = Image.FromFile("../../icon/icons8-triangle-arrow-24 (1).png");
+                btnPhancongNV_lich.ImageAlign = ContentAlignment.MiddleRight;
+                btnPhancongNV_lich.Tag = 1;
+                pnPhancongNV_lich.Visible = false;
+            }
+            else
+            {
+                btnPhancongNV_lich.Image = Image.FromFile("../../icon/icons8-triangle-24.png");
+                btnPhancongNV_lich.ImageAlign = ContentAlignment.MiddleRight;
+                btnPhancongNV_lich.Tag = 0;
+                pnPhancongNV_lich.Visible = true;
+            }
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_doipass frm = new Form_doipass();
+            frm.ShowDialog();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canExit = false;
+            Thoat(this, new EventArgs());
         }
 
         

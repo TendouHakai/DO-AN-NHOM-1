@@ -292,5 +292,7 @@ namespace App_sale_manager
                 MessageBox.Show("Vui lòng nhập số");
             }
         }
+
+        
     }
 }

@@ -102,5 +102,50 @@ namespace App_sale_manager
         {
             Close();
         }
+
+        private void DTCC_guest_modifier_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_SDT_z_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_Picture_z_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_Budget_z_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_DIACHI_z_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_NGDT_z_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_ID_z_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_TENDT_z_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -22,11 +22,13 @@ namespace App_sale_manager
         public Form_nv_phancong_chamcong()
         {
             InitializeComponent();
+            this.Size = new Size(1230, 570);
             sqlCon = new SqlConnection(strCon);
             cmd = sqlCon.CreateCommand();
             update_table_CT_LAMVIEC();
             Tao_bang();
             load_bangChamCong();
+            
         }
         void load_ThongtinNV(string NVID)
         {
@@ -55,9 +57,9 @@ namespace App_sale_manager
                 pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\Nhân viên\No Image.jpg");
 
             }
-            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND TRANGTHAI = N'Đã điểm danh'";
+            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND NGAYLAM<='"+DateTime.Today.ToString("MM/dd/yyyy")+"' AND TRANGTHAI = N'Đã điểm danh'";
             textBox1.Text = cmd.ExecuteScalar().ToString();
-            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND TRANGTHAI = N'Chưa điểm danh'";
+            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND NGAYLAM<='" + DateTime.Today.ToString("MM/dd/yyyy") + "' AND TRANGTHAI = N'Chưa điểm danh'";
             textBox2.Text = cmd.ExecuteScalar().ToString();
             sqlCon.Close();
         }

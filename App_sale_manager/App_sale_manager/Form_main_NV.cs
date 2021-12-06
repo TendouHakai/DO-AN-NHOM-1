@@ -35,15 +35,17 @@ namespace App_sale_manager
             sqlCon = new SqlConnection(strCon);
             DTCC_guest_dataInitialize();
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
-
+            this.Size = new Size(1275, 740);
         }
-        public Form_main_NV(string NVID, string Ten)
+        public Form_main_NV(string NVID, string Ten, string username)
         {
             InitializeComponent();
             sqlCon = new SqlConnection(strCon);
             this.NVID = NVID;
             this.Ten = Ten;
+            tbtnUser.Text = username;
             DTCC_guest_dataInitialize();
+            this.Size = new Size(1275, 740);
         }
         public event EventHandler Thoat;
 
@@ -281,7 +283,7 @@ namespace App_sale_manager
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            lbl_lich_dongho.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbl_lich_dongho.Text = DateTime.Now.ToString("HH:mm");
             if (DateTime.Now.TimeOfDay > GIO_BD || DateTime.Now.TimeOfDay > GIO_KT)
                 load_lich_calamHienTai();
         }
@@ -892,6 +894,88 @@ namespace App_sale_manager
                 }
             }
 
+        }
+        // cài đặt UI
+        void tbtn_click(object sender, EventArgs e)
+        {
+
+            foreach (var item in toolStripMainNV.Items)
+            {
+                (item as ToolStripDropDownButton).BackColor = Color.FromArgb(61, 135, 255);
+            }
+            (sender as ToolStripDropDownButton).BackColor = Color.Blue;
+        }
+
+        private void tbtnUser_DropDownOpening(object sender, EventArgs e)
+        {
+            tbtnUser.Image = Image.FromFile("../../icon/icons8-male-user-30 (1).png");
+            tbtnUser.ForeColor = Color.FromArgb(61, 135, 255);
+            tbtnUser.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnUser_DropDownClosed(object sender, EventArgs e)
+        {
+            tbtnUser.Image = Image.FromFile("../../icon/icons8-male-user-30 (2).png");
+            tbtnUser.ForeColor = Color.White;
+            tbtnUser.ImageScaling = ToolStripItemImageScaling.None;
+        }
+
+        private void tbtnTongquan_Click(object sender, EventArgs e)
+        {
+            tabctrl_Nhanvien.TabPages.Clear();
+            tabctrl_Nhanvien.TabPages.Add(tabP_Tongquan);
+            load_tongquan();
+            tbtn_click(sender, new EventArgs());
+        }
+
+        private void tbtnKhachhang_Click(object sender, EventArgs e)
+        {
+            tabctrl_Nhanvien.TabPages.Clear();
+            tabctrl_Nhanvien.TabPages.Add(tabP_Khachhang);
+            tbtn_click(sender, new EventArgs());
+        }
+
+        private void tbtnGiaodich_Click(object sender, EventArgs e)
+        {
+            tabctrl_Nhanvien.TabPages.Clear();
+            tabctrl_Nhanvien.TabPages.Add(tabP_Banhang);
+            this.Refresh_data_GD();
+            tbtn_click(sender, new EventArgs());
+        }
+
+        private void tbtnLich_Click(object sender, EventArgs e)
+        {
+            tabctrl_Nhanvien.TabPages.Clear();
+            tabctrl_Nhanvien.TabPages.Add(tabP_lichlamviec);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+            timer.Interval = 1000;
+            load_lich();
+            tbtn_click(sender, new EventArgs());
+        }
+
+        private void btnGiaodich_Tim_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(btnGiaodich_Tim.Tag) == 0)
+            {
+                btnGiaodich_Tim.Image = Image.FromFile("../../icon/icons8-triangle-arrow-24 (1).png");
+                btnGiaodich_Tim.ImageAlign = ContentAlignment.MiddleRight;
+                btnGiaodich_Tim.Tag = 1;
+                pnGiaodich_Tim.Visible = false;
+            }
+            else
+            {
+                btnGiaodich_Tim.Image = Image.FromFile("../../icon/icons8-triangle-24.png");
+                btnGiaodich_Tim.ImageAlign = ContentAlignment.MiddleRight;
+                btnGiaodich_Tim.Tag = 0;
+                pnGiaodich_Tim.Visible = true;
+            }
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canExit = false;
+            Thoat(this, new EventArgs());
         }
     }
 }

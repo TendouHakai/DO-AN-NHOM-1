@@ -29,13 +29,12 @@ namespace App_sale_manager
         {           
             InitializeComponent();
 
-
             l_MaHoadon.Text = mahoadon;
             l_MaKhachhang.Text = makhachhang;
             l_MaNhanVien.Text = manhanvien;
             l_LoaiHoaDon.Text = loaihd;
             l_TrangThai.Text = trangthai;
-            l_Tong.Text =string.Format("{0:0,0}",Convert.ToDouble(tong));
+            l_Tong.Text =string.Format("{0:0,0}",Convert.ToDouble(tong.Replace(",", string.Empty)));
 
             sqlCon = new SqlConnection(strCon);
             sqlCon.Open();

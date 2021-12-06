@@ -142,16 +142,19 @@
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vương miện đồng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\vương miện đồng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Vương miện vàng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\Vương miện vàng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="2546560-middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\2546560-middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Image samples for testing\Đối tác giao dịch\refresh.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vương miện vàng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\Vương miện vàng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vương miện đồng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\vương miện đồng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="matdong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\matdong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

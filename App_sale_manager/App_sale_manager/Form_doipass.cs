@@ -76,8 +76,77 @@ namespace App_sale_manager
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
-            Thoat(this, new EventArgs());
+            this.Close();
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox_usr_Enter(object sender, EventArgs e)
+        {
+            if(Convert.ToInt32(textBox_usr.Tag)==0)
+            {
+                textBox_usr.Text = "";
+                textBox_usr.Tag = 1;
+            }    
+        }
+
+        private void textBox_usr_Leave(object sender, EventArgs e)
+        {
+            if(textBox_usr.Text=="")
+            {
+                textBox_usr.Text = "username";
+                textBox_usr.Tag = 0;
+            }    
+        }
+        private void textBox_pass_old_Enter(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32((sender as TextBox).Tag) == 0)
+            {
+                (sender as TextBox).Text = "";
+                (sender as TextBox).Tag = 1;
+                (sender as TextBox).PasswordChar = '*';
+                textBox_usr.TabStop = true;
+                textBox_pass_old.TabStop = true;
+                textBox_pass_new.TabStop = true;
+                textBox_pass_new2.TabStop = true;
+            }
+        }
+        private void textBox_pass_old_Leave(object sender, EventArgs e)
+        {
+            if(textBox_pass_old.Text=="")
+            {
+                textBox_pass_old.Text = "mật khẩu cũ";
+                textBox_pass_old.Tag = 0;
+                textBox_pass_old.PasswordChar = '\0';
+                
+            }    
+        }
+        private void textBox_pass_new_Leave(object sender, EventArgs e)
+        {
+            if (textBox_pass_new.Text == "")
+            {
+                textBox_pass_new.Text = "mật khẩu mới";
+                textBox_pass_new.Tag = 0;
+                textBox_pass_new.PasswordChar = '\0';
+                
+            }
+        }
+
+        private void textBox_pass_new2_Leave(object sender, EventArgs e)
+        {
+            if (textBox_pass_new2.Text == "")
+            {
+                textBox_pass_new2.Text = "nhập lại mật khẩu";
+                textBox_pass_new2.Tag = 0;
+                textBox_pass_new2.PasswordChar = '\0';
+                
+            }
+        }
+
+        
     }
 }
 

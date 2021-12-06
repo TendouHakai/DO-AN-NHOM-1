@@ -188,5 +188,7 @@ namespace App_sale_manager
             if (ModeHH == 2)
             { ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg"); }
         }
+
+        
     }
 }

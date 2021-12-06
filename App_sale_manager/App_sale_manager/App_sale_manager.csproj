@@ -307,5 +307,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Image samples for testing\Đối tác giao dịch\refresh.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\matdong.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

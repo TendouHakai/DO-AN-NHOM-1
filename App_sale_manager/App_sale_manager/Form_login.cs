@@ -22,6 +22,7 @@ namespace App_sale_manager
         {
             InitializeComponent();
             this.AcceptButton = btn_dangnhap;
+            textBox_usr.Focus();
         }
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace App_sale_manager
             // tạo ra đối tượng thực thi truy vấn.
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select PASSWD,NVID,HOTEN,CV from NHANVIEN where USERNAME = '"+textBox_usr.Text+"'";
+            sqlCmd.CommandText = "select PASSWD,NVID,HOTEN,CV,USERNAME from NHANVIEN where USERNAME = '"+textBox_usr.Text+"'";
             // gửi truy vấn tới kết nối.
             sqlCmd.Connection = sqlCon;
             // nhận kết quả
@@ -54,24 +55,36 @@ namespace App_sale_manager
             {
                 if(CV=="Chủ tiệm" || CV=="Quản lý")
                 {
-                    Form_main_admin frm = new Form_main_admin(reader.GetString(1),  reader.GetString(2));
+                    Form_main_admin frm = new Form_main_admin(reader.GetString(1),  reader.GetString(2), reader.GetString(4));
                     frm.Thoat += Frm_Thoat;
                     frm.Show();
                     this.Hide();
+                    if (chkNhopass.Checked == false)
+                    {
+                        textBox_usr.Clear();
+                        textBox_passwd.Clear();
+                        
+                    }
                 }
                 else
                 {
-                    Form_main_NV frm = new Form_main_NV(reader.GetString(1), reader.GetString(2));
+                    Form_main_NV frm = new Form_main_NV(reader.GetString(1), reader.GetString(2), reader.GetString(4));
                     frm.Thoat += Frm_Thoat;
                     frm.Show();
                     this.Hide();
+                    if (chkNhopass.Checked == false)
+                    {
+                        textBox_usr.Clear();
+                        textBox_passwd.Clear();
+                        
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("username hoặc passwd không đúng.");
             }
-
+            
 
             sqlCon.Close(); 
         }
@@ -80,6 +93,7 @@ namespace App_sale_manager
         {
             (sender as Form).Close();
             this.Show();
+            textBox_usr.Focus();
         }
 
         private void btn_thoat_Click(object sender, EventArgs e)
@@ -106,18 +120,65 @@ namespace App_sale_manager
             if(canread==false)
             { 
                 canread = true;
-                (sender as PictureBox).SizeMode = PictureBoxSizeMode.StretchImage;
-                (sender as PictureBox).Image = Image.FromFile("../../icon/images (1).png");
+                (sender as PictureBox).SizeMode = PictureBoxSizeMode.Normal;
+                (sender as PictureBox).Image = Image.FromFile("../../icon/matmo.png");
                 textBox_passwd.PasswordChar = '\0';
             }
             else
             {
                 canread = false;
-                (sender as PictureBox).SizeMode = PictureBoxSizeMode.StretchImage;
-                (sender as PictureBox).Image = Image.FromFile("../../icon/images (2).png");
+                (sender as PictureBox).SizeMode = PictureBoxSizeMode.Normal;
+                (sender as PictureBox).Image = Image.FromFile("../../icon/matdong.png");
                 textBox_passwd.PasswordChar = '*';
             } 
                 
         }
+        
+        private void textBox_usr_Enter(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(textBox_usr.Tag) == 0)
+            {
+                textBox_usr.Text = "";
+                textBox_usr.Tag = 1;
+                textBox_usr.TabStop = true;
+                textBox_passwd.TabStop = true;
+            }
+        }
+
+        private void textBox_usr_Leave(object sender, EventArgs e)
+        {
+            if(textBox_usr.Text=="")
+            {
+                textBox_usr.Text = "username";
+                textBox_usr.Tag = 0;
+            }    
+        }
+        
+        private void textBox_passwd_Enter(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(textBox_passwd.Tag) == 0)
+            {
+                textBox_passwd.Text = "";
+                textBox_passwd.Tag = 1;
+                textBox_passwd.PasswordChar = '*'; 
+                textBox_usr.TabStop = true;
+                textBox_passwd.TabStop = true;
+            }
+        }
+        private void textBox_passwd_Leave(object sender, EventArgs e)
+        {
+            if(textBox_passwd.Text =="")
+            {
+                textBox_passwd.Text = "password";
+                textBox_passwd.PasswordChar = '\0';
+                textBox_passwd.Tag = 0;
+            }    
+        }
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        
     }
 }

@@ -275,6 +275,9 @@ namespace App_sale_manager
             }    
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
