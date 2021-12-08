@@ -41,7 +41,7 @@ namespace App_sale_manager
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
-            Box_IDHD.Text =Convert.ToString(table.Rows.Count + 1);
+            Box_IDHD.Text = "#" + Convert.ToString(table.Rows.Count + 1);
 
             table = new DataTable();
             cmd.CommandText = "Select KHID,HOTEN from KHACHHANG";
@@ -384,11 +384,16 @@ namespace App_sale_manager
                                 return;
                             }
                         }
-                        //giamgia
                         if (Label_Loai.Text == "%")
+                        {
                             Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(CT_HD.Rows[i].Cells[2].Value) * Convert.ToDouble(Box_Giam.Text) / 100 * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value));
+                            Box_GiaDaGiam.Text = String.Format("{0:0,0}", Convert.ToDouble(Box_GiaDaGiam.Text));
+                        }
                         else
+                        {
                             Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble(CT_HD.Rows[i].Cells[3]));
+                            Box_GiaDaGiam.Text = String.Format("{0:0,0}", Convert.ToDouble(Box_GiaDaGiam.Text));
+                        }
                     }
                 }
 
@@ -416,15 +421,28 @@ namespace App_sale_manager
                         }
                         //giam gia
                         if (Label_Loai.Text == "%")
+                        {
                             Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(CT_HD.Rows[i].Cells[2].Value) * Convert.ToDouble(Box_Giam.Text) / 100 * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value));
+                            Box_GiaDaGiam.Text = String.Format("{0:0,0}", Convert.ToDouble(Box_GiaDaGiam.Text));
+                        }
                         else
-                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble( CT_HD.Rows[i].Cells[3]));
+                        {
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble(CT_HD.Rows[i].Cells[3]));
+                            Box_GiaDaGiam.Text = String.Format("{0:0,0}", Convert.ToDouble(Box_GiaDaGiam.Text));
+                        }
                     }
                 }
             }
 
         }
 
-        
+        private void Box_LoaiHD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Box_LoaiHD.SelectedIndex == 0)
+                Box_TrangThai.SelectedIndex = 0;
+            else
+                Box_TrangThai.SelectedIndex = 1;
+        }
+
     }
 }
