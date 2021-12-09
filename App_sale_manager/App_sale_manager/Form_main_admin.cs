@@ -1860,7 +1860,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             }
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
+            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
             sqlCmd.Connection = sqlCon;
             adapter = new SqlDataAdapter(sqlCmd);
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
@@ -1923,7 +1923,9 @@ namespace App_sale_manager
             dgvSP.Columns[3].Width = 80;
             dgvSP.Columns[4].HeaderText = "Hãng";
             dgvSP.Columns[5].HeaderText = "Giá Bán";
+            
             dgvSP.Columns[6].HeaderText = "Giá Nhập";
+
             dgvSP.Columns[7].HeaderText = "Đơn Vị Tính";
             dgvSP.Columns[7].Width = 50;
             dgvSP.Columns[8].HeaderText = "Số Lượng";
@@ -1931,13 +1933,6 @@ namespace App_sale_manager
             dgvSP.Columns[9].HeaderText = "Số Lượng Tối Thiểu";
             dgvSP.Columns[9].Width = 50;
             dgvSP.Columns[10].HeaderText = "Mô Tả";
-            for (int i = 0; i < dgvSP.RowCount - 1; i++)
-            {
-
-                dgvSP.Rows[i].Cells["GIABAN"].Value = double.Parse(dgvSP.Rows[i].Cells["GIABAN"].Value.ToString());
-                dgvSP.Rows[i].Cells["GIANHAP"].Value = double.Parse(dgvSP.Rows[i].Cells["GIANHAP"].Value.ToString());
-
-            }
         }
         private void XemChiTiet()
 
@@ -1947,7 +1942,7 @@ namespace App_sale_manager
                 MessageBox.Show("Chưa chọn hàng để xem chi tiết");
                 return;
             }
-            Form_ChiTietHH f = new Form_ChiTietHH(dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["SOLUONG"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["HANGSX"].Value.ToString(), dgvSP.CurrentRow.Cells["GIANHAP"].Value.ToString(), dgvSP.CurrentRow.Cells["GIABAN"].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
+            Form_ChiTietHH f = new Form_ChiTietHH(dgvSP.CurrentRow.Cells["SPID"].Value.ToString(), dgvSP.CurrentRow.Cells["TENSP"].Value.ToString(), dgvSP.CurrentRow.Cells["SOLUONG"].Value.ToString(), dgvSP.CurrentRow.Cells["NUOCSX"].Value.ToString(), dgvSP.CurrentRow.Cells["HANGSX"].Value.ToString(), dgvSP.CurrentRow.Cells[6].Value.ToString(), dgvSP.CurrentRow.Cells[5].Value.ToString(), dgvSP.CurrentRow.Cells["DVT"].Value.ToString(), dgvSP.CurrentRow.Cells["SLTT"].Value.ToString(), dgvSP.CurrentRow.Cells["TENLOAI"].Value.ToString(), dgvSP.CurrentRow.Cells["MoTa"].Value.ToString());
             this.Hide();
             f.ShowDialog();
             f.Close();
@@ -1970,7 +1965,7 @@ namespace App_sale_manager
                 sqlCon = new SqlConnection(strCon);
                 SqlCommand sqlCmd = new SqlCommand();
                 sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID and SoLuong<SLTT";
+                sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID and SoLuong<SLTT";
                 // gửi truy vấn tới kết nối.
                 sqlCmd.Connection = sqlCon;
                 adapter = new SqlDataAdapter(sqlCmd);
@@ -1991,33 +1986,33 @@ namespace App_sale_manager
                 {
                     case 0:
                         {
-                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
                          " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN = " + txtGiaBan.Text + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
                             break;
                         }
                     case 1:
                         {
-                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
                                " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN < " + txtGiaBan.Text + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
                             break;
 
                         }
                     case 2:
                         {
-                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
                             " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%' and GIABAN > " + txtGiaBan.Text + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
                             break;
                         }
                     default:
                         {
-                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+                            query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
                                 " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%'" + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
                             break;
                         }
                 }
 
             }
-            else query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,SANPHAM.GIABAN,SANPHAM.GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
+            else query = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP" +
                  " where (SANPHAM.LOAIID = LOAISP.LOAIID and LOAISP.TENLOAI like N'%" + cbbLoaiSP.Text + "%'" + " and  TENSP Like N'%" + txtTenSP.Text + "%' and NUOCSX Like N'%" + cbbNuocSX.Text + "%'" + " and HANGSX Like N'%" + cbbHang.Text + "%')";
 
             adapter = new SqlDataAdapter(query, sqlCon);
@@ -2175,6 +2170,29 @@ namespace App_sale_manager
             HH_ClearCBBTB();
             LoadHangHoa();
 
+        }
+        private void cbbLoaiSP_TextChanged_1(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void cbbHang_TextChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void cbbNuocSX_TextChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
+        }
+
+        private void cbbChonGia_TextChanged(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = HH_TimKiem();
+            HH_DinhDangdgv();
         }
 
         private void cbbLoaiSP_KeyPress(object sender, KeyPressEventArgs e)
@@ -2463,6 +2481,6 @@ namespace App_sale_manager
             Thoat(this, new EventArgs());
         }
 
-        
+
     }
 }

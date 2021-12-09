@@ -484,9 +484,9 @@ namespace App_sale_manager
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.Location = new System.Drawing.Point(235, 37);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 18);
+            this.label6.Size = new System.Drawing.Size(17, 18);
             this.label6.TabIndex = 0;
-            this.label6.Text = "1,000,000";
+            this.label6.Text = "0";
             // 
             // label5
             // 

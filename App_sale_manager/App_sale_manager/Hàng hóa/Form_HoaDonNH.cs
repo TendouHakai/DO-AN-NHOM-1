@@ -31,11 +31,11 @@ namespace App_sale_manager
         {
             DataTable tb = new DataTable();
             string query = string.Empty;
-            if(txtTriGia.Text==string.Empty)
-            query = "select HDNH.SOHD_NH,HDNH.NGNHAP,DTCC.TENDT,NHANVIEN.HOTEN,HDNH.TRIGIA from HDNH,DTCC,NHANVIEN where HDNH.DTID = DTCC.DTID and HDNH.NVID = NHANVIEN.NVID and NHANVIEN.NVID like N'%"+
+            if(txtTriGia.Text==string.Empty) 
+            query = "select HDNH.SOHD_NH,HDNH.NGNHAP,DTCC.TENDT,NHANVIEN.HOTEN,REPLACE(CONVERT(varchar(20), HDNH.TRIGIA, 1), '.00', '') from HDNH,DTCC,NHANVIEN where HDNH.DTID = DTCC.DTID and HDNH.NVID = NHANVIEN.NVID and NHANVIEN.NVID like N'%" +
                     txtNVID.Text+"%' and HDNH.SOHD_NH like N'%"+txtMaHDNH.Text + "%' and DTCC.DTID like N'%" + txtDTID.Text + "%'";
             else
-            query = "select HDNH.SOHD_NH,HDNH.NGNHAP,DTCC.TENDT,NHANVIEN.HOTEN,HDNH.TRIGIA from HDNH,DTCC,NHANVIEN where HDNH.DTID = DTCC.DTID and HDNH.NVID = NHANVIEN.NVID and NHANVIEN.NVID like N'%" +
+            query = "select HDNH.SOHD_NH,HDNH.NGNHAP,DTCC.TENDT,NHANVIEN.HOTEN,REPLACE(CONVERT(varchar(20), HDNH.TRIGIA, 1), '.00', '') from HDNH,DTCC,NHANVIEN where HDNH.DTID = DTCC.DTID and HDNH.NVID = NHANVIEN.NVID and NHANVIEN.NVID like N'%" +
                    txtNVID.Text + "%' and HDNH.SOHD_NH like N'%" + txtMaHDNH.Text + "%' and DTCC.DTID like N'%" + txtDTID.Text + "%' and TRIGIA > "+txtTriGia.Text;
 
             adapter = new SqlDataAdapter(query, sqlCon);
@@ -50,12 +50,7 @@ namespace App_sale_manager
             dgvHDHN.Columns[2].HeaderText = "Tên đối tác";
             dgvHDHN.Columns[3].HeaderText = "Tên nhân viên nhập";
             dgvHDHN.Columns[4].HeaderText = "Giá trị ";
-            for (int i = 0; i < dgvHDHN.RowCount; i++)
-            {
-                if(dgvHDHN.Rows[i].Cells[0].Value != null)
-                dgvHDHN.Rows[i].Cells["TRIGIA"].Value = double.Parse(dgvHDHN.Rows[i].Cells["TRIGIA"].Value.ToString());
-                
-            }
+  
         }
         private void LoadHDNH()
         {
@@ -63,7 +58,7 @@ namespace App_sale_manager
             SqlCommand sqlCmd = new SqlCommand();
             sqlCon.Open();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select SOHD_NH,NGNHAP,TENDT,HOTEN,TRIGIA from HDNH,DTCC,NHANVIEN where HDNH.DTID=DTCC.DTID and HDNH.NVID=NHANVIEN.NVID";
+            sqlCmd.CommandText = "select SOHD_NH,NGNHAP,TENDT,HOTEN,REPLACE(CONVERT(varchar(20), TRIGIA, 1), '.00', '') from HDNH,DTCC,NHANVIEN where HDNH.DTID=DTCC.DTID and HDNH.NVID=NHANVIEN.NVID";
             sqlCmd.Connection = sqlCon;
             adapter = new SqlDataAdapter(sqlCmd);
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
@@ -114,8 +109,11 @@ namespace App_sale_manager
 
     private void dgvHDHN_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        if (dgvHDHN.SelectedRows != null)
-            LoadDonNhap(dgvHDHN.CurrentRow.Cells[0].Value.ToString());
+            if (dgvHDHN.SelectedRows != null)
+            {
+                LoadDonNhap(dgvHDHN.CurrentRow.Cells[0].Value.ToString());
+                label6.Text = dgvHDHN.CurrentRow.Cells[4].Value.ToString();
+            }
     }
     private void LoadDonNhap(string MaDonNhap)
     {
