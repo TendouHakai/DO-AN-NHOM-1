@@ -36,9 +36,9 @@ namespace App_sale_manager
             DTCC_dtgd_dataInitialize();
             DTCC_guest_dataInitialize();
             canExit = true;
-            pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
-            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
-            button_refresh.BackgroundImage = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\refresh.jpg");
+            pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\DTGD\No Image.jpg");
+            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\KHDK\No Image.jpg");
+            button_refresh.BackgroundImage = Image.FromFile(@"Image samples for testing\DTGD\refresh.jpg");
             this.Size = new Size(1275, 740);
         }
         public Form_main_admin(string manv, string tennv, string username)
@@ -51,8 +51,8 @@ namespace App_sale_manager
             DTCC_dtgd_dataInitialize();
             DTCC_guest_dataInitialize();
             canExit = true;
-            pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
-            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
+            pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\DTGD\No Image.jpg");
+            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\KHDK\No Image.jpg");
             this.Size = new Size(1275, 740);
             tbtnUser.Text = username;
         }
@@ -1432,7 +1432,7 @@ namespace App_sale_manager
             A.textBox_DIACHI_z.Text = label_DIACHItext.Text;
             A.textBox_SDT_z.Text = label_SDTtext.Text;
             A.textBox_TENDT_z.Text = label_TENDTtext.Text;
-            using (FileStream stream = new FileStream(@"Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg", FileMode.Open, FileAccess.Read))
+            using (FileStream stream = new FileStream(@"Image samples for testing\DTGD\" + label_TENDTtext.Text + ".jpg", FileMode.Open, FileAccess.Read))
             {
                 A.pictureBox_image_import.Image = Image.FromStream(stream);
                 stream.Dispose();
@@ -1453,11 +1453,11 @@ namespace App_sale_manager
                 Date = Convert.ToDateTime(row.Cells[3].Value.ToString());
                 label_NGDTtext.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
                 label_DIACHItext.Text = row.Cells[4].Value.ToString();
-                string filepath = @"Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg";
+                string filepath = @"Image samples for testing\DTGD\" + label_TENDTtext.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_Logo.Image = Image.FromFile(filepath);
                 else
-                    pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\Đối tác giao dịch\No Image.jpg");
+                    pictureBox_Logo.Image = Image.FromFile(@"Image samples for testing\DTGD\No Image.jpg");
                 button_modDTCC.Enabled = true;
                 button_deleteDTCC.Enabled = true;
             }
@@ -1482,11 +1482,11 @@ namespace App_sale_manager
                 SqlCommand newcmd = new SqlCommand(str, sqlCon);
                 newcmd.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công!", "Thông báo");
-                /*if(file.exists(@"\image samples for testing\đối tác giao dịch\"+label_tendttext.text+".jpg"))
+                /*if(file.exists(@"\image samples for testing\DTGD\"+label_tendttext.text+".jpg"))
                 {
                     system.gc.collect();
                     system.gc.waitforpendingfinalizers();
-                    file.delete(@"\image samples for testing\đối tác giao dịch\" + label_tendttext.text + ".jpg");
+                    file.delete(@"\image samples for testing\DTGD\" + label_tendttext.text + ".jpg");
                 }    
                 */
                 DTCC_dtgd_dataInitialize();
@@ -1576,11 +1576,11 @@ namespace App_sale_manager
                 label_guestReg_Text.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
                 label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
                 label_guestMoney_Text.Text = String.Format("{0:0,0}", Convert.ToDouble(row.Cells[5].Value.ToString()));
-                string filepath = @"Image samples for testing\Khách hàng đăng kí\" + label_guestName_Text.Text + ".jpg";
+                string filepath = @"Image samples for testing\KHDK\" + label_guestName_Text.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_dtcc_guestFace.Image = Image.FromFile(filepath);
                 else
-                    pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\Khách hàng đăng kí\No Image.jpg");
+                    pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\KHDK\No Image.jpg");
                 button_guest_mod.Enabled = true;
                 button_guest_delete.Enabled = true;
             }
@@ -1625,11 +1625,11 @@ namespace App_sale_manager
                 SqlCommand newcmd = new SqlCommand(str, sqlCon);
                 newcmd.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công!", "Thông báo");
-                /*if(File.Exists(@"\Image samples for testing\Đối tác giao dịch\"+label_TENDTtext.Text+".jpg"))
+                /*if(File.Exists(@"\Image samples for testing\DTGD\"+label_TENDTtext.Text+".jpg"))
                 {
                     System.GC.Collect();
                     System.GC.WaitForPendingFinalizers();
-                    File.Delete(@"\Image samples for testing\Đối tác giao dịch\" + label_TENDTtext.Text + ".jpg");
+                    File.Delete(@"\Image samples for testing\DTGD\" + label_TENDTtext.Text + ".jpg");
                 }    
                 */
                 DTCC_guest_dataInitialize();

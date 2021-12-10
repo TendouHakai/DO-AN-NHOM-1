@@ -86,7 +86,7 @@ namespace App_sale_manager
                 SaveFileDialog Save = new SaveFileDialog();
                 if (filepath != "")
                 {
-                    Save.FileName = @"Image samples for testing\Khách hàng đăng kí\" + textBox_TENDT_z.Text + ".jpg";
+                    Save.FileName = @"Image samples for testing\KHDK\" + textBox_TENDT_z.Text + ".jpg";
                     pictureBox_image_import.Image.Save(Save.FileName);
                 }
                 RefreshData(this, new EventArgs());

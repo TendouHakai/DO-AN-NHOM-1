@@ -54,7 +54,7 @@ namespace App_sale_manager
             dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
             dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
             textBox_budget_z.Text = "0";
-            pictureBox_image_import.Image = Image.FromFile(@"Image samples for testing\Khách hàng đăng kí\No Image.jpg");
+            pictureBox_image_import.Image = Image.FromFile(@"Image samples for testing\KHDK\No Image.jpg");
         }
 
         private void button_DTCC_Reject_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace App_sale_manager
             {
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
-                Save.FileName = @"Image samples for testing\Khách hàng đăng kí\" + textBox_TENDT_z.Text + ".jpg";
+                Save.FileName = @"Image samples for testing\KHDK\" + textBox_TENDT_z.Text + ".jpg";
                 pictureBox_image_import.Image.Save(Save.FileName);
                 RefreshData(this, new EventArgs());
                 Close();
