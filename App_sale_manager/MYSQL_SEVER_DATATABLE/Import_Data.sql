@@ -13,15 +13,14 @@ INSERT INTO NHANVIEN VALUES ('NV06',N'Lê Thị Nở','0999943349','22/7/2016','
 
 INSERT into DTCC VALUES ('PV01',N'Absolute Zero','0777 777 777','7/7/2017',N'346 Quãng Trường Dân Chủ, quận Bình Thạnh, thành phố HCM')	
 INSERT into DTCC VALUES ('PV02',N'Smart Hand','0349 654 533','12/6/2016',N'QL13, Lái Thiêu, Thuận An, Bình Dương, Việt Nam')	
-INSERT into DTCC VALUES ('PV03',N'Ha Noi IT ','0941 566 663','24/03/2017',N'465A QL13, Khu phố Nguyễn Trãi, P, Bình Dương 75000, Việt Nam')	
+INSERT into DTCC VALUES ('PV03',N'Ha Noi IT','0941 566 663','24/03/2017',N'465A QL13, Khu phố Nguyễn Trãi, P, Bình Dương 75000, Việt Nam')	
 INSERT into DTCC VALUES ('PV04',N'Trường IT','0553 641 456','1/1/2017',N'WMRQ+7J9, Hưng Định, Thuận An, Bình Dương, Việt Nam')	
 INSERT into DTCC VALUES ('PV05',N'APC Computer','0986 553 511','30/12/2017',N'XM76+C2C, Chánh Nghĩa, Thủ Dầu Một, Bình Dương, Việt Nam')	
 INSERT into DTCC VALUES ('PV06',N'Máy tính Phong Vù','0973 865 445','9/11/2016',N'132 Đ. Nguyễn Văn Lộng, Chánh Mỹ, Thủ Dầu Một, Bình Dương, Việt Nam')	
-INSERT into DTCC VALUES ('PV07',N'Gamers Revolution','0888 453 255','10/11/2016',N'171 ĐX 082, Định Hoà, Thủ Dầu Một, Bình Dương, Việt Nam')	
+INSERT into DTCC VALUES ('PV07',N'Gamers'' Revolution','0888 453 255','10/11/2016',N'171 ĐX 082, Định Hoà, Thủ Dầu Một, Bình Dương, Việt Nam')	
 INSERT into DTCC VALUES ('PV08',N'Red Eyes Gaming House','0917 963 445','4/5/2017',N'Số 270 Đường ĐX064, Định Hoà, Thủ Dầu Một, Bình Dương, Việt Nam')	
 INSERT into DTCC VALUES ('PV09',N'Lazy Chick Gaming','0941 401 401','15/7/2017',N'Quốc Lộ 13, Phường Tân Định, Bến Cát, Bình Dương, Việt Nam')	
 INSERT into DTCC VALUES ('PV10',N'GearCN','0777 943 585','16/8/2017',N'20 Dân Chủ, Hoà Lợi, Bến Cát, Bình Dương, Việt Nam')	
-
 
 INSERT into KHACHHANG VALUES ('RC01',N'Triệu Tuấn Tiến',N'365 Hẻm 24/8, đường Cộng Hòa, Quận 10, thành phố HCM','0915 401 635','1/1/2017',1660000, 'NOR')
 INSERT into KHACHHANG VALUES ('RC02',N'Nguyễn Trung Kiên',N'Khu phố 6, KTX khu A ĐHQG HCM','0777 471 457','29/2/2016',15950000,'VIP')

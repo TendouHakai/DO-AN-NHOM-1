@@ -112,7 +112,7 @@ namespace App_sale_manager
 
         private void Form_login_Load(object sender, EventArgs e)
         {
-
+            textBox_usr.Focus();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
