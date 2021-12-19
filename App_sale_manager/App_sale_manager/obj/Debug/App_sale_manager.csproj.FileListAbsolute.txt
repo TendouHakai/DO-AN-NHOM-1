@@ -30,3 +30,4 @@ D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\A
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.csproj.CoreCompileInputs.cache
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.exe
 D:\Github\GUI Project\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.pdb
+D:\laptrinhtrucquan\Doan repo\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.Properties.Resources.resources

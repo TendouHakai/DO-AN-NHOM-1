@@ -56,6 +56,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_addnv_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_addnv_admin.Designer.cs">
+      <DependentUpon>Form_addnv_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_doipass_nv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_doipass_nv.Designer.cs">
+      <DependentUpon>Form_doipass_nv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_selectphoto_nv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_selectphoto_nv.Designer.cs">
+      <DependentUpon>Form_selectphoto_nv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_UpdateNV_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_UpdateNV_admin.Designer.cs">
+      <DependentUpon>Form_UpdateNV_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_UpdateNV_NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_UpdateNV_NV.Designer.cs">
+      <DependentUpon>Form_UpdateNV_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumericUpDown_fc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NumericUpDown_fc.Designer.cs">
+      <DependentUpon>NumericUpDown_fc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OvalPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form_NV_chamcong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,8 +235,20 @@
     <Compile Include="Đối tác\Sale_viewer.Designer.cs">
       <DependentUpon>Sale_viewer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form_addnv_admin.resx">
+      <DependentUpon>Form_addnv_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_doipass_nv.resx">
+      <DependentUpon>Form_doipass_nv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_selectphoto_nv.resx">
+      <DependentUpon>Form_selectphoto_nv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_NV_chamcong.resx">
       <DependentUpon>Form_NV_chamcong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_UpdateNV_admin.resx">
+      <DependentUpon>Form_UpdateNV_admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân viên\Form_nv_phancong_chamcong.resx">
       <DependentUpon>Form_nv_phancong_chamcong.cs</DependentUpon>
