@@ -50,12 +50,12 @@ namespace App_sale_manager
             }
             try
             {
-                pictureBox1.BackgroundImage = Image.FromFile(@"Image samples for testing\Nhân viên\" + NVID+ ".jpg");
+                pictureBox1.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\" + NVID+ ".jpg");
                 
             }
             catch(Exception)
             {
-                pictureBox1.BackgroundImage = Image.FromFile(@"Image samples for testing\Nhân viên\No Image.jpg");
+                pictureBox1.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\No Image.jpg");
                
             }
             sqlCon.Close();

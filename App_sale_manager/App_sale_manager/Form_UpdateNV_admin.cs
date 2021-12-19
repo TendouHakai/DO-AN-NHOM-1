@@ -33,9 +33,9 @@ namespace App_sale_manager
         public event EventHandler Thoat;
         private void Form_UpdateNV_admin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (File.Exists(@"Image samples for testing\Nhân viên\Anonymous.jpg"))
+            if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
             {
-                File.Delete(@"Image samples for testing\Nhân viên\Anonymous.jpg");
+                File.Delete(@"Image samples for testing\NV\Anonymous.jpg");
             }
             Thoat(this, new EventArgs());
         }
@@ -74,7 +74,7 @@ namespace App_sale_manager
             else
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -94,14 +94,14 @@ namespace App_sale_manager
                     cmd.CommandText = "set dateformat dmy " + "update NHANVIEN set HOTEN=N'" + tb_TenNV_nv_infonv.Text + "',SDT='" + tb_SDT_nv_infonv.Text + "',NGSINH='" + dt_NgaySinh_nv_infonv.Text + "',NGVL='" + dt_NgayVaoLam_nv_infonv.Text + "',CV=N'" + tb_ChucVu_nv_infonv.Text + "'where NVID='" + this.NVID.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Bạn đã chỉnh sửa thành công!");
-                    if (File.Exists(@"Image samples for testing\Nhân viên\Anonymous.jpg"))
+                    if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
                     {
-                        if (File.Exists(@"Image samples for testing\Nhân viên\" + this.NVID.ToString() + ".jpg"))
+                        if (File.Exists(@"Image samples for testing\NV\" + this.NVID.ToString() + ".jpg"))
                         {
-                            File.Delete(@"Image samples for testing\Nhân viên\" + this.NVID.ToString() + ".jpg");
+                            File.Delete(@"Image samples for testing\NV\" + this.NVID.ToString() + ".jpg");
                         }
-                        File.Move(@"Image samples for testing\Nhân viên\Anonymous.jpg", @"Image samples for testing\Nhân viên\" + this.NVID.ToString() + ".jpg");
-                        File.Delete(@"Image samples for testing\Nhân viên\Anonymous.jpg");
+                        File.Move(@"Image samples for testing\NV\Anonymous.jpg", @"Image samples for testing\NV\" + this.NVID.ToString() + ".jpg");
+                        File.Delete(@"Image samples for testing\NV\Anonymous.jpg");
                     }
                     this.Close();
                 }
@@ -171,20 +171,20 @@ namespace App_sale_manager
         {
             this.Show();
             LoadData_nv_infonv();
-            if (File.Exists(@"Image samples for testing\Nhân viên\Anonymous.jpg"))
+            if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
             {
-                LoadPicture(@"Image samples for testing\Nhân viên\Anonymous.jpg");
+                LoadPicture(@"Image samples for testing\NV\Anonymous.jpg");
             }
-            else if (File.Exists(@"Image samples for testing\Nhân viên\" + this.NVID.ToString() + ".jpg"))
+            else if (File.Exists(@"Image samples for testing\NV\" + this.NVID.ToString() + ".jpg"))
             {
-                LoadPicture(@"Image samples for testing\Nhân viên\" + this.NVID.ToString() + ".jpg");
+                LoadPicture(@"Image samples for testing\NV\" + this.NVID.ToString() + ".jpg");
             }
         }
 
         private void Form_UpdateNV_admin_Load(object sender, EventArgs e)
         {
             LoadData_nv_infonv();
-            LoadPicture(@"Image samples for testing\Nhân viên\" + this.NVID.ToString() + ".jpg");
+            LoadPicture(@"Image samples for testing\NV\" + this.NVID.ToString() + ".jpg");
 
         }
 

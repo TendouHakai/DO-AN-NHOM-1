@@ -725,7 +725,7 @@ namespace App_sale_manager
         void loadanh_nv_bangluong()
         {
             Image image1 = null;
-            using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+            using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
             {
                 image1 = Image.FromStream(stream);
             }
@@ -828,7 +828,7 @@ namespace App_sale_manager
                 {
                     if (sqlCon.State == ConnectionState.Closed)
                         sqlCon.Open();
-                    filepath = @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg";
+                    filepath = @"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text + ".jpg";
                     cmd = sqlCon.CreateCommand();
                     cmd.CommandText = "delete from NHANVIEN where NVID='" + tb_MaNV_nv_infonv.Text + "'";
                     cmd.ExecuteNonQuery();
@@ -882,7 +882,7 @@ namespace App_sale_manager
             (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
 
             Image image1 = null;
-            using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+            using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
             {
                 image1 = Image.FromStream(stream);
             }
@@ -1177,7 +1177,7 @@ namespace App_sale_manager
             nud_Thuong_nv_bangluong.Value = 0;
             (dgv_nv_bangluong.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
             Image image1 = null;
-            using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+            using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
             {
                 image1 = Image.FromStream(stream);
             }
@@ -1328,7 +1328,7 @@ namespace App_sale_manager
         {
             this.Show();
             Image image1 = null;
-            using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg", FileMode.Open))
+            using (FileStream stream = new FileStream(@"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text + ".jpg", FileMode.Open))
             {
                 image1 = Image.FromStream(stream);
             }
@@ -1354,10 +1354,10 @@ namespace App_sale_manager
 
 
 
-            if (File.Exists(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg"))
+            if (File.Exists(@"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text + ".jpg"))
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text + ".jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -1366,7 +1366,7 @@ namespace App_sale_manager
             else
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -1386,10 +1386,10 @@ namespace App_sale_manager
             nud_Luong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[2].Value.ToString());
             nud_Thuong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[3].Value.ToString());
             nud_Heso_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[4].Value.ToString());
-            if (File.Exists(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_bangluong.Text + ".jpg"))
+            if (File.Exists(@"Image samples for testing\NV\" + tb_MaNV_nv_bangluong.Text + ".jpg"))
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\" + tb_MaNV_nv_bangluong.Text + ".jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\NV\" + tb_MaNV_nv_bangluong.Text + ".jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -1398,7 +1398,7 @@ namespace App_sale_manager
             else
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }

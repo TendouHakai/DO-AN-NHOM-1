@@ -1013,10 +1013,10 @@ namespace App_sale_manager
             }
 
 
-            if (File.Exists(@"Image samples for testing\Cá nhân\" + tb_MaNV_nv_infonv.Text + ".jpg"))
+            if (File.Exists(@"Image samples for testing\CN\" + tb_MaNV_nv_infonv.Text + ".jpg"))
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Cá nhân\" + this.NVID + ".jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\CN\" + this.NVID + ".jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -1026,7 +1026,7 @@ namespace App_sale_manager
             else
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Cá nhân\No Image.jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\CN\No Image.jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -1112,7 +1112,7 @@ namespace App_sale_manager
         private void xoaAnhToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Xóa ảnh", MessageBoxButtons.YesNo);
-            var filepath = @"Image samples for testing\Cá nhân\" + tb_MaNV_nv_infonv.Text + ".jpg";
+            var filepath = @"Image samples for testing\CN\" + tb_MaNV_nv_infonv.Text + ".jpg";
             if (Result == DialogResult.Yes)
             {
                 pictureBox_image_anhnv.Image = null;
@@ -1120,7 +1120,7 @@ namespace App_sale_manager
                 {
                     File.Delete(filepath);
                     Image image1 = null;
-                    using (FileStream stream = new FileStream(@"Image samples for testing\Cá nhân\No Image.jpg", FileMode.Open))
+                    using (FileStream stream = new FileStream(@"Image samples for testing\CN\No Image.jpg", FileMode.Open))
                     {
                         image1 = Image.FromStream(stream);
                     }

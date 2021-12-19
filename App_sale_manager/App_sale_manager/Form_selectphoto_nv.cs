@@ -55,16 +55,16 @@ namespace App_sale_manager
 
             if (Isnv == 1)
             {
-                bmp1.Save(@"Image samples for testing\Nhân viên\" + NVID + ".jpg");
+                bmp1.Save(@"Image samples for testing\NV\" + NVID + ".jpg");
 
             }
             else if (Isnv == 0)
             {
-                bmp1.Save(@"Image samples for testing\Cá nhân\" + NVID + ".jpg");
+                bmp1.Save(@"Image samples for testing\CN\" + NVID + ".jpg");
             }
             else
             {
-                bmp1.Save(@"Image samples for testing\Nhân viên\Anonymous.jpg");
+                bmp1.Save(@"Image samples for testing\NV\Anonymous.jpg");
             }
         }
         public void fillPictureBox(PictureBox pbox, Bitmap bmp)

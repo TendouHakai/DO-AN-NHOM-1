@@ -25,9 +25,9 @@ namespace App_sale_manager
         
         private void Form_addnv_admin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (File.Exists(@"Image samples for testing\Nhân viên\Anonymous.jpg"))
+            if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
             {
-                File.Delete(@"Image samples for testing\Nhân viên\Anonymous.jpg");
+                File.Delete(@"Image samples for testing\NV\Anonymous.jpg");
 
             }
             Thoat(this, new EventArgs());
@@ -95,10 +95,10 @@ namespace App_sale_manager
         {
 
             this.Show();
-            if (File.Exists(@"Image samples for testing\Nhân viên\Anonymous.jpg"))
+            if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\Anonymous.jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\NV\Anonymous.jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -108,7 +108,7 @@ namespace App_sale_manager
             else
             {
                 Image image1 = null;
-                using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+                using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
                 {
                     image1 = Image.FromStream(stream);
                 }
@@ -138,9 +138,9 @@ namespace App_sale_manager
             if (exedata("set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "','" + 0 + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_MaNV_nv_infonv.Text + "','" + 1 + "','" + 0 + "','" + 0 + "')") == true)
             {
                 MessageBox.Show("Thêm thành công!");
-                if (File.Exists(@"Image samples for testing\Nhân viên\Anonymous.jpg"))
+                if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
                 {
-                    File.Move(@"Image samples for testing\Nhân viên\Anonymous.jpg", @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text + ".jpg");
+                    File.Move(@"Image samples for testing\NV\Anonymous.jpg", @"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text + ".jpg");
 
                 }
                 this.Close();
@@ -170,9 +170,9 @@ namespace App_sale_manager
                     else
                         MessageBox.Show("Nhập không đúng dữ liệu hoặc MANV đã có!");
                 }
-                if (File.Exists(@"Image samples for testing\Nhân viên\Anonnymous.jpg"))
+                if (File.Exists(@"Image samples for testing\NV\Anonnymous.jpg"))
                 {
-                    File.Move(@"Image samples for testing\Nhân viên\Anonnymous.jpg", @"Image samples for testing\Nhân viên\" + tb_MaNV_nv_infonv.Text+ ".jpg");
+                    File.Move(@"Image samples for testing\NV\Anonnymous.jpg", @"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text+ ".jpg");
                     
                 }
                 this.Close();
@@ -182,7 +182,7 @@ namespace App_sale_manager
         private void Form_addnv_admin_Load(object sender, EventArgs e)
         {
             Image image1 = null;
-            using (FileStream stream = new FileStream(@"Image samples for testing\Nhân viên\No Image.jpg", FileMode.Open))
+            using (FileStream stream = new FileStream(@"Image samples for testing\NV\No Image.jpg", FileMode.Open))
             {
                 image1 = Image.FromStream(stream);
             }
