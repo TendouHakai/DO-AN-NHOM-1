@@ -34,7 +34,7 @@ namespace App_sale_manager
             InitializeComponent();
             sqlCon = new SqlConnection(strCon);
             DTCC_guest_dataInitialize();
-            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
+            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\NV\No Image.jpg");
             this.Size = new Size(1275, 740);
         }
         public Form_main_NV(string NVID, string Ten, string username)
@@ -100,19 +100,19 @@ namespace App_sale_manager
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT COUNT(SOHD_BH) AS SL, SUM(TRIGIA) AS TRIGIA"
                                 + " FROM HDBH"
-                                + " WHERE LOAIHD = 'DTT' AND NVID = '" + NVID + "' AND NGHD = '" + date.ToString("MM/dd/yyyy") + "'"
+                                + " WHERE LOAIHD = N'Đơn trực tiếp' AND NVID = '" + NVID + "' AND NGHD BETWEEN '" + date.ToString("MM/dd/yyyy 0:00:00") + "' AND '" + date.ToString("MM/dd/yyyy 23:59:59") + "'"
                                 + " UNION"
                                 + " SELECT COUNT(SOHD_BH), SUM(TRIGIA)"
                                 + " FROM HDBH"
-                                + " WHERE LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT' AND NVID = '" + NVID + "' AND NGHD = '" + date.ToString("MM/dd/yyyy") + "'";
+                                + " WHERE LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = 'Hoàn thành' AND NVID = '" + NVID + "' AND NGHD BETWEEN '" + date.ToString("MM/dd/yyyy 0:00:00") + "' AND '" + date.ToString("MM/dd/yyyy 23:59:59") + "'";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
             adapter.Fill(table);
             try
             {
-                txt_tongquan_slhdbh.Text = table.Rows[0]["SL"].ToString();
-                if (table.Rows[0]["TRIGIA"].ToString() == "")
+                txt_tongquan_slhdbh.Text = table.Rows[1]["SL"].ToString();
+                if (table.Rows[1]["TRIGIA"].ToString() == "")
                     txt_tongquan_trigiabh.Text = "0";
                 else txt_tongquan_trigiabh.Text = String.Format("{0:0,0}", table.Rows[0]["TRIGIA"]);
 
@@ -124,8 +124,8 @@ namespace App_sale_manager
             }
             try
             {
-                txt_tongquan_slhddh.Text = table.Rows[1]["SL"].ToString();
-                if (table.Rows[1]["TRIGIA"].ToString() == "")
+                txt_tongquan_slhddh.Text = table.Rows[0]["SL"].ToString();
+                if (table.Rows[0]["TRIGIA"].ToString() == "")
                     txt_tongquan_trigiadh.Text = "0";
                 else txt_tongquan_trigiadh.Text = string.Format("{0:0,0}", table.Rows[1]["TRIGIA"]);
             }
@@ -152,7 +152,7 @@ namespace App_sale_manager
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT NGHD , SUM(TRIGIA) as TRIGIA"
                                 + " FROM HDBH"
-                                + " WHERE NVID = '" + NVID + "' AND(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)=" + date.Month.ToString()
+                                + " WHERE NVID = '" + NVID + "' AND(LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)=" + date.Month.ToString()
                                 + " GROUP BY NGHD"
                                 + " ORDER BY NGHD ASC";
 
@@ -170,8 +170,8 @@ namespace App_sale_manager
             }
             cmd.CommandText = "SELECT SUM(TRIGIA)"
                                 + " FROM HDBH"
-                                + " WHERE NVID = '" + NVID + "' AND(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)= " + date.Month.ToString();
-            txt_tongquan_dsThang.Text = cmd.ExecuteScalar().ToString();
+                                + " WHERE NVID = '" + NVID + "' AND(LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)= " + date.Month.ToString();
+            txt_tongquan_dsThang.Text = String.Format("{0:0,0}", Convert.ToDouble(cmd.ExecuteScalar().ToString())); 
             if (txt_tongquan_dsThang.Text == "")
                 txt_tongquan_dsThang.Text = "0";
             sqlCon.Close();
@@ -184,7 +184,7 @@ namespace App_sale_manager
             DateTime date = DateTime.Today;
             cmd.CommandText = "SELECT TOP 3 HDBH.NVID, HOTEN, SUM(TRIGIA) AS DOANHSO"
                                 + " FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID"
-                                + " WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD)= " + date.Month.ToString() + ""
+                                + " WHERE(LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)= " + date.Month.ToString() + ""
                                 + " GROUP BY HDBH.NVID, HOTEN"
                                 + " ORDER BY DOANHSO DESC";
             adapter.SelectCommand = cmd;
@@ -210,7 +210,7 @@ namespace App_sale_manager
                                 + " FROM("
                                 + " SELECT NVID, SUM(TRIGIA) AS DOANHSO"
                                 + " FROM HDBH"
-                                + " WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND MONTH(NGHD) = " + (date.Month - 1).ToString() + ""
+                                + " WHERE(LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD) = " + date.Month.ToString() + ""
                                 + " GROUP BY NVID"
                                 + " ) AS K"
                                 + ") AS H"
@@ -218,8 +218,8 @@ namespace App_sale_manager
             var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                lbl_tongquan_ten0.Text = reader.GetString(0);
-                txt_tongquan_ds0.Text = string.Format("{0:0,0}", Convert.ToDouble(reader.GetString(1)));
+                lbl_tongquan_ten0.Text = reader.GetInt64(0).ToString();
+                txt_tongquan_ds0.Text = string.Format("{0:0,0}", Convert.ToDouble(reader.GetDecimal(1)));
             }
             reader.Close();
             sqlCon.Close();
@@ -230,11 +230,12 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            cmd.CommandText = "SELECT HDBH.NVID, HOTEN, SUM(TRIGIA) AS DOANHSO"
+            cmd.CommandText = "SELECT HDBH.NVID as 'Mã nhân viên', HOTEN as 'Họ tên', REPLACE(CONVERT(varchar(20), SUM(TRIGIA), 1), '.00', '') AS 'Doanh số'"
                                 + " FROM HDBH INNER JOIN NHANVIEN ON HDBH.NVID = NHANVIEN.NVID"
-                                + " WHERE(LOAIHD = 'DTT' OR(LOAIHD = 'DDH' AND TRANGTHAI = 'HOANTAT')) AND NGHD = '" + date.ToString("MM/dd/yyyy") + "'"
+                                + " WHERE(LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND NGHD BETWEEN '" + date.ToString("MM/dd/yyyy 0:00:00") + "' AND '" + date.ToString("MM/dd/yyyy 23:59:59") + "' AND HDBH.NVID <>'"+NVID+"'"
                                 + " GROUP BY HDBH.NVID, HOTEN"
-                                + " ORDER BY DOANHSO DESC";
+                                + " ORDER BY SUM(TRIGIA) DESC";
+
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();

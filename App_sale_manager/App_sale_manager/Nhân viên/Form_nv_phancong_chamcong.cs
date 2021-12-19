@@ -49,12 +49,12 @@ namespace App_sale_manager
             reader.Close();
             try
             {
-                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\Nhân viên\" + NVID + ".jpg");
+                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\" + NVID + ".jpg");
 
             }
             catch (Exception)
             {
-                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\Nhân viên\No Image.jpg");
+                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\No Image.jpg");
 
             }
             cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND NGAYLAM<='"+DateTime.Today.ToString("MM/dd/yyyy")+"' AND TRANGTHAI = N'Đã điểm danh'";
@@ -79,8 +79,15 @@ namespace App_sale_manager
                 adapter.Fill(table);
                 for (int j = 0; j < table.Rows.Count; j++)
                 {
-                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + table.Rows[j]["NVID"] + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'Lịch làm việc hàng tuần')";
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + table.Rows[j]["NVID"] + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'Lịch làm việc hàng tuần')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch(Exception)
+                    {
+
+                    }
                 }
             }
             sqlCon.Close();

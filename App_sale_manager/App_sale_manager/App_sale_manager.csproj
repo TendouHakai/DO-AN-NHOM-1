@@ -62,6 +62,12 @@
     <Compile Include="Form_addnv_admin.Designer.cs">
       <DependentUpon>Form_addnv_admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tổng quan\Form_chuthich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tổng quan\Form_chuthich.Designer.cs">
+      <DependentUpon>Form_chuthich.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_doipass_nv.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,9 @@
     </Compile>
     <EmbeddedResource Include="Form_addnv_admin.resx">
       <DependentUpon>Form_addnv_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tổng quan\Form_chuthich.resx">
+      <DependentUpon>Form_chuthich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_doipass_nv.resx">
       <DependentUpon>Form_doipass_nv.cs</DependentUpon>
