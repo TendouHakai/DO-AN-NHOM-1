@@ -62,6 +62,11 @@
     <Compile Include="Form_addnv_admin.Designer.cs">
       <DependentUpon>Form_addnv_admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tổng quan\Form_chuthich.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,11 +153,6 @@
     </Compile>
     <Compile Include="Hàng hóa\Form_ThemSuaHangHoa.Designer.cs">
       <DependentUpon>Form_ThemSuaHangHoa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Đối tác\DTCC_guest_form.cs">
       <SubType>Form</SubType>

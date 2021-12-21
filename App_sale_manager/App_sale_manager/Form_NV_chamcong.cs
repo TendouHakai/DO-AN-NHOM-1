@@ -73,7 +73,7 @@ namespace App_sale_manager
             {
                 DataGridViewImageColumn column = new DataGridViewImageColumn();
                 column.HeaderText = i.ToString("d");
-                column.Image = Image.FromFile("../../icon/ảnh trắng.jpg");
+                column.Image = Image.FromFile("../../icon/white.jpg");
                 column.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 dataGridView1.Columns.Add(column);
                 cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + NVID + "' AND NGAYLAM = '" + i.ToString("MM/dd/yyyy") + "' AND TRANGTHAI=N'Đã điểm danh'";
@@ -86,13 +86,13 @@ namespace App_sale_manager
                     switch(table.Rows[h]["CAID"].ToString().Substring(2,1))
                     {
                         case "S":
-                            dataGridView1.Rows[0].Cells[j].Value = Image.FromFile("../../icon/Dấu tick.png");
+                            dataGridView1.Rows[0].Cells[j].Value = Image.FromFile("../../icon/tick.png");
                             break;
                         case "C":
-                            dataGridView1.Rows[1].Cells[j].Value = Image.FromFile("../../icon/Dấu tick.png");
+                            dataGridView1.Rows[1].Cells[j].Value = Image.FromFile("../../icon/tick.png");
                             break;
                         case "T":
-                            dataGridView1.Rows[2].Cells[j].Value = Image.FromFile("../../icon/Dấu tick.png");
+                            dataGridView1.Rows[2].Cells[j].Value = Image.FromFile("../../icon/tick.png");
                             break;
                     }
                 }
@@ -105,13 +105,13 @@ namespace App_sale_manager
                     switch (table.Rows[h]["CAID"].ToString().Substring(2, 1))
                     {
                         case "S":
-                            dataGridView1.Rows[0].Cells[j].Value = Image.FromFile("../../icon/dấu X.png");
+                            dataGridView1.Rows[0].Cells[j].Value = Image.FromFile("../../icon/X.png");
                             break;
                         case "C":
-                            dataGridView1.Rows[1].Cells[j].Value = Image.FromFile("../../icon/dấu X.png");
+                            dataGridView1.Rows[1].Cells[j].Value = Image.FromFile("../../icon/X.png");
                             break;
                         case "T":
-                            dataGridView1.Rows[2].Cells[j].Value = Image.FromFile("../../icon/dấu X.png");
+                            dataGridView1.Rows[2].Cells[j].Value = Image.FromFile("../../icon/X.png");
                             break;
                     }
                     

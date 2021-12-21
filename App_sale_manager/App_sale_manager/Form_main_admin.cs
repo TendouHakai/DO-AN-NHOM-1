@@ -117,7 +117,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            cmd.CommandText = "SELECT NGAY, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)=" + date.Month + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + date.Month + " GROUP BY NGNHAP) AS K GROUP BY NGAY";
+            cmd.CommandText = "SELECT DAY(NGAY) as NGAY, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)=" + date.Month + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + date.Month + " GROUP BY NGNHAP) AS K GROUP BY DAY(NGAY)";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -130,8 +130,8 @@ namespace App_sale_manager
             chart_doanhthuthang.Series["Series_Chi"].Points.Clear();
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                chart_doanhthuthang.Series["Series_Thu"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGTHU"]) / 1000000));
-                chart_doanhthuthang.Series["Series_Chi"].Points.AddXY(table.Rows[i]["NGAY"], (Convert.ToDouble(table.Rows[i]["TONGCHI"]) / 1000000));
+                chart_doanhthuthang.Series["Series_Thu"].Points.AddXY(table.Rows[i]["NGAY"] + "/"+ date.ToString("MM/yyyy"), (Convert.ToDouble(table.Rows[i]["TONGTHU"]) / 1000000));
+                chart_doanhthuthang.Series["Series_Chi"].Points.AddXY(table.Rows[i]["NGAY"] + "/" + date.ToString("MM/yyyy"), (Convert.ToDouble(table.Rows[i]["TONGCHI"]) / 1000000));
             }
             sqlCon.Close();
         }
@@ -278,7 +278,7 @@ namespace App_sale_manager
                 textBox_bcCuoingay1.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[0]["TONGTIEN"]));
                 textBox_bcCuoingay2.Text = String.Format("{0:0,0}", Convert.ToDouble(table1.Rows[1]["TONGTIEN"]));
             }
-            cmd.CommandText = "SELECT SUM(TRIGIA) AS TONG FROM HDBH WHERE (LOAIHD='Đơn trực tiếp' OR (LOAIHD='Đơn đặt hàng' AND TRANGTHAI='Hoàn thành')) AND NGHD BETWEEN '" + day.ToString("MM/dd/yyyy 0:00:00") + "' AND '" + day.ToString("MM/dd/yyyy 23:59:59") + "'";
+            cmd.CommandText = "SELECT SUM(TRIGIA) AS TONG FROM HDBH WHERE (LOAIHD=N'Đơn trực tiếp' OR (LOAIHD=N'Đơn đặt hàng' AND TRANGTHAI=N'Hoàn thành')) AND NGHD BETWEEN '" + day.ToString("MM/dd/yyyy 0:00:00") + "' AND '" + day.ToString("MM/dd/yyyy 23:59:59") + "'";
             adapter.SelectCommand = cmd;
             DataTable table2 = new DataTable();
             table2.Clear();
@@ -383,7 +383,6 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             cmd.CommandText = "SELECT DAY(NGAY) AS NGAY, SUM(THU) AS TONGTHU, SUM(CHI) AS TONGCHI FROM( SELECT NGHD AS NGAY, SUM(HDBH.TRIGIA) AS THU, CHI = 0 FROM HDBH WHERE (LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)=" + comboBox_bc_Doanhthu_nhap1.Text + " AND YEAR(NGHD)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGHD UNION SELECT NGNHAP AS NGAY, THU = 0, SUM(HDNH.TRIGIA) AS CHI FROM HDNH WHERE MONTH(NGNHAP)=" + comboBox_bc_Doanhthu_nhap1.Text + "AND YEAR(NGNHAP)=" + textBox_bc_DoanhThu_nhap2.Text + " GROUP BY NGNHAP) AS K GROUP BY DAY(NGAY)";
-            textBox1.Text = cmd.CommandText;
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -2390,7 +2389,7 @@ namespace App_sale_manager
             tabCtrl.TabPages.Add(tabPage_DoiTac);
             tabControl_DTCC_in.TabPages.Clear();
             tabControl_DTCC_in.TabPages.Add(tabPage__DTCC_DTGD);
-            
+
         }
 
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2399,7 +2398,7 @@ namespace App_sale_manager
             tabCtrl.TabPages.Add(tabPage_DoiTac);
             tabControl_DTCC_in.TabPages.Clear();
             tabControl_DTCC_in.TabPages.Add(tabPage_DTCC_Guest);
-            
+
         }
 
         private void danhMụcHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2407,11 +2406,16 @@ namespace App_sale_manager
             tabCtrl.TabPages.Clear();
             tabCtrl.TabPages.Add(tabPage_GiaoDich);
             this.Refresh_data_GD();
+
         }
 
         private void tạoHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BNT_TaoHoaDon_Click(this, new EventArgs());
+            if(tabCtrl.TabPages.Contains(tabPage_tongquan))
+            {
+                tbtn_click(tbtnTongquan, new EventArgs());
+            }    
         }
 
         private void danhSáchNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2543,6 +2547,15 @@ namespace App_sale_manager
         {
             Form_chuthich frm = new Form_chuthich();
             frm.ShowDialog();
+        }
+
+        private void tbtn_click(object sender, ToolStripItemClickedEventArgs e)
+        {
+            foreach (var item in toolStripMain.Items)
+            {
+                (item as ToolStripDropDownButton).BackColor = Color.FromArgb(61, 135, 255);
+            }
+            (sender as ToolStripDropDownButton).BackColor = Color.Blue;
         }
     }
 }

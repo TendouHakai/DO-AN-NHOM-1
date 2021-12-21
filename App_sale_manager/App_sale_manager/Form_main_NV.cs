@@ -171,9 +171,10 @@ namespace App_sale_manager
             cmd.CommandText = "SELECT SUM(TRIGIA)"
                                 + " FROM HDBH"
                                 + " WHERE NVID = '" + NVID + "' AND(LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)= " + date.Month.ToString();
-            txt_tongquan_dsThang.Text = String.Format("{0:0,0}", Convert.ToDouble(cmd.ExecuteScalar().ToString())); 
+            txt_tongquan_dsThang.Text = cmd.ExecuteScalar().ToString();
             if (txt_tongquan_dsThang.Text == "")
                 txt_tongquan_dsThang.Text = "0";
+            else txt_tongquan_dsThang.Text = String.Format("{0:0,0}", Convert.ToDouble(txt_tongquan_dsThang.Text));
             sqlCon.Close();
         }
         void load_tongquan_xephang()
@@ -283,12 +284,13 @@ namespace App_sale_manager
                 GIO_KT = reader.GetTimeSpan(2);
             }
             reader.Close();
-            lbl_lich_ngaylam.Text = date.ToString("d");
+            lblLich_ngay.Text = DateTime.Today.Day.ToString();
+            lblLich_thang.Text = "Tháng " + DateTime.Today.Month.ToString();
             sqlCon.Close();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            lbl_lich_dongho.Text = DateTime.Now.ToString("HH:mm");
+            lbl_lich_dongho.Text = DateTime.Now.ToString("HH:mm:ss");
             if (DateTime.Now.TimeOfDay > GIO_BD || DateTime.Now.TimeOfDay > GIO_KT)
                 load_lich_calamHienTai();
         }
@@ -958,6 +960,13 @@ namespace App_sale_manager
             load_lich();
             tbtn_click(sender, new EventArgs());
         }
+        private void tbtnCanhan_Click(object sender, EventArgs e)
+        {
+            tabctrl_Nhanvien.TabPages.Clear();
+            tabctrl_Nhanvien.TabPages.Add(tabP_Canhan);
+            LoadData_nv_infonv();
+            tbtn_click(sender, new EventArgs());
+        }
 
         private void btnGiaodich_Tim_Click(object sender, EventArgs e)
         {
@@ -1131,6 +1140,8 @@ namespace App_sale_manager
                 else MessageBox.Show("Không có ảnh để xoá!");
             }
         }
+
+        
     }
    
 }

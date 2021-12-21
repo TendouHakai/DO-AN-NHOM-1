@@ -28,7 +28,6 @@ namespace App_sale_manager
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -306,7 +305,6 @@ namespace App_sale_manager
             this.label6 = new System.Windows.Forms.Label();
             this.label_bangluong_nv_bangluong = new System.Windows.Forms.Label();
             this.dgv_nv_bangluong = new System.Windows.Forms.DataGridView();
-            this.imageList_icon = new System.Windows.Forms.ImageList(this.components);
             this.tabPage_BaoCao = new System.Windows.Forms.TabPage();
             this.tabControl_Baocao = new System.Windows.Forms.TabControl();
             this.tabPage_Baocao_cuoingay = new System.Windows.Forms.TabPage();
@@ -331,7 +329,6 @@ namespace App_sale_manager
             this.dgv_bc_cuoingay = new System.Windows.Forms.DataGridView();
             this.label_bc_cuoingay = new System.Windows.Forms.Label();
             this.tabPage_baocao_doanhthu = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel37 = new System.Windows.Forms.Panel();
             this.textBox_bc_Doanhthu_chi = new System.Windows.Forms.TextBox();
             this.label_bc_Doanhthu_Thu = new System.Windows.Forms.Label();
@@ -612,7 +609,7 @@ namespace App_sale_manager
             this.GridView_Data_GiaoDich.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -689,7 +686,6 @@ namespace App_sale_manager
             this.tabCtrl.Controls.Add(this.tabPage_NhanVien);
             this.tabCtrl.Controls.Add(this.tabPage_BaoCao);
             this.tabCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCtrl.ImageList = this.imageList_icon;
             this.tabCtrl.Location = new System.Drawing.Point(3, 33);
             this.tabCtrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCtrl.Name = "tabCtrl";
@@ -1457,7 +1453,7 @@ namespace App_sale_manager
             this.dgvSP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1466,7 +1462,7 @@ namespace App_sale_manager
             this.dgvSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1879,7 +1875,7 @@ namespace App_sale_manager
             this.dataGridView_DTCC.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -2386,7 +2382,7 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -2586,7 +2582,6 @@ namespace App_sale_manager
             this.tab_nv.Controls.Add(this.tabPage1);
             this.tab_nv.Controls.Add(this.tabP_nv_bangphancong);
             this.tab_nv.Controls.Add(this.tabPage3);
-            this.tab_nv.ImageList = this.imageList_icon;
             this.tab_nv.Location = new System.Drawing.Point(0, 0);
             this.tab_nv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_nv.Name = "tab_nv";
@@ -2951,7 +2946,7 @@ namespace App_sale_manager
             this.dgv_nv_infonv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -2967,7 +2962,7 @@ namespace App_sale_manager
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_nv_infonv.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgv_nv_infonv.EnableHeadersVisualStyles = false;
-            this.dgv_nv_infonv.Location = new System.Drawing.Point(948, 79);
+            this.dgv_nv_infonv.Location = new System.Drawing.Point(948, 71);
             this.dgv_nv_infonv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_nv_infonv.Name = "dgv_nv_infonv";
             this.dgv_nv_infonv.ReadOnly = true;
@@ -3213,7 +3208,7 @@ namespace App_sale_manager
             this.dgv_nv_phancong_lich.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
             dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -3296,7 +3291,7 @@ namespace App_sale_manager
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage3.BackColor = System.Drawing.Color.Gainsboro;
             this.tabPage3.Controls.Add(this.pnChitietLuong);
             this.tabPage3.Controls.Add(this.panel24);
             this.tabPage3.Controls.Add(this.label6);
@@ -3625,9 +3620,9 @@ namespace App_sale_manager
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.Location = new System.Drawing.Point(920, 28);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 25);
+            this.label6.Size = new System.Drawing.Size(268, 25);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Chi tiết lương";
+            this.label6.Text = "Danh mục lương nhân viên";
             // 
             // label_bangluong_nv_bangluong
             // 
@@ -3649,8 +3644,8 @@ namespace App_sale_manager
             this.dgv_nv_bangluong.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
             dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -3686,26 +3681,6 @@ namespace App_sale_manager
             this.dgv_nv_bangluong.TabIndex = 0;
             this.dgv_nv_bangluong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_nv_bangluong_CellClick);
             // 
-            // imageList_icon
-            // 
-            this.imageList_icon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_icon.ImageStream")));
-            this.imageList_icon.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList_icon.Images.SetKeyName(0, "tải xuống (1).png");
-            this.imageList_icon.Images.SetKeyName(1, "tải xuống (2).png");
-            this.imageList_icon.Images.SetKeyName(2, "772-7724889_we-believe-every-client-have-different-needs-and.jpg");
-            this.imageList_icon.Images.SetKeyName(3, "man-icon-1.png");
-            this.imageList_icon.Images.SetKeyName(4, "kisspng-computer-icons-sales-industry-purchasing-retail-5adcfe303c9d52.4758297915" +
-        "244324322483.jpg");
-            this.imageList_icon.Images.SetKeyName(5, "pngtree-write-report-line-filled-icon-png-image_324810.jpg");
-            this.imageList_icon.Images.SetKeyName(6, "tải xuống.png");
-            this.imageList_icon.Images.SetKeyName(7, "9272.png_860.png");
-            this.imageList_icon.Images.SetKeyName(8, "magnifying-glass-tilted-left-facebook.png");
-            this.imageList_icon.Images.SetKeyName(9, "kisspng-hardcover-calendar-photo-book-computer-icons-calendar-icon-5ac1ec9423c239" +
-        ".0446656115226584521465.jpg");
-            this.imageList_icon.Images.SetKeyName(10, "icons8-bill-60.png");
-            this.imageList_icon.Images.SetKeyName(11, "icons8-packing-60.png");
-            this.imageList_icon.Images.SetKeyName(12, "icons8-purchase-order-60.png");
-            // 
             // tabPage_BaoCao
             // 
             this.tabPage_BaoCao.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -3725,7 +3700,6 @@ namespace App_sale_manager
             this.tabControl_Baocao.Controls.Add(this.tabPage_Baocao_cuoingay);
             this.tabControl_Baocao.Controls.Add(this.tabPage_baocao_doanhthu);
             this.tabControl_Baocao.Controls.Add(this.tabPage_Baocao_nhanvien);
-            this.tabControl_Baocao.ImageList = this.imageList_icon;
             this.tabControl_Baocao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Baocao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl_Baocao.Multiline = true;
@@ -3859,7 +3833,7 @@ namespace App_sale_manager
             this.dtp_bc_time.Location = new System.Drawing.Point(79, 26);
             this.dtp_bc_time.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_bc_time.Name = "dtp_bc_time";
-            this.dtp_bc_time.Size = new System.Drawing.Size(200, 24);
+            this.dtp_bc_time.Size = new System.Drawing.Size(233, 24);
             this.dtp_bc_time.TabIndex = 2;
             this.dtp_bc_time.ValueChanged += new System.EventHandler(this.dtp_bc_time_ValueChanged);
             // 
@@ -3974,7 +3948,7 @@ namespace App_sale_manager
             this.dgv_bc_cuoingay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(204)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -4021,7 +3995,6 @@ namespace App_sale_manager
             // tabPage_baocao_doanhthu
             // 
             this.tabPage_baocao_doanhthu.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage_baocao_doanhthu.Controls.Add(this.textBox1);
             this.tabPage_baocao_doanhthu.Controls.Add(this.panel37);
             this.tabPage_baocao_doanhthu.Controls.Add(this.lblBcDaonhthu_tieude);
             this.tabPage_baocao_doanhthu.Controls.Add(this.panel34);
@@ -4034,13 +4007,6 @@ namespace App_sale_manager
             this.tabPage_baocao_doanhthu.TabIndex = 1;
             this.tabPage_baocao_doanhthu.Tag = "52";
             this.tabPage_baocao_doanhthu.Text = "Doanh Thu";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(672, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(940, 24);
-            this.textBox1.TabIndex = 13;
             // 
             // panel37
             // 
@@ -4815,7 +4781,7 @@ namespace App_sale_manager
             this.đổiMậtKhẩuToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.đổiMậtKhẩuToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
@@ -4824,7 +4790,7 @@ namespace App_sale_manager
             this.đăngXuấtToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.đăngXuấtToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -5133,7 +5099,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Label label5_GD;
         private System.Windows.Forms.DataGridView dgvSP;
         private System.Windows.Forms.Label lblTieuDeHH;
-        private System.Windows.Forms.ImageList imageList_icon;
         private System.Windows.Forms.Label label_thuong_nv_bangluong;
         private System.Windows.Forms.Button btnHoaDonNhap;
         private System.Windows.Forms.Button btnQLLoaiHH;
@@ -5280,7 +5245,6 @@ namespace App_sale_manager
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private NumericUpDown_fc nud_Luong_nv_bangluong;
         private NumericUpDown_fc nud_Thuong_nv_bangluong;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnTongquan_chuthich;
     }
 }
