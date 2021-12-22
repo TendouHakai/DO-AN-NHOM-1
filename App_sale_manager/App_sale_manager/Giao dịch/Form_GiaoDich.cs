@@ -188,10 +188,10 @@ namespace App_sale_manager
             string x = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
             cmd.CommandText = "set dateformat dmy";
             adapter.SelectCommand = cmd;
-            //try
-            //{
+            try
+            {
                 
-                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_GiaDaGiam.Text.Replace(".", string.Empty)+ "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
+                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_GiaDaGiam.Text + "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
                 cmd.ExecuteNonQuery();
                 foreach (DataGridViewRow i in CT_HD.Rows)
                 {
@@ -213,11 +213,11 @@ namespace App_sale_manager
                         cthd.Show();
                     }
                 }
-            //}
-            //catch (SqlException)
-            //{
-            //    this.Close();
-            //}
+            }
+            catch(SqlException)
+            {
+                this.Close();
+            }                      
             this.Close();
         }
         private void DGV_LuaChon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

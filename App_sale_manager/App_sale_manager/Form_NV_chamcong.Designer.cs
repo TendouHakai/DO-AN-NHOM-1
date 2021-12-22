@@ -167,7 +167,7 @@ namespace App_sale_manager
             // 
             // ptb_ngaynghi
             // 
-            this.ptb_ngaynghi.BackgroundImage = global::App_sale_manager.Properties.Resources.X;
+            this.ptb_ngaynghi.BackgroundImage = global::App_sale_manager.Properties.Resources.dấu_X;
             this.ptb_ngaynghi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptb_ngaynghi.Location = new System.Drawing.Point(619, 12);
             this.ptb_ngaynghi.Name = "ptb_ngaynghi";
@@ -177,7 +177,7 @@ namespace App_sale_manager
             // 
             // ptb_ngaylam
             // 
-            this.ptb_ngaylam.BackgroundImage = global::App_sale_manager.Properties.Resources.tick;
+            this.ptb_ngaylam.BackgroundImage = global::App_sale_manager.Properties.Resources.Dấu_tick;
             this.ptb_ngaylam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptb_ngaylam.Location = new System.Drawing.Point(152, 13);
             this.ptb_ngaylam.Name = "ptb_ngaylam";

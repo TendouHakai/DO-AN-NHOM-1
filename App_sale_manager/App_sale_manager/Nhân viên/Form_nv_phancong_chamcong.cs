@@ -49,12 +49,12 @@ namespace App_sale_manager
             reader.Close();
             try
             {
-                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\" + NVID + ".jpg");
+                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\Nhân viên\" + NVID + ".jpg");
 
             }
             catch (Exception)
             {
-                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\No Image.jpg");
+                pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\Nhân viên\No Image.jpg");
 
             }
             cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND NGAYLAM<='"+DateTime.Today.ToString("MM/dd/yyyy")+"' AND TRANGTHAI = N'Đã điểm danh'";
@@ -79,15 +79,8 @@ namespace App_sale_manager
                 adapter.Fill(table);
                 for (int j = 0; j < table.Rows.Count; j++)
                 {
-                    try
-                    {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + table.Rows[j]["NVID"] + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'Lịch làm việc hàng tuần')";
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch(Exception)
-                    {
-
-                    }
+                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + table.Rows[j]["NVID"] + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'Lịch làm việc hàng tuần')";
+                    cmd.ExecuteNonQuery();
                 }
             }
             sqlCon.Close();
@@ -100,15 +93,15 @@ namespace App_sale_manager
             {
                 DataGridViewImageColumn clSang = new DataGridViewImageColumn();
                 clSang.HeaderText = "Sáng";
-                clSang.Image = Image.FromFile("../../icon/white.jpg");
+                clSang.Image = Image.FromFile("../../icon/ảnh trắng.jpg");
                 clSang.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 DataGridViewImageColumn clChieu = new DataGridViewImageColumn();
                 clChieu.HeaderText = "Chiều";
-                clChieu.Image = Image.FromFile("../../icon/white.jpg");
+                clChieu.Image = Image.FromFile("../../icon/ảnh trắng.jpg");
                 clChieu.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 DataGridViewImageColumn clToi = new DataGridViewImageColumn();
                 clToi.HeaderText = "Tối";
-                clToi.Image = Image.FromFile("../../icon/white.jpg");
+                clToi.Image = Image.FromFile("../../icon/ảnh trắng.jpg");
                 clToi.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 dataGridView1.Columns.Add(clSang);
                 dataGridView1.Columns.Add(clChieu);
@@ -244,13 +237,13 @@ namespace App_sale_manager
                         switch(reader.GetString(0).Substring(2,1))
                         {
                             case "S":
-                                dataGridView1.Rows[j].Cells[h].Value = Image.FromFile("../../icon/tick.png");
+                                dataGridView1.Rows[j].Cells[h].Value = Image.FromFile("../../icon/Dấu tick.png");
                                 break;
                             case "C":
-                                dataGridView1.Rows[j].Cells[h+1].Value = Image.FromFile("../../icon/tick.png");
+                                dataGridView1.Rows[j].Cells[h+1].Value = Image.FromFile("../../icon/Dấu tick.png");
                                 break;
                             case "T":
-                                dataGridView1.Rows[j].Cells[h+2].Value = Image.FromFile("../../icon/tick.png");
+                                dataGridView1.Rows[j].Cells[h+2].Value = Image.FromFile("../../icon/Dấu tick.png");
                                 break;
                         }
                     }
@@ -262,13 +255,13 @@ namespace App_sale_manager
                         switch (reader.GetString(0).Substring(2, 1))
                         {
                             case "S":
-                                dataGridView1.Rows[j].Cells[h].Value = Image.FromFile("../../icon/X.png");
+                                dataGridView1.Rows[j].Cells[h].Value = Image.FromFile("../../icon/dấu X.png");
                                 break;
                             case "C":
-                                dataGridView1.Rows[j].Cells[h + 1].Value = Image.FromFile("../../icon/X.png");
+                                dataGridView1.Rows[j].Cells[h + 1].Value = Image.FromFile("../../icon/dấu X.png");
                                 break;
                             case "T":
-                                dataGridView1.Rows[j].Cells[h + 2].Value = Image.FromFile("../../icon/X.png");
+                                dataGridView1.Rows[j].Cells[h + 2].Value = Image.FromFile("../../icon/dấu X.png");
                                 break;
                         }
                     }

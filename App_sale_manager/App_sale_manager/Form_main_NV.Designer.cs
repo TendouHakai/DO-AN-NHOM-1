@@ -197,10 +197,6 @@ namespace App_sale_manager
             this.dgvC_CN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.lblLich_thang = new System.Windows.Forms.Label();
-            this.lblLich_ngay = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_lich_trangthai = new System.Windows.Forms.Label();
             this.lbl_lich_BD = new System.Windows.Forms.Label();
@@ -210,35 +206,11 @@ namespace App_sale_manager
             this.lbl_lich_buoi = new System.Windows.Forms.Label();
             this.lbl_lich_gioBD = new System.Windows.Forms.Label();
             this.lbl_lich_TT = new System.Windows.Forms.Label();
+            this.lbl_lich_ngay = new System.Windows.Forms.Label();
             this.lbl_lich_KT = new System.Windows.Forms.Label();
+            this.lbl_lich_ngaylam = new System.Windows.Forms.Label();
             this.tabP_Canhan = new System.Windows.Forms.TabPage();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.tb_Heso_nv_infonv = new System.Windows.Forms.TextBox();
-            this.tb_Thuong_nv_infonv = new System.Windows.Forms.TextBox();
-            this.tb_Luong_nv_infonv = new System.Windows.Forms.TextBox();
-            this.label_Heso_nv_infonv = new System.Windows.Forms.Label();
-            this.label_Thuong_nv_infonv = new System.Windows.Forms.Label();
-            this.label_Luong_nv_infonv = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.pictureBox_image_anhnv = new OvalPictureBox();
-            this.lb_username_nv = new System.Windows.Forms.Label();
-            this.label_thongtincanhan_nv_infonv = new System.Windows.Forms.Label();
-            this.label_MaNV_nv_infonv = new System.Windows.Forms.Label();
-            this.label_chucvu_nv_infonv = new System.Windows.Forms.Label();
-            this.label_Hoten_nv_infonv = new System.Windows.Forms.Label();
-            this.label_ngaylam_nv_infonv = new System.Windows.Forms.Label();
-            this.label_sdt_nv_infonv = new System.Windows.Forms.Label();
-            this.label_ngaysinh_nv_infonv = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.tb_chucvu_nv_infonv = new System.Windows.Forms.TextBox();
-            this.tb_username_nv_infonv = new System.Windows.Forms.TextBox();
-            this.bt_doipass_nv_infonv = new System.Windows.Forms.Button();
-            this.tb_MaNV_nv_infonv = new System.Windows.Forms.TextBox();
-            this.tb_Hoten_nv_infonv = new System.Windows.Forms.TextBox();
-            this.bt_Them_nv_infonv = new System.Windows.Forms.Button();
-            this.tb_sdt_nv_infonv = new System.Windows.Forms.TextBox();
-            this.tb_ngaysinh_nv_infonv = new System.Windows.Forms.TextBox();
-            this.tb_ngayvaolam_nv_infonv = new System.Windows.Forms.TextBox();
+            this.imageList_iconNV = new System.Windows.Forms.ImageList(this.components);
             this.toolStripMainNV = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton5 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tbtnUser = new System.Windows.Forms.ToolStripDropDownButton();
@@ -247,10 +219,6 @@ namespace App_sale_manager
             this.tbtnKhachhang = new System.Windows.Forms.ToolStripDropDownButton();
             this.tbtnGiaodich = new System.Windows.Forms.ToolStripDropDownButton();
             this.tbtnLich = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tbtnCanhan = new System.Windows.Forms.ToolStripDropDownButton();
-            this.contextMenuStrip_anh_nv = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.chonAnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xoaAnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Data_GiaoDich)).BeginInit();
             this.tabctrl_Nhanvien.SuspendLayout();
             this.tabP_Tongquan.SuspendLayout();
@@ -292,15 +260,7 @@ namespace App_sale_manager
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_lich_tuan)).BeginInit();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.tabP_Canhan.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_anhnv)).BeginInit();
-            this.panel23.SuspendLayout();
             this.toolStripMainNV.SuspendLayout();
-            this.contextMenuStrip_anh_nv.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3_GD
@@ -522,14 +482,9 @@ namespace App_sale_manager
             this.tabctrl_Nhanvien.Controls.Add(this.tabP_lichlamviec);
             this.tabctrl_Nhanvien.Controls.Add(this.tabP_Canhan);
             this.tabctrl_Nhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.tabctrl_Nhanvien.ImageList = this.imageList_iconNV;
             this.tabctrl_Nhanvien.Location = new System.Drawing.Point(0, 27);
             this.tabctrl_Nhanvien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
-            this.tabctrl_Nhanvien.Location = new System.Drawing.Point(0, 33);
-            this.tabctrl_Nhanvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.tabctrl_Nhanvien.Name = "tabctrl_Nhanvien";
             this.tabctrl_Nhanvien.SelectedIndex = 0;
             this.tabctrl_Nhanvien.Size = new System.Drawing.Size(1254, 694);
@@ -544,6 +499,7 @@ namespace App_sale_manager
             this.tabP_Tongquan.Controls.Add(this.panel3);
             this.tabP_Tongquan.Controls.Add(this.panel2);
             this.tabP_Tongquan.Controls.Add(this.panel1);
+            this.tabP_Tongquan.ImageIndex = 0;
             this.tabP_Tongquan.Location = new System.Drawing.Point(4, 4);
             this.tabP_Tongquan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabP_Tongquan.Name = "tabP_Tongquan";
@@ -558,16 +514,11 @@ namespace App_sale_manager
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.lbl_tongquan_dsNV);
             this.panel4.Controls.Add(this.dgv_tongquan);
-<<<<<<< HEAD
             this.panel4.Location = new System.Drawing.Point(899, 19);
             this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
-            this.panel4.Location = new System.Drawing.Point(1199, 5);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(328, 570);
             this.panel4.TabIndex = 10;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // lbl_tongquan_dsNV
             // 
@@ -647,12 +598,8 @@ namespace App_sale_manager
             this.panel3.Controls.Add(this.lbl_tongquan_hangba);
             this.panel3.Controls.Add(this.lbl_tongquan_hangnhat);
             this.panel3.Controls.Add(this.lbl_tongquan_hangnhi);
-<<<<<<< HEAD
             this.panel3.Location = new System.Drawing.Point(11, 603);
             this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
-            this.panel3.Location = new System.Drawing.Point(15, 722);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(878, 182);
             this.panel3.TabIndex = 9;
@@ -813,7 +760,7 @@ namespace App_sale_manager
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = global::App_sale_manager.Properties.Resources.au;
+            this.pictureBox3.BackgroundImage = global::App_sale_manager.Properties.Resources.Vương_miện_vàng;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(49, 51);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -824,7 +771,7 @@ namespace App_sale_manager
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::App_sale_manager.Properties.Resources.ag;
+            this.pictureBox1.BackgroundImage = global::App_sale_manager.Properties.Resources.vương_miện_bạc;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(49, 85);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -846,7 +793,7 @@ namespace App_sale_manager
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::App_sale_manager.Properties.Resources.cu;
+            this.pictureBox2.BackgroundImage = global::App_sale_manager.Properties.Resources.vương_miện_đồng;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(49, 119);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -896,12 +843,8 @@ namespace App_sale_manager
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.lblTongquanDoanhsothang);
             this.panel2.Controls.Add(this.txt_tongquan_dsThang);
-<<<<<<< HEAD
             this.panel2.Location = new System.Drawing.Point(11, 198);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
-            this.panel2.Location = new System.Drawing.Point(15, 226);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(878, 390);
             this.panel2.TabIndex = 8;
@@ -987,12 +930,8 @@ namespace App_sale_manager
             this.panel1.Controls.Add(this.txt_tongquan_slhdbh);
             this.panel1.Controls.Add(this.lblTrigiaDDH);
             this.panel1.Controls.Add(this.lblTongquan_doanhso);
-<<<<<<< HEAD
             this.panel1.Location = new System.Drawing.Point(11, 19);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
-            this.panel1.Location = new System.Drawing.Point(15, 5);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(878, 166);
             this.panel1.TabIndex = 7;
@@ -1163,6 +1102,7 @@ namespace App_sale_manager
             this.tabP_Banhang.Controls.Add(this.GridView_Data_GiaoDich);
             this.tabP_Banhang.Controls.Add(this.BNT_Refresh_GD);
             this.tabP_Banhang.Controls.Add(this.BNT_TaoHoaDon);
+            this.tabP_Banhang.ImageIndex = 4;
             this.tabP_Banhang.Location = new System.Drawing.Point(4, 4);
             this.tabP_Banhang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabP_Banhang.Name = "tabP_Banhang";
@@ -1329,6 +1269,7 @@ namespace App_sale_manager
             this.tabP_Khachhang.Controls.Add(this.button_guest_add);
             this.tabP_Khachhang.Controls.Add(this.dataGridView_dtcc_guest);
             this.tabP_Khachhang.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.tabP_Khachhang.ImageIndex = 2;
             this.tabP_Khachhang.Location = new System.Drawing.Point(4, 4);
             this.tabP_Khachhang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabP_Khachhang.Name = "tabP_Khachhang";
@@ -1788,6 +1729,7 @@ namespace App_sale_manager
             this.tabP_lichlamviec.Controls.Add(this.panel17);
             this.tabP_lichlamviec.Controls.Add(this.panel15);
             this.tabP_lichlamviec.Controls.Add(this.panel14);
+            this.tabP_lichlamviec.ImageIndex = 3;
             this.tabP_lichlamviec.Location = new System.Drawing.Point(4, 4);
             this.tabP_lichlamviec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabP_lichlamviec.Name = "tabP_lichlamviec";
@@ -1869,7 +1811,7 @@ namespace App_sale_manager
             // 
             // ptB_lich_tick
             // 
-            this.ptB_lich_tick.BackgroundImage = global::App_sale_manager.Properties.Resources.tick;
+            this.ptB_lich_tick.BackgroundImage = global::App_sale_manager.Properties.Resources.Dấu_tick;
             this.ptB_lich_tick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptB_lich_tick.Location = new System.Drawing.Point(68, 50);
             this.ptB_lich_tick.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -1890,7 +1832,7 @@ namespace App_sale_manager
             // 
             // ptb_lich_X
             // 
-            this.ptb_lich_X.BackgroundImage = global::App_sale_manager.Properties.Resources.X;
+            this.ptb_lich_X.BackgroundImage = global::App_sale_manager.Properties.Resources.dấu_X;
             this.ptb_lich_X.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptb_lich_X.Location = new System.Drawing.Point(68, 89);
             this.ptb_lich_X.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -1984,12 +1926,8 @@ namespace App_sale_manager
             this.lbl_lich_dongho.AutoSize = true;
             this.lbl_lich_dongho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(206)))), ((int)(((byte)(252)))));
             this.lbl_lich_dongho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.lbl_lich_dongho.Location = new System.Drawing.Point(93, 25);
             this.lbl_lich_dongho.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
-            this.lbl_lich_dongho.Location = new System.Drawing.Point(117, 31);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_dongho.Name = "lbl_lich_dongho";
             this.lbl_lich_dongho.Size = new System.Drawing.Size(71, 20);
             this.lbl_lich_dongho.TabIndex = 0;
@@ -2107,11 +2045,7 @@ namespace App_sale_manager
             this.Calam.MinimumWidth = 6;
             this.Calam.Name = "Calam";
             this.Calam.ReadOnly = true;
-<<<<<<< HEAD
             this.Calam.Width = 69;
-=======
-            this.Calam.Width = 82;
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             // 
             // dgvC_thu2
             // 
@@ -2197,10 +2131,6 @@ namespace App_sale_manager
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.White;
-            this.panel14.Controls.Add(this.pictureBox9);
-            this.panel14.Controls.Add(this.lblLich_thang);
-            this.panel14.Controls.Add(this.lblLich_ngay);
-            this.panel14.Controls.Add(this.pictureBox8);
             this.panel14.Controls.Add(this.label3);
             this.panel14.Controls.Add(this.lbl_lich_trangthai);
             this.panel14.Controls.Add(this.lbl_lich_BD);
@@ -2210,63 +2140,14 @@ namespace App_sale_manager
             this.panel14.Controls.Add(this.lbl_lich_buoi);
             this.panel14.Controls.Add(this.lbl_lich_gioBD);
             this.panel14.Controls.Add(this.lbl_lich_TT);
+            this.panel14.Controls.Add(this.lbl_lich_ngay);
             this.panel14.Controls.Add(this.lbl_lich_KT);
-<<<<<<< HEAD
             this.panel14.Controls.Add(this.lbl_lich_ngaylam);
             this.panel14.Location = new System.Drawing.Point(310, 26);
             this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(918, 92);
-=======
-            this.panel14.Location = new System.Drawing.Point(414, 14);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1224, 131);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.panel14.TabIndex = 5;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(315, 12);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(118, 112);
-            this.pictureBox9.TabIndex = 10;
-            this.pictureBox9.TabStop = false;
-            // 
-            // lblLich_thang
-            // 
-            this.lblLich_thang.AutoSize = true;
-            this.lblLich_thang.BackColor = System.Drawing.Color.Brown;
-            this.lblLich_thang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblLich_thang.ForeColor = System.Drawing.Color.White;
-            this.lblLich_thang.Location = new System.Drawing.Point(176, 26);
-            this.lblLich_thang.Name = "lblLich_thang";
-            this.lblLich_thang.Size = new System.Drawing.Size(67, 18);
-            this.lblLich_thang.TabIndex = 9;
-            this.lblLich_thang.Text = "January";
-            // 
-            // lblLich_ngay
-            // 
-            this.lblLich_ngay.AutoSize = true;
-            this.lblLich_ngay.BackColor = System.Drawing.Color.Gainsboro;
-            this.lblLich_ngay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblLich_ngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblLich_ngay.Location = new System.Drawing.Point(183, 61);
-            this.lblLich_ngay.Name = "lblLich_ngay";
-            this.lblLich_ngay.Size = new System.Drawing.Size(51, 36);
-            this.lblLich_ngay.TabIndex = 8;
-            this.lblLich_ngay.Text = "00";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(141, 9);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(133, 113);
-            this.pictureBox8.TabIndex = 7;
-            this.pictureBox8.TabStop = false;
             // 
             // label3
             // 
@@ -2282,17 +2163,10 @@ namespace App_sale_manager
             // lbl_lich_trangthai
             // 
             this.lbl_lich_trangthai.AutoSize = true;
-<<<<<<< HEAD
             this.lbl_lich_trangthai.Location = new System.Drawing.Point(189, 56);
             this.lbl_lich_trangthai.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_lich_trangthai.Name = "lbl_lich_trangthai";
             this.lbl_lich_trangthai.Size = new System.Drawing.Size(65, 15);
-=======
-            this.lbl_lich_trangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbl_lich_trangthai.Location = new System.Drawing.Point(578, 88);
-            this.lbl_lich_trangthai.Name = "lbl_lich_trangthai";
-            this.lbl_lich_trangthai.Size = new System.Drawing.Size(88, 18);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_trangthai.TabIndex = 5;
             this.lbl_lich_trangthai.Text = "Trang thái:";
             // 
@@ -2300,12 +2174,8 @@ namespace App_sale_manager
             // 
             this.lbl_lich_BD.AutoSize = true;
             this.lbl_lich_BD.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.lbl_lich_BD.Location = new System.Drawing.Point(242, 34);
             this.lbl_lich_BD.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
-            this.lbl_lich_BD.Location = new System.Drawing.Point(468, 43);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_BD.Name = "lbl_lich_BD";
             this.lbl_lich_BD.Size = new System.Drawing.Size(43, 13);
             this.lbl_lich_BD.TabIndex = 1;
@@ -2318,13 +2188,8 @@ namespace App_sale_manager
             this.btn_lich_diemdanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_lich_diemdanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btn_lich_diemdanh.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD
             this.btn_lich_diemdanh.Location = new System.Drawing.Point(510, 46);
             this.btn_lich_diemdanh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
-            this.btn_lich_diemdanh.Location = new System.Drawing.Point(768, 75);
-            this.btn_lich_diemdanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.btn_lich_diemdanh.Name = "btn_lich_diemdanh";
             this.btn_lich_diemdanh.Size = new System.Drawing.Size(118, 34);
             this.btn_lich_diemdanh.TabIndex = 4;
@@ -2336,12 +2201,8 @@ namespace App_sale_manager
             // 
             this.lbl_lich_ca.AutoSize = true;
             this.lbl_lich_ca.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.lbl_lich_ca.Location = new System.Drawing.Point(58, 34);
             this.lbl_lich_ca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
-            this.lbl_lich_ca.Location = new System.Drawing.Point(24, 34);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_ca.Name = "lbl_lich_ca";
             this.lbl_lich_ca.Size = new System.Drawing.Size(60, 13);
             this.lbl_lich_ca.TabIndex = 0;
@@ -2351,34 +2212,21 @@ namespace App_sale_manager
             // 
             this.lbl_lich_gioKT.AutoSize = true;
             this.lbl_lich_gioKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.lbl_lich_gioKT.Location = new System.Drawing.Point(340, 34);
             this.lbl_lich_gioKT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_lich_gioKT.Name = "lbl_lich_gioKT";
             this.lbl_lich_gioKT.Size = new System.Drawing.Size(50, 13);
-=======
-            this.lbl_lich_gioKT.Location = new System.Drawing.Point(439, 74);
-            this.lbl_lich_gioKT.Name = "lbl_lich_gioKT";
-            this.lbl_lich_gioKT.Size = new System.Drawing.Size(68, 17);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_gioKT.TabIndex = 3;
-            this.lbl_lich_gioKT.Text = "Kết thúc";
+            this.lbl_lich_gioKT.Text = "Giờ KT:";
             // 
             // lbl_lich_buoi
             // 
             this.lbl_lich_buoi.AutoSize = true;
-<<<<<<< HEAD
             this.lbl_lich_buoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_lich_buoi.Location = new System.Drawing.Point(129, 34);
             this.lbl_lich_buoi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_lich_buoi.Name = "lbl_lich_buoi";
             this.lbl_lich_buoi.Size = new System.Drawing.Size(43, 13);
-=======
-            this.lbl_lich_buoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbl_lich_buoi.Location = new System.Drawing.Point(30, 57);
-            this.lbl_lich_buoi.Name = "lbl_lich_buoi";
-            this.lbl_lich_buoi.Size = new System.Drawing.Size(67, 18);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_buoi.TabIndex = 1;
             this.lbl_lich_buoi.Text = "<trống>";
             // 
@@ -2386,33 +2234,24 @@ namespace App_sale_manager
             // 
             this.lbl_lich_gioBD.AutoSize = true;
             this.lbl_lich_gioBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.lbl_lich_gioBD.Location = new System.Drawing.Point(189, 34);
             this.lbl_lich_gioBD.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
-            this.lbl_lich_gioBD.Location = new System.Drawing.Point(439, 21);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_gioBD.Name = "lbl_lich_gioBD";
             this.lbl_lich_gioBD.Size = new System.Drawing.Size(51, 13);
             this.lbl_lich_gioBD.TabIndex = 3;
-            this.lbl_lich_gioBD.Text = "Bắt đầu";
+            this.lbl_lich_gioBD.Text = "Giờ BD:";
             // 
             // lbl_lich_TT
             // 
             this.lbl_lich_TT.AutoSize = true;
             this.lbl_lich_TT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.lbl_lich_TT.Location = new System.Drawing.Point(260, 57);
             this.lbl_lich_TT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
-            this.lbl_lich_TT.Location = new System.Drawing.Point(672, 89);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_TT.Name = "lbl_lich_TT";
             this.lbl_lich_TT.Size = new System.Drawing.Size(43, 13);
             this.lbl_lich_TT.TabIndex = 1;
             this.lbl_lich_TT.Text = "<trống>";
             // 
-<<<<<<< HEAD
             // lbl_lich_ngay
             // 
             this.lbl_lich_ngay.AutoSize = true;
@@ -2424,24 +2263,17 @@ namespace App_sale_manager
             this.lbl_lich_ngay.TabIndex = 2;
             this.lbl_lich_ngay.Text = "Ngày:";
             // 
-=======
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             // lbl_lich_KT
             // 
             this.lbl_lich_KT.AutoSize = true;
             this.lbl_lich_KT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.lbl_lich_KT.Location = new System.Drawing.Point(392, 34);
             this.lbl_lich_KT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
-            this.lbl_lich_KT.Location = new System.Drawing.Point(468, 98);
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             this.lbl_lich_KT.Name = "lbl_lich_KT";
             this.lbl_lich_KT.Size = new System.Drawing.Size(43, 13);
             this.lbl_lich_KT.TabIndex = 1;
             this.lbl_lich_KT.Text = "<trống>";
             // 
-<<<<<<< HEAD
             // lbl_lich_ngaylam
             // 
             this.lbl_lich_ngaylam.AutoSize = true;
@@ -2453,23 +2285,9 @@ namespace App_sale_manager
             this.lbl_lich_ngaylam.TabIndex = 1;
             this.lbl_lich_ngaylam.Text = "<trống>";
             // 
-=======
->>>>>>> 74f52bf601a18bd40f3a66ad4cb932ff7885b1a7
             // tabP_Canhan
             // 
-            this.tabP_Canhan.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabP_Canhan.Controls.Add(this.panel24);
-            this.tabP_Canhan.Controls.Add(this.panel22);
-            this.tabP_Canhan.Controls.Add(this.lb_username_nv);
-            this.tabP_Canhan.Controls.Add(this.label_thongtincanhan_nv_infonv);
-            this.tabP_Canhan.Controls.Add(this.label_MaNV_nv_infonv);
-            this.tabP_Canhan.Controls.Add(this.label_chucvu_nv_infonv);
-            this.tabP_Canhan.Controls.Add(this.label_Hoten_nv_infonv);
-            this.tabP_Canhan.Controls.Add(this.label_ngaylam_nv_infonv);
-            this.tabP_Canhan.Controls.Add(this.label_sdt_nv_infonv);
-            this.tabP_Canhan.Controls.Add(this.label_ngaysinh_nv_infonv);
-            this.tabP_Canhan.Controls.Add(this.panel23);
-            this.tabP_Canhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabP_Canhan.ImageIndex = 4;
             this.tabP_Canhan.Location = new System.Drawing.Point(4, 4);
             this.tabP_Canhan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabP_Canhan.Name = "tabP_Canhan";
@@ -2477,311 +2295,19 @@ namespace App_sale_manager
             this.tabP_Canhan.Size = new System.Drawing.Size(1246, 666);
             this.tabP_Canhan.TabIndex = 4;
             this.tabP_Canhan.Text = "Cá nhân";
+            this.tabP_Canhan.UseVisualStyleBackColor = true;
             // 
-            // panel24
+            // imageList_iconNV
             // 
-            this.panel24.BackColor = System.Drawing.Color.White;
-            this.panel24.Controls.Add(this.tb_Heso_nv_infonv);
-            this.panel24.Controls.Add(this.tb_Thuong_nv_infonv);
-            this.panel24.Controls.Add(this.tb_Luong_nv_infonv);
-            this.panel24.Controls.Add(this.label_Heso_nv_infonv);
-            this.panel24.Controls.Add(this.label_Thuong_nv_infonv);
-            this.panel24.Controls.Add(this.label_Luong_nv_infonv);
-            this.panel24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel24.Location = new System.Drawing.Point(396, 627);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(1272, 196);
-            this.panel24.TabIndex = 70;
-            // 
-            // tb_Heso_nv_infonv
-            // 
-            this.tb_Heso_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_Heso_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Heso_nv_infonv.Location = new System.Drawing.Point(287, 123);
-            this.tb_Heso_nv_infonv.Name = "tb_Heso_nv_infonv";
-            this.tb_Heso_nv_infonv.ReadOnly = true;
-            this.tb_Heso_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_Heso_nv_infonv.TabIndex = 47;
-            // 
-            // tb_Thuong_nv_infonv
-            // 
-            this.tb_Thuong_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_Thuong_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Thuong_nv_infonv.Location = new System.Drawing.Point(287, 83);
-            this.tb_Thuong_nv_infonv.Name = "tb_Thuong_nv_infonv";
-            this.tb_Thuong_nv_infonv.ReadOnly = true;
-            this.tb_Thuong_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_Thuong_nv_infonv.TabIndex = 48;
-            // 
-            // tb_Luong_nv_infonv
-            // 
-            this.tb_Luong_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_Luong_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Luong_nv_infonv.Location = new System.Drawing.Point(287, 43);
-            this.tb_Luong_nv_infonv.Name = "tb_Luong_nv_infonv";
-            this.tb_Luong_nv_infonv.ReadOnly = true;
-            this.tb_Luong_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_Luong_nv_infonv.TabIndex = 49;
-            // 
-            // label_Heso_nv_infonv
-            // 
-            this.label_Heso_nv_infonv.AutoSize = true;
-            this.label_Heso_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_Heso_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Heso_nv_infonv.Location = new System.Drawing.Point(157, 129);
-            this.label_Heso_nv_infonv.Name = "label_Heso_nv_infonv";
-            this.label_Heso_nv_infonv.Size = new System.Drawing.Size(58, 18);
-            this.label_Heso_nv_infonv.TabIndex = 44;
-            this.label_Heso_nv_infonv.Text = "Hệ số:";
-            // 
-            // label_Thuong_nv_infonv
-            // 
-            this.label_Thuong_nv_infonv.AutoSize = true;
-            this.label_Thuong_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_Thuong_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Thuong_nv_infonv.Location = new System.Drawing.Point(157, 89);
-            this.label_Thuong_nv_infonv.Name = "label_Thuong_nv_infonv";
-            this.label_Thuong_nv_infonv.Size = new System.Drawing.Size(69, 18);
-            this.label_Thuong_nv_infonv.TabIndex = 45;
-            this.label_Thuong_nv_infonv.Text = "Thưởng:";
-            // 
-            // label_Luong_nv_infonv
-            // 
-            this.label_Luong_nv_infonv.AutoSize = true;
-            this.label_Luong_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_Luong_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Luong_nv_infonv.Location = new System.Drawing.Point(157, 49);
-            this.label_Luong_nv_infonv.Name = "label_Luong_nv_infonv";
-            this.label_Luong_nv_infonv.Size = new System.Drawing.Size(59, 18);
-            this.label_Luong_nv_infonv.TabIndex = 46;
-            this.label_Luong_nv_infonv.Text = "Lương:";
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel22.Controls.Add(this.pictureBox_image_anhnv);
-            this.panel22.Location = new System.Drawing.Point(-4, 0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(402, 617);
-            this.panel22.TabIndex = 68;
-            // 
-            // pictureBox_image_anhnv
-            // 
-            this.pictureBox_image_anhnv.BackColor = System.Drawing.Color.White;
-            this.pictureBox_image_anhnv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_image_anhnv.Location = new System.Drawing.Point(87, 114);
-            this.pictureBox_image_anhnv.Name = "pictureBox_image_anhnv";
-            this.pictureBox_image_anhnv.Size = new System.Drawing.Size(220, 198);
-            this.pictureBox_image_anhnv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_image_anhnv.TabIndex = 67;
-            this.pictureBox_image_anhnv.TabStop = false;
-            this.pictureBox_image_anhnv.Click += new System.EventHandler(this.pictureBox_image_anhnv_Click_1);
-            // 
-            // lb_username_nv
-            // 
-            this.lb_username_nv.AutoSize = true;
-            this.lb_username_nv.BackColor = System.Drawing.Color.White;
-            this.lb_username_nv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_username_nv.Location = new System.Drawing.Point(554, 294);
-            this.lb_username_nv.Name = "lb_username_nv";
-            this.lb_username_nv.Size = new System.Drawing.Size(90, 18);
-            this.lb_username_nv.TabIndex = 65;
-            this.lb_username_nv.Text = "Username:";
-            // 
-            // label_thongtincanhan_nv_infonv
-            // 
-            this.label_thongtincanhan_nv_infonv.AutoSize = true;
-            this.label_thongtincanhan_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_thongtincanhan_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_thongtincanhan_nv_infonv.Location = new System.Drawing.Point(676, 115);
-            this.label_thongtincanhan_nv_infonv.Name = "label_thongtincanhan_nv_infonv";
-            this.label_thongtincanhan_nv_infonv.Size = new System.Drawing.Size(356, 46);
-            this.label_thongtincanhan_nv_infonv.TabIndex = 56;
-            this.label_thongtincanhan_nv_infonv.Text = "Thông tin cá nhân";
-            // 
-            // label_MaNV_nv_infonv
-            // 
-            this.label_MaNV_nv_infonv.AutoSize = true;
-            this.label_MaNV_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_MaNV_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_MaNV_nv_infonv.Location = new System.Drawing.Point(554, 215);
-            this.label_MaNV_nv_infonv.Name = "label_MaNV_nv_infonv";
-            this.label_MaNV_nv_infonv.Size = new System.Drawing.Size(63, 18);
-            this.label_MaNV_nv_infonv.TabIndex = 55;
-            this.label_MaNV_nv_infonv.Text = "Mã NV:";
-            // 
-            // label_chucvu_nv_infonv
-            // 
-            this.label_chucvu_nv_infonv.AutoSize = true;
-            this.label_chucvu_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_chucvu_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_chucvu_nv_infonv.Location = new System.Drawing.Point(554, 455);
-            this.label_chucvu_nv_infonv.Name = "label_chucvu_nv_infonv";
-            this.label_chucvu_nv_infonv.Size = new System.Drawing.Size(74, 18);
-            this.label_chucvu_nv_infonv.TabIndex = 50;
-            this.label_chucvu_nv_infonv.Text = "Chức vụ:";
-            // 
-            // label_Hoten_nv_infonv
-            // 
-            this.label_Hoten_nv_infonv.AutoSize = true;
-            this.label_Hoten_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_Hoten_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Hoten_nv_infonv.Location = new System.Drawing.Point(554, 254);
-            this.label_Hoten_nv_infonv.Name = "label_Hoten_nv_infonv";
-            this.label_Hoten_nv_infonv.Size = new System.Drawing.Size(68, 18);
-            this.label_Hoten_nv_infonv.TabIndex = 54;
-            this.label_Hoten_nv_infonv.Text = "Họ Tên:";
-            // 
-            // label_ngaylam_nv_infonv
-            // 
-            this.label_ngaylam_nv_infonv.AutoSize = true;
-            this.label_ngaylam_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_ngaylam_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_ngaylam_nv_infonv.Location = new System.Drawing.Point(554, 415);
-            this.label_ngaylam_nv_infonv.Name = "label_ngaylam_nv_infonv";
-            this.label_ngaylam_nv_infonv.Size = new System.Drawing.Size(83, 18);
-            this.label_ngaylam_nv_infonv.TabIndex = 51;
-            this.label_ngaylam_nv_infonv.Text = "Ngày làm:";
-            // 
-            // label_sdt_nv_infonv
-            // 
-            this.label_sdt_nv_infonv.AutoSize = true;
-            this.label_sdt_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_sdt_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_sdt_nv_infonv.Location = new System.Drawing.Point(554, 335);
-            this.label_sdt_nv_infonv.Name = "label_sdt_nv_infonv";
-            this.label_sdt_nv_infonv.Size = new System.Drawing.Size(112, 18);
-            this.label_sdt_nv_infonv.TabIndex = 53;
-            this.label_sdt_nv_infonv.Text = "Số điện thoại:";
-            // 
-            // label_ngaysinh_nv_infonv
-            // 
-            this.label_ngaysinh_nv_infonv.AutoSize = true;
-            this.label_ngaysinh_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.label_ngaysinh_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_ngaysinh_nv_infonv.Location = new System.Drawing.Point(554, 375);
-            this.label_ngaysinh_nv_infonv.Name = "label_ngaysinh_nv_infonv";
-            this.label_ngaysinh_nv_infonv.Size = new System.Drawing.Size(87, 18);
-            this.label_ngaysinh_nv_infonv.TabIndex = 52;
-            this.label_ngaysinh_nv_infonv.Text = "Ngày sinh:";
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.White;
-            this.panel23.Controls.Add(this.tb_chucvu_nv_infonv);
-            this.panel23.Controls.Add(this.tb_username_nv_infonv);
-            this.panel23.Controls.Add(this.bt_doipass_nv_infonv);
-            this.panel23.Controls.Add(this.tb_MaNV_nv_infonv);
-            this.panel23.Controls.Add(this.tb_Hoten_nv_infonv);
-            this.panel23.Controls.Add(this.bt_Them_nv_infonv);
-            this.panel23.Controls.Add(this.tb_sdt_nv_infonv);
-            this.panel23.Controls.Add(this.tb_ngaysinh_nv_infonv);
-            this.panel23.Controls.Add(this.tb_ngayvaolam_nv_infonv);
-            this.panel23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel23.Location = new System.Drawing.Point(396, 3);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(1272, 614);
-            this.panel23.TabIndex = 69;
-            // 
-            // tb_chucvu_nv_infonv
-            // 
-            this.tb_chucvu_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_chucvu_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_chucvu_nv_infonv.Location = new System.Drawing.Point(286, 449);
-            this.tb_chucvu_nv_infonv.Name = "tb_chucvu_nv_infonv";
-            this.tb_chucvu_nv_infonv.ReadOnly = true;
-            this.tb_chucvu_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_chucvu_nv_infonv.TabIndex = 57;
-            // 
-            // tb_username_nv_infonv
-            // 
-            this.tb_username_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_username_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_username_nv_infonv.Location = new System.Drawing.Point(286, 291);
-            this.tb_username_nv_infonv.Name = "tb_username_nv_infonv";
-            this.tb_username_nv_infonv.ReadOnly = true;
-            this.tb_username_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_username_nv_infonv.TabIndex = 66;
-            // 
-            // bt_doipass_nv_infonv
-            // 
-            this.bt_doipass_nv_infonv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.bt_doipass_nv_infonv.FlatAppearance.BorderSize = 0;
-            this.bt_doipass_nv_infonv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_doipass_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_doipass_nv_infonv.ForeColor = System.Drawing.Color.White;
-            this.bt_doipass_nv_infonv.Location = new System.Drawing.Point(513, 514);
-            this.bt_doipass_nv_infonv.Name = "bt_doipass_nv_infonv";
-            this.bt_doipass_nv_infonv.Size = new System.Drawing.Size(137, 39);
-            this.bt_doipass_nv_infonv.TabIndex = 64;
-            this.bt_doipass_nv_infonv.Text = "Đổi mật khẩu";
-            this.bt_doipass_nv_infonv.UseVisualStyleBackColor = false;
-            this.bt_doipass_nv_infonv.Click += new System.EventHandler(this.bt_doipass_nv_infonv_Click_1);
-            // 
-            // tb_MaNV_nv_infonv
-            // 
-            this.tb_MaNV_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_MaNV_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_MaNV_nv_infonv.Location = new System.Drawing.Point(286, 212);
-            this.tb_MaNV_nv_infonv.Name = "tb_MaNV_nv_infonv";
-            this.tb_MaNV_nv_infonv.ReadOnly = true;
-            this.tb_MaNV_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_MaNV_nv_infonv.TabIndex = 62;
-            // 
-            // tb_Hoten_nv_infonv
-            // 
-            this.tb_Hoten_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_Hoten_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Hoten_nv_infonv.Location = new System.Drawing.Point(286, 251);
-            this.tb_Hoten_nv_infonv.Name = "tb_Hoten_nv_infonv";
-            this.tb_Hoten_nv_infonv.ReadOnly = true;
-            this.tb_Hoten_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_Hoten_nv_infonv.TabIndex = 61;
-            // 
-            // bt_Them_nv_infonv
-            // 
-            this.bt_Them_nv_infonv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.bt_Them_nv_infonv.FlatAppearance.BorderSize = 0;
-            this.bt_Them_nv_infonv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Them_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Them_nv_infonv.ForeColor = System.Drawing.Color.White;
-            this.bt_Them_nv_infonv.Location = new System.Drawing.Point(286, 514);
-            this.bt_Them_nv_infonv.Name = "bt_Them_nv_infonv";
-            this.bt_Them_nv_infonv.Size = new System.Drawing.Size(137, 39);
-            this.bt_Them_nv_infonv.TabIndex = 63;
-            this.bt_Them_nv_infonv.Text = "Thêm/ Cập nhật";
-            this.bt_Them_nv_infonv.UseVisualStyleBackColor = false;
-            this.bt_Them_nv_infonv.Click += new System.EventHandler(this.bt_Them_nv_infonv_Click);
-            // 
-            // tb_sdt_nv_infonv
-            // 
-            this.tb_sdt_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_sdt_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_sdt_nv_infonv.Location = new System.Drawing.Point(286, 332);
-            this.tb_sdt_nv_infonv.Name = "tb_sdt_nv_infonv";
-            this.tb_sdt_nv_infonv.ReadOnly = true;
-            this.tb_sdt_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_sdt_nv_infonv.TabIndex = 60;
-            // 
-            // tb_ngaysinh_nv_infonv
-            // 
-            this.tb_ngaysinh_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_ngaysinh_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_ngaysinh_nv_infonv.Location = new System.Drawing.Point(286, 372);
-            this.tb_ngaysinh_nv_infonv.Name = "tb_ngaysinh_nv_infonv";
-            this.tb_ngaysinh_nv_infonv.ReadOnly = true;
-            this.tb_ngaysinh_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_ngaysinh_nv_infonv.TabIndex = 59;
-            // 
-            // tb_ngayvaolam_nv_infonv
-            // 
-            this.tb_ngayvaolam_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.tb_ngayvaolam_nv_infonv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_ngayvaolam_nv_infonv.Location = new System.Drawing.Point(286, 412);
-            this.tb_ngayvaolam_nv_infonv.Name = "tb_ngayvaolam_nv_infonv";
-            this.tb_ngayvaolam_nv_infonv.ReadOnly = true;
-            this.tb_ngayvaolam_nv_infonv.Size = new System.Drawing.Size(444, 17);
-            this.tb_ngayvaolam_nv_infonv.TabIndex = 58;
+            this.imageList_iconNV.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_iconNV.ImageStream")));
+            this.imageList_iconNV.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList_iconNV.Images.SetKeyName(0, "tải xuống (1).png");
+            this.imageList_iconNV.Images.SetKeyName(1, "kisspng-computer-icons-sales-industry-purchasing-retail-5adcfe303c9d52.4758297915" +
+        "244324322483.jpg");
+            this.imageList_iconNV.Images.SetKeyName(2, "772-7724889_we-believe-every-client-have-different-needs-and.jpg");
+            this.imageList_iconNV.Images.SetKeyName(3, "kisspng-hardcover-calendar-photo-book-computer-icons-calendar-icon-5ac1ec9423c239" +
+        ".0446656115226584521465.jpg");
+            this.imageList_iconNV.Images.SetKeyName(4, "2546560-middle.png");
             // 
             // toolStripMainNV
             // 
@@ -2793,8 +2319,7 @@ namespace App_sale_manager
             this.tbtnTongquan,
             this.tbtnKhachhang,
             this.tbtnGiaodich,
-            this.tbtnLich,
-            this.tbtnCanhan});
+            this.tbtnLich});
             this.toolStripMainNV.Location = new System.Drawing.Point(0, 0);
             this.toolStripMainNV.Name = "toolStripMainNV";
             this.toolStripMainNV.Size = new System.Drawing.Size(1256, 37);
@@ -2889,48 +2414,6 @@ namespace App_sale_manager
             this.tbtnLich.Text = "Lịch làm việc";
             this.tbtnLich.Click += new System.EventHandler(this.tbtnLich_Click);
             // 
-            // tbtnCanhan
-            // 
-            this.tbtnCanhan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.tbtnCanhan.ForeColor = System.Drawing.Color.White;
-            this.tbtnCanhan.Image = ((System.Drawing.Image)(resources.GetObject("tbtnCanhan.Image")));
-            this.tbtnCanhan.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tbtnCanhan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbtnCanhan.Name = "tbtnCanhan";
-            this.tbtnCanhan.ShowDropDownArrow = false;
-            this.tbtnCanhan.Size = new System.Drawing.Size(99, 34);
-            this.tbtnCanhan.Text = "Cá nhân";
-            this.tbtnCanhan.Click += new System.EventHandler(this.tbtnCanhan_Click);
-            // 
-            // contextMenuStrip_anh_nv
-            // 
-            this.contextMenuStrip_anh_nv.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.contextMenuStrip_anh_nv.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip_anh_nv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chonAnhToolStripMenuItem,
-            this.xoaAnhToolStripMenuItem});
-            this.contextMenuStrip_anh_nv.Name = "contextMenuStrip_anh_nv";
-            this.contextMenuStrip_anh_nv.Size = new System.Drawing.Size(145, 56);
-            // 
-            // chonAnhToolStripMenuItem
-            // 
-            this.chonAnhToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chonAnhToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chonAnhToolStripMenuItem.Image")));
-            this.chonAnhToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.chonAnhToolStripMenuItem.Name = "chonAnhToolStripMenuItem";
-            this.chonAnhToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
-            this.chonAnhToolStripMenuItem.Text = "Chọn ảnh";
-            this.chonAnhToolStripMenuItem.Click += new System.EventHandler(this.chonAnhToolStripMenuItem_Click_1);
-            // 
-            // xoaAnhToolStripMenuItem
-            // 
-            this.xoaAnhToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.xoaAnhToolStripMenuItem.Image = global::App_sale_manager.Properties.Resources.X;
-            this.xoaAnhToolStripMenuItem.Name = "xoaAnhToolStripMenuItem";
-            this.xoaAnhToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
-            this.xoaAnhToolStripMenuItem.Text = "Xoá ảnh";
-            this.xoaAnhToolStripMenuItem.Click += new System.EventHandler(this.xoaAnhToolStripMenuItem_Click_1);
-            // 
             // Form_main_NV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2999,19 +2482,8 @@ namespace App_sale_manager
             ((System.ComponentModel.ISupportInitialize)(this.dgv_lich_tuan)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.tabP_Canhan.ResumeLayout(false);
-            this.tabP_Canhan.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_anhnv)).EndInit();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
             this.toolStripMainNV.ResumeLayout(false);
             this.toolStripMainNV.PerformLayout();
-            this.contextMenuStrip_anh_nv.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3055,6 +2527,7 @@ namespace App_sale_manager
         private System.Windows.Forms.Label lbl_tongquan_ten0;
         private System.Windows.Forms.Label lbl_tongquan_dsNV;
         private System.Windows.Forms.DataGridView dgv_tongquan;
+        private System.Windows.Forms.ImageList imageList_iconNV;
         private System.Windows.Forms.PictureBox ptb_lich_X;
         private System.Windows.Forms.PictureBox ptB_lich_tick;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
@@ -3062,6 +2535,8 @@ namespace App_sale_manager
         private System.Windows.Forms.Button btn_lich_diemdanh;
         private System.Windows.Forms.Label lbl_lich_gioKT;
         private System.Windows.Forms.Label lbl_lich_gioBD;
+        private System.Windows.Forms.Label lbl_lich_ngay;
+        private System.Windows.Forms.Label lbl_lich_ngaylam;
         private System.Windows.Forms.Label lbl_lich_KT;
         private System.Windows.Forms.Label lbl_lich_BD;
         private System.Windows.Forms.Label lbl_lich_buoi;
@@ -3184,40 +2659,5 @@ namespace App_sale_manager
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private OvalPictureBox pictureBox_image_anhnv;
-        private System.Windows.Forms.TextBox tb_username_nv_infonv;
-        private System.Windows.Forms.Label lb_username_nv;
-        private System.Windows.Forms.Button bt_doipass_nv_infonv;
-        private System.Windows.Forms.TextBox tb_Heso_nv_infonv;
-        private System.Windows.Forms.Button bt_Them_nv_infonv;
-        private System.Windows.Forms.TextBox tb_Thuong_nv_infonv;
-        private System.Windows.Forms.TextBox tb_chucvu_nv_infonv;
-        private System.Windows.Forms.TextBox tb_Luong_nv_infonv;
-        private System.Windows.Forms.TextBox tb_ngayvaolam_nv_infonv;
-        private System.Windows.Forms.Label label_Heso_nv_infonv;
-        private System.Windows.Forms.TextBox tb_ngaysinh_nv_infonv;
-        private System.Windows.Forms.Label label_Thuong_nv_infonv;
-        private System.Windows.Forms.TextBox tb_sdt_nv_infonv;
-        private System.Windows.Forms.Label label_Luong_nv_infonv;
-        private System.Windows.Forms.TextBox tb_Hoten_nv_infonv;
-        private System.Windows.Forms.Label label_thongtincanhan_nv_infonv;
-        private System.Windows.Forms.TextBox tb_MaNV_nv_infonv;
-        private System.Windows.Forms.Label label_MaNV_nv_infonv;
-        private System.Windows.Forms.Label label_chucvu_nv_infonv;
-        private System.Windows.Forms.Label label_Hoten_nv_infonv;
-        private System.Windows.Forms.Label label_ngaylam_nv_infonv;
-        private System.Windows.Forms.Label label_sdt_nv_infonv;
-        private System.Windows.Forms.Label label_ngaysinh_nv_infonv;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip_anh_nv;
-        private System.Windows.Forms.ToolStripMenuItem chonAnhToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem xoaAnhToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton tbtnCanhan;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Label lblLich_thang;
-        private System.Windows.Forms.Label lblLich_ngay;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Panel panel24;
     }
 }
