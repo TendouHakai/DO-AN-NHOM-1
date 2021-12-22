@@ -15,6 +15,8 @@ namespace App_sale_manager
         public Form_ChiTietHH()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
         public Form_ChiTietHH(string SPID, string TenSP, string SL, string NuocSX,string Hang, string GiaBan, string GiaNhap, string DVT, string SLTT, string LoaiSP, string MoTa)
         {

@@ -21,7 +21,8 @@ namespace App_sale_manager
         public Form_ChiTietNH(string mahd)
         {
             InitializeComponent();
-       
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             sqlCon.Open();
             SqlCommand sqlCmd = new SqlCommand();

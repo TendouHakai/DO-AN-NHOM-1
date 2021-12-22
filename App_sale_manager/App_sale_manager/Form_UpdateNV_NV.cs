@@ -27,11 +27,15 @@ namespace App_sale_manager
         public Form_UpdateNV_NV()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
         }
         public Form_UpdateNV_NV(string NVID)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             this.NVID = NVID;
         }

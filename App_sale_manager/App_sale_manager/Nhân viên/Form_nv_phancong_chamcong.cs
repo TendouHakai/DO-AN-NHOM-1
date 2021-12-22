@@ -22,6 +22,8 @@ namespace App_sale_manager
         public Form_nv_phancong_chamcong()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Size = new Size(1230, 570);
             sqlCon = new SqlConnection(strCon);
             cmd = sqlCon.CreateCommand();

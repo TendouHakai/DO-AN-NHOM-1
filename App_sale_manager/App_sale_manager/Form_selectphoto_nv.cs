@@ -31,6 +31,8 @@ namespace App_sale_manager
         public Form_selectphoto_nv(string filePath, string nvid, string hoten)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.FILEPATH = filePath;
             this.NVID = nvid;
             this.HOTEN = hoten;

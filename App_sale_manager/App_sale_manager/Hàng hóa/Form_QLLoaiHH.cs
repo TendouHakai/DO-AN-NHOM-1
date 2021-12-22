@@ -21,6 +21,8 @@ namespace App_sale_manager
         public Form_QLLoaiHH()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             LoadLoaiHH();
         }
         public void LoadLoaiHH()

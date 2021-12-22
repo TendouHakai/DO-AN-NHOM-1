@@ -27,6 +27,8 @@ namespace App_sale_manager
         public Form_UpdateNV_admin(string nvid)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             this.NVID = nvid;
         }

@@ -32,6 +32,8 @@ namespace App_sale_manager
         public Form_main_NV()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             DTCC_guest_dataInitialize();
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\NV\No Image.jpg");
@@ -40,6 +42,8 @@ namespace App_sale_manager
         public Form_main_NV(string NVID, string Ten, string username)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             this.NVID = NVID;
             this.Ten = Ten;
@@ -61,6 +65,8 @@ namespace App_sale_manager
         }
         private void Form_main_NV_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             tabctrl_Nhanvien_SelectedIndexChanged(this, new EventArgs());
         }
         // TABPAGE TỔNG QUAN.

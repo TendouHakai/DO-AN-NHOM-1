@@ -24,6 +24,8 @@ namespace App_sale_manager
         {
             InitializeComponent();
             this.Size = new Size(1250, 770);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         public Form_GiaoDich(string Manv)

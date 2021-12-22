@@ -22,6 +22,8 @@ namespace App_sale_manager
         public Form_doipass()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void Form_doipass_Load(object sender, EventArgs e)

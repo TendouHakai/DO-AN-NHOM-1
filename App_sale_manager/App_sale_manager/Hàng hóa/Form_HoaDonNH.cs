@@ -24,6 +24,8 @@ namespace App_sale_manager
             this.tennv = tennv;
             this.manv = manv;
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             LoadCBBDN();
             LoadHDNH();
         }

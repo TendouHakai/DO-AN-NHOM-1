@@ -20,6 +20,8 @@ namespace App_sale_manager
         public Form_addnv_admin()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
         public event EventHandler Thoat;
         

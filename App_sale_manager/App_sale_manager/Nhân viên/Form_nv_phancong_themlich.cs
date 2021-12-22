@@ -29,6 +29,8 @@ namespace App_sale_manager
         public Form_nv_phancong_themlich()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             dgv_phancong_nvid.DefaultCellStyle.Font = new Font("Verdana", 8, FontStyle.Regular);
             if (sqlCon.State == ConnectionState.Closed)

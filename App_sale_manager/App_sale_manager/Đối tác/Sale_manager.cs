@@ -56,6 +56,8 @@ namespace App_sale_manager
         public Sale_manager()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;           
         }
         public event EventHandler dataRefresh;
 

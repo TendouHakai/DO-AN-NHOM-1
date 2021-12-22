@@ -25,6 +25,8 @@ namespace App_sale_manager
         public Form_doipass_nv(string NVID)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.NVID = NVID;
             sqlCon = new SqlConnection(strCon);
         }

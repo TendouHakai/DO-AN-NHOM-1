@@ -25,6 +25,8 @@ namespace App_sale_manager
         {
 
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             LoadCBB();
             txtSoHDNH.Text = LoadMaDN();        
             txtNVNhap.Text = tennv;

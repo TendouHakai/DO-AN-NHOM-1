@@ -24,6 +24,8 @@ namespace App_sale_manager
         {
 
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             ModeHH = n;
             this.Text = "Thêm hàng hoá";
             sqlCon = new SqlConnection(strCon);

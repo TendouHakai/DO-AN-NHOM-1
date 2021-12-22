@@ -23,6 +23,8 @@ namespace App_sale_manager
         public Form_CTHD()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
         
         public Form_CTHD(string mahoadon,string makhachhang,string manhanvien,string loaihd,string trangthai, string tong)

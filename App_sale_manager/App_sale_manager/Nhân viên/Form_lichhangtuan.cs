@@ -29,6 +29,8 @@ namespace App_sale_manager
         public Form_lichhangtuan()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             grbs = new GroupBox[7] { grb_chunhat ,grb_thuhai, grb_thuba, grb_thutu, grb_thunam, grb_thusau, grb_thubay};
             dgvs = new DataGridView[7] { dgv_CN, dgv_2, dgv_3, dgv_4, dgv_5, dgv_6, dgv_7 };

@@ -25,6 +25,8 @@ namespace App_sale_manager
             sqlCon = new SqlConnection(strCon);
             cmd = sqlCon.CreateCommand();
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             load();
         }
         void load()

@@ -28,6 +28,8 @@ namespace App_sale_manager
         {
             this.NVID = NVID;
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
             cmd = sqlCon.CreateCommand();
             load_ThongtinNV();

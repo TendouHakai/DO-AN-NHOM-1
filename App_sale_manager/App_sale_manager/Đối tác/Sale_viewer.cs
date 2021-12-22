@@ -154,7 +154,9 @@ namespace App_sale_manager
         public Sale_viewer()
         {           
             InitializeComponent();
-            DataRefresh(this, null);            
+            DataRefresh(this, null);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

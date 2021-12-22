@@ -21,6 +21,8 @@ namespace App_sale_manager
         public Form_login()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.AcceptButton = btn_dangnhap;
             textBox_usr.Focus();
         }
