@@ -192,5 +192,7 @@ namespace App_sale_manager
         {
             this.Close();
         }
+
+       
     }
 }

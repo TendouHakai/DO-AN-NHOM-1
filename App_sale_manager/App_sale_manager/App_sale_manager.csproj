@@ -244,6 +244,12 @@
     <EmbeddedResource Include="Form_addnv_admin.resx">
       <DependentUpon>Form_addnv_admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_UpdateNV_NV.resx">
+      <DependentUpon>Form_UpdateNV_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OvalPictureBox.resx">
+      <DependentUpon>OvalPictureBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tổng quan\Form_chuthich.resx">
       <DependentUpon>Form_chuthich.cs</DependentUpon>
     </EmbeddedResource>

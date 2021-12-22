@@ -2557,5 +2557,7 @@ namespace App_sale_manager
             }
             (sender as ToolStripDropDownButton).BackColor = Color.Blue;
         }
+
+       
     }
 }

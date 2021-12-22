@@ -1014,9 +1014,9 @@ namespace App_sale_manager
                 tb_sdt_nv_infonv.Text = reader.GetString(2);
                 tb_ngaysinh_nv_infonv.Text = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                 tb_ngayvaolam_nv_infonv.Text = reader.GetDateTime(4).ToString("dd/MM/yyyy");
-                tb_chucvu_nv_infonv.Text = reader.GetString(5);
-                tb_Luong_nv_infonv.Text = reader.GetValue(6).ToString();
-                tb_Thuong_nv_infonv.Text = reader.GetValue(7).ToString();
+                tb_chucvu_nv_infonv.Text = reader.GetString(5); 
+                tb_Luong_nv_infonv.Text =  String.Format("{0:0,0}", Convert.ToDouble(reader.GetValue(6).ToString()));
+                tb_Thuong_nv_infonv.Text = String.Format("{0:0,0}", Convert.ToDouble(reader.GetValue(7).ToString()));
                 tb_Heso_nv_infonv.Text = reader.GetValue(8).ToString();
                 tb_username_nv_infonv.Text = reader.GetString(9);
                 sqlCon.Close();
@@ -1141,7 +1141,7 @@ namespace App_sale_manager
             }
         }
 
-        
+       
     }
    
 }

@@ -38,12 +38,17 @@
             // 
             // bt_OK
             // 
-            this.bt_OK.Location = new System.Drawing.Point(155, 437);
+            this.bt_OK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
+            this.bt_OK.FlatAppearance.BorderSize = 0;
+            this.bt_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_OK.ForeColor = System.Drawing.Color.White;
+            this.bt_OK.Location = new System.Drawing.Point(150, 438);
             this.bt_OK.Name = "bt_OK";
-            this.bt_OK.Size = new System.Drawing.Size(109, 35);
+            this.bt_OK.Size = new System.Drawing.Size(119, 38);
             this.bt_OK.TabIndex = 2;
             this.bt_OK.Text = "OK";
-            this.bt_OK.UseVisualStyleBackColor = true;
+            this.bt_OK.UseVisualStyleBackColor = false;
             this.bt_OK.Click += new System.EventHandler(this.bt_OK_Click);
             // 
             // label1
@@ -78,6 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(433, 535);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
