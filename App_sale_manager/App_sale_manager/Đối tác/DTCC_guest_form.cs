@@ -75,7 +75,7 @@ namespace App_sale_manager
             {
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
-                Save.FileName = @"Image samples for testing\KHDK\" + textBox_TENDT_z.Text + ".jpg";
+                Save.FileName = @"Image samples for testing\KHDK\" + textBox_ID_z.Text + ".jpg";
                 pictureBox_image_import.Image.Save(Save.FileName);
                 RefreshData(this, new EventArgs());
                 Close();

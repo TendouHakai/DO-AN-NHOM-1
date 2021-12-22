@@ -60,10 +60,9 @@ namespace App_sale_manager
             // 
             // label_image_name
             // 
-            this.label_image_name.Location = new System.Drawing.Point(284, 250);
-            this.label_image_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_image_name.Location = new System.Drawing.Point(213, 203);
             this.label_image_name.Name = "label_image_name";
-            this.label_image_name.Size = new System.Drawing.Size(307, 103);
+            this.label_image_name.Size = new System.Drawing.Size(230, 84);
             this.label_image_name.TabIndex = 31;
             this.label_image_name.Text = "Chưa thêm ảnh.";
             // 
@@ -74,10 +73,9 @@ namespace App_sale_manager
             this.button_Image_import.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Image_import.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Image_import.ForeColor = System.Drawing.Color.White;
-            this.button_Image_import.Location = new System.Drawing.Point(288, 206);
-            this.button_Image_import.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Image_import.Location = new System.Drawing.Point(216, 167);
             this.button_Image_import.Name = "button_Image_import";
-            this.button_Image_import.Size = new System.Drawing.Size(100, 41);
+            this.button_Image_import.Size = new System.Drawing.Size(75, 33);
             this.button_Image_import.TabIndex = 30;
             this.button_Image_import.Text = "Chọn ảnh";
             this.button_Image_import.UseVisualStyleBackColor = false;
@@ -87,14 +85,12 @@ namespace App_sale_manager
             // 
             this.label_Picture_z.AutoSize = true;
             this.label_Picture_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Picture_z.Location = new System.Drawing.Point(27, 172);
-            this.label_Picture_z.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Picture_z.Location = new System.Drawing.Point(20, 140);
             this.label_Picture_z.Name = "label_Picture_z";
-            this.label_Picture_z.Size = new System.Drawing.Size(112, 17);
+            this.label_Picture_z.Size = new System.Drawing.Size(88, 13);
             this.label_Picture_z.TabIndex = 28;
             this.label_Picture_z.Text = "Ảnh minh họa:";
             this.label_Picture_z.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_Picture_z.Click += new System.EventHandler(this.label_Picture_z_Click);
             // 
             // button_DTCC_Reject
             // 
@@ -103,10 +99,9 @@ namespace App_sale_manager
             this.button_DTCC_Reject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_DTCC_Reject.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_DTCC_Reject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.button_DTCC_Reject.Location = new System.Drawing.Point(165, 692);
-            this.button_DTCC_Reject.Margin = new System.Windows.Forms.Padding(4);
+            this.button_DTCC_Reject.Location = new System.Drawing.Point(124, 562);
             this.button_DTCC_Reject.Name = "button_DTCC_Reject";
-            this.button_DTCC_Reject.Size = new System.Drawing.Size(297, 37);
+            this.button_DTCC_Reject.Size = new System.Drawing.Size(223, 30);
             this.button_DTCC_Reject.TabIndex = 27;
             this.button_DTCC_Reject.Text = "Hủy";
             this.button_DTCC_Reject.UseVisualStyleBackColor = false;
@@ -119,10 +114,9 @@ namespace App_sale_manager
             this.button_DTCC_Accept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_DTCC_Accept.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_DTCC_Accept.ForeColor = System.Drawing.Color.White;
-            this.button_DTCC_Accept.Location = new System.Drawing.Point(165, 647);
-            this.button_DTCC_Accept.Margin = new System.Windows.Forms.Padding(4);
+            this.button_DTCC_Accept.Location = new System.Drawing.Point(124, 526);
             this.button_DTCC_Accept.Name = "button_DTCC_Accept";
-            this.button_DTCC_Accept.Size = new System.Drawing.Size(297, 37);
+            this.button_DTCC_Accept.Size = new System.Drawing.Size(223, 30);
             this.button_DTCC_Accept.TabIndex = 26;
             this.button_DTCC_Accept.Text = "Đồng Ý";
             this.button_DTCC_Accept.UseVisualStyleBackColor = false;
@@ -130,11 +124,10 @@ namespace App_sale_manager
             // 
             // textBox_DIACHI_z
             // 
-            this.textBox_DIACHI_z.Location = new System.Drawing.Point(28, 534);
-            this.textBox_DIACHI_z.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_DIACHI_z.Location = new System.Drawing.Point(21, 434);
             this.textBox_DIACHI_z.Multiline = true;
             this.textBox_DIACHI_z.Name = "textBox_DIACHI_z";
-            this.textBox_DIACHI_z.Size = new System.Drawing.Size(601, 105);
+            this.textBox_DIACHI_z.Size = new System.Drawing.Size(452, 86);
             this.textBox_DIACHI_z.TabIndex = 25;
             // 
             // label_DIACHI_z
@@ -144,13 +137,11 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_DIACHI_z.AutoSize = true;
             this.label_DIACHI_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_DIACHI_z.Location = new System.Drawing.Point(24, 514);
-            this.label_DIACHI_z.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_DIACHI_z.Location = new System.Drawing.Point(18, 418);
             this.label_DIACHI_z.Name = "label_DIACHI_z";
-            this.label_DIACHI_z.Size = new System.Drawing.Size(63, 17);
+            this.label_DIACHI_z.Size = new System.Drawing.Size(51, 13);
             this.label_DIACHI_z.TabIndex = 24;
             this.label_DIACHI_z.Text = "Địa chỉ:";
-            this.label_DIACHI_z.Click += new System.EventHandler(this.label_DIACHI_z_Click);
             // 
             // label_NGDT_z
             // 
@@ -159,13 +150,11 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_NGDT_z.AutoSize = true;
             this.label_NGDT_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_NGDT_z.Location = new System.Drawing.Point(284, 103);
-            this.label_NGDT_z.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_NGDT_z.Location = new System.Drawing.Point(213, 84);
             this.label_NGDT_z.Name = "label_NGDT_z";
-            this.label_NGDT_z.Size = new System.Drawing.Size(83, 17);
+            this.label_NGDT_z.Size = new System.Drawing.Size(67, 13);
             this.label_NGDT_z.TabIndex = 22;
             this.label_NGDT_z.Text = "Đối tác từ:";
-            this.label_NGDT_z.Click += new System.EventHandler(this.label_NGDT_z_Click);
             // 
             // textBox_SDT_z
             // 
@@ -173,10 +162,9 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_SDT_z.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_SDT_z.Location = new System.Drawing.Point(31, 123);
-            this.textBox_SDT_z.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_SDT_z.Location = new System.Drawing.Point(23, 100);
             this.textBox_SDT_z.Name = "textBox_SDT_z";
-            this.textBox_SDT_z.Size = new System.Drawing.Size(231, 15);
+            this.textBox_SDT_z.Size = new System.Drawing.Size(173, 13);
             this.textBox_SDT_z.TabIndex = 21;
             // 
             // label_SDT_z
@@ -186,13 +174,11 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_SDT_z.AutoSize = true;
             this.label_SDT_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_SDT_z.Location = new System.Drawing.Point(27, 103);
-            this.label_SDT_z.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_SDT_z.Location = new System.Drawing.Point(20, 84);
             this.label_SDT_z.Name = "label_SDT_z";
-            this.label_SDT_z.Size = new System.Drawing.Size(109, 17);
+            this.label_SDT_z.Size = new System.Drawing.Size(87, 13);
             this.label_SDT_z.TabIndex = 20;
             this.label_SDT_z.Text = "Số điện thoại:";
-            this.label_SDT_z.Click += new System.EventHandler(this.label_SDT_z_Click);
             // 
             // textBox_TENDT_z
             // 
@@ -200,10 +186,9 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_TENDT_z.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_TENDT_z.Location = new System.Drawing.Point(288, 49);
-            this.textBox_TENDT_z.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_TENDT_z.Location = new System.Drawing.Point(216, 40);
             this.textBox_TENDT_z.Name = "textBox_TENDT_z";
-            this.textBox_TENDT_z.Size = new System.Drawing.Size(341, 15);
+            this.textBox_TENDT_z.Size = new System.Drawing.Size(256, 13);
             this.textBox_TENDT_z.TabIndex = 19;
             // 
             // label_TENDT_z
@@ -213,13 +198,11 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_TENDT_z.AutoSize = true;
             this.label_TENDT_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_TENDT_z.Location = new System.Drawing.Point(284, 30);
-            this.label_TENDT_z.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_TENDT_z.Location = new System.Drawing.Point(213, 24);
             this.label_TENDT_z.Name = "label_TENDT_z";
-            this.label_TENDT_z.Size = new System.Drawing.Size(95, 17);
+            this.label_TENDT_z.Size = new System.Drawing.Size(77, 13);
             this.label_TENDT_z.TabIndex = 18;
             this.label_TENDT_z.Text = "Tên đối tác:";
-            this.label_TENDT_z.Click += new System.EventHandler(this.label_TENDT_z_Click);
             // 
             // textBox_ID_z
             // 
@@ -231,11 +214,10 @@ namespace App_sale_manager
             this.textBox_ID_z.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox_ID_z.ForeColor = System.Drawing.Color.Red;
             this.textBox_ID_z.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox_ID_z.Location = new System.Drawing.Point(31, 49);
-            this.textBox_ID_z.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_ID_z.Location = new System.Drawing.Point(23, 40);
             this.textBox_ID_z.Name = "textBox_ID_z";
             this.textBox_ID_z.ReadOnly = true;
-            this.textBox_ID_z.Size = new System.Drawing.Size(231, 15);
+            this.textBox_ID_z.Size = new System.Drawing.Size(173, 13);
             this.textBox_ID_z.TabIndex = 17;
             // 
             // label_ID_z
@@ -245,22 +227,19 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_ID_z.AutoSize = true;
             this.label_ID_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_ID_z.Location = new System.Drawing.Point(27, 30);
-            this.label_ID_z.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_ID_z.Location = new System.Drawing.Point(20, 24);
             this.label_ID_z.Name = "label_ID_z";
-            this.label_ID_z.Size = new System.Drawing.Size(88, 17);
+            this.label_ID_z.Size = new System.Drawing.Size(72, 13);
             this.label_ID_z.TabIndex = 16;
             this.label_ID_z.Text = "Mã đối tác:";
-            this.label_ID_z.Click += new System.EventHandler(this.label_ID_z_Click);
             // 
             // pictureBox_image_import
             // 
             this.pictureBox_image_import.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox_image_import.InitialImage = null;
-            this.pictureBox_image_import.Location = new System.Drawing.Point(28, 206);
-            this.pictureBox_image_import.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox_image_import.Location = new System.Drawing.Point(21, 167);
             this.pictureBox_image_import.Name = "pictureBox_image_import";
-            this.pictureBox_image_import.Size = new System.Drawing.Size(186, 147);
+            this.pictureBox_image_import.Size = new System.Drawing.Size(140, 120);
             this.pictureBox_image_import.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_image_import.TabIndex = 29;
             this.pictureBox_image_import.TabStop = false;
@@ -268,10 +247,9 @@ namespace App_sale_manager
             // dateTimePicker_NGDT_z
             // 
             this.dateTimePicker_NGDT_z.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.dateTimePicker_NGDT_z.Location = new System.Drawing.Point(288, 123);
-            this.dateTimePicker_NGDT_z.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker_NGDT_z.Location = new System.Drawing.Point(216, 100);
             this.dateTimePicker_NGDT_z.Name = "dateTimePicker_NGDT_z";
-            this.dateTimePicker_NGDT_z.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker_NGDT_z.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_NGDT_z.TabIndex = 32;
             // 
             // comboBox_loaiKH
@@ -280,10 +258,9 @@ namespace App_sale_manager
             this.comboBox_loaiKH.Items.AddRange(new object[] {
             "Khách thường",
             "Khách vip"});
-            this.comboBox_loaiKH.Location = new System.Drawing.Point(31, 466);
-            this.comboBox_loaiKH.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_loaiKH.Location = new System.Drawing.Point(23, 379);
             this.comboBox_loaiKH.Name = "comboBox_loaiKH";
-            this.comboBox_loaiKH.Size = new System.Drawing.Size(160, 24);
+            this.comboBox_loaiKH.Size = new System.Drawing.Size(121, 21);
             this.comboBox_loaiKH.TabIndex = 36;
             // 
             // label1
@@ -293,13 +270,11 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(27, 447);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(20, 363);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 17);
+            this.label1.Size = new System.Drawing.Size(106, 13);
             this.label1.TabIndex = 35;
             this.label1.Text = "Loại khách hàng:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox_budget_z
             // 
@@ -307,10 +282,9 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_budget_z.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_budget_z.Location = new System.Drawing.Point(31, 393);
-            this.textBox_budget_z.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_budget_z.Location = new System.Drawing.Point(23, 319);
             this.textBox_budget_z.Name = "textBox_budget_z";
-            this.textBox_budget_z.Size = new System.Drawing.Size(231, 15);
+            this.textBox_budget_z.Size = new System.Drawing.Size(173, 13);
             this.textBox_budget_z.TabIndex = 34;
             this.textBox_budget_z.Text = "0";
             // 
@@ -321,68 +295,72 @@ namespace App_sale_manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Budget_z.AutoSize = true;
             this.label_Budget_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Budget_z.Location = new System.Drawing.Point(27, 373);
-            this.label_Budget_z.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Budget_z.Location = new System.Drawing.Point(20, 303);
             this.label_Budget_z.Name = "label_Budget_z";
-            this.label_Budget_z.Size = new System.Drawing.Size(82, 17);
+            this.label_Budget_z.Size = new System.Drawing.Size(65, 13);
             this.label_Budget_z.TabIndex = 33;
             this.label_Budget_z.Text = "Doanh số:";
-            this.label_Budget_z.Click += new System.EventHandler(this.label_Budget_z_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel1.Location = new System.Drawing.Point(31, 71);
+            this.panel1.Location = new System.Drawing.Point(23, 58);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 2);
+            this.panel1.Size = new System.Drawing.Size(165, 2);
             this.panel1.TabIndex = 37;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel2.Location = new System.Drawing.Point(31, 145);
+            this.panel2.Location = new System.Drawing.Point(23, 118);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(220, 2);
+            this.panel2.Size = new System.Drawing.Size(165, 2);
             this.panel2.TabIndex = 37;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel3.Location = new System.Drawing.Point(288, 145);
+            this.panel3.Location = new System.Drawing.Point(216, 118);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(270, 2);
+            this.panel3.Size = new System.Drawing.Size(202, 2);
             this.panel3.TabIndex = 37;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel4.Location = new System.Drawing.Point(30, 422);
+            this.panel4.Location = new System.Drawing.Point(22, 343);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 2);
+            this.panel4.Size = new System.Drawing.Size(165, 2);
             this.panel4.TabIndex = 37;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel5.Location = new System.Drawing.Point(30, 497);
+            this.panel5.Location = new System.Drawing.Point(22, 404);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(220, 2);
+            this.panel5.Size = new System.Drawing.Size(165, 2);
             this.panel5.TabIndex = 37;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel6.Location = new System.Drawing.Point(288, 71);
+            this.panel6.Location = new System.Drawing.Point(216, 58);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(320, 2);
+            this.panel6.Size = new System.Drawing.Size(240, 2);
             this.panel6.TabIndex = 37;
             // 
             // DTCC_guest_modifier
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(669, 744);
+            this.ClientSize = new System.Drawing.Size(502, 604);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -409,11 +387,9 @@ namespace App_sale_manager
             this.Controls.Add(this.label_TENDT_z);
             this.Controls.Add(this.textBox_ID_z);
             this.Controls.Add(this.label_ID_z);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DTCC_guest_modifier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa dữ liệu";
-            this.Load += new System.EventHandler(this.DTCC_guest_modifier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_import)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

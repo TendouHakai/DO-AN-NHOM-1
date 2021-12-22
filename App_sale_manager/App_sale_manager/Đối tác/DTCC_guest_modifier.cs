@@ -86,7 +86,7 @@ namespace App_sale_manager
                 SaveFileDialog Save = new SaveFileDialog();
                 if (filepath != "")
                 {
-                    Save.FileName = @"Image samples for testing\KHDK\" + textBox_TENDT_z.Text + ".jpg";
+                    Save.FileName = @"Image samples for testing\KHDK\" + textBox_ID_z.Text + ".jpg";
                     pictureBox_image_import.Image.Save(Save.FileName);
                 }
                 RefreshData(this, new EventArgs());
@@ -101,51 +101,6 @@ namespace App_sale_manager
         private void button_DTCC_Reject_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void DTCC_guest_modifier_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_SDT_z_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_Picture_z_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_Budget_z_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_DIACHI_z_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_NGDT_z_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_ID_z_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_TENDT_z_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

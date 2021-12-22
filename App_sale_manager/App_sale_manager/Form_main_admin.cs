@@ -1432,7 +1432,7 @@ namespace App_sale_manager
             A.textBox_DIACHI_z.Text = label_DIACHItext.Text;
             A.textBox_SDT_z.Text = label_SDTtext.Text;
             A.textBox_TENDT_z.Text = label_TENDTtext.Text;
-            using (FileStream stream = new FileStream(@"Image samples for testing\DTGD\" + label_TENDTtext.Text + ".jpg", FileMode.Open, FileAccess.Read))
+            using (FileStream stream = new FileStream(@"Image samples for testing\DTGD\" + label_IDtext.Text + ".jpg", FileMode.Open, FileAccess.Read))
             {
                 A.pictureBox_image_import.Image = Image.FromStream(stream);
                 stream.Dispose();
@@ -1453,7 +1453,7 @@ namespace App_sale_manager
                 Date = Convert.ToDateTime(row.Cells[3].Value.ToString());
                 label_NGDTtext.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
                 label_DIACHItext.Text = row.Cells[4].Value.ToString();
-                string filepath = @"Image samples for testing\DTGD\" + label_TENDTtext.Text + ".jpg";
+                string filepath = @"Image samples for testing\DTGD\" + label_IDtext.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_Logo.Image = Image.FromFile(filepath);
                 else
@@ -1576,7 +1576,7 @@ namespace App_sale_manager
                 label_guestReg_Text.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
                 label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
                 label_guestMoney_Text.Text = String.Format("{0:0,0}", Convert.ToDouble(row.Cells[5].Value.ToString()));
-                string filepath = @"Image samples for testing\KHDK\" + label_guestName_Text.Text + ".jpg";
+                string filepath = @"Image samples for testing\KHDK\" + label_guestID_Text.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_dtcc_guestFace.Image = Image.FromFile(filepath);
                 else

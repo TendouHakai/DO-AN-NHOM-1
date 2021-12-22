@@ -67,7 +67,7 @@ namespace App_sale_manager
             {
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
-                Save.FileName = @"Image samples for testing\DTGD\"+textBox_TENDT_z.Text+".jpg";
+                Save.FileName = @"Image samples for testing\DTGD\"+textBox_ID_z.Text+".jpg";
                 using (System.IO.FileStream fstream = new System.IO.FileStream(Save.FileName, System.IO.FileMode.Create))
                 {
                     pictureBox_image_import.Image.Save(fstream, System.Drawing.Imaging.ImageFormat.Jpeg);

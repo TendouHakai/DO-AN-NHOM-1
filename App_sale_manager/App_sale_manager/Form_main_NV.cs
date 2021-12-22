@@ -34,7 +34,7 @@ namespace App_sale_manager
             InitializeComponent();
             sqlCon = new SqlConnection(strCon);
             DTCC_guest_dataInitialize();
-            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\\Khách hàng đăng kí\No Image.jpg");
+            pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\Khách hàng đăng kí\No Image.jpg");
             this.Size = new Size(1275, 740);
         }
         public Form_main_NV(string NVID, string Ten, string username)
@@ -604,7 +604,7 @@ namespace App_sale_manager
                 label_guestReg_Text.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
                 label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
                 label_guestMoney_Text.Text = row.Cells[5].Value.ToString();
-                string filepath = @"Image samples for testing\Khách hàng đăng kí\" + label_guestName_Text.Text + ".jpg";
+                string filepath = @"Image samples for testing\Khách hàng đăng kí\" + label_guestID_Text.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_dtcc_guestFace.Image = Image.FromFile(filepath);
                 else
