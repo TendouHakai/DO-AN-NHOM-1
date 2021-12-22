@@ -339,7 +339,7 @@ namespace App_sale_manager
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::App_sale_manager.Properties.Resources.dấu_X;
+            this.pictureBox2.BackgroundImage = global::App_sale_manager.Properties.Resources.X;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(776, 17);
             this.pictureBox2.Name = "pictureBox2";
@@ -349,7 +349,7 @@ namespace App_sale_manager
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::App_sale_manager.Properties.Resources.Dấu_tick;
+            this.pictureBox1.BackgroundImage = global::App_sale_manager.Properties.Resources.tick;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(293, 17);
             this.pictureBox1.Name = "pictureBox1";
