@@ -108,26 +108,6 @@ namespace App_sale_manager
 
         private void bt_Them_nv_infonv_Click(object sender, EventArgs e)
         {
-            /*if (sqlCon.State == ConnectionState.Closed)
-                sqlCon.Open();
-            cmd = sqlCon.CreateCommand();
-            try
-            {
-                cmd.CommandText = "set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "','" + 0 + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_MaNV_nv_infonv.Text + "','" + 1 + "','" + 0 + "','" + 0 + "')";
-                cmd.ExecuteNonQuery();
-                SaveFileDialog Save = new SaveFileDialog();
-            }
-            catch (SqlException)
-            {
-                if (dt_NgaySinh_nv_infonv.Value.Year >= dt_NgayVaoLam_nv_infonv.Value.Year - 1)
-                {
-                    MessageBox.Show("Ngày sinh nhập không đúng!");
-                }
-                else
-                    MessageBox.Show("Nhập không đúng dữ liệu hoặc MANV đã có!");
-            }
-            LoadData_nv_infonv();
-            sqlCon.Close();*/
             Form_addnv_admin frm = new Form_addnv_admin();
             frm.Thoat += thoat_form_addnv_admin;
             frm.Show();
@@ -200,10 +180,10 @@ namespace App_sale_manager
             tb_SDT_nv_infonv.Text = "";
             //dt_NgaySinh_nv_infonv.Value = DateTime.Now;
 
-            tb_NgaySinh_nv_infonv.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+            tb_NgaySinh_nv_infonv.Text = "";
             //dt_NgayVaoLam_nv_infonv.Value = DateTime.Now;
-            tb_NgayVaoLam_nv_infonv.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            tb_NgayVaoLam_nv_infonv.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+            tb_NgayVaoLam_nv_infonv.Text = "";
+            //tb_NgayVaoLam_nv_infonv.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
             tb_ChucVu_nv_infonv.Text = "";
 
             (dgv_nv_infonv.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
@@ -407,7 +387,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "DELETE FROM CT_LAMVIEC WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString() + "'";
+            cmd.CommandText = "DELETE FROM CT_LAMVIEC WHERE NGAYLAM = '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("MM/dd/yyyy") + "'";
             cmd.ExecuteNonQuery();
             cmd.CommandText = "DELETE FROM CT_LAMVIEC_HANGTUAN WHERE SUBSTRING(CAID,2,1)= '" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek) + "'";
             cmd.ExecuteNonQuery();
@@ -417,36 +397,60 @@ namespace App_sale_manager
                 {
                     if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', N'Lịch làm việc hàng tuần')";
-                        cmd.ExecuteNonQuery();
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch(Exception) { }
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', N'Lịch làm việc hàng tuần')";
-                        cmd.ExecuteNonQuery();
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception) { }
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', N'Lịch làm việc hàng tuần')";
-                        cmd.ExecuteNonQuery();
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception) { }
                     }
                 }
                 else
                 {
                     if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
-                        cmd.ExecuteNonQuery();
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception) { }
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
-                        cmd.ExecuteNonQuery();
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "',N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception) { }
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[5].Value.ToString() == "True")
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
-                        cmd.ExecuteNonQuery();
+                        try
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', '" + mon_nv_phancong_lich.SelectionRange.Start.ToString("d") + "', N'Chưa điểm danh', N'" + dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() + "', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "')";
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception) { }
                     }
                 }
             }
@@ -637,6 +641,7 @@ namespace App_sale_manager
             {
                 OpenFileDialog Open1 = new OpenFileDialog();
                 Open1.Multiselect = false;
+                Open1.Filter = " Image file (*.BMP,*.JPG,*.JPEG)|*.bmp;*.jpg;*.jpeg ";
                 if (Open1.ShowDialog() == DialogResult.OK)
                 {
                     var filepath = Open1.FileName;
@@ -714,7 +719,7 @@ namespace App_sale_manager
             i = dgv_nv_bangluong.CurrentRow.Index;
             tb_MaNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[0].Value.ToString();
             tb_TenNV_nv_bangluong.Text = dgv_nv_bangluong.Rows[i].Cells[1].Value.ToString();
-            nud_Luong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[2].Value.ToString());
+            nud_Luong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[2].Value.ToString().Replace(",", string.Empty));
             nud_Thuong_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[3].Value.ToString());
             nud_Heso_nv_bangluong.Value = Convert.ToDecimal(dgv_nv_bangluong.Rows[i].Cells[4].Value.ToString());
             if (File.Exists(@"Image samples for testing\NV\" + tb_MaNV_nv_bangluong.Text + ".jpg"))

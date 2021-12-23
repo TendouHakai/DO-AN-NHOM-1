@@ -148,6 +148,7 @@ namespace App_sale_manager
         private void button_Image_import_Click(object sender, EventArgs e)
         {
             OpenFileDialog Open1 = new OpenFileDialog();
+            Open1.Filter = " Image file (*.BMP,*.JPG,*.JPEG)|*.bmp;*.jpg;*.jpeg ";
             Open1.Multiselect = false;
             if (Open1.ShowDialog() == DialogResult.OK)
             {

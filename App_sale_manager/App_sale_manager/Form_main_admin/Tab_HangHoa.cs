@@ -22,7 +22,7 @@ namespace App_sale_manager
                 sqlCon.Open();
             }
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00',''),REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00',''),SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
+            sqlCmd.CommandText = "select SANPHAM.SPID,SANPHAM.TENSP,LOAISP.TENLOAI,SANPHAM.NUOCSX,SANPHAM.HANGSX,REPLACE(CONVERT(varchar(20),SANPHAM.GIABAN, 1), '.00','') as GIABAN,REPLACE(CONVERT(varchar(20),SANPHAM.GIANHAP, 1), '.00','') AS GIANHAP,SANPHAM.DVT,SANPHAM.SOLUONG,SANPHAM.SLTT,SANPHAM.MOTA from SANPHAM,LOAISP where SANPHAM.LOAIID = LOAISP.LOAIID ";
             sqlCmd.Connection = sqlCon;
             adapter = new SqlDataAdapter(sqlCmd);
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);

@@ -106,6 +106,7 @@ namespace App_sale_manager
         {
             OpenFileDialog Open1 = new OpenFileDialog();
             Open1.Multiselect = false;
+            Open1.Filter = " Image file (*.BMP,*.JPG,*.JPEG)|*.bmp;*.jpg;*.jpeg ";
             if (Open1.ShowDialog() == DialogResult.OK)
             {
                 var filepath = Open1.FileName;

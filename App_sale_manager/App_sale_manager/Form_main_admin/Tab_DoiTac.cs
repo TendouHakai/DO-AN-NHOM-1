@@ -73,6 +73,8 @@ namespace App_sale_manager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (sqlCon.State == ConnectionState.Closed)
+                sqlCon.Open();
             DTCC_modifier A = new DTCC_modifier();
             A.textBox_ID_z.Text = label_IDtext.Text;
             A.dateTimePicker_NGDT_z.Text = label_NGDTtext.Text;
@@ -85,6 +87,7 @@ namespace App_sale_manager
                 stream.Dispose();
             }
             A.RefreshData += DTCC_DataRefresh;
+            sqlCon.Close();
             A.Show();
         }
 
@@ -94,11 +97,12 @@ namespace App_sale_manager
             {
                 DataGridViewRow row = this.dataGridView_DTCC.Rows[e.RowIndex];
                 DateTime Date = new DateTime();
+                
                 label_IDtext.Text = row.Cells[0].Value.ToString();
                 label_TENDTtext.Text = row.Cells[1].Value.ToString();
                 label_SDTtext.Text = row.Cells[2].Value.ToString();
                 Date = Convert.ToDateTime(row.Cells[3].Value.ToString());
-                label_NGDTtext.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
+                label_NGDTtext.Text = Date.ToString();
                 label_DIACHItext.Text = row.Cells[4].Value.ToString();
                 string filepath = @"Image samples for testing\DTGD\" + label_IDtext.Text + ".jpg";
                 if (File.Exists(filepath))
@@ -224,7 +228,7 @@ namespace App_sale_manager
                 label_guestName_Text.Text = row.Cells[1].Value.ToString();
                 label_guestSDT_Text.Text = row.Cells[3].Value.ToString();
                 Date = Convert.ToDateTime(row.Cells[4].Value.ToString());
-                label_guestReg_Text.Text = Date.ToString("MM/dd/yyyy HH:mm:ss");
+                label_guestReg_Text.Text = Date.ToString();
                 label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
                 label_guestMoney_Text.Text = String.Format("{0:0,0}", Convert.ToDouble(row.Cells[5].Value.ToString()));
                 string filepath = @"Image samples for testing\KHDK\" + label_guestID_Text.Text + ".jpg";

@@ -116,7 +116,7 @@ namespace App_sale_manager
                 else
                 {
                     sqlCon.Open();
-                    string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text + ",GIABAN=" + txtGiaBan.Text
+                    string strquery = "update SANPHAM set TENSP=N'" + txtTenSP.Text + "',HANGSX='" + txtHang.Text + "',NUOCSX=N'" + txtNuocSX.Text + "',GIANHAP=" + txtGiaNhap.Text.Replace(",", string.Empty) + ",GIABAN=" + txtGiaBan.Text.Replace(",", string.Empty)
                         + ",DVT=N'" + txtDVT.Text + "',SOLUONG=" + 0 + ",SLTT=" + txtSLTT.Text + ",MOTA=N'" + txtMoTa.Text + "'WHERE SPID='" + txtSPID.Text + "'";
                     sqlCmd = new SqlCommand(strquery, sqlCon);
                     sqlCmd.ExecuteNonQuery();
@@ -148,8 +148,8 @@ namespace App_sale_manager
             adapter2.Fill(tbHH);
             LoaiID = tbHH.Rows[0]["LOAIID"].ToString();
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "File .jpg (*.jpg)|*.jpg";
             DialogResult result = open.ShowDialog();
+            open.Filter = " Image file (*.BMP,*.JPG,*.JPEG)|*.bmp;*.jpg;*.jpeg ";
             if (result == DialogResult.OK)
             {
                 ptrbHinhAnh.Image = Image.FromFile(open.FileName);

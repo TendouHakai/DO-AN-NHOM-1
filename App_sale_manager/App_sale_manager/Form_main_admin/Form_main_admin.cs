@@ -35,6 +35,7 @@ namespace App_sale_manager
             pictureBox_dtcc_guestFace.Image = Image.FromFile(@"Image samples for testing\KHDK\No Image.jpg");
             button_refresh.BackgroundImage = Image.FromFile(@"Image samples for testing\DTGD\refresh.jpg");
             this.Size = new Size(1275, 740);
+            
         }
 
         public Form_main_admin(string manv, string tennv, string username)

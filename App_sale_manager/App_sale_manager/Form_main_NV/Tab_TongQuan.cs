@@ -54,7 +54,7 @@ namespace App_sale_manager
                 txt_tongquan_slhdbh.Text = table.Rows[1]["SL"].ToString();
                 if (table.Rows[1]["TRIGIA"].ToString() == "")
                     txt_tongquan_trigiabh.Text = "0";
-                else txt_tongquan_trigiabh.Text = String.Format("{0:0,0}", table.Rows[0]["TRIGIA"]);
+                else txt_tongquan_trigiabh.Text = String.Format("{0:0,0}", table.Rows[1]["TRIGIA"]);
             }
             catch (Exception)
             {
@@ -66,7 +66,7 @@ namespace App_sale_manager
                 txt_tongquan_slhddh.Text = table.Rows[0]["SL"].ToString();
                 if (table.Rows[0]["TRIGIA"].ToString() == "")
                     txt_tongquan_trigiadh.Text = "0";
-                else txt_tongquan_trigiadh.Text = string.Format("{0:0,0}", table.Rows[1]["TRIGIA"]);
+                else txt_tongquan_trigiadh.Text = string.Format("{0:0,0}", table.Rows[0]["TRIGIA"]);
             }
             catch
             {
@@ -90,12 +90,11 @@ namespace App_sale_manager
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Today;
-            cmd.CommandText = "SELECT NGHD , SUM(TRIGIA) as TRIGIA"
+            cmd.CommandText = "SELECT DAY(NGHD) as NGAY, SUM(TRIGIA) as TRIGIA"
                                 + " FROM HDBH"
                                 + " WHERE NVID = '" + NVID + "' AND(LOAIHD = N'Đơn trực tiếp' OR(LOAIHD = N'Đơn đặt hàng' AND TRANGTHAI = N'Hoàn thành')) AND MONTH(NGHD)=" + date.Month.ToString()
-                                + " GROUP BY NGHD"
-                                + " ORDER BY NGHD ASC";
-
+                                + " GROUP BY DAY(NGHD)"
+                                + " ORDER BY DAY(NGHD) ASC";
             adapter.SelectCommand = cmd;
             DataTable table = new DataTable();
             table.Clear();
@@ -106,7 +105,7 @@ namespace App_sale_manager
             chart_tongquan.Series["DoanhSo"].Points.Clear();
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                chart_tongquan.Series["DoanhSo"].Points.AddXY(table.Rows[i]["NGHD"], Convert.ToDouble(table.Rows[i]["TRIGIA"]) / 1000000);
+                chart_tongquan.Series["DoanhSo"].Points.AddXY(table.Rows[i]["NGAY"] +"/"+date.ToString("MM/yyyy"), Convert.ToDouble(table.Rows[i]["TRIGIA"]) / 1000000);
             }
             cmd.CommandText = "SELECT SUM(TRIGIA)"
                                 + " FROM HDBH"

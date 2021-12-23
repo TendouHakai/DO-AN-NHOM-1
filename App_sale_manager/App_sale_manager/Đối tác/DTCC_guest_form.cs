@@ -50,8 +50,6 @@ namespace App_sale_manager
         public DTCC_guest_form()
         {
             InitializeComponent();
-            dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
-            dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
             textBox_budget_z.Text = "0";
             pictureBox_image_import.Image = Image.FromFile(@"Image samples for testing\KHDK\No Image.jpg");
             this.FormBorderStyle = FormBorderStyle.FixedSingle;

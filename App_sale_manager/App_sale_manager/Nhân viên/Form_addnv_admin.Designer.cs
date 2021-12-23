@@ -308,6 +308,7 @@
             this.Controls.Add(this.tb_ChucVu_nv_infonv);
             this.Controls.Add(this.dt_NgayVaoLam_nv_infonv);
             this.Name = "Form_addnv_admin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm nhân viên";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_addnv_admin_FormClosed);

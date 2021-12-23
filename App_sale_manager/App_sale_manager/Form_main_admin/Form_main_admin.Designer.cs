@@ -240,7 +240,6 @@ namespace App_sale_manager
             this.dt_NgaySinh_nv_infonv = new System.Windows.Forms.DateTimePicker();
             this.label_tennv_nv_infonv = new System.Windows.Forms.Label();
             this.button_Image_import = new System.Windows.Forms.Button();
-            this.bt_Khoitao_nv_infonv = new System.Windows.Forms.Button();
             this.label_sdt_nv_infonv = new System.Windows.Forms.Label();
             this.label_ngaysinh_nv_infonv = new System.Windows.Forms.Label();
             this.label_chucvu_nv_infonv = new System.Windows.Forms.Label();
@@ -255,6 +254,7 @@ namespace App_sale_manager
             this.label_search_nv_infonv = new System.Windows.Forms.Label();
             this.tb_search_nv_infonv = new System.Windows.Forms.TextBox();
             this.bt_Tracuu_nv_infonv = new System.Windows.Forms.Button();
+            this.bt_Khoitao_nv_infonv = new System.Windows.Forms.Button();
             this.btnThongTinNV_Tim = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
             this.dgv_nv_infonv = new System.Windows.Forms.DataGridView();
@@ -2641,7 +2641,6 @@ namespace App_sale_manager
             this.panel21.Controls.Add(this.dt_NgaySinh_nv_infonv);
             this.panel21.Controls.Add(this.label_tennv_nv_infonv);
             this.panel21.Controls.Add(this.button_Image_import);
-            this.panel21.Controls.Add(this.bt_Khoitao_nv_infonv);
             this.panel21.Controls.Add(this.label_sdt_nv_infonv);
             this.panel21.Controls.Add(this.label_ngaysinh_nv_infonv);
             this.panel21.Controls.Add(this.label_chucvu_nv_infonv);
@@ -2741,22 +2740,6 @@ namespace App_sale_manager
             this.button_Image_import.Text = "Chọn ảnh";
             this.button_Image_import.UseVisualStyleBackColor = false;
             this.button_Image_import.Click += new System.EventHandler(this.button_Image_import_Click);
-            // 
-            // bt_Khoitao_nv_infonv
-            // 
-            this.bt_Khoitao_nv_infonv.BackColor = System.Drawing.Color.White;
-            this.bt_Khoitao_nv_infonv.BackgroundImage = global::App_sale_manager.Properties.Resources.refresh;
-            this.bt_Khoitao_nv_infonv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bt_Khoitao_nv_infonv.FlatAppearance.BorderSize = 0;
-            this.bt_Khoitao_nv_infonv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Khoitao_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Khoitao_nv_infonv.Location = new System.Drawing.Point(404, 404);
-            this.bt_Khoitao_nv_infonv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bt_Khoitao_nv_infonv.Name = "bt_Khoitao_nv_infonv";
-            this.bt_Khoitao_nv_infonv.Size = new System.Drawing.Size(29, 26);
-            this.bt_Khoitao_nv_infonv.TabIndex = 8;
-            this.bt_Khoitao_nv_infonv.UseVisualStyleBackColor = false;
-            this.bt_Khoitao_nv_infonv.Click += new System.EventHandler(this.bt_nv_infonv_Khoitao_Click);
             // 
             // label_sdt_nv_infonv
             // 
@@ -2863,6 +2846,7 @@ namespace App_sale_manager
             this.panel20.Controls.Add(this.label_search_nv_infonv);
             this.panel20.Controls.Add(this.tb_search_nv_infonv);
             this.panel20.Controls.Add(this.bt_Tracuu_nv_infonv);
+            this.panel20.Controls.Add(this.bt_Khoitao_nv_infonv);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel20.Location = new System.Drawing.Point(0, 119);
             this.panel20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2920,6 +2904,22 @@ namespace App_sale_manager
             this.bt_Tracuu_nv_infonv.Text = "Tìm";
             this.bt_Tracuu_nv_infonv.UseVisualStyleBackColor = false;
             this.bt_Tracuu_nv_infonv.Click += new System.EventHandler(this.bt_nv_infonv_Tracuu_Click);
+            // 
+            // bt_Khoitao_nv_infonv
+            // 
+            this.bt_Khoitao_nv_infonv.BackColor = System.Drawing.Color.White;
+            this.bt_Khoitao_nv_infonv.BackgroundImage = global::App_sale_manager.Properties.Resources.refresh;
+            this.bt_Khoitao_nv_infonv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_Khoitao_nv_infonv.FlatAppearance.BorderSize = 0;
+            this.bt_Khoitao_nv_infonv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Khoitao_nv_infonv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Khoitao_nv_infonv.Location = new System.Drawing.Point(334, 60);
+            this.bt_Khoitao_nv_infonv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bt_Khoitao_nv_infonv.Name = "bt_Khoitao_nv_infonv";
+            this.bt_Khoitao_nv_infonv.Size = new System.Drawing.Size(29, 26);
+            this.bt_Khoitao_nv_infonv.TabIndex = 8;
+            this.bt_Khoitao_nv_infonv.UseVisualStyleBackColor = false;
+            this.bt_Khoitao_nv_infonv.Click += new System.EventHandler(this.bt_nv_infonv_Khoitao_Click);
             // 
             // btnThongTinNV_Tim
             // 
@@ -3650,6 +3650,7 @@ namespace App_sale_manager
             // 
             // dgv_nv_bangluong
             // 
+            this.dgv_nv_bangluong.AllowUserToAddRows = false;
             dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
             this.dgv_nv_bangluong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgv_nv_bangluong.BackgroundColor = System.Drawing.Color.White;

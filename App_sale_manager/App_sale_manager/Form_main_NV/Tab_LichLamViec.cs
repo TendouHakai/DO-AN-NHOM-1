@@ -92,7 +92,7 @@ namespace App_sale_manager
                     adapter.Fill(table);
                     if (table.Rows.Count == 0)
                         MessageBox.Show("Bạn không có ca làm ngày hôm nay");
-                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + CAID + "', '" + DateTime.Today.ToString("d") + "', N'Đã điểm danh', N'Lặp lại', '" + table.Rows[0]["TIEUDE"].ToString() + "')";
+                    else cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + CAID + "', '" + DateTime.Today.ToString("d") + "', N'Đã điểm danh', N'Lặp lại', '" + table.Rows[0]["TIEUDE"].ToString() + "')";
                     cmd.ExecuteNonQuery();
                 }
                 else
@@ -178,23 +178,28 @@ namespace App_sale_manager
             reader.Close();
             for (int i = 0; i < caid.Count; i++)
             {
+                string Tieude = caid[i].TIEUDE;
+                if(Tieude=="")
+                {
+                    Tieude = "Không có tiêu đề";
+                }    
                 if (caid[i].CAID.Substring(1, 1) == "0")
                 {
                     switch (caid[i].CAID.Substring(2, 1))
                     {
                         case "S":
                             dgv_lich_tuan.Rows[0].Cells[8].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[0].Cells[8].Value = caid[i].TIEUDE;
+                            dgv_lich_tuan.Rows[0].Cells[8].Value = Tieude;
                             break;
 
                         case "C":
                             dgv_lich_tuan.Rows[2].Cells[8].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[2].Cells[8].Value = caid[i].TIEUDE;
+                            dgv_lich_tuan.Rows[2].Cells[8].Value = Tieude;
                             break;
 
                         case "T":
                             dgv_lich_tuan.Rows[3].Cells[8].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[3].Cells[8].Value = caid[i].TIEUDE;
+                            dgv_lich_tuan.Rows[3].Cells[8].Value = Tieude;
                             break;
                     }
                 }
@@ -205,17 +210,17 @@ namespace App_sale_manager
                     {
                         case "S":
                             dgv_lich_tuan.Rows[0].Cells[temp].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[0].Cells[temp].Value = caid[i].TIEUDE;
+                            dgv_lich_tuan.Rows[0].Cells[temp].Value = Tieude;
                             break;
 
                         case "C":
                             dgv_lich_tuan.Rows[2].Cells[temp].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[2].Cells[temp].Value = caid[i].TIEUDE;
+                            dgv_lich_tuan.Rows[2].Cells[temp].Value = Tieude;
                             break;
 
                         case "T":
                             dgv_lich_tuan.Rows[3].Cells[temp].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[3].Cells[temp].Value = caid[i].TIEUDE;
+                            dgv_lich_tuan.Rows[3].Cells[temp].Value = Tieude;
                             break;
                     }
                 }
@@ -334,8 +339,12 @@ namespace App_sale_manager
                 adapter.Fill(table);
                 for (int j = 0; j < table.Rows.Count; j++)
                 {
-                    cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception) { }
                 }
             }
             cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Đã điểm danh' AND MONTH(NGAYLAM) =" + DateTime.Today.Month;

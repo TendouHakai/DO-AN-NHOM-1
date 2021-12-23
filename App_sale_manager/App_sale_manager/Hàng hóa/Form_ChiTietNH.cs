@@ -21,7 +21,7 @@ namespace App_sale_manager
             sqlCon.Open();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select HDNH.SOHD_NH,NGNHAP,HDNH.DTID,DTCC.TENDT,HDNH.NVID,NHANVIEN.HOTEN,TRIGIA from HDNH,DTCC,NHANVIEN where DTCC.DTID=HDNH.DTID and NHANVIEN.NVID=HDNH.NVID and HDNH.SOHD_NH='" + mahd + "'";
+            sqlCmd.CommandText = "select HDNH.SOHD_NH,NGNHAP,HDNH.DTID,DTCC.TENDT,HDNH.NVID,NHANVIEN.HOTEN,REPLACE(CONVERT(varchar(20), TRIGIA, 1), '.00', '') as TRIGIA  from HDNH,DTCC,NHANVIEN where DTCC.DTID=HDNH.DTID and NHANVIEN.NVID=HDNH.NVID and HDNH.SOHD_NH='" + mahd + "'";
             sqlCmd.Connection = sqlCon;
             var reader = sqlCmd.ExecuteReader();
             if (reader.Read())
@@ -32,7 +32,7 @@ namespace App_sale_manager
                 txtTenDT.Text = reader.GetString(3);
                 txtMaNV.Text = reader.GetString(4);
                 txtNVNhap.Text = reader.GetString(5);
-                txtGiaTriDN.Text = reader.GetSqlMoney(6).ToString();
+                txtGiaTriDN.Text = reader.GetString(6);
                 reader.Close();
             }
             sqlCon.Close();
@@ -84,7 +84,7 @@ namespace App_sale_manager
                 e.Graphics.DrawString("Đơn Giá: " + dgvChiTietNH.Rows[i].Cells[3].Value.ToString(), drawFont, drawBrush, x, y = y + 25);
                 e.Graphics.DrawString("Số Lượng: " + dgvChiTietNH.Rows[i].Cells[2].Value.ToString(), drawFont, drawBrush, x, y = y + 25);
             }
-            e.Graphics.DrawString("Tổng giá trị: " + txtGiaTriDN.Text, drawFont, drawBrush, 300, y = y + 25);
+            e.Graphics.DrawString("Tổng giá trị: " + String.Format("{0:0,0 VND}", Convert.ToDouble(txtGiaTriDN.Text)), drawFont, drawBrush, 300, y = y + 25);
         }
     }
 }

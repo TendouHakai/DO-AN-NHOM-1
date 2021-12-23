@@ -121,7 +121,7 @@ namespace App_sale_manager
             adapter.Fill(table);
             txtSoLuong.Text = table.Rows[0][0].ToString();
             txtMaSP.Text = table.Rows[0][1].ToString();
-            txtGiaNhap.Text = string.Format("{0:0,0}", Convert.ToDouble(table.Rows[0][2].ToString().Replace(",", string.Empty)));
+            txtGiaNhap.Text = string.Format("{0:0,0}", Convert.ToDouble(table.Rows[0][2].ToString()));
             sqlCon.Close();
         }
 
@@ -137,7 +137,7 @@ namespace App_sale_manager
                 txtMaSP.Text = reader.GetString(2);
                 txtSoLuong.Text = reader.GetInt32(3).ToString();
                 string x = reader.GetSqlMoney(4).ToString();
-                txtGiaNhap.Text = string.Format("{0:0,0}", Convert.ToDouble(x.Replace(",", string.Empty)));
+                txtGiaNhap.Text = string.Format("{0:0,0}", Convert.ToDouble(x));
                 txtSLNhap.Text = dgvChiTietNH.CurrentRow.Cells[1].Value.ToString();
             }
 

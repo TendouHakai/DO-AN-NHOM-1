@@ -50,8 +50,6 @@ namespace App_sale_manager
         public DTCC_form()
         {
             InitializeComponent();
-            dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
-            dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
             pictureBox_image_import.Image = Image.FromFile(@"Image samples for testing\DTGD\No Image.jpg");
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -64,7 +62,7 @@ namespace App_sale_manager
 
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
-            if (exedata("insert into DTCC values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', '" + textBox_SDT_z.Text + "', '" + dateTimePicker_NGDT_z.Value + "', N'" + textBox_DIACHI_z.Text + "')") == true)
+            if (exedata("insert into DTCC values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', '" + textBox_SDT_z.Text + "', '" + dateTimePicker_NGDT_z.Value.ToString("MM/dd/yyyy") + "', N'" + textBox_DIACHI_z.Text + "')") == true)
             {
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
