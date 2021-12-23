@@ -77,5 +77,15 @@ namespace App_sale_manager
             if (canExit == true)
                 Application.Exit();
         }
+
+        private void CLB_GD_LoaiDon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bnt_Timkiem_Click(sender, e);
+        }
+
+        private void CLB_GD_TrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bnt_Timkiem_Click(sender, e);
+        }
     }
 }

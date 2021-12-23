@@ -2,6 +2,8 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace App_sale_manager
@@ -19,6 +21,12 @@ namespace App_sale_manager
             this.MaximizeBox = false;
             this.AcceptButton = btn_dangnhap;
             textBox_usr.Focus();
+            if(Properties.Settings1.Default.username != "")
+            {
+                textBox_passwd.Text = Properties.Settings1.Default.password.ToString();
+                textBox_usr.Text = Properties.Settings1.Default.username.ToString();
+                textBox_passwd.PasswordChar = '*';
+            }
         }
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
@@ -46,9 +54,32 @@ namespace App_sale_manager
                 passwd = reader.GetString(0);
                 CV = reader.GetString(3);
             }
-            // kiểm tra passwd
-            if (passwd == textBox_passwd.Text)
+
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(textBox_passwd.Text);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
             {
+                sb.Append(hash[i].ToString("X2"));
+            }
+
+            // kiểm tra passwd
+            if (passwd == sb.ToString())
+            {
+
+                if (chkNhopass.Checked == true)
+                {
+                    Properties.Settings1.Default.username = textBox_usr.Text;
+                    Properties.Settings1.Default.password = textBox_passwd.Text;
+                    Properties.Settings1.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings1.Default.username = "";
+                    Properties.Settings1.Default.password = "";
+                    Properties.Settings1.Default.Save();
+                }
                 if (CV == "Chủ tiệm" || CV == "Quản lý")
                 {
                     Form_main_admin frm = new Form_main_admin(reader.GetString(1), reader.GetString(2), reader.GetString(4));

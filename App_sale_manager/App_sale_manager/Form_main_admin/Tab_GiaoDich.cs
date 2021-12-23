@@ -97,6 +97,8 @@ namespace App_sale_manager
             GridView_Data_GiaoDich.Columns[6].HeaderText = "Trạng thái";
         }
 
+
+
         private void GridView_Data_GiaoDich_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (GridView_Data_GiaoDich.CurrentRow.Index == GridView_Data_GiaoDich.NewRowIndex)

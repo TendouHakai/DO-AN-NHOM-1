@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace App_sale_manager
@@ -48,9 +50,32 @@ namespace App_sale_manager
                         matkhau = reader.GetString(0);
                     }
                     reader.Close();
-                    if (tb_matkhaucu_nv.Text == matkhau)
+
+
+                    MD5 mh = MD5.Create();
+                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(tb_matkhaucu_nv.Text);
+                    byte[] hash = mh.ComputeHash(inputBytes);
+                    StringBuilder sb = new StringBuilder();
+
+                    for (int i = 0; i < hash.Length; i++)
                     {
-                        cmd.CommandText = "update NHANVIEN set PASSWD='" + tb_matkhaumoi_nv.Text + "' WHERE NVID='" + this.NVID.ToString() + "'";
+                        sb.Append(hash[i].ToString("X2"));
+                    }
+
+
+                    if (sb.ToString() == matkhau)
+                    {
+
+                        inputBytes = System.Text.Encoding.ASCII.GetBytes(tb_matkhaucu_nv.Text);
+                        hash = mh.ComputeHash(inputBytes);
+                        sb = new StringBuilder();
+
+                        for (int i = 0; i < hash.Length; i++)
+                        {
+                            sb.Append(hash[i].ToString("X2"));
+                        }
+
+                        cmd.CommandText = "update NHANVIEN set PASSWD='" + sb.ToString() + "' WHERE NVID='" + this.NVID.ToString() + "'";
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Thay đổi mật khẩu thành công");
                     }

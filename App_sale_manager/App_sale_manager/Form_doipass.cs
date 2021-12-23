@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace App_sale_manager
@@ -45,16 +47,35 @@ namespace App_sale_manager
             adapter.Fill(table);
             DataTableReader reader = new DataTableReader(table);
             string passwd = "";
+
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(textBox_pass_old.Text);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+
             if (reader.Read())
             {
                 passwd = reader.GetString(0);
             }
-            if (passwd != textBox_pass_old.Text)
+            if (passwd != sb.ToString())
             {
                 MessageBox.Show("user hay mật khẩu nhập không đúng.");
                 return;
             }
-            if (textBox_pass_new.Text == passwd)
+
+            inputBytes = System.Text.Encoding.ASCII.GetBytes(textBox_pass_new.Text);
+            hash = mh.ComputeHash(inputBytes);
+            sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+
+            if (sb.ToString() == passwd)
             {
                 MessageBox.Show("mật khẩu mới giống mật khẩu cũ.");
                 return;
@@ -65,10 +86,11 @@ namespace App_sale_manager
                 return;
             }
             cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "update NHANVIEN set PASSWD = '" + textBox_pass_new.Text + "' where USERNAME = '" + textBox_usr.Text + "'";
+            cmd.CommandText = "update NHANVIEN set PASSWD = '" + sb.ToString() + "' where USERNAME = '" + textBox_usr.Text + "'";
             cmd.ExecuteNonQuery();
             sqlCon.Close();
-            Thoat(this, new EventArgs());
+            MessageBox.Show(" Đổi mật khẩu thành công ");
+            this.Close();
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)

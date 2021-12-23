@@ -54,6 +54,7 @@ namespace App_sale_manager
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            dateTimePicker_endDate.Value = dateTimePicker_startDate.Value.AddDays(1);
         }
 
         public event EventHandler dataRefresh;
@@ -184,6 +185,13 @@ namespace App_sale_manager
             string commandline;
             if (string.IsNullOrEmpty(textBox_saleName.Text))
                 textBox_saleName.Text = "(Chưa đặt tên)";
+
+            if (comboBox_Condition.Text == "- Chưa chọn -")
+            {
+                MessageBox.Show("Chưa chọn mặt hàng giảm giá");
+                return;
+            }
+
             if (Check_if_existed(textBox_saleName.Text))
             {
                 int count = 1;

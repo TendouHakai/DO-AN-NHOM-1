@@ -41,7 +41,7 @@ namespace App_sale_manager
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
-            cmd.CommandText = "Select * from KHACHHANG";
+            cmd.CommandText = " Select KHID,HOTEN,DIACHI,SDT,NGDK, REPLACE(CONVERT(varchar(20), DOANHSO, 1), '.00',''), LOAIKH from KHACHHANG";
             Adapter.SelectCommand = cmd;
             Table.Clear();
             Adapter.Fill(Table);
@@ -336,7 +336,7 @@ namespace App_sale_manager
         public void Search_guest(string SearchOption)
         {
             string str;
-            str = "select * from KHACHHANG where " + SearchOption + " like '%" + textBox_guest_search.Text + "%'";
+            str = " Select KHID,HOTEN,DIACHI,SDT,NGDK, REPLACE(CONVERT(varchar(20), DOANHSO, 1), '.00',''), LOAIKH from KHACHHANG where " + SearchOption + " like '%" + textBox_guest_search.Text + "%'";
             SqlCommand cmd;
             SqlDataAdapter Adapter = new SqlDataAdapter();
             DataTable Table = new DataTable();
@@ -348,6 +348,15 @@ namespace App_sale_manager
             Table.Clear();
             Adapter.Fill(Table);
             dataGridView_dtcc_guest.DataSource = Table;
+            dataGridView_dtcc_guest.Columns[0].HeaderText = "Mã khách hàng";
+            dataGridView_dtcc_guest.Columns[0].Width = 50;
+            dataGridView_dtcc_guest.Columns[1].HeaderText = "Họ tên";
+            dataGridView_dtcc_guest.Columns[1].Width = 150;
+            dataGridView_dtcc_guest.Columns[2].HeaderText = "Địa chỉ";
+            dataGridView_dtcc_guest.Columns[3].HeaderText = "Số điện thoại";
+            dataGridView_dtcc_guest.Columns[4].HeaderText = "Ngày đăng kí";
+            dataGridView_dtcc_guest.Columns[5].HeaderText = "Doanh số";
+            dataGridView_dtcc_guest.Columns[6].HeaderText = "Loại khách hàng";
             button_guest_mod.Enabled = false;
             button_guest_delete.Enabled = false;
             sqlCon.Close();
