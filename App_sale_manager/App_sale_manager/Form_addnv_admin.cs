@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App_sale_manager
@@ -16,21 +11,22 @@ namespace App_sale_manager
     public partial class Form_addnv_admin : Form
     {
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
+        private SqlConnection con = new SqlConnection(strCon);
+
         public Form_addnv_admin()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
         }
+
         public event EventHandler Thoat;
-        
+
         private void Form_addnv_admin_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
             {
                 File.Delete(@"Image samples for testing\NV\Anonymous.jpg");
-
             }
             Thoat(this, new EventArgs());
         }
@@ -74,7 +70,6 @@ namespace App_sale_manager
             Open1.Multiselect = false;
             if (Open1.ShowDialog() == DialogResult.OK)
             {
-
                 var filepath = Open1.FileName;
                 Bitmap bmp = new Bitmap(filepath);
                 Form_selectphoto_nv frm = new Form_selectphoto_nv(filepath);
@@ -92,10 +87,9 @@ namespace App_sale_manager
                 }
             }
         }
-        
+
         private void Thoat_Form_selectphoto_nv(object sender, EventArgs e)
         {
-
             this.Show();
             if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
             {
@@ -117,6 +111,7 @@ namespace App_sale_manager
                 pictureBox_image_import_nv.Image = image1;
             }
         }
+
         public Boolean exedata(string cmd)
         {
             if (con.State == ConnectionState.Closed)
@@ -135,6 +130,7 @@ namespace App_sale_manager
             con.Close();
             return check;
         }
+
         private void bt_dongy_Click(object sender, EventArgs e)
         {
             if (exedata("set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "','" + 0 + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_MaNV_nv_infonv.Text + "','" + 1 + "','" + 0 + "','" + 0 + "')") == true)
@@ -143,7 +139,6 @@ namespace App_sale_manager
                 if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
                 {
                     File.Move(@"Image samples for testing\NV\Anonymous.jpg", @"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text + ".jpg");
-
                 }
                 this.Close();
             }
@@ -175,7 +170,6 @@ namespace App_sale_manager
                 if (File.Exists(@"Image samples for testing\NV\Anonnymous.jpg"))
                 {
                     File.Move(@"Image samples for testing\NV\Anonnymous.jpg", @"Image samples for testing\NV\" + tb_MaNV_nv_infonv.Text+ ".jpg");
-                    
                 }
                 this.Close();
               }*/

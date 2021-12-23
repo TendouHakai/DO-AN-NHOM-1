@@ -1,29 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_UpdateNV_NV : System.Windows.Forms.Form
     {
-        string NVID;
+        private string NVID;
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
-        SqlCommand cmd;
-        SqlConnection sqlCon = null;
-        DateTime ngvl = new DateTime();
+        private SqlConnection con = new SqlConnection(strCon);
+        private SqlCommand cmd;
+        private SqlConnection sqlCon = null;
+        private DateTime ngvl = new DateTime();
+
         public string nvid
         {
             set { NVID = value; }
         }
+
         public Form_UpdateNV_NV()
         {
             InitializeComponent();
@@ -31,6 +28,7 @@ namespace App_sale_manager
             this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
         }
+
         public Form_UpdateNV_NV(string NVID)
         {
             InitializeComponent();
@@ -39,8 +37,10 @@ namespace App_sale_manager
             sqlCon = new SqlConnection(strCon);
             this.NVID = NVID;
         }
+
         public event EventHandler Thoat;
-        void LoadData_nv_infonv()
+
+        private void LoadData_nv_infonv()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
@@ -59,6 +59,7 @@ namespace App_sale_manager
             }
             sqlCon.Close();
         }
+
         private void Form_UpdateNV_NV_FormClosed(object sender, FormClosedEventArgs e)
         {
             Thoat(this, new EventArgs());

@@ -73,10 +73,9 @@ namespace App_sale_manager
             // 
             this.lblLoaiID.AutoSize = true;
             this.lblLoaiID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoaiID.Location = new System.Drawing.Point(245, 163);
-            this.lblLoaiID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLoaiID.Location = new System.Drawing.Point(327, 201);
             this.lblLoaiID.Name = "lblLoaiID";
-            this.lblLoaiID.Size = new System.Drawing.Size(109, 16);
+            this.lblLoaiID.Size = new System.Drawing.Size(132, 20);
             this.lblLoaiID.TabIndex = 48;
             this.lblLoaiID.Text = "Loại sản phẩm";
             // 
@@ -84,10 +83,9 @@ namespace App_sale_manager
             // 
             this.lblSLToiThieu.AutoSize = true;
             this.lblSLToiThieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSLToiThieu.Location = new System.Drawing.Point(547, 170);
-            this.lblSLToiThieu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSLToiThieu.Location = new System.Drawing.Point(729, 209);
             this.lblSLToiThieu.Name = "lblSLToiThieu";
-            this.lblSLToiThieu.Size = new System.Drawing.Size(127, 16);
+            this.lblSLToiThieu.Size = new System.Drawing.Size(156, 20);
             this.lblSLToiThieu.TabIndex = 47;
             this.lblSLToiThieu.Text = "Số lượng tối thiểu";
             // 
@@ -95,10 +93,9 @@ namespace App_sale_manager
             // 
             this.lblGiaBan.AutoSize = true;
             this.lblGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGiaBan.Location = new System.Drawing.Point(547, 37);
-            this.lblGiaBan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGiaBan.Location = new System.Drawing.Point(729, 46);
             this.lblGiaBan.Name = "lblGiaBan";
-            this.lblGiaBan.Size = new System.Drawing.Size(62, 16);
+            this.lblGiaBan.Size = new System.Drawing.Size(74, 20);
             this.lblGiaBan.TabIndex = 46;
             this.lblGiaBan.Text = "Giá bán";
             // 
@@ -106,10 +103,9 @@ namespace App_sale_manager
             // 
             this.lblDVT.AutoSize = true;
             this.lblDVT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDVT.Location = new System.Drawing.Point(246, 305);
-            this.lblDVT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDVT.Location = new System.Drawing.Point(328, 375);
             this.lblDVT.Name = "lblDVT";
-            this.lblDVT.Size = new System.Drawing.Size(79, 16);
+            this.lblDVT.Size = new System.Drawing.Size(99, 20);
             this.lblDVT.TabIndex = 45;
             this.lblDVT.Text = "Đơn vị tính";
             // 
@@ -117,10 +113,9 @@ namespace App_sale_manager
             // 
             this.lblGiaNhap.AutoSize = true;
             this.lblGiaNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGiaNhap.Location = new System.Drawing.Point(547, 79);
-            this.lblGiaNhap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGiaNhap.Location = new System.Drawing.Point(729, 97);
             this.lblGiaNhap.Name = "lblGiaNhap";
-            this.lblGiaNhap.Size = new System.Drawing.Size(70, 16);
+            this.lblGiaNhap.Size = new System.Drawing.Size(84, 20);
             this.lblGiaNhap.TabIndex = 44;
             this.lblGiaNhap.Text = "Giá nhập";
             // 
@@ -128,10 +123,9 @@ namespace App_sale_manager
             // 
             this.lblSoLuong.AutoSize = true;
             this.lblSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoLuong.Location = new System.Drawing.Point(547, 126);
-            this.lblSoLuong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLuong.Location = new System.Drawing.Point(729, 155);
             this.lblSoLuong.Name = "lblSoLuong";
-            this.lblSoLuong.Size = new System.Drawing.Size(69, 16);
+            this.lblSoLuong.Size = new System.Drawing.Size(82, 20);
             this.lblSoLuong.TabIndex = 43;
             this.lblSoLuong.Text = "Số lượng";
             // 
@@ -139,10 +133,9 @@ namespace App_sale_manager
             // 
             this.lblNuocSX.AutoSize = true;
             this.lblNuocSX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNuocSX.Location = new System.Drawing.Point(245, 258);
-            this.lblNuocSX.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNuocSX.Location = new System.Drawing.Point(327, 318);
             this.lblNuocSX.Name = "lblNuocSX";
-            this.lblNuocSX.Size = new System.Drawing.Size(105, 16);
+            this.lblNuocSX.Size = new System.Drawing.Size(129, 20);
             this.lblNuocSX.TabIndex = 42;
             this.lblNuocSX.Text = "Nước sản xuất";
             // 
@@ -150,10 +143,9 @@ namespace App_sale_manager
             // 
             this.lblTenSP.AutoSize = true;
             this.lblTenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSP.Location = new System.Drawing.Point(245, 75);
-            this.lblTenSP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTenSP.Location = new System.Drawing.Point(327, 92);
             this.lblTenSP.Name = "lblTenSP";
-            this.lblTenSP.Size = new System.Drawing.Size(106, 16);
+            this.lblTenSP.Size = new System.Drawing.Size(127, 20);
             this.lblTenSP.TabIndex = 41;
             this.lblTenSP.Text = "Tên sản phẩm";
             // 
@@ -161,10 +153,9 @@ namespace App_sale_manager
             // 
             this.lblMaSP.AutoSize = true;
             this.lblMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaSP.Location = new System.Drawing.Point(245, 36);
-            this.lblMaSP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMaSP.Location = new System.Drawing.Point(327, 44);
             this.lblMaSP.Name = "lblMaSP";
-            this.lblMaSP.Size = new System.Drawing.Size(100, 16);
+            this.lblMaSP.Size = new System.Drawing.Size(121, 20);
             this.lblMaSP.TabIndex = 40;
             this.lblMaSP.Text = "Mã sản phẩm";
             // 
@@ -172,32 +163,30 @@ namespace App_sale_manager
             // 
             this.lblMoTa.AutoSize = true;
             this.lblMoTa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoTa.Location = new System.Drawing.Point(245, 334);
-            this.lblMoTa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMoTa.Location = new System.Drawing.Point(327, 411);
             this.lblMoTa.Name = "lblMoTa";
-            this.lblMoTa.Size = new System.Drawing.Size(46, 16);
+            this.lblMoTa.Size = new System.Drawing.Size(56, 20);
             this.lblMoTa.TabIndex = 49;
             this.lblMoTa.Text = "Mô tả";
             // 
             // txtNDMoTa
             // 
             this.txtNDMoTa.BackColor = System.Drawing.Color.White;
-            this.txtNDMoTa.Location = new System.Drawing.Point(248, 359);
-            this.txtNDMoTa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDMoTa.Location = new System.Drawing.Point(331, 442);
+            this.txtNDMoTa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDMoTa.Multiline = true;
             this.txtNDMoTa.Name = "txtNDMoTa";
             this.txtNDMoTa.ReadOnly = true;
-            this.txtNDMoTa.Size = new System.Drawing.Size(462, 119);
+            this.txtNDMoTa.Size = new System.Drawing.Size(615, 146);
             this.txtNDMoTa.TabIndex = 59;
             // 
             // lblHinhAnh
             // 
             this.lblHinhAnh.AutoSize = true;
             this.lblHinhAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblHinhAnh.Location = new System.Drawing.Point(2, 13);
-            this.lblHinhAnh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHinhAnh.Location = new System.Drawing.Point(3, 16);
             this.lblHinhAnh.Name = "lblHinhAnh";
-            this.lblHinhAnh.Size = new System.Drawing.Size(78, 17);
+            this.lblHinhAnh.Size = new System.Drawing.Size(90, 20);
             this.lblHinhAnh.TabIndex = 60;
             this.lblHinhAnh.Text = "Hình ảnh ";
             // 
@@ -205,10 +194,10 @@ namespace App_sale_manager
             // 
             this.ptrbHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ptrbHinhAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptrbHinhAnh.Location = new System.Drawing.Point(5, 32);
-            this.ptrbHinhAnh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptrbHinhAnh.Location = new System.Drawing.Point(7, 39);
+            this.ptrbHinhAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptrbHinhAnh.Name = "ptrbHinhAnh";
-            this.ptrbHinhAnh.Size = new System.Drawing.Size(231, 222);
+            this.ptrbHinhAnh.Size = new System.Drawing.Size(307, 273);
             this.ptrbHinhAnh.TabIndex = 61;
             this.ptrbHinhAnh.TabStop = false;
             // 
@@ -216,212 +205,211 @@ namespace App_sale_manager
             // 
             this.txtNDTenSP.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDTenSP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDTenSP.Location = new System.Drawing.Point(345, 79);
-            this.txtNDTenSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDTenSP.Location = new System.Drawing.Point(460, 97);
+            this.txtNDTenSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDTenSP.Multiline = true;
             this.txtNDTenSP.Name = "txtNDTenSP";
             this.txtNDTenSP.ReadOnly = true;
-            this.txtNDTenSP.Size = new System.Drawing.Size(157, 54);
+            this.txtNDTenSP.Size = new System.Drawing.Size(209, 66);
             this.txtNDTenSP.TabIndex = 62;
             // 
             // txtNDMaSP
             // 
             this.txtNDMaSP.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDMaSP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDMaSP.Location = new System.Drawing.Point(346, 37);
-            this.txtNDMaSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDMaSP.Location = new System.Drawing.Point(461, 46);
+            this.txtNDMaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDMaSP.Name = "txtNDMaSP";
             this.txtNDMaSP.ReadOnly = true;
-            this.txtNDMaSP.Size = new System.Drawing.Size(157, 13);
+            this.txtNDMaSP.Size = new System.Drawing.Size(209, 15);
             this.txtNDMaSP.TabIndex = 63;
             // 
             // txtNDDVT
             // 
             this.txtNDDVT.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDDVT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDDVT.Location = new System.Drawing.Point(345, 305);
-            this.txtNDDVT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDDVT.Location = new System.Drawing.Point(460, 375);
+            this.txtNDDVT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDDVT.Name = "txtNDDVT";
             this.txtNDDVT.ReadOnly = true;
-            this.txtNDDVT.Size = new System.Drawing.Size(157, 13);
+            this.txtNDDVT.Size = new System.Drawing.Size(209, 15);
             this.txtNDDVT.TabIndex = 64;
             // 
             // txtNDNuocSX
             // 
             this.txtNDNuocSX.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDNuocSX.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDNuocSX.Location = new System.Drawing.Point(346, 258);
-            this.txtNDNuocSX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDNuocSX.Location = new System.Drawing.Point(461, 318);
+            this.txtNDNuocSX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDNuocSX.Name = "txtNDNuocSX";
             this.txtNDNuocSX.ReadOnly = true;
-            this.txtNDNuocSX.Size = new System.Drawing.Size(157, 13);
+            this.txtNDNuocSX.Size = new System.Drawing.Size(209, 15);
             this.txtNDNuocSX.TabIndex = 65;
             // 
             // txtNDLoaiID
             // 
             this.txtNDLoaiID.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDLoaiID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDLoaiID.Location = new System.Drawing.Point(346, 165);
-            this.txtNDLoaiID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDLoaiID.Location = new System.Drawing.Point(461, 203);
+            this.txtNDLoaiID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDLoaiID.Name = "txtNDLoaiID";
             this.txtNDLoaiID.ReadOnly = true;
-            this.txtNDLoaiID.Size = new System.Drawing.Size(157, 13);
+            this.txtNDLoaiID.Size = new System.Drawing.Size(209, 15);
             this.txtNDLoaiID.TabIndex = 66;
             // 
             // txtNDSoLuong
             // 
             this.txtNDSoLuong.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDSoLuong.Location = new System.Drawing.Point(658, 128);
-            this.txtNDSoLuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDSoLuong.Location = new System.Drawing.Point(877, 158);
+            this.txtNDSoLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDSoLuong.Name = "txtNDSoLuong";
             this.txtNDSoLuong.ReadOnly = true;
-            this.txtNDSoLuong.Size = new System.Drawing.Size(157, 13);
+            this.txtNDSoLuong.Size = new System.Drawing.Size(209, 15);
             this.txtNDSoLuong.TabIndex = 67;
             // 
             // txtNDSLToiThieu
             // 
             this.txtNDSLToiThieu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDSLToiThieu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDSLToiThieu.Location = new System.Drawing.Point(658, 171);
-            this.txtNDSLToiThieu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDSLToiThieu.Location = new System.Drawing.Point(877, 210);
+            this.txtNDSLToiThieu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDSLToiThieu.Name = "txtNDSLToiThieu";
             this.txtNDSLToiThieu.ReadOnly = true;
-            this.txtNDSLToiThieu.Size = new System.Drawing.Size(157, 13);
+            this.txtNDSLToiThieu.Size = new System.Drawing.Size(209, 15);
             this.txtNDSLToiThieu.TabIndex = 68;
             // 
             // txtNDGiaBan
             // 
             this.txtNDGiaBan.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDGiaBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDGiaBan.Location = new System.Drawing.Point(658, 37);
-            this.txtNDGiaBan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDGiaBan.Location = new System.Drawing.Point(877, 46);
+            this.txtNDGiaBan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDGiaBan.Name = "txtNDGiaBan";
             this.txtNDGiaBan.ReadOnly = true;
-            this.txtNDGiaBan.Size = new System.Drawing.Size(157, 13);
+            this.txtNDGiaBan.Size = new System.Drawing.Size(209, 15);
             this.txtNDGiaBan.TabIndex = 69;
             // 
             // txtNDGiaNhap
             // 
             this.txtNDGiaNhap.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDGiaNhap.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDGiaNhap.Location = new System.Drawing.Point(658, 80);
-            this.txtNDGiaNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDGiaNhap.Location = new System.Drawing.Point(877, 98);
+            this.txtNDGiaNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDGiaNhap.Name = "txtNDGiaNhap";
             this.txtNDGiaNhap.ReadOnly = true;
-            this.txtNDGiaNhap.Size = new System.Drawing.Size(157, 13);
+            this.txtNDGiaNhap.Size = new System.Drawing.Size(209, 15);
             this.txtNDGiaNhap.TabIndex = 70;
             // 
             // txtNDHang
             // 
             this.txtNDHang.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNDHang.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNDHang.Location = new System.Drawing.Point(345, 211);
-            this.txtNDHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNDHang.Location = new System.Drawing.Point(460, 260);
+            this.txtNDHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNDHang.Name = "txtNDHang";
             this.txtNDHang.ReadOnly = true;
-            this.txtNDHang.Size = new System.Drawing.Size(157, 13);
+            this.txtNDHang.Size = new System.Drawing.Size(209, 15);
             this.txtNDHang.TabIndex = 72;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(246, 212);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(328, 261);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 71;
             this.label1.Text = "Hãng";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel1.Location = new System.Drawing.Point(248, 54);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(331, 66);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(255, 2);
+            this.panel1.Size = new System.Drawing.Size(340, 2);
             this.panel1.TabIndex = 73;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel2.Location = new System.Drawing.Point(248, 138);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(331, 170);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(255, 2);
+            this.panel2.Size = new System.Drawing.Size(340, 2);
             this.panel2.TabIndex = 73;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel3.Location = new System.Drawing.Point(248, 182);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(331, 224);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(255, 2);
+            this.panel3.Size = new System.Drawing.Size(340, 2);
             this.panel3.TabIndex = 73;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel4.Location = new System.Drawing.Point(248, 228);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(331, 281);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(255, 2);
+            this.panel4.Size = new System.Drawing.Size(340, 2);
             this.panel4.TabIndex = 73;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel5.Location = new System.Drawing.Point(248, 275);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Location = new System.Drawing.Point(331, 338);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(255, 2);
+            this.panel5.Size = new System.Drawing.Size(340, 2);
             this.panel5.TabIndex = 73;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel6.Location = new System.Drawing.Point(549, 54);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Location = new System.Drawing.Point(732, 66);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(267, 2);
+            this.panel6.Size = new System.Drawing.Size(356, 2);
             this.panel6.TabIndex = 73;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel7.Location = new System.Drawing.Point(549, 97);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Location = new System.Drawing.Point(732, 119);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(267, 2);
+            this.panel7.Size = new System.Drawing.Size(356, 2);
             this.panel7.TabIndex = 73;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel8.Location = new System.Drawing.Point(549, 145);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Location = new System.Drawing.Point(732, 178);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(267, 2);
+            this.panel8.Size = new System.Drawing.Size(356, 2);
             this.panel8.TabIndex = 73;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel9.Location = new System.Drawing.Point(549, 188);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Location = new System.Drawing.Point(732, 231);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(267, 2);
+            this.panel9.Size = new System.Drawing.Size(356, 2);
             this.panel9.TabIndex = 73;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel10.Location = new System.Drawing.Point(248, 321);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Location = new System.Drawing.Point(331, 395);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(255, 2);
+            this.panel10.Size = new System.Drawing.Size(340, 2);
             this.panel10.TabIndex = 73;
             // 
             // panel11
@@ -462,31 +450,30 @@ namespace App_sale_manager
             this.panel11.Controls.Add(this.txtNDSLToiThieu);
             this.panel11.Controls.Add(this.txtNDLoaiID);
             this.panel11.Controls.Add(this.txtNDSoLuong);
-            this.panel11.Location = new System.Drawing.Point(3, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Location = new System.Drawing.Point(4, 0);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(845, 507);
+            this.panel11.Size = new System.Drawing.Size(1127, 624);
             this.panel11.TabIndex = 74;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(244, 13);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(325, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 17);
+            this.label2.Size = new System.Drawing.Size(233, 20);
             this.label2.TabIndex = 60;
             this.label2.Text = "Thông tin chi tiết hàng hóa";
             // 
             // Form_ChiTietHH
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(848, 508);
+            this.ClientSize = new System.Drawing.Size(1131, 625);
             this.Controls.Add(this.panel11);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_ChiTietHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin chi tiết hàng hoá";

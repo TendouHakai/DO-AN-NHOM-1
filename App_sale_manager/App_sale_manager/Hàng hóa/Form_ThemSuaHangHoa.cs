@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
@@ -17,12 +12,11 @@ namespace App_sale_manager
         public string LoaiID;
         public string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         public SqlConnection sqlCon = null;
-        static public SqlDataAdapter adapter = null;
-        static int ModeHH = 0;
-       
+        public static SqlDataAdapter adapter = null;
+        private static int ModeHH = 0;
+
         public Form_ThemSuaHangHoa(int n)
         {
-
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -36,12 +30,12 @@ namespace App_sale_manager
             cbLoaiSP.DataSource = table;
             cbLoaiSP.DisplayMember = "TenLoai";
             cbLoaiSP.ValueMember = "TenLoai";
-            txtSPID.Text = "Chọn lại loại sản phẩm"; 
+            txtSPID.Text = "Chọn lại loại sản phẩm";
             sqlCon.Close();
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
-
         }
-        public Form_ThemSuaHangHoa(int n, string SPID, string TenSP, string NuocSX,string HangSX, string GiaBan, string GiaNhap,string SLTT, string DVT, string LoaiSP, string MoTa)
+
+        public Form_ThemSuaHangHoa(int n, string SPID, string TenSP, string NuocSX, string HangSX, string GiaBan, string GiaNhap, string SLTT, string DVT, string LoaiSP, string MoTa)
         {
             InitializeComponent();
             ModeHH = n;
@@ -63,6 +57,7 @@ namespace App_sale_manager
             ptrbHinhAnh.Image = img;
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
         private Image GetCopyImage(string path)
         {
             try
@@ -80,26 +75,25 @@ namespace App_sale_manager
                     Bitmap bitmap = new Bitmap(image);
                     return bitmap;
                 }
-
             }
         }
+
         private void btnHoanTat_Click(object sender, EventArgs e)
-        {  
+        {
             sqlCon = new SqlConnection(strCon);
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandText = "select LOAIID from LOAISP where TENLOAI = N'" + cbLoaiSP.Text + "'";
             sqlCon = new SqlConnection(strCon);
             sqlCmd.Connection = sqlCon;
-          
+
             if (ModeHH == 1)
             {
                 if (txtSPID.Text == string.Empty || txtTenSP.Text == string.Empty || txtNuocSX.Text == string.Empty || txtHang.Text == string.Empty || txtGiaNhap.Text == string.Empty || txtGiaBan.Text == string.Empty || txtDVT.Text == string.Empty)
                 {
                     MessageBox.Show("Cần nhập đầy đủ thông tin");
                     return;
-
                 }
-            else 
+                else
                 {
                     sqlCon.Open();
                     string strquery = "insert into SANPHAM values('" + txtSPID.Text + "',N'" + txtTenSP.Text + "',N'" + LoaiID + "',N'" + txtHang.Text + "',N'" + txtNuocSX.Text + "'," + txtGiaBan.Text + "," + txtGiaNhap.Text
@@ -111,7 +105,6 @@ namespace App_sale_manager
                     MessageBox.Show("Thêm thành công");
                     this.Close();
                 }
-               
             }
             else if (ModeHH == 2)
             {
@@ -119,7 +112,6 @@ namespace App_sale_manager
                 {
                     MessageBox.Show("Cần nhập đầy đủ thông tin");
                     return;
-
                 }
                 else
                 {
@@ -135,7 +127,6 @@ namespace App_sale_manager
                 }
             }
         }
-
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -158,13 +149,12 @@ namespace App_sale_manager
             LoaiID = tbHH.Rows[0]["LOAIID"].ToString();
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "File .jpg (*.jpg)|*.jpg";
-            DialogResult result = open.ShowDialog();           
+            DialogResult result = open.ShowDialog();
             if (result == DialogResult.OK)
-            {              
+            {
                 ptrbHinhAnh.Image = Image.FromFile(open.FileName);
             }
             else MessageBox.Show("Chưa chọn hình");
-
         }
 
         private void cbLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -190,7 +180,5 @@ namespace App_sale_manager
             if (ModeHH == 2)
             { ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg"); }
         }
-
-        
     }
 }

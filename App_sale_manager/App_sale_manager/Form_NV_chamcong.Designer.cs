@@ -53,15 +53,15 @@ namespace App_sale_manager
             this.lbl_soDT = new System.Windows.Forms.Label();
             this.lbl_maNV = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_ngaynghi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_ngaylam)).BeginInit();
@@ -314,6 +314,46 @@ namespace App_sale_manager
             this.panel1.Size = new System.Drawing.Size(354, 375);
             this.panel1.TabIndex = 5;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
+            this.panel8.Location = new System.Drawing.Point(46, 349);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(266, 2);
+            this.panel8.TabIndex = 3;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
+            this.panel7.Location = new System.Drawing.Point(46, 306);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(266, 2);
+            this.panel7.TabIndex = 3;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
+            this.panel6.Location = new System.Drawing.Point(46, 263);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(266, 2);
+            this.panel6.TabIndex = 3;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
+            this.panel5.Location = new System.Drawing.Point(46, 220);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(266, 2);
+            this.panel5.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
+            this.panel4.Location = new System.Drawing.Point(46, 177);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(266, 2);
+            this.panel4.TabIndex = 3;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -357,46 +397,6 @@ namespace App_sale_manager
             this.panel3.Size = new System.Drawing.Size(1091, 68);
             this.panel3.TabIndex = 7;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel4.Location = new System.Drawing.Point(46, 177);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(266, 2);
-            this.panel4.TabIndex = 3;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel5.Location = new System.Drawing.Point(46, 220);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(266, 2);
-            this.panel5.TabIndex = 3;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel6.Location = new System.Drawing.Point(46, 263);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(266, 2);
-            this.panel6.TabIndex = 3;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel7.Location = new System.Drawing.Point(46, 306);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(266, 2);
-            this.panel7.TabIndex = 3;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel8.Location = new System.Drawing.Point(46, 349);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(266, 2);
-            this.panel8.TabIndex = 3;
-            // 
             // Form_NV_chamcong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -408,6 +408,7 @@ namespace App_sale_manager
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form_NV_chamcong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bảng chấm công";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_ngaynghi)).EndInit();

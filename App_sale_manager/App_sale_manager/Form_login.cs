@@ -1,23 +1,17 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_login : Form
     {
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection sqlCon = null;
-        bool canread = false;
-        
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlConnection sqlCon = null;
+        private bool canread = false;
+
         public Form_login()
         {
             InitializeComponent();
@@ -29,25 +23,25 @@ namespace App_sale_manager
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            if(sqlCon==null)
+            if (sqlCon == null)
             {
                 sqlCon = new SqlConnection(strCon);
-            }   
-            if(sqlCon.State==ConnectionState.Closed)
+            }
+            if (sqlCon.State == ConnectionState.Closed)
             {
                 sqlCon.Open();
             }
             // tạo ra đối tượng thực thi truy vấn.
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "select PASSWD,NVID,HOTEN,CV,USERNAME from NHANVIEN where USERNAME = '"+textBox_usr.Text+"'";
+            sqlCmd.CommandText = "select PASSWD,NVID,HOTEN,CV,USERNAME from NHANVIEN where USERNAME = '" + textBox_usr.Text + "'";
             // gửi truy vấn tới kết nối.
             sqlCmd.Connection = sqlCon;
             // nhận kết quả
             SqlDataReader reader = sqlCmd.ExecuteReader();
             string passwd = "";
             string CV = "";
-            if(reader.Read())
+            if (reader.Read())
             {
                 passwd = reader.GetString(0);
                 CV = reader.GetString(3);
@@ -55,9 +49,9 @@ namespace App_sale_manager
             // kiểm tra passwd
             if (passwd == textBox_passwd.Text)
             {
-                if(CV=="Chủ tiệm" || CV=="Quản lý")
+                if (CV == "Chủ tiệm" || CV == "Quản lý")
                 {
-                    Form_main_admin frm = new Form_main_admin(reader.GetString(1),  reader.GetString(2), reader.GetString(4));
+                    Form_main_admin frm = new Form_main_admin(reader.GetString(1), reader.GetString(2), reader.GetString(4));
                     frm.Thoat += Frm_Thoat;
                     frm.Show();
                     this.Hide();
@@ -65,7 +59,6 @@ namespace App_sale_manager
                     {
                         textBox_usr.Clear();
                         textBox_passwd.Clear();
-                        
                     }
                 }
                 else
@@ -78,7 +71,6 @@ namespace App_sale_manager
                     {
                         textBox_usr.Clear();
                         textBox_passwd.Clear();
-                        
                     }
                 }
             }
@@ -86,9 +78,8 @@ namespace App_sale_manager
             {
                 MessageBox.Show("username hoặc passwd không đúng.");
             }
-            
 
-            sqlCon.Close(); 
+            sqlCon.Close();
         }
 
         private void Frm_Thoat(object sender, EventArgs e)
@@ -109,7 +100,6 @@ namespace App_sale_manager
             frm.Thoat += Frm_Thoat;
             frm.Show();
             this.Hide();
-            
         }
 
         private void Form_login_Load(object sender, EventArgs e)
@@ -119,8 +109,8 @@ namespace App_sale_manager
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            if(canread==false)
-            { 
+            if (canread == false)
+            {
                 canread = true;
                 (sender as PictureBox).SizeMode = PictureBoxSizeMode.Normal;
                 (sender as PictureBox).Image = Image.FromFile("../../icon/matmo.png");
@@ -132,10 +122,9 @@ namespace App_sale_manager
                 (sender as PictureBox).SizeMode = PictureBoxSizeMode.Normal;
                 (sender as PictureBox).Image = Image.FromFile("../../icon/matdong.png");
                 textBox_passwd.PasswordChar = '*';
-            } 
-                
+            }
         }
-        
+
         private void textBox_usr_Enter(object sender, EventArgs e)
         {
             if (Convert.ToInt32(textBox_usr.Tag) == 0)
@@ -149,38 +138,38 @@ namespace App_sale_manager
 
         private void textBox_usr_Leave(object sender, EventArgs e)
         {
-            if(textBox_usr.Text=="")
+            if (textBox_usr.Text == "")
             {
                 textBox_usr.Text = "username";
                 textBox_usr.Tag = 0;
-            }    
+            }
         }
-        
+
         private void textBox_passwd_Enter(object sender, EventArgs e)
         {
             if (Convert.ToInt32(textBox_passwd.Tag) == 0)
             {
                 textBox_passwd.Text = "";
                 textBox_passwd.Tag = 1;
-                textBox_passwd.PasswordChar = '*'; 
+                textBox_passwd.PasswordChar = '*';
                 textBox_usr.TabStop = true;
                 textBox_passwd.TabStop = true;
             }
         }
+
         private void textBox_passwd_Leave(object sender, EventArgs e)
         {
-            if(textBox_passwd.Text =="")
+            if (textBox_passwd.Text == "")
             {
                 textBox_passwd.Text = "password";
                 textBox_passwd.PasswordChar = '\0';
                 textBox_passwd.Tag = 0;
-            }    
+            }
         }
+
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        
     }
 }

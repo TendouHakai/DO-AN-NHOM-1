@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace App_sale_manager
@@ -18,9 +11,9 @@ namespace App_sale_manager
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
         }
-        public Form_ChiTietHH(string SPID, string TenSP, string SL, string NuocSX,string Hang, string GiaBan, string GiaNhap, string DVT, string SLTT, string LoaiSP, string MoTa)
+
+        public Form_ChiTietHH(string SPID, string TenSP, string SL, string NuocSX, string Hang, string GiaBan, string GiaNhap, string DVT, string SLTT, string LoaiSP, string MoTa)
         {
-            
             InitializeComponent();
             txtNDMaSP.Text = SPID;
             txtNDTenSP.Text = TenSP;
@@ -38,28 +31,7 @@ namespace App_sale_manager
             System.IO.File.Delete(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        public Form_ChiTietHH(string SPID, string TenSP, string NuocSX, string Hang, string GiaBan, string GiaNhap, string DVT, string LoaiSP, string MoTa)
-        {
 
-            InitializeComponent();
-            txtNDMaSP.Text = SPID;
-            txtNDTenSP.Text = TenSP;
-            lblSoLuong.Visible = false;
-            txtNDSoLuong.Visible=false;
-            txtNDNuocSX.Text = NuocSX;
-            txtNDHang.Text = Hang;
-            txtNDGiaBan.Text = GiaNhap;
-            txtNDGiaNhap.Text = GiaBan;
-            txtNDDVT.Text = DVT;
-            lblSLToiThieu.Visible = false;
-            txtNDSLToiThieu.Visible = false ;
-            txtNDLoaiID.Text = LoaiSP;
-            txtNDMoTa.Text = MoTa;
-            Image img = GetCopyImage(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");           
-            ptrbHinhAnh.Image = img;
-            System.IO.File.Delete(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
-            ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
         private Image GetCopyImage(string path)
         {
             try
@@ -79,6 +51,7 @@ namespace App_sale_manager
                 }
             }
         }
+
         private void Form_ChiTietHH_FormClosed(object sender, FormClosedEventArgs e)
         {
             ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");

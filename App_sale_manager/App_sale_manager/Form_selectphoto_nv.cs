@@ -1,33 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_selectphoto_nv : System.Windows.Forms.Form
     {
-        string FILEPATH;
-        string NVID;
-        string HOTEN;
-        public int Isnv = 0;//form được gọi từ Form_main_admin thì có gia trị 1, Form_main_NV là 0
+        private string FILEPATH;
+        private string NVID;
+        private string HOTEN;
+        
+        //form được gọi từ Form_main_admin thì có gia trị 1, Form_main_NV là 0
+        public int Isnv = 0;
         public string filepath
         {
             set { FILEPATH = value; }
         }
+
         public string nvid
         {
             set { NVID = value; }
         }
+
         public string hoten
         {
             set { HOTEN = value; }
         }
+
         public Form_selectphoto_nv(string filePath, string nvid, string hoten)
         {
             InitializeComponent();
@@ -37,17 +36,20 @@ namespace App_sale_manager
             this.NVID = nvid;
             this.HOTEN = hoten;
         }
+
         public Form_selectphoto_nv(string filePath)
         {
             InitializeComponent();
             this.FILEPATH = filePath;
         }
+
         public event EventHandler Thoat;
 
         public void Form_selectphoto_nv_FormClosed(object sender, FormClosedEventArgs e)
         {
             Thoat(this, new EventArgs());
         }
+
         public void SaveBitmap()
         {
             panel1.Dock = DockStyle.None;
@@ -58,7 +60,6 @@ namespace App_sale_manager
             if (Isnv == 1)
             {
                 bmp1.Save(@"Image samples for testing\NV\" + NVID + ".jpg");
-
             }
             else if (Isnv == 0)
             {
@@ -69,6 +70,7 @@ namespace App_sale_manager
                 bmp1.Save(@"Image samples for testing\NV\Anonymous.jpg");
             }
         }
+
         public void fillPictureBox(PictureBox pbox, Bitmap bmp)
         {
             pbox.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -118,7 +120,5 @@ namespace App_sale_manager
             SaveBitmap();
             this.Close();
         }
-
-
     }
 }

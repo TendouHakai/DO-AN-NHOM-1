@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_GiaoDich : Form
     {
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection sqlCon;
-        SqlCommand cmd;
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        DataTable table;
-        DataTable Table_GiamGia;
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlConnection sqlCon;
+        private SqlCommand cmd;
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+        private DataTable table;
+        private DataTable Table_GiamGia;
+
         public Form_GiaoDich()
         {
             InitializeComponent();
@@ -53,7 +48,7 @@ namespace App_sale_manager
             {
                 adapter.Fill(table);
                 DGV_LuaChon.DataSource = table;
-                foreach(DataGridViewRow i in DGV_LuaChon.Rows)
+                foreach (DataGridViewRow i in DGV_LuaChon.Rows)
                 {
                     if (i.Cells[0].Value != null)
                     {
@@ -61,7 +56,6 @@ namespace App_sale_manager
                         Box_TenKH.Items.Add(i.Cells[1].Value);
                     }
                 }
-
             }
 
             cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from SANPHAM";
@@ -77,19 +71,17 @@ namespace App_sale_manager
             Box_LoaiHD.Text = "Đơn trực tiếp";
             Box_TrangThai.Text = "Hoàn thành";
 
-
             Table_GiamGia = new DataTable();
-            cmd.CommandText = "Select * from KHUYENMAI WHERE NGAYKT > '"+DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")+"' ";
+            cmd.CommandText = "Select * from KHUYENMAI WHERE NGAYKT > '" + DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss") + "' ";
             adapter.SelectCommand = cmd;
             Table_GiamGia.Clear();
             if (adapter != null)
             {
                 adapter.Fill(Table_GiamGia);
-                foreach (DataRow i  in Table_GiamGia.Rows)
+                foreach (DataRow i in Table_GiamGia.Rows)
                 {
                     Box_TenUuDai.Items.Add(i.ItemArray[0]);
                 }
-
             }
             Box_TenUuDai.Items.Add("<Trống>");
         }
@@ -104,7 +96,7 @@ namespace App_sale_manager
             Double sum = 0;
             foreach (DataGridViewRow i in CT_HD.Rows)
             {
-                if(i.Cells[2].Value != null)
+                if (i.Cells[2].Value != null)
                     sum += Convert.ToDouble(Convert.ToDouble(i.Cells[3].Value) * Convert.ToDouble(i.Cells[2].Value.ToString().Replace(",", string.Empty)));
             }
             Box_Tong.Text = String.Format("{0:0,0}", sum);
@@ -112,10 +104,10 @@ namespace App_sale_manager
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {        
+        {
             if (DGV_LuaChon.CurrentRow != null)
             {
-                foreach(DataGridViewRow temp in CT_HD.Rows)
+                foreach (DataGridViewRow temp in CT_HD.Rows)
                 {
                     if (DGV_LuaChon.CurrentRow.Cells[0].Value == temp.Cells[0].Value)
                     {
@@ -123,7 +115,6 @@ namespace App_sale_manager
                         Update_Tong();
                         return;
                     }
-
                 }
                 DataGridViewRow row = (DataGridViewRow)CT_HD.Rows[0].Clone();
                 row.Cells[0].Value = DGV_LuaChon.CurrentRow.Cells[0].Value;
@@ -131,11 +122,9 @@ namespace App_sale_manager
                 row.Cells[2].Value = DGV_LuaChon.CurrentRow.Cells[2].Value;
                 row.Cells[3].Value = numericUpDown1.Value;
                 CT_HD.Rows.Add(row);
-                
             }
             else
                 MessageBox.Show("Phai lua chon san pham truoc");
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -143,11 +132,10 @@ namespace App_sale_manager
             this.Close();
         }
 
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             table = new DataTable();
-            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from SANPHAM WHERE (SPID like '%" + Box_MASP.Text+ "%' and TENSP like '%" + Box_TenSP.Text + "%')";
+            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from SANPHAM WHERE (SPID like '%" + Box_MASP.Text + "%' and TENSP like '%" + Box_TenSP.Text + "%')";
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
@@ -157,13 +145,14 @@ namespace App_sale_manager
             DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
             DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
         }
+
         private void bnt_xoaSP_Click(object sender, EventArgs e)
         {
             try
             {
                 CT_HD.Rows.Remove(CT_HD.CurrentRow);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Khong co san pham nao");
             }
@@ -192,29 +181,27 @@ namespace App_sale_manager
             adapter.SelectCommand = cmd;
             //try
             //{
-                
-                cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_GiaDaGiam.Text.Replace(".", string.Empty)+ "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
+            cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_GiaDaGiam.Text.Replace(".", string.Empty) + "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
+            cmd.ExecuteNonQuery();
+            foreach (DataGridViewRow i in CT_HD.Rows)
+            {
+                if (i.Index == CT_HD.RowCount - 1)
+                {
+                    break;
+                }
+
+                cmd.CommandText = "insert into CTHDBH values ('" + Box_IDHD.Text + "','" + i.Cells[0].Value + "','" + i.Cells[3].Value + "')";
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow i in CT_HD.Rows)
+            }
+            if (Box_LoaiHD.SelectedItem.ToString() == "Đơn trực tiếp")
+            {
+                DialogResult dialogResult = MessageBox.Show("In hóa đơn không ?", "Yes/No ?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-
-                    if (i.Index == CT_HD.RowCount - 1)
-                    {
-                        break;
-                    }
-
-                    cmd.CommandText = "insert into CTHDBH values ('" + Box_IDHD.Text + "','" + i.Cells[0].Value + "','" + i.Cells[3].Value + "')";
-                    cmd.ExecuteNonQuery();
+                    Form_CTHD cthd = new Form_CTHD(Box_IDHD.Text, Box_IDKH.Text, Box_IDNV.Text, Box_LoaiHD.Text, Box_TrangThai.Text, Box_GiaDaGiam.Text);
+                    cthd.Show();
                 }
-                if (Box_LoaiHD.SelectedItem.ToString() == "Đơn trực tiếp")
-                {
-                    DialogResult dialogResult = MessageBox.Show("In hóa đơn không ?", "Yes/No ?", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        Form_CTHD cthd = new Form_CTHD(Box_IDHD.Text ,Box_IDKH.Text, Box_IDNV.Text, Box_LoaiHD.Text, Box_TrangThai.Text, Box_GiaDaGiam.Text);
-                        cthd.Show();
-                    }
-                }
+            }
             //}
             //catch (SqlException)
             //{
@@ -222,6 +209,7 @@ namespace App_sale_manager
             //}
             this.Close();
         }
+
         private void DGV_LuaChon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.button1_Click(sender, e);
@@ -234,7 +222,7 @@ namespace App_sale_manager
 
         private void Box_LoaiHD_TextChanged(object sender, EventArgs e)
         {
-            if(Box_LoaiHD.Text =="Đơn trực tiếp")
+            if (Box_LoaiHD.Text == "Đơn trực tiếp")
             {
                 Box_TrangThai.Text = "Hoàn thành";
             }
@@ -243,9 +231,9 @@ namespace App_sale_manager
                 Box_TrangThai.Text = "Nhận đơn";
             }
         }
+
         private void Box_IDKH_TextChanged(object sender, EventArgs e)
         {
-
             table = new DataTable();
             cmd.CommandText = "Select KHID from KHACHHANG WHERE (KHID like '%" + Box_IDKH.Text + "%')";
             adapter.SelectCommand = cmd;
@@ -255,11 +243,8 @@ namespace App_sale_manager
                 adapter.Fill(table);
                 foreach (DataRow i in table.Rows)
                 {
-
                 }
-
             }
-
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -274,7 +259,7 @@ namespace App_sale_manager
 
         private void Box_TenKH_SelectedIndexChanged(object sender, EventArgs e)
         {
-             Box_IDKH.SelectedIndex = Box_TenKH.SelectedIndex ;
+            Box_IDKH.SelectedIndex = Box_TenKH.SelectedIndex;
         }
 
         private void DGV_LuaChon_SelectionChanged(object sender, EventArgs e)
@@ -296,7 +281,6 @@ namespace App_sale_manager
 
         private void Box_TenUuDai_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (Box_TenUuDai.Text == "<Trống>")
             {
                 Box_DoiTuong.Text = "";
@@ -307,7 +291,6 @@ namespace App_sale_manager
             }
             else
             {
-
                 Box_DoiTuong.Text = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[1].ToString();
                 Box_QuaTang.Text = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[7].ToString();
                 Box_Giam.Text = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[10].ToString();
@@ -333,8 +316,8 @@ namespace App_sale_manager
             if (Box_DoiTuong.Text == string.Empty)
                 Box_DoiTuong.Enabled = false;
             else
-                Box_DoiTuong.Enabled = true;  
-            if(Box_SP.Text == string.Empty)
+                Box_DoiTuong.Enabled = true;
+            if (Box_SP.Text == string.Empty)
             {
                 Box_SP.Enabled = false;
             }
@@ -345,6 +328,7 @@ namespace App_sale_manager
 
             Gia_Giam();
         }
+
         private void Gia_Giam()
         {
             Box_GiaDaGiam.Text = Box_Tong.Text;
@@ -353,13 +337,13 @@ namespace App_sale_manager
                 return;
 
             //neu giam gia theo mat hang la mat hang
-            if(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[3].ToString() == "Mặt hàng")
+            if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[3].ToString() == "Mặt hàng")
             {
                 cmd.CommandText = "select LOAIID FROM LOAISP WHERE TENLOAI = '" + Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() + "' ";
                 adapter.SelectCommand = cmd;
 
                 DataTable temp = new DataTable();
-                
+
                 adapter.Fill(temp);
 
                 string x;
@@ -373,15 +357,14 @@ namespace App_sale_manager
                     return;
                 }
 
-
-                for(int i = 0;i<CT_HD.RowCount - 1;i++)
+                for (int i = 0; i < CT_HD.RowCount - 1; i++)
                 {
-                    if(CT_HD.Rows[i].Cells[0].Value.ToString().Contains(x))
+                    if (CT_HD.Rows[i].Cells[0].Value.ToString().Contains(x))
                     {
                         //kiem tra dieu kien giam gia
-                        if( Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() == "1")
+                        if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() == "1")
                         {
-                            if( (int)CT_HD.Rows[i].Cells[3].Value < Convert.ToInt32( Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12]) )
+                            if ((int)CT_HD.Rows[i].Cells[3].Value < Convert.ToInt32(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12]))
                             {
                                 return;
                             }
@@ -398,21 +381,16 @@ namespace App_sale_manager
                         }
                     }
                 }
-
-
             }
             //giam theo nha sx
             if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[3].ToString() == "Nhà cung cấp")
             {
-               
-
                 for (int i = 0; i < CT_HD.RowCount - 1; i++)
                 {
                     cmd.CommandText = "select HANGSX FROM SANPHAM WHERE SPID = '" + CT_HD.Rows[i].Cells[0].Value.ToString() + "' ";
                     adapter.SelectCommand = cmd;
                     if (adapter != null)
                     {
-
                         //kiem tra dieu kien giam gia
                         if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() == "1")
                         {
@@ -435,7 +413,6 @@ namespace App_sale_manager
                     }
                 }
             }
-
         }
 
         private void Box_LoaiHD_SelectedIndexChanged(object sender, EventArgs e)
@@ -445,6 +422,5 @@ namespace App_sale_manager
             else
                 Box_TrangThai.SelectedIndex = 1;
         }
-
     }
 }

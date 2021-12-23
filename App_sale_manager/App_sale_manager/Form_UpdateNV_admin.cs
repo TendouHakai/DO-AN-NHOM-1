@@ -1,29 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_UpdateNV_admin : Form
     {
-        string NVID;
+        private string NVID;
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
-        SqlCommand cmd;
-        SqlConnection sqlCon = null;
+        private SqlConnection con = new SqlConnection(strCon);
+        private SqlCommand cmd;
+        private SqlConnection sqlCon = null;
+
         public string nvid
         {
             set { NVID = value; }
         }
+
         public Form_UpdateNV_admin(string nvid)
         {
             InitializeComponent();
@@ -32,7 +29,9 @@ namespace App_sale_manager
             sqlCon = new SqlConnection(strCon);
             this.NVID = nvid;
         }
+
         public event EventHandler Thoat;
+
         private void Form_UpdateNV_admin_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (File.Exists(@"Image samples for testing\NV\Anonymous.jpg"))
@@ -41,7 +40,8 @@ namespace App_sale_manager
             }
             Thoat(this, new EventArgs());
         }
-        void LoadData_nv_infonv()
+
+        private void LoadData_nv_infonv()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
@@ -61,7 +61,8 @@ namespace App_sale_manager
             }
             sqlCon.Close();
         }
-        void LoadPicture(string filepath)
+
+        private void LoadPicture(string filepath)
         {
             if (File.Exists(filepath))
             {
@@ -83,6 +84,7 @@ namespace App_sale_manager
                 pictureBox_image_import_nv.Image = image1;
             }
         }
+
         private void bt_Sua_Click(object sender, EventArgs e)
         {
             DialogResult Result = MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Sửa dữ liệu", MessageBoxButtons.YesNo);
@@ -109,8 +111,7 @@ namespace App_sale_manager
                 }
                 catch (SqlException)
                 {
-                        MessageBox.Show("Sửa không thành công!");
-                       
+                    MessageBox.Show("Sửa không thành công!");
                 }
                 sqlCon.Close();
             }
@@ -150,7 +151,6 @@ namespace App_sale_manager
             Open1.Multiselect = false;
             if (Open1.ShowDialog() == DialogResult.OK)
             {
-
                 var filepath = Open1.FileName;
                 Bitmap bmp = new Bitmap(filepath);
                 Form_selectphoto_nv frm = new Form_selectphoto_nv(filepath);
@@ -187,14 +187,11 @@ namespace App_sale_manager
         {
             LoadData_nv_infonv();
             LoadPicture(@"Image samples for testing\NV\" + this.NVID.ToString() + ".jpg");
-
         }
 
         private void bt_Huy_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-       
     }
 }

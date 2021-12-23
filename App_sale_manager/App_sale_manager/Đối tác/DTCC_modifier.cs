@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
@@ -16,7 +10,8 @@ namespace App_sale_manager
     {
         public string filepath = "";
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
+        private SqlConnection con = new SqlConnection(strCon);
+
         private void openconnect()
         {
             if (con.State == ConnectionState.Closed)
@@ -24,7 +19,9 @@ namespace App_sale_manager
                 con.Open();
             }
         }
+
         public event EventHandler RefreshData;
+
         private void closeconnect()
         {
             if (con.State == ConnectionState.Open)
@@ -32,6 +29,7 @@ namespace App_sale_manager
                 con.Close();
             }
         }
+
         public Boolean exedata(string cmd)
         {
             openconnect();
@@ -49,6 +47,7 @@ namespace App_sale_manager
             closeconnect();
             return check;
         }
+
         public DTCC_modifier()
         {
             InitializeComponent();
@@ -60,7 +59,6 @@ namespace App_sale_manager
 
         private void button_Image_import_Click(object sender, EventArgs e)
         {
-            
             OpenFileDialog Open1 = new OpenFileDialog();
             Open1.Filter = " Image file (*.BMP,*.JPG,*.JPEG)|*.bmp;*.jpg;*.jpeg ";
             Open1.Multiselect = false;
@@ -75,12 +73,12 @@ namespace App_sale_manager
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
             if (exedata("Update DTCC set TENDT = N'" + textBox_TENDT_z.Text + "', SDT = '"
-                + textBox_SDT_z.Text + "', NGDT = '" + dateTimePicker_NGDT_z.Value + "', DIACHI = N'" 
-                + textBox_DIACHI_z.Text + "' where DTID = '"+textBox_ID_z.Text+"'") == true)
+                + textBox_SDT_z.Text + "', NGDT = '" + dateTimePicker_NGDT_z.Value + "', DIACHI = N'"
+                + textBox_DIACHI_z.Text + "' where DTID = '" + textBox_ID_z.Text + "'") == true)
             {
                 MessageBox.Show("Cập nhật thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
-                if (filepath!="")
+                if (filepath != "")
                 {
                     Save.FileName = @"Image samples for testing\DTGD\" + textBox_ID_z.Text + ".jpg";
                     using (System.IO.FileStream fstream = new System.IO.FileStream(Save.FileName, System.IO.FileMode.Create))

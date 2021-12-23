@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
@@ -16,7 +10,8 @@ namespace App_sale_manager
     {
         public string filepath = "";
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
+        private SqlConnection con = new SqlConnection(strCon);
+
         private void openconnect()
         {
             if (con.State == ConnectionState.Closed)
@@ -24,7 +19,9 @@ namespace App_sale_manager
                 con.Open();
             }
         }
+
         public event EventHandler RefreshData;
+
         private void closeconnect()
         {
             if (con.State == ConnectionState.Open)
@@ -32,6 +29,7 @@ namespace App_sale_manager
                 con.Close();
             }
         }
+
         public Boolean exedata(string cmd)
         {
             openconnect();
@@ -49,6 +47,7 @@ namespace App_sale_manager
             closeconnect();
             return check;
         }
+
         public DTCC_guest_modifier()
         {
             InitializeComponent();
@@ -60,7 +59,6 @@ namespace App_sale_manager
 
         private void button_Image_import_Click(object sender, EventArgs e)
         {
-            
             OpenFileDialog Open1 = new OpenFileDialog();
             Open1.Filter = " Image file (*.BMP,*.JPG,*.JPEG)|*.bmp;*.jpg;*.jpeg ";
             Open1.Multiselect = false;
@@ -75,7 +73,7 @@ namespace App_sale_manager
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
             string loaiKH = "";
-            if (string.IsNullOrEmpty(comboBox_loaiKH.Text)!=true)
+            if (string.IsNullOrEmpty(comboBox_loaiKH.Text) != true)
                 if (comboBox_loaiKH.Text == "Khách thường")
                     loaiKH = "NOR";
                 else

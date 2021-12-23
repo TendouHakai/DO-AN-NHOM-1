@@ -136,6 +136,7 @@
             this.Controls.Add(this.lb_matkhaucu);
             this.Controls.Add(this.lb_doimatkhau_nv);
             this.Name = "Form_doipass_nv";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_doipass_nv_FormClosed);
             this.ResumeLayout(false);

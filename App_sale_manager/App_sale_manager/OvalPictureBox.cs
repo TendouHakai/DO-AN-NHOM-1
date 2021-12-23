@@ -3,8 +3,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+
 [ToolboxItem(true)]
-class OvalPictureBox : PictureBox
+internal class OvalPictureBox : PictureBox
 {
     private IContainer components;
 
@@ -12,6 +13,7 @@ class OvalPictureBox : PictureBox
     {
         this.BackColor = Color.DarkGray;
     }
+
     protected override void OnResize(EventArgs e)
     {
         base.OnResize(e);
@@ -26,13 +28,10 @@ class OvalPictureBox : PictureBox
     {
         ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
         this.SuspendLayout();
-        // 
+        //
         // OvalPictureBox
-        // 
+        //
         ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
         this.ResumeLayout(false);
-
     }
-
-
 }

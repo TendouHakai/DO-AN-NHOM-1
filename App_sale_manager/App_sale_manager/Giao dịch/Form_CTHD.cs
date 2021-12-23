@@ -1,34 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_CTHD : Form
     {
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection sqlCon;
-        SqlCommand cmd;
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        DataTable table = new DataTable();
-        Bitmap bmp;
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlConnection sqlCon;
+        private SqlCommand cmd;
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+        private DataTable table = new DataTable();
+        private Bitmap bmp;
+
         public Form_CTHD()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
         }
-        
-        public Form_CTHD(string mahoadon,string makhachhang,string manhanvien,string loaihd,string trangthai, string tong)
-        {           
+
+        public Form_CTHD(string mahoadon, string makhachhang, string manhanvien, string loaihd, string trangthai, string tong)
+        {
             InitializeComponent();
 
             l_MaHoadon.Text = mahoadon;
@@ -36,17 +31,16 @@ namespace App_sale_manager
             l_MaNhanVien.Text = manhanvien;
             l_LoaiHoaDon.Text = loaihd;
             l_TrangThai.Text = trangthai;
-            l_Tong.Text =string.Format("{0:0,0}",Convert.ToDouble(tong.Replace(",", string.Empty)));
+            l_Tong.Text = string.Format("{0:0,0}", Convert.ToDouble(tong.Replace(",", string.Empty)));
 
             sqlCon = new SqlConnection(strCon);
             sqlCon.Open();
             cmd = sqlCon.CreateCommand();
 
+            cmd.CommandText = "select TENSP,SL,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from CTHDBH, SANPHAM where SOHD_BH = '" + mahoadon + "' and SANPHAM.SPID = CTHDBH.SPID ";
+            var reader = cmd.ExecuteReader();
 
-            cmd.CommandText = "select TENSP,SL,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from CTHDBH, SANPHAM where SOHD_BH = '" + mahoadon+"' and SANPHAM.SPID = CTHDBH.SPID " ;
-            var reader =  cmd.ExecuteReader();
-            
-            while(reader.Read())
+            while (reader.Read())
             {
                 DataGridViewRow row = (DataGridViewRow)DGV_CTHD.Rows[0].Clone();
                 row.Cells[0].Value = reader.GetString(0);
@@ -62,7 +56,6 @@ namespace App_sale_manager
                 DGV_CTHD.AutoResizeRow(i);
             }
 
-
             cmd.CommandText = "select HOTEN from KHACHHANG where KHID = '" + makhachhang + "'";
             reader = cmd.ExecuteReader();
 
@@ -70,47 +63,40 @@ namespace App_sale_manager
             {
                 l_TenKhachHang.Text = reader.GetString(0);
             }
-
-
-
-
         }
 
         private void bnt_trangthai_Click(object sender, EventArgs e)
         {
-            
             if (l_TrangThai.Text == "NHANDON")
             {
-                cmd.CommandText = "update HDBH set TRANGTHAI = 'DANGGIAO' where SOHD_BH = '"+l_MaHoadon.Text+"' ";
+                cmd.CommandText = "update HDBH set TRANGTHAI = 'DANGGIAO' where SOHD_BH = '" + l_MaHoadon.Text + "' ";
                 adapter.UpdateCommand = cmd;
                 l_TrangThai.Text = "DANGGIAO";
             }
             else if (l_TrangThai.Text == "DANGGIAO")
             {
                 l_TrangThai.Text = "HOANTAT";
-                cmd.CommandText = "update HDBH set TRANGTHAI = 'HOANTAT' where SOHD_BH  = '"+l_MaHoadon.Text+"' ";
-                               
+                cmd.CommandText = "update HDBH set TRANGTHAI = 'HOANTAT' where SOHD_BH  = '" + l_MaHoadon.Text + "' ";
             }
             cmd.ExecuteNonQuery();
         }
 
         private void Form_CTHD_Load(object sender, EventArgs e)
         {
-            if(DGV_CTHD.CurrentRow != null)
-            DGV_CTHD.CurrentRow.Selected = false;
+            if (DGV_CTHD.CurrentRow != null)
+                DGV_CTHD.CurrentRow.Selected = false;
         }
 
         private void bnt_Print_Click(object sender, EventArgs e)
         {
             int height = DGV_CTHD.Height;
-            DGV_CTHD.Height = DGV_CTHD.RowCount  * DGV_CTHD.RowTemplate.Height + DGV_CTHD.RowTemplate.Height;
-            bmp = new Bitmap(DGV_CTHD.Width, DGV_CTHD.Height );
+            DGV_CTHD.Height = DGV_CTHD.RowCount * DGV_CTHD.RowTemplate.Height + DGV_CTHD.RowTemplate.Height;
+            bmp = new Bitmap(DGV_CTHD.Width, DGV_CTHD.Height);
             DGV_CTHD.DrawToBitmap(bmp, new Rectangle(0, 0, DGV_CTHD.Width, DGV_CTHD.Height));
             DGV_CTHD.Height = height;
             PrintP_HoaDon.ShowDialog();
         }
 
-        
         private void Print_HoaDon_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font drawFont = new Font("Arial", 20);
@@ -122,7 +108,7 @@ namespace App_sale_manager
 
             e.Graphics.DrawString("****************************************************************************", drawFont, drawBrush, 0, 100);
 
-            e.Graphics.DrawString("Ma hoa don ", drawFont,drawBrush,40, 125);
+            e.Graphics.DrawString("Ma hoa don ", drawFont, drawBrush, 40, 125);
             e.Graphics.DrawString(l_MaHoadon.Text, drawFont, drawBrush, 250, 125);
 
             e.Graphics.DrawString("Ma khach hang ", drawFont, drawBrush, 40, 150);
@@ -140,16 +126,12 @@ namespace App_sale_manager
             e.Graphics.DrawString("Trang thai ", drawFont, drawBrush, 40, 250);
             e.Graphics.DrawString(l_TrangThai.Text, drawFont, drawBrush, 250, 250);
 
-
             e.Graphics.DrawString("****************************************************************************", drawFont, drawBrush, 0, 275);
-
 
             e.Graphics.DrawImage(bmp, 20, 300);
 
             e.Graphics.DrawString("Tong  ", drawFont, drawBrush, 300, 315 + bmp.Height);
             e.Graphics.DrawString(l_Tong.Text, drawFont, drawBrush, 350, 315 + bmp.Height);
         }
-
-
     }
 }

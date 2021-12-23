@@ -1,29 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_NV_chamcong : Form
     {
-        string NVID;
-        SqlConnection sqlCon = null;
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlCommand cmd;
-        SqlDataAdapter adapter = new SqlDataAdapter();
+        private string NVID;
+        private SqlConnection sqlCon = null;
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlCommand cmd;
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+
         public Form_NV_chamcong()
         {
             InitializeComponent();
             sqlCon = new SqlConnection(strCon);
             cmd = sqlCon.CreateCommand();
         }
+
         public Form_NV_chamcong(string NVID)
         {
             this.NVID = NVID;
@@ -36,13 +33,14 @@ namespace App_sale_manager
             load_bangchamcong();
             load_songay();
         }
-        void load_ThongtinNV()
+
+        private void load_ThongtinNV()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
-            cmd.CommandText = "SELECT NVID, HOTEN, SDT, CV, USERNAME FROM NHANVIEN WHERE NVID = '"+NVID+"'";
+            cmd.CommandText = "SELECT NVID, HOTEN, SDT, CV, USERNAME FROM NHANVIEN WHERE NVID = '" + NVID + "'";
             var reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 textBox3.Text = reader.GetString(0);
                 textBox4.Text = reader.GetString(1);
@@ -52,17 +50,16 @@ namespace App_sale_manager
             }
             try
             {
-                pictureBox1.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\" + NVID+ ".jpg");
-                
+                pictureBox1.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\" + NVID + ".jpg");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 pictureBox1.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\No Image.jpg");
-               
             }
             sqlCon.Close();
         }
-        void load_bangchamcong()
+
+        private void load_bangchamcong()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
@@ -71,7 +68,7 @@ namespace App_sale_manager
             dataGridView1.Rows.Add("Ca chiều");
             dataGridView1.Rows.Add("Ca tối");
             int j = 1;
-            for(; i<=DateTime.Today; i = i.AddDays(1))
+            for (; i <= DateTime.Today; i = i.AddDays(1))
             {
                 DataGridViewImageColumn column = new DataGridViewImageColumn();
                 column.HeaderText = i.ToString("d");
@@ -83,16 +80,18 @@ namespace App_sale_manager
                 DataTable table = new DataTable();
                 table.Clear();
                 adapter.Fill(table);
-                for(int h = 0; h<table.Rows.Count; h++)
+                for (int h = 0; h < table.Rows.Count; h++)
                 {
-                    switch(table.Rows[h]["CAID"].ToString().Substring(2,1))
+                    switch (table.Rows[h]["CAID"].ToString().Substring(2, 1))
                     {
                         case "S":
                             dataGridView1.Rows[0].Cells[j].Value = Image.FromFile("../../icon/tick.png");
                             break;
+
                         case "C":
                             dataGridView1.Rows[1].Cells[j].Value = Image.FromFile("../../icon/tick.png");
                             break;
+
                         case "T":
                             dataGridView1.Rows[2].Cells[j].Value = Image.FromFile("../../icon/tick.png");
                             break;
@@ -109,20 +108,22 @@ namespace App_sale_manager
                         case "S":
                             dataGridView1.Rows[0].Cells[j].Value = Image.FromFile("../../icon/X.png");
                             break;
+
                         case "C":
                             dataGridView1.Rows[1].Cells[j].Value = Image.FromFile("../../icon/X.png");
                             break;
+
                         case "T":
                             dataGridView1.Rows[2].Cells[j].Value = Image.FromFile("../../icon/X.png");
                             break;
                     }
-                    
                 }
                 j++;
             }
             sqlCon.Close();
         }
-        void load_songay()
+
+        private void load_songay()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();

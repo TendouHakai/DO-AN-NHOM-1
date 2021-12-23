@@ -1,43 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_lichhangtuan : Form
     {
-        GroupBox[] grbs;
-        DataGridView[] dgvs;
-        SqlConnection sqlCon = null;
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlCommand cmd;
-        SqlDataAdapter adapter = new SqlDataAdapter();
+        private GroupBox[] grbs;
+        private DataGridView[] dgvs;
+        private SqlConnection sqlCon = null;
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlCommand cmd;
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+
         public event EventHandler Load_form_main;
+
         private void Load_form(object sender, EventArgs e)
         {
             (sender as Form).Close();
             this.load_fr();
-        }    
+        }
+
         public Form_lichhangtuan()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             sqlCon = new SqlConnection(strCon);
-            grbs = new GroupBox[7] { grb_chunhat ,grb_thuhai, grb_thuba, grb_thutu, grb_thunam, grb_thusau, grb_thubay};
+            grbs = new GroupBox[7] { grb_chunhat, grb_thuhai, grb_thuba, grb_thutu, grb_thunam, grb_thusau, grb_thubay };
             dgvs = new DataGridView[7] { dgv_CN, dgv_2, dgv_3, dgv_4, dgv_5, dgv_6, dgv_7 };
             load_fr();
             this.Size = new Size(1200, 800);
         }
-        void taobang(GroupBox grb, DataGridView dgv)
+
+        private void taobang(GroupBox grb, DataGridView dgv)
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
@@ -68,13 +66,14 @@ namespace App_sale_manager
             dgv.Columns.AddRange(dgvID, dgvTen, dgvChucvu, dgvSang, dgvChieu, dgvToi);
             sqlCon.Close();
         }
-        void load_fr()
+
+        private void load_fr()
         {
             if (sqlCon.State == ConnectionState.Closed)
             {
                 sqlCon.Open();
             }
-            for (int i =0; i<7; i++)
+            for (int i = 0; i < 7; i++)
             {
                 taobang(grbs[i], dgvs[i]);
                 cmd = sqlCon.CreateCommand();
@@ -96,27 +95,29 @@ namespace App_sale_manager
                             case "S":
                                 dgvs[i].Rows[dgvs[i].Rows.Count - 2].Cells[3].Value = true;
                                 break;
+
                             case "C":
                                 dgvs[i].Rows[dgvs[i].Rows.Count - 2].Cells[4].Value = true;
                                 break;
+
                             case "T":
                                 dgvs[i].Rows[dgvs[i].Rows.Count - 2].Cells[5].Value = true;
                                 break;
                         }
                         j++;
                         if (j >= table.Rows.Count)
-                            break; 
+                            break;
                     }
                     j--;
                 }
-            }    
+            }
         }
 
         private void btn_them_Click(object sender, EventArgs e)
         {
             Form_nv_phancong_themlich frm = new Form_nv_phancong_themlich();
             frm.Load_frm_main += Load_form;
-            frm.cbo_chedo.SelectedIndex=1;
+            frm.cbo_chedo.SelectedIndex = 1;
             frm.cbo_chedo.Enabled = false;
             frm.ShowDialog();
         }
@@ -157,10 +158,10 @@ namespace App_sale_manager
 
         private void btn_Xoatoanbo_Click(object sender, EventArgs e)
         {
-            for(int i =0; i<7; i++)
+            for (int i = 0; i < 7; i++)
             {
                 dgvs[i].Rows.Clear();
-            }    
+            }
         }
 
         private void Form_lichhangtuan_FormClosed(object sender, FormClosedEventArgs e)

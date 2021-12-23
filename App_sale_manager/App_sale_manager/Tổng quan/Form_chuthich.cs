@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_chuthich : Form
     {
-        string manv = string.Empty;
-        string tennv = string.Empty;
-        SqlConnection sqlCon = null;
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlCommand cmd;
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        DataTable table = new DataTable();
+        private string manv = string.Empty;
+        private string tennv = string.Empty;
+        private SqlConnection sqlCon = null;
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlCommand cmd;
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+        private DataTable table = new DataTable();
+
         public Form_chuthich()
         {
             sqlCon = new SqlConnection(strCon);
@@ -29,7 +24,8 @@ namespace App_sale_manager
             this.MaximizeBox = false;
             load();
         }
-        void load()
+
+        private void load()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();

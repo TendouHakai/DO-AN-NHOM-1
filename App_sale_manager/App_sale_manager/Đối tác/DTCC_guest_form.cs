@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace App_sale_manager
 {
     public partial class DTCC_guest_form : Form
     {
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
+        private SqlConnection con = new SqlConnection(strCon);
+
         private void openconnect()
         {
             if (con.State == ConnectionState.Closed)
@@ -22,7 +18,9 @@ namespace App_sale_manager
                 con.Open();
             }
         }
+
         public event EventHandler RefreshData;
+
         private void closeconnect()
         {
             if (con.State == ConnectionState.Open)
@@ -30,6 +28,7 @@ namespace App_sale_manager
                 con.Close();
             }
         }
+
         public Boolean exedata(string cmd)
         {
             openconnect();
@@ -47,7 +46,7 @@ namespace App_sale_manager
             closeconnect();
             return check;
         }
-        
+
         public DTCC_guest_form()
         {
             InitializeComponent();
@@ -66,8 +65,8 @@ namespace App_sale_manager
 
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
-            string loaiKH="NOR";
-            if (string.IsNullOrEmpty(comboBox_loaiKH.Text)!=true)
+            string loaiKH = "NOR";
+            if (string.IsNullOrEmpty(comboBox_loaiKH.Text) != true)
                 if (comboBox_loaiKH.Text == "Khách thường")
                     loaiKH = "NOR";
                 else
@@ -99,7 +98,7 @@ namespace App_sale_manager
                 filepath = Open1.FileName;
                 pictureBox_image_import.Image = Image.FromFile(filepath);
                 this.label_image_name.Text = filepath;
-            }           
+            }
         }
 
         private void textBox_budget_z_Click(object sender, EventArgs e)

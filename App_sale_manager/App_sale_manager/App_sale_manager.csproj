@@ -62,6 +62,42 @@
     <Compile Include="Form_addnv_admin.Designer.cs">
       <DependentUpon>Form_addnv_admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_main_admin\Tab_DoiTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_admin\Tab_BaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_admin\Tab_GiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_admin\Tab_HangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_admin\Tab_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_admin\Form_main_admin_UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_admin\Tab_TongQuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_NV\Form_main_NV_UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_NV\Tab_CaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_NV\Tab_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_NV\Tab_LichLamViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_main_NV\Tab_TongQuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,16 +244,16 @@
     <Compile Include="Form_login.Designer.cs">
       <DependentUpon>Form_login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_main_admin.cs">
+    <Compile Include="Form_main_admin\Form_main_admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_main_admin.Designer.cs">
+    <Compile Include="Form_main_admin\Form_main_admin.Designer.cs">
       <DependentUpon>Form_main_admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_main_NV.cs">
+    <Compile Include="Form_main_NV\Form_main_NV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_main_NV.Designer.cs">
+    <Compile Include="Form_main_NV\Form_main_NV.Designer.cs">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
     </Compile>
     <Compile Include="Nhân viên\Form_nv_phancong_themlich.cs">
@@ -317,10 +353,10 @@
     <EmbeddedResource Include="Form_login.resx">
       <DependentUpon>Form_login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_main_admin.resx">
+    <EmbeddedResource Include="Form_main_admin\Form_main_admin.resx">
       <DependentUpon>Form_main_admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_main_NV.resx">
+    <EmbeddedResource Include="Form_main_NV\Form_main_NV.resx">
       <DependentUpon>Form_main_NV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân viên\Form_nv_phancong_themlich.resx">

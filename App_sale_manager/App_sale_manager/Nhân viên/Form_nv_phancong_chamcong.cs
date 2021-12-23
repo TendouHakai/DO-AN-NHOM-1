@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_nv_phancong_chamcong : Form
     {
-        SqlConnection sqlCon = null;
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlCommand cmd;
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        List<string> ngay = new List<string>();
-        
+        private SqlConnection sqlCon = null;
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlCommand cmd;
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+        private List<string> ngay = new List<string>();
+
         public Form_nv_phancong_chamcong()
         {
             InitializeComponent();
@@ -30,9 +26,9 @@ namespace App_sale_manager
             update_table_CT_LAMVIEC();
             Tao_bang();
             load_bangChamCong();
-            
         }
-        void load_ThongtinNV(string NVID)
+
+        private void load_ThongtinNV(string NVID)
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
@@ -52,25 +48,24 @@ namespace App_sale_manager
             try
             {
                 pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\" + NVID + ".jpg");
-
             }
             catch (Exception)
             {
                 pictureBox3.BackgroundImage = Image.FromFile(@"Image samples for testing\NV\No Image.jpg");
-
             }
-            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND NGAYLAM<='"+DateTime.Today.ToString("MM/dd/yyyy")+"' AND TRANGTHAI = N'Đã điểm danh'";
+            cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND NGAYLAM<='" + DateTime.Today.ToString("MM/dd/yyyy") + "' AND TRANGTHAI = N'Đã điểm danh'";
             textBox1.Text = cmd.ExecuteScalar().ToString();
             cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID= '" + NVID + "' AND MONTH(NGAYLAM) =" + DateTime.Today.Month + " AND NGAYLAM<='" + DateTime.Today.ToString("MM/dd/yyyy") + "' AND TRANGTHAI = N'Chưa điểm danh'";
             textBox2.Text = cmd.ExecuteScalar().ToString();
             sqlCon.Close();
         }
-        void update_table_CT_LAMVIEC()
+
+        private void update_table_CT_LAMVIEC()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             DateTime i = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-            for (; i<=DateTime.Today; i = i.AddDays(1))
+            for (; i <= DateTime.Today; i = i.AddDays(1))
             {
                 cmd.CommandText = "SELECT NVID, CAID FROM CT_LAMVIEC_HANGTUAN WHERE SUBSTRING(CAID,2,1) = '" + ((int)i.DayOfWeek) + "'"
                                + " EXCEPT"
@@ -86,15 +81,15 @@ namespace App_sale_manager
                         cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + table.Rows[j]["NVID"] + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'Lịch làm việc hàng tuần')";
                         cmd.ExecuteNonQuery();
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
-
                     }
                 }
             }
             sqlCon.Close();
         }
-        void Tao_bang()
+
+        private void Tao_bang()
         {
             // tạo bảng.
             DateTime i = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
@@ -120,9 +115,7 @@ namespace App_sale_manager
             for (int j = 2; j < this.dataGridView1.ColumnCount; j++)
 
             {
-
                 this.dataGridView1.Columns[j].Width = 45;
-
             }
 
             this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -135,16 +128,13 @@ namespace App_sale_manager
 
             this.dataGridView1.Paint += new PaintEventHandler(dataGridView1_Paint);
 
-
-
             this.dataGridView1.Scroll += new ScrollEventHandler(dataGridView1_Scroll);
 
-            
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd.CommandText = "SELECT NVID, HOTEN FROM NHANVIEN";
             var reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 dataGridView1.Rows.Add(reader.GetString(0), reader.GetString(1));
             }
@@ -163,12 +153,9 @@ namespace App_sale_manager
 
         private void dataGridView1_Paint(object sender, PaintEventArgs e)
         {
-
-
             for (int j = 2; j < ngay.Count * 3; j += 3)
 
             {
-
                 Rectangle r1 = this.dataGridView1.GetCellDisplayRectangle(j, -1, true);
 
                 int w2 = this.dataGridView1.GetCellDisplayRectangle(j + 1, -1, true).Width;
@@ -199,60 +186,55 @@ namespace App_sale_manager
                     r1,
 
                     format);
-
-
-                }
             }
+        }
 
-            private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex == -1 && e.ColumnIndex > -1)
 
             {
-
                 Rectangle r2 = e.CellBounds;
 
                 r2.Y += e.CellBounds.Height / 2;
 
                 r2.Height = e.CellBounds.Height / 2;
 
-
-
                 e.PaintBackground(r2, true);
 
-
-
                 e.PaintContent(r2);
-
 
                 e.Handled = true;
             }
         }
-        void load_bangChamCong()
+
+        private void load_bangChamCong()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             int n = dataGridView1.Rows.Count;
             DateTime i = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             int h = 2;
-            for(; i<=DateTime.Today; i = i.AddDays(1))
+            for (; i <= DateTime.Today; i = i.AddDays(1))
             {
-                for(int j =0; j<n; j++)
+                for (int j = 0; j < n; j++)
                 {
-                    cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '"+dataGridView1.Rows[j].Cells[0].Value.ToString()+"' AND NGAYLAM = '"+i.ToString("MM/dd/yyyy")+"' AND TRANGTHAI = N'Đã điểm danh'";
+                    cmd.CommandText = "SELECT CAID FROM CT_LAMVIEC WHERE NVID = '" + dataGridView1.Rows[j].Cells[0].Value.ToString() + "' AND NGAYLAM = '" + i.ToString("MM/dd/yyyy") + "' AND TRANGTHAI = N'Đã điểm danh'";
                     var reader = cmd.ExecuteReader();
-                    while(reader.Read())
+                    while (reader.Read())
                     {
-                        switch(reader.GetString(0).Substring(2,1))
+                        switch (reader.GetString(0).Substring(2, 1))
                         {
                             case "S":
                                 dataGridView1.Rows[j].Cells[h].Value = Image.FromFile("../../icon/tick.png");
                                 break;
+
                             case "C":
-                                dataGridView1.Rows[j].Cells[h+1].Value = Image.FromFile("../../icon/tick.png");
+                                dataGridView1.Rows[j].Cells[h + 1].Value = Image.FromFile("../../icon/tick.png");
                                 break;
+
                             case "T":
-                                dataGridView1.Rows[j].Cells[h+2].Value = Image.FromFile("../../icon/tick.png");
+                                dataGridView1.Rows[j].Cells[h + 2].Value = Image.FromFile("../../icon/tick.png");
                                 break;
                         }
                     }
@@ -266,9 +248,11 @@ namespace App_sale_manager
                             case "S":
                                 dataGridView1.Rows[j].Cells[h].Value = Image.FromFile("../../icon/X.png");
                                 break;
+
                             case "C":
                                 dataGridView1.Rows[j].Cells[h + 1].Value = Image.FromFile("../../icon/X.png");
                                 break;
+
                             case "T":
                                 dataGridView1.Rows[j].Cells[h + 2].Value = Image.FromFile("../../icon/X.png");
                                 break;

@@ -322,6 +322,7 @@
             this.Controls.Add(this.bt_Sua);
             this.Controls.Add(this.label1);
             this.Name = "Form_UpdateNV_admin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin nhân viên";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_UpdateNV_admin_FormClosed);
             this.Load += new System.EventHandler(this.Form_UpdateNV_admin_Load);

@@ -89,6 +89,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_OK);
             this.Name = "Form_selectphoto_nv";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn ảnh";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_selectphoto_nv_FormClosed);
             this.Load += new System.EventHandler(this.Form_selectphoto_nv_Load);

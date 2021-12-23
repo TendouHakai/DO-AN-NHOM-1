@@ -8,8 +8,8 @@ namespace App_sale_manager
         public NumericUpDown_fc()
         {
             InitializeComponent();
-
         }
+
         protected override void UpdateEditText()
         {
             this.Text = String.Format("{0:0,0}", Convert.ToDouble(Value.ToString()));

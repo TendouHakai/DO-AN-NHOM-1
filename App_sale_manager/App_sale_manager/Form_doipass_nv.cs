@@ -1,27 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Form_doipass_nv : System.Windows.Forms.Form
     {
-        string NVID;
+        private string NVID;
+
         public string nvid
         {
             set { NVID = value; }
         }
-        SqlConnection sqlCon = null;
-        string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlCommand cmd;
+
+        private SqlConnection sqlCon = null;
+        private string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
+        private SqlCommand cmd;
+
         public event EventHandler Thoat;
+
         public Form_doipass_nv(string NVID)
         {
             InitializeComponent();
@@ -48,7 +46,6 @@ namespace App_sale_manager
                     if (reader.Read())
                     {
                         matkhau = reader.GetString(0);
-
                     }
                     reader.Close();
                     if (tb_matkhaucu_nv.Text == matkhau)
@@ -84,7 +81,6 @@ namespace App_sale_manager
 
         private void tb_matkhaumoi_nv_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

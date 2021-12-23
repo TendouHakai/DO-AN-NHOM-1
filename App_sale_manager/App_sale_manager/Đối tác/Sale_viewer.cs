@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
     public partial class Sale_viewer : Form
     {
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
-        string selectedSale = "";
+        private SqlConnection con = new SqlConnection(strCon);
+        private string selectedSale = "";
+
         public void Database_Init()
         {
             SqlCommand cmd;
@@ -30,6 +25,7 @@ namespace App_sale_manager
             Adapter.Fill(Table);
             dataGridView_sale.DataSource = Table;
         }
+
         private void openconnect()
         {
             if (con.State == ConnectionState.Closed)
@@ -37,6 +33,7 @@ namespace App_sale_manager
                 con.Open();
             }
         }
+
         private void closeconnect()
         {
             if (con.State == ConnectionState.Open)
@@ -44,6 +41,7 @@ namespace App_sale_manager
                 con.Close();
             }
         }
+
         public Boolean exedata(string cmd)
         {
             openconnect();
@@ -61,6 +59,7 @@ namespace App_sale_manager
             closeconnect();
             return check;
         }
+
         public Sale_manager Sale_get(DataGridViewRow A)
         {
             Sale_manager B = new Sale_manager();
@@ -83,6 +82,7 @@ namespace App_sale_manager
                 B.checkBox_priceCondition.CheckState = CheckState.Checked;
             return B;
         }
+
         public void DataRefresh(object sender, EventArgs e)
         {
             Database_Init();
@@ -148,11 +148,11 @@ namespace App_sale_manager
                         listBox_VIP_waiting.Items.Add(dataGridView_sale.Rows[i].Cells[0].Value.ToString());
                     }
                 }
-
             }
         }
+
         public Sale_viewer()
-        {           
+        {
             InitializeComponent();
             DataRefresh(this, null);
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -203,7 +203,7 @@ namespace App_sale_manager
 
         private void listBox_NOR_ended_DoubleClick(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView_sale.RowCount -1; i++)
+            for (int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_NOR_ended.SelectedItem.ToString())
                 {
@@ -218,7 +218,7 @@ namespace App_sale_manager
 
         private void listBox_VIP_ongoing_DoubleClick(object sender, EventArgs e)
         {
-            for(int i = 0; i < dataGridView_sale.RowCount - 1; i++)
+            for (int i = 0; i < dataGridView_sale.RowCount - 1; i++)
             {
                 if (dataGridView_sale.Rows[i].Cells[0].Value.ToString() == listBox_VIP_ongoing.SelectedItem.ToString())
                 {
@@ -276,6 +276,7 @@ namespace App_sale_manager
                 }
             }
         }
+
         private void listBox_NOR_ongoing_Leave(object sender, EventArgs e)
         {
             listBox_NOR_ongoing.ClearSelected();
@@ -314,6 +315,7 @@ namespace App_sale_manager
                 button_saleDelete.Enabled = true;
             }
         }
+
         private void listBox_NOR_waiting_MouseClick(object sender, EventArgs e)
         {
             if (listBox_NOR_waiting.SelectedItems.Count != 0)
@@ -322,6 +324,7 @@ namespace App_sale_manager
                 button_saleDelete.Enabled = true;
             }
         }
+
         private void listBox_NOR_ended_MouseClick(object sender, EventArgs e)
         {
             if (listBox_NOR_ended.SelectedItems.Count != 0)
@@ -330,6 +333,7 @@ namespace App_sale_manager
                 button_saleDelete.Enabled = true;
             }
         }
+
         private void listBox_VIP_ongoing_MouseClick(object sender, EventArgs e)
         {
             if (listBox_VIP_ongoing.SelectedItems.Count != 0)
@@ -338,6 +342,7 @@ namespace App_sale_manager
                 button_saleDelete.Enabled = true;
             }
         }
+
         private void listBox_VIP_waiting_MouseClick(object sender, EventArgs e)
         {
             if (listBox_VIP_waiting.SelectedItems.Count != 0)
@@ -346,6 +351,7 @@ namespace App_sale_manager
                 button_saleDelete.Enabled = true;
             }
         }
+
         private void listBox_VIP_ended_MouseClick(object sender, EventArgs e)
         {
             if (listBox_VIP_ended.SelectedItems.Count != 0)

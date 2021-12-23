@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace App_sale_manager
 {
-    
     public partial class Sale_manager : Form
     {
         public static string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
-        SqlConnection con = new SqlConnection(strCon);
-        void Sale_items_addWithProducts()
+        private SqlConnection con = new SqlConnection(strCon);
+
+        private void Sale_items_addWithProducts()
         {
             comboBox_Condition.Items.Clear();
             comboBox_Condition.Items.Add("Laptop - Macbook");
@@ -28,7 +22,8 @@ namespace App_sale_manager
             comboBox_Condition.Items.Add("Bo mạch chủ (Mainboard)");
             comboBox_Condition.Items.Add("Ổ cứng");
         }
-        void Sale_items_addWithProducer()
+
+        private void Sale_items_addWithProducer()
         {
             comboBox_Condition.Items.Clear();
             comboBox_Condition.Items.Add("Apple");
@@ -53,12 +48,14 @@ namespace App_sale_manager
             comboBox_Condition.Items.Add("Western Digital");
             comboBox_Condition.Items.Add("Zidli");
         }
+
         public Sale_manager()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;           
+            this.MaximizeBox = false;
         }
+
         public event EventHandler dataRefresh;
 
         private void comboBox_saleCondition_TextChanged(object sender, EventArgs e)
@@ -89,7 +86,9 @@ namespace App_sale_manager
                 con.Open();
             }
         }
+
         public event EventHandler RefreshData;
+
         private void closeconnect()
         {
             if (con.State == ConnectionState.Open)
@@ -97,6 +96,7 @@ namespace App_sale_manager
                 con.Close();
             }
         }
+
         public Boolean exedata(string cmd)
         {
             openconnect();
@@ -132,7 +132,7 @@ namespace App_sale_manager
 
         private void checkBox_priceCondition_CheckStateChanged(object sender, EventArgs e)
         {
-            if(checkBox_priceCondition.CheckState==CheckState.Checked)
+            if (checkBox_priceCondition.CheckState == CheckState.Checked)
             {
                 label_Condition_price.Enabled = true;
                 label_Condition_quantity.Enabled = true;
@@ -154,6 +154,7 @@ namespace App_sale_manager
         {
             Close();
         }
+
         private bool Check_if_existed(string name)
         {
             SqlCommand cmd;
@@ -169,9 +170,10 @@ namespace App_sale_manager
             dataGridView_manager.DataSource = Table;
             if (dataGridView_manager.RowCount > 1)
                 return true;
-            else 
+            else
                 return false;
         }
+
         private void button_save_Click(object sender, EventArgs e)
         {
             int Tudongxoa = 0, Codieukien = 0;
@@ -215,7 +217,6 @@ namespace App_sale_manager
             else
                 MessageBox.Show("Thêm không thành công");
             dataRefresh(this, e);
-
         }
 
         private void comboBox_priceMethod_TextChanged(object sender, EventArgs e)
@@ -227,6 +228,7 @@ namespace App_sale_manager
                     numericUpDown_priceReduced.Minimum = 1000;
                     numericUpDown_priceReduced.Maximum = 1000000;
                     break;
+
                 case "Giảm theo phần trăm":
                     label_priceReduced.Text = "Phần trăm giảm (%): ";
                     numericUpDown_priceReduced.Maximum = 100;
@@ -234,7 +236,5 @@ namespace App_sale_manager
                     break;
             }
         }
-
-        
     }
 }

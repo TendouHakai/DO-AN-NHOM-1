@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App_sale_manager
@@ -16,8 +10,8 @@ namespace App_sale_manager
     {
         public string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["stringDatabase"].ConnectionString;
         public SqlConnection sqlCon = null;
-        static public SqlDataAdapter adapter = null;
-       
+        public static SqlDataAdapter adapter = null;
+
         public Form_ChiTietNH(string mahd)
         {
             InitializeComponent();
@@ -44,19 +38,20 @@ namespace App_sale_manager
             sqlCon.Close();
             LoadCTDonNhap();
         }
+
         private void LoadCTDonNhap()
         {
             if (txtSoHDNH.Text != string.Empty)
             {
                 sqlCon = new SqlConnection(strCon);
                 sqlCon.Open();
-                adapter = new SqlDataAdapter("select CTHDNH.SPID,SANPHAM.TENSP,CTHDNH.SL,SANPHAM.GIANHAP from CTHDNH,SANPHAM where SANPHAM.SPID=CTHDNH.SPID and SOHD_NH='" + txtSoHDNH.Text+"'", sqlCon);
+                adapter = new SqlDataAdapter("select CTHDNH.SPID,SANPHAM.TENSP,CTHDNH.SL,SANPHAM.GIANHAP from CTHDNH,SANPHAM where SANPHAM.SPID=CTHDNH.SPID and SOHD_NH='" + txtSoHDNH.Text + "'", sqlCon);
                 DataTable tableSPNH = new DataTable();
                 adapter.Fill(tableSPNH);
                 dgvChiTietNH.DataSource = tableSPNH;
-                dgvChiTietNH.Columns[0].HeaderText = "Mã Sản Phẩm";         
+                dgvChiTietNH.Columns[0].HeaderText = "Mã Sản Phẩm";
                 dgvChiTietNH.Columns[1].HeaderText = "Tên Sản Phẩm";
-                dgvChiTietNH.Columns[2].HeaderText = "Số Lượng Nhập";    
+                dgvChiTietNH.Columns[2].HeaderText = "Số Lượng Nhập";
                 dgvChiTietNH.Columns[3].HeaderText = "Đơn Giá";
                 sqlCon.Close();
             }
@@ -64,9 +59,8 @@ namespace App_sale_manager
 
         private void bnt_Print_Click(object sender, EventArgs e)
         {
-           PrintP_HoaDon.ShowDialog();           
+            PrintP_HoaDon.ShowDialog();
         }
-
 
         private void Print_HoaDon_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -77,21 +71,20 @@ namespace App_sale_manager
             int x = 40;
             int y = 100;
             drawFont = new Font("Arial", 12);
-            e.Graphics.DrawString("Mã Hoá Đơn: "+txtSoHDNH.Text, drawFont, drawBrush, x, y=y+25); 
-            e.Graphics.DrawString("Tên Đối Tác: "+txtTenDT.Text, drawFont, drawBrush, x, y=y+30);
-            e.Graphics.DrawString("Mã Đối Tác: " + txtMaDT.Text, drawFont, drawBrush, x, y=y+25);
-            e.Graphics.DrawString("Tên Nhân Viên:"+txtNVNhap.Text, drawFont, drawBrush, x, y=y+30);    
-            e.Graphics.DrawString("Mã Nhân Viên "+txtMaNV.Text, drawFont, drawBrush, x, y=y+25);
-            e.Graphics.DrawString("Sản phẩm đã mua", drawFont, drawBrush, x, y = y+50);
-            for(int i=0;i<dgvChiTietNH.RowCount-1;i++)
+            e.Graphics.DrawString("Mã Hoá Đơn: " + txtSoHDNH.Text, drawFont, drawBrush, x, y = y + 25);
+            e.Graphics.DrawString("Tên Đối Tác: " + txtTenDT.Text, drawFont, drawBrush, x, y = y + 30);
+            e.Graphics.DrawString("Mã Đối Tác: " + txtMaDT.Text, drawFont, drawBrush, x, y = y + 25);
+            e.Graphics.DrawString("Tên Nhân Viên:" + txtNVNhap.Text, drawFont, drawBrush, x, y = y + 30);
+            e.Graphics.DrawString("Mã Nhân Viên " + txtMaNV.Text, drawFont, drawBrush, x, y = y + 25);
+            e.Graphics.DrawString("Sản phẩm đã mua", drawFont, drawBrush, x, y = y + 50);
+            for (int i = 0; i < dgvChiTietNH.RowCount - 1; i++)
             {
-                e.Graphics.DrawString("Mã SP: "+dgvChiTietNH.Rows[i].Cells[0].Value.ToString(), drawFont, drawBrush, x, y = y + 50);
-                e.Graphics.DrawString("Tên SP: " + dgvChiTietNH.Rows[i].Cells[1].Value.ToString(), drawFont, drawBrush, x, y = y + 25);               
+                e.Graphics.DrawString("Mã SP: " + dgvChiTietNH.Rows[i].Cells[0].Value.ToString(), drawFont, drawBrush, x, y = y + 50);
+                e.Graphics.DrawString("Tên SP: " + dgvChiTietNH.Rows[i].Cells[1].Value.ToString(), drawFont, drawBrush, x, y = y + 25);
                 e.Graphics.DrawString("Đơn Giá: " + dgvChiTietNH.Rows[i].Cells[3].Value.ToString(), drawFont, drawBrush, x, y = y + 25);
                 e.Graphics.DrawString("Số Lượng: " + dgvChiTietNH.Rows[i].Cells[2].Value.ToString(), drawFont, drawBrush, x, y = y + 25);
-            }                
-            e.Graphics.DrawString("Tổng giá trị: "+txtGiaTriDN.Text, drawFont, drawBrush, 300, y=y+25);
-          
-        }      
+            }
+            e.Graphics.DrawString("Tổng giá trị: " + txtGiaTriDN.Text, drawFont, drawBrush, 300, y = y + 25);
+        }
     }
 }
