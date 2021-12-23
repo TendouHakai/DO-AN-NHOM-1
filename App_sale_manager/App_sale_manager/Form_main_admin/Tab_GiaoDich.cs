@@ -11,7 +11,7 @@ namespace App_sale_manager
         // TabPage Giao dịch
         //
         private void BNT_TaoHoaDon_Click(object sender, EventArgs e)
-        {
+        {           
             Form_GiaoDich F_GD = new Form_GiaoDich(manv);
             F_GD.ShowDialog();
         }

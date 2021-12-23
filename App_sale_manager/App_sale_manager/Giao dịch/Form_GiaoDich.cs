@@ -15,6 +15,8 @@ namespace App_sale_manager
         private DataTable table;
         private DataTable Table_GiamGia;
 
+
+        bool flag = false;
         public Form_GiaoDich()
         {
             InitializeComponent();
@@ -39,7 +41,8 @@ namespace App_sale_manager
             table.Clear();
             adapter.Fill(table);
             Box_IDHD.Text = "#" + Convert.ToString(table.Rows.Count + 1);
-
+            cmd.CommandText = "insert into HDBH values ('"+Box_IDHD.Text+"',' ',' ','"+Box_IDNV.Text+"',' ',N' ',N' ') ";
+            cmd.ExecuteNonQuery();
             table = new DataTable();
             cmd.CommandText = "Select KHID,HOTEN from KHACHHANG";
             adapter.SelectCommand = cmd;
@@ -199,7 +202,7 @@ namespace App_sale_manager
             adapter.SelectCommand = cmd;
             //try
             //{
-            cmd.CommandText = "insert into HDBH values ('" + Box_IDHD.Text + "','" + x + "','" + Box_IDKH.Text + "','" + Box_IDNV.Text + "','" + Box_GiaDaGiam.Text.Replace(".", string.Empty) + "',N'" + Box_LoaiHD.Text + "',N'" + Box_TrangThai.Text + "') ";
+            cmd.CommandText = "update HDBH SET NGHD = '"+x+"',KHID ='" + Box_IDKH.Text + "',TRIGIA='" + Box_GiaDaGiam.Text.Replace(".", string.Empty) + "',LOAIHD= N'" + Box_LoaiHD.Text + "',TRANGTHAI=N'" + Box_TrangThai.Text + "' WHERE SOHD_BH='" + Box_IDHD.Text + "' ";
             cmd.ExecuteNonQuery();
             foreach (DataGridViewRow i in CT_HD.Rows)
             {
@@ -225,6 +228,7 @@ namespace App_sale_manager
             //{
             //    this.Close();
             //}
+            flag = true;
             this.Close();
         }
 
@@ -439,6 +443,15 @@ namespace App_sale_manager
                 Box_TrangThai.SelectedIndex = 0;
             else
                 Box_TrangThai.SelectedIndex = 1;
+        }
+
+        private void Form_GiaoDich_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (flag == false)
+            {
+                cmd.CommandText = "delete  HDBH WHERE SOHD_BH ='" + Box_IDHD.Text + "'";
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

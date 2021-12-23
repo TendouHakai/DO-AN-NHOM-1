@@ -829,6 +829,7 @@ namespace App_sale_manager
             this.Name = "Form_GiaoDich";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tạo hóa đơn";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_GiaoDich_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.CT_HD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_LuaChon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

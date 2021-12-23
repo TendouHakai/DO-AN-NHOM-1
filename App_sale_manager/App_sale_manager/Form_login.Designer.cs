@@ -146,6 +146,8 @@ namespace App_sale_manager
             // 
             this.chkNhopass.AutoSize = true;
             this.chkNhopass.BackColor = System.Drawing.Color.White;
+            this.chkNhopass.Checked = true;
+            this.chkNhopass.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkNhopass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkNhopass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.chkNhopass.ForeColor = System.Drawing.Color.DodgerBlue;
