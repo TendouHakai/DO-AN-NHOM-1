@@ -58,7 +58,7 @@ namespace App_sale_manager
                 }
             }
 
-            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from SANPHAM";
+            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00',''), SOLUONG from SANPHAM";
             adapter.SelectCommand = cmd;
             table = new DataTable();
             adapter.Fill(table);
@@ -67,7 +67,7 @@ namespace App_sale_manager
             DGV_LuaChon.Columns[0].HeaderText = "Mã sản phẩm";
             DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
             DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
-
+            DGV_LuaChon.Columns[3].Visible = false;
             Box_LoaiHD.Text = "Đơn trực tiếp";
             Box_TrangThai.Text = "Hoàn thành";
 
@@ -109,6 +109,16 @@ namespace App_sale_manager
             {
                 foreach (DataGridViewRow temp in CT_HD.Rows)
                 {
+                    if (Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) > Convert.ToDouble(numericUpDown1.Value))
+                    {
+                        DGV_LuaChon.CurrentRow.Cells[3].Value = Convert.ToString(Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) - Convert.ToDouble(numericUpDown1.Value));
+                        cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + DGV_LuaChon.CurrentRow.Cells[3].Value + " WHERE SPID = '" + DGV_LuaChon.CurrentRow.Cells[0].Value + "'";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cảnh báo : Không đủ số lượng hàng trong kho");
+                        return;
+                    }
                     if (DGV_LuaChon.CurrentRow.Cells[0].Value == temp.Cells[0].Value)
                     {
                         temp.Cells[3].Value = numericUpDown1.Value + Convert.ToInt32(temp.Cells[3].Value);
@@ -150,7 +160,14 @@ namespace App_sale_manager
         {
             try
             {
-                CT_HD.Rows.Remove(CT_HD.CurrentRow);
+                for (int i = 0; i < DGV_LuaChon.RowCount - 1; i++)
+                    if (DGV_LuaChon.Rows[i].Cells[0].Value == CT_HD.CurrentRow.Cells[0].Value)
+                    {
+                        DGV_LuaChon.Rows[i].Cells[3].Value = Convert.ToString(Convert.ToDouble(DGV_LuaChon.Rows[i].Cells[3].Value) + Convert.ToDouble(CT_HD.CurrentRow.Cells[3].Value));
+                        cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + DGV_LuaChon.Rows[i].Cells[3].Value + " WHERE SPID = '" + DGV_LuaChon.Rows[i].Cells[0].Value + "'";
+                        CT_HD.Rows.Remove(CT_HD.CurrentRow);
+                        return;
+                    }
             }
             catch (Exception)
             {
@@ -165,6 +182,7 @@ namespace App_sale_manager
 
         private void bnt_tao_Click(object sender, EventArgs e)
         {
+
             if (CT_HD.RowCount < 2)
             {
                 MessageBox.Show("Khong co san pham nao trong gio hang");
