@@ -147,6 +147,20 @@ namespace App_sale_manager
             Update_Tong();
         }
 
+
+        public void reset_DGV_luachon()
+        {
+            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') as TIEN, SOLUONG from SANPHAM";
+            adapter.SelectCommand = cmd;
+            table = new DataTable();
+            adapter.Fill(table);
+            DGV_LuaChon.DataSource = table;
+            DGV_LuaChon.Columns[0].HeaderText = "Mã sản phẩm";
+            DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
+            DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
+            DGV_LuaChon.Columns[3].Visible = false;
+        }
+
         public void Update_Tong()
         {
             Double sum = 0;
@@ -167,7 +181,7 @@ namespace App_sale_manager
                 {
                     foreach (DataGridViewRow temp in CT_HD.Rows)
                     {
-                        if (Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) > Convert.ToDouble(numericUpDown1.Value))
+                        if (Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) >= Convert.ToDouble(numericUpDown1.Value))
                         {
                             DGV_LuaChon.CurrentRow.Cells[3].Value = Convert.ToString(Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) - Convert.ToDouble(numericUpDown1.Value));
                             cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + DGV_LuaChon.CurrentRow.Cells[3].Value + " WHERE SPID = '" + DGV_LuaChon.CurrentRow.Cells[0].Value + "'";
@@ -199,11 +213,24 @@ namespace App_sale_manager
             {
                 cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + (sender as HanghoaGD).Soluong + " WHERE SPID = '" + (sender as HanghoaGD).IDSP + "'";
                 cmd.ExecuteNonQuery();
+           
+              
                 DataGridViewRow row = (DataGridViewRow)CT_HD.Rows[0].Clone();
                 row.Cells[0].Value = (sender as HanghoaGD).IDSP;
                 row.Cells[1].Value = (sender as HanghoaGD).TenSP;
                 row.Cells[2].Value = (sender as HanghoaGD).Tien.Text;
                 row.Cells[3].Value = (sender as HanghoaGD).SLchon;
+
+                foreach (DataGridViewRow temp in CT_HD.Rows)
+                {
+                    if (row.Cells[0].Value == temp.Cells[0].Value)
+                    {
+                        temp.Cells[3].Value = numericUpDown1.Value + Convert.ToInt32(temp.Cells[3].Value);
+                        Update_Tong();
+                        return;
+                    }
+                }
+
                 CT_HD.Rows.Add(row);
             } 
                 
@@ -496,32 +523,17 @@ namespace App_sale_manager
             //neu giam gia theo mat hang la mat hang
             if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[3].ToString() == "Mặt hàng")
             {
-                cmd.CommandText = "select LOAIID FROM LOAISP WHERE TENLOAI = '" + Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() + "' ";
-                adapter.SelectCommand = cmd;
-
-                DataTable temp = new DataTable();
-
-                adapter.Fill(temp);
-
-                string x;
-
-                try
-                {
-                    x = temp.Rows[0].ItemArray[0].ToString();
-                }
-                catch
-                {
-                    return;
-                }
-
+              
+                string x = Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString();
+         
                 for (int i = 0; i < CT_HD.RowCount - 1; i++)
                 {
                     if (CT_HD.Rows[i].Cells[0].Value.ToString().Contains(x))
                     {
                         //kiem tra dieu kien giam gia
-                        if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() == "1")
+                        if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[14].ToString() == "1")
                         {
-                            if ((int)CT_HD.Rows[i].Cells[3].Value < Convert.ToInt32(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12]))
+                            if ( Convert.ToInt32( CT_HD.Rows[i].Cells[3].Value) < Convert.ToInt32(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12].ToString()))
                             {
                                 return;
                             }
@@ -544,14 +556,16 @@ namespace App_sale_manager
             {
                 for (int i = 0; i < CT_HD.RowCount - 1; i++)
                 {
-                    cmd.CommandText = "select HANGSX FROM SANPHAM WHERE SPID = '" + CT_HD.Rows[i].Cells[0].Value.ToString() + "' ";
+                    cmd.CommandText = "select * FROM SANPHAM WHERE SPID = '" + CT_HD.Rows[i].Cells[0].Value.ToString() + "' AND HANGSX = '"+Box_SP.Text+"' ";
                     adapter.SelectCommand = cmd;
-                    if (adapter != null)
+                    DataTable selectdatatabletemp = new DataTable();
+                    adapter.Fill(selectdatatabletemp);
+                    if (selectdatatabletemp.Rows.Count > 0)
                     {
                         //kiem tra dieu kien giam gia
-                        if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[4].ToString() == "1")
+                        if (Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[14].ToString() == "1")
                         {
-                            if ((int)CT_HD.Rows[i].Cells[3].Value < Convert.ToInt32(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12]))
+                            if (Convert.ToInt32(CT_HD.Rows[i].Cells[3].Value) < Convert.ToInt32(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[11]) || Convert.ToDouble(Box_Tong.Text) < Convert.ToDouble(Table_GiamGia.Rows[Box_TenUuDai.SelectedIndex].ItemArray[12].ToString()))
                             {
                                 return;
                             }
@@ -564,7 +578,7 @@ namespace App_sale_manager
                         }
                         else
                         {
-                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble(CT_HD.Rows[i].Cells[3]));
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value.ToString()));
                             Box_GiaDaGiam.Text = String.Format("{0:0,0}", Convert.ToDouble(Box_GiaDaGiam.Text));
                         }
                     }
@@ -586,11 +600,28 @@ namespace App_sale_manager
             {
                 cmd.CommandText = "delete  HDBH WHERE SOHD_BH ='" + Box_IDHD.Text + "'";
                 cmd.ExecuteNonQuery();
+
+                foreach (DataGridViewRow i in CT_HD.Rows)
+                {
+                    try
+                    {
+                        cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = SOLUONG + " + i.Cells[3].Value + " WHERE SPID = '" + i.Cells[0].Value + "'";
+                        CT_HD.Rows.Remove(CT_HD.CurrentRow);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        return;                  
+                    }
+                }
             }
+
+
         }
 
         private void rbtndanhsach_CheckedChanged(object sender, EventArgs e)
         {
+            this.reset_DGV_luachon();
             if((sender as RadioButton).Checked == true)
             {
                 flowLayoutPanel1.Hide();
@@ -600,6 +631,7 @@ namespace App_sale_manager
 
         private void rbtnHinhanh_CheckedChanged(object sender, EventArgs e)
         {
+            this.reset_DGV_luachon();
             if((sender as RadioButton).Checked == true)
             {
                 flowLayoutPanel1.Show();

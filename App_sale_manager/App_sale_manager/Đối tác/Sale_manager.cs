@@ -55,6 +55,7 @@ namespace App_sale_manager
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             dateTimePicker_endDate.Value = dateTimePicker_startDate.Value.AddDays(1);
+            this.Size = new System.Drawing.Size(this.Size.Width, this.Size.Height);
         }
 
         public event EventHandler dataRefresh;
@@ -177,7 +178,7 @@ namespace App_sale_manager
 
         private void button_save_Click(object sender, EventArgs e)
         {
-            string SaleCondition = "";
+            string SaleCondition = comboBox_Condition.Text;
             switch (comboBox_Condition.Text)
             {
                 case "Laptop - Macbook":
@@ -272,5 +273,7 @@ namespace App_sale_manager
                     break;
             }
         }
+
+ 
     }
 }

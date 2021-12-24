@@ -65,7 +65,7 @@ namespace App_sale_manager
             }
 
             // kiểm tra passwd
-            if (passwd == textBox_passwd.Text)
+            if (passwd == sb.ToString())
             {
 
                 if (chkNhopass.Checked == true)

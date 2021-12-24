@@ -90,9 +90,10 @@ namespace App_sale_manager
             this.checkBox_autoDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_autoDelete.AutoSize = true;
             this.checkBox_autoDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_autoDelete.Location = new System.Drawing.Point(414, 117);
+            this.checkBox_autoDelete.Location = new System.Drawing.Point(518, 146);
+            this.checkBox_autoDelete.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_autoDelete.Name = "checkBox_autoDelete";
-            this.checkBox_autoDelete.Size = new System.Drawing.Size(209, 20);
+            this.checkBox_autoDelete.Size = new System.Drawing.Size(262, 24);
             this.checkBox_autoDelete.TabIndex = 14;
             this.checkBox_autoDelete.Text = "Tự động xóa ưu đãi khi kết thúc";
             this.checkBox_autoDelete.UseVisualStyleBackColor = true;
@@ -103,9 +104,10 @@ namespace App_sale_manager
             this.dateTimePicker_endDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dateTimePicker_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(414, 77);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(518, 96);
+            this.dateTimePicker_endDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
-            this.dateTimePicker_endDate.Size = new System.Drawing.Size(255, 19);
+            this.dateTimePicker_endDate.Size = new System.Drawing.Size(318, 22);
             this.dateTimePicker_endDate.TabIndex = 13;
             // 
             // label_endDate
@@ -113,9 +115,10 @@ namespace App_sale_manager
             this.label_endDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_endDate.AutoSize = true;
             this.label_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_endDate.Location = new System.Drawing.Point(409, 61);
+            this.label_endDate.Location = new System.Drawing.Point(511, 76);
+            this.label_endDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_endDate.Name = "label_endDate";
-            this.label_endDate.Size = new System.Drawing.Size(89, 16);
+            this.label_endDate.Size = new System.Drawing.Size(111, 20);
             this.label_endDate.TabIndex = 12;
             this.label_endDate.Text = "Ngày kết thúc";
             // 
@@ -125,9 +128,10 @@ namespace App_sale_manager
             this.dateTimePicker_startDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dateTimePicker_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(414, 38);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(518, 48);
+            this.dateTimePicker_startDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
-            this.dateTimePicker_startDate.Size = new System.Drawing.Size(255, 19);
+            this.dateTimePicker_startDate.Size = new System.Drawing.Size(318, 22);
             this.dateTimePicker_startDate.TabIndex = 11;
             // 
             // label_startDate
@@ -135,9 +139,10 @@ namespace App_sale_manager
             this.label_startDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_startDate.AutoSize = true;
             this.label_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_startDate.Location = new System.Drawing.Point(409, 22);
+            this.label_startDate.Location = new System.Drawing.Point(511, 28);
+            this.label_startDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_startDate.Name = "label_startDate";
-            this.label_startDate.Size = new System.Drawing.Size(89, 16);
+            this.label_startDate.Size = new System.Drawing.Size(107, 20);
             this.label_startDate.TabIndex = 10;
             this.label_startDate.Text = "Ngày bắt đầu";
             // 
@@ -155,9 +160,10 @@ namespace App_sale_manager
             "RAM",
             "Bo mạch chủ",
             "Ổ cứng"});
-            this.comboBox_Condition.Location = new System.Drawing.Point(32, 196);
+            this.comboBox_Condition.Location = new System.Drawing.Point(40, 245);
+            this.comboBox_Condition.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Condition.Name = "comboBox_Condition";
-            this.comboBox_Condition.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_Condition.Size = new System.Drawing.Size(289, 24);
             this.comboBox_Condition.TabIndex = 9;
             this.comboBox_Condition.Text = "- Chưa chọn -";
             // 
@@ -166,9 +172,10 @@ namespace App_sale_manager
             this.label_Condition.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_Condition.AutoSize = true;
             this.label_Condition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Condition.Location = new System.Drawing.Point(30, 180);
+            this.label_Condition.Location = new System.Drawing.Point(38, 225);
+            this.label_Condition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Condition.Name = "label_Condition";
-            this.label_Condition.Size = new System.Drawing.Size(105, 16);
+            this.label_Condition.Size = new System.Drawing.Size(133, 20);
             this.label_Condition.TabIndex = 8;
             this.label_Condition.Text = "Mặt hàng ưu đãi:";
             // 
@@ -180,9 +187,10 @@ namespace App_sale_manager
             this.comboBox_saleCondition.Items.AddRange(new object[] {
             "Mặt hàng",
             "Nhà cung cấp"});
-            this.comboBox_saleCondition.Location = new System.Drawing.Point(32, 157);
+            this.comboBox_saleCondition.Location = new System.Drawing.Point(40, 196);
+            this.comboBox_saleCondition.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_saleCondition.Name = "comboBox_saleCondition";
-            this.comboBox_saleCondition.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_saleCondition.Size = new System.Drawing.Size(289, 24);
             this.comboBox_saleCondition.TabIndex = 7;
             this.comboBox_saleCondition.Text = "Mặt hàng";
             this.comboBox_saleCondition.TextChanged += new System.EventHandler(this.comboBox_saleCondition_TextChanged);
@@ -192,9 +200,10 @@ namespace App_sale_manager
             this.label_saleCondition.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleCondition.AutoSize = true;
             this.label_saleCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleCondition.Location = new System.Drawing.Point(30, 141);
+            this.label_saleCondition.Location = new System.Drawing.Point(38, 176);
+            this.label_saleCondition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleCondition.Name = "label_saleCondition";
-            this.label_saleCondition.Size = new System.Drawing.Size(79, 16);
+            this.label_saleCondition.Size = new System.Drawing.Size(99, 20);
             this.label_saleCondition.TabIndex = 6;
             this.label_saleCondition.Text = "Ưu đãi theo:";
             // 
@@ -207,9 +216,10 @@ namespace App_sale_manager
             "Giảm giá",
             "Giảm giá & Tặng kèm",
             "Tặng kèm"});
-            this.comboBox_saleMethod.Location = new System.Drawing.Point(32, 117);
+            this.comboBox_saleMethod.Location = new System.Drawing.Point(40, 146);
+            this.comboBox_saleMethod.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_saleMethod.Name = "comboBox_saleMethod";
-            this.comboBox_saleMethod.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_saleMethod.Size = new System.Drawing.Size(289, 24);
             this.comboBox_saleMethod.TabIndex = 5;
             this.comboBox_saleMethod.Text = "Giảm giá";
             this.comboBox_saleMethod.TextChanged += new System.EventHandler(this.comboBox_saleMethod_TextChanged);
@@ -219,9 +229,10 @@ namespace App_sale_manager
             this.label_saleMethod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleMethod.AutoSize = true;
             this.label_saleMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleMethod.Location = new System.Drawing.Point(30, 102);
+            this.label_saleMethod.Location = new System.Drawing.Point(38, 128);
+            this.label_saleMethod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleMethod.Name = "label_saleMethod";
-            this.label_saleMethod.Size = new System.Drawing.Size(76, 16);
+            this.label_saleMethod.Size = new System.Drawing.Size(96, 20);
             this.label_saleMethod.TabIndex = 4;
             this.label_saleMethod.Text = "Loại ưu đãi:";
             // 
@@ -234,9 +245,10 @@ namespace App_sale_manager
             "Khách thường",
             "Khách vip",
             "Tất cả"});
-            this.comboBox_saleObj.Location = new System.Drawing.Point(32, 78);
+            this.comboBox_saleObj.Location = new System.Drawing.Point(40, 98);
+            this.comboBox_saleObj.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_saleObj.Name = "comboBox_saleObj";
-            this.comboBox_saleObj.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_saleObj.Size = new System.Drawing.Size(289, 24);
             this.comboBox_saleObj.TabIndex = 3;
             this.comboBox_saleObj.Text = "Tất cả";
             // 
@@ -245,9 +257,10 @@ namespace App_sale_manager
             this.label_saleObj.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleObj.AutoSize = true;
             this.label_saleObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleObj.Location = new System.Drawing.Point(30, 61);
+            this.label_saleObj.Location = new System.Drawing.Point(38, 76);
+            this.label_saleObj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleObj.Name = "label_saleObj";
-            this.label_saleObj.Size = new System.Drawing.Size(106, 16);
+            this.label_saleObj.Size = new System.Drawing.Size(135, 20);
             this.label_saleObj.TabIndex = 2;
             this.label_saleObj.Text = "Đối tượng ưu đãi:";
             // 
@@ -256,9 +269,10 @@ namespace App_sale_manager
             this.textBox_saleName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox_saleName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_saleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_saleName.Location = new System.Drawing.Point(32, 38);
+            this.textBox_saleName.Location = new System.Drawing.Point(40, 48);
+            this.textBox_saleName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_saleName.Name = "textBox_saleName";
-            this.textBox_saleName.Size = new System.Drawing.Size(374, 12);
+            this.textBox_saleName.Size = new System.Drawing.Size(468, 15);
             this.textBox_saleName.TabIndex = 1;
             // 
             // label_saleName
@@ -266,9 +280,10 @@ namespace App_sale_manager
             this.label_saleName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleName.AutoSize = true;
             this.label_saleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleName.Location = new System.Drawing.Point(30, 22);
+            this.label_saleName.Location = new System.Drawing.Point(38, 28);
+            this.label_saleName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleName.Name = "label_saleName";
-            this.label_saleName.Size = new System.Drawing.Size(74, 16);
+            this.label_saleName.Size = new System.Drawing.Size(92, 20);
             this.label_saleName.TabIndex = 0;
             this.label_saleName.Text = "Tên ưu đãi:";
             // 
@@ -281,9 +296,11 @@ namespace App_sale_manager
             this.groupBox_gift.Controls.Add(this.label_gift);
             this.groupBox_gift.Enabled = false;
             this.groupBox_gift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox_gift.Location = new System.Drawing.Point(15, 22);
+            this.groupBox_gift.Location = new System.Drawing.Point(19, 28);
+            this.groupBox_gift.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_gift.Name = "groupBox_gift";
-            this.groupBox_gift.Size = new System.Drawing.Size(734, 114);
+            this.groupBox_gift.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox_gift.Size = new System.Drawing.Size(918, 142);
             this.groupBox_gift.TabIndex = 0;
             this.groupBox_gift.TabStop = false;
             this.groupBox_gift.Text = "Ưu đãi tặng kèm";
@@ -292,9 +309,10 @@ namespace App_sale_manager
             // 
             this.textBox_note.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_note.Location = new System.Drawing.Point(11, 81);
+            this.textBox_note.Location = new System.Drawing.Point(14, 101);
+            this.textBox_note.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_note.Name = "textBox_note";
-            this.textBox_note.Size = new System.Drawing.Size(454, 19);
+            this.textBox_note.Size = new System.Drawing.Size(566, 22);
             this.textBox_note.TabIndex = 13;
             // 
             // label_note
@@ -302,9 +320,10 @@ namespace App_sale_manager
             this.label_note.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_note.AutoSize = true;
             this.label_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_note.Location = new System.Drawing.Point(7, 64);
+            this.label_note.Location = new System.Drawing.Point(9, 80);
+            this.label_note.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_note.Name = "label_note";
-            this.label_note.Size = new System.Drawing.Size(150, 16);
+            this.label_note.Size = new System.Drawing.Size(199, 20);
             this.label_note.TabIndex = 12;
             this.label_note.Text = "Chú thích thêm ( nếu có):";
             // 
@@ -312,9 +331,10 @@ namespace App_sale_manager
             // 
             this.textBox_gift.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox_gift.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_gift.Location = new System.Drawing.Point(11, 42);
+            this.textBox_gift.Location = new System.Drawing.Point(14, 52);
+            this.textBox_gift.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_gift.Name = "textBox_gift";
-            this.textBox_gift.Size = new System.Drawing.Size(454, 19);
+            this.textBox_gift.Size = new System.Drawing.Size(566, 22);
             this.textBox_gift.TabIndex = 11;
             // 
             // label_gift
@@ -322,9 +342,10 @@ namespace App_sale_manager
             this.label_gift.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_gift.AutoSize = true;
             this.label_gift.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_gift.Location = new System.Drawing.Point(7, 25);
+            this.label_gift.Location = new System.Drawing.Point(9, 31);
+            this.label_gift.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_gift.Name = "label_gift";
-            this.label_gift.Size = new System.Drawing.Size(119, 16);
+            this.label_gift.Size = new System.Drawing.Size(147, 20);
             this.label_gift.TabIndex = 10;
             this.label_gift.Text = "Tên quà tặng kèm:";
             // 
@@ -342,9 +363,11 @@ namespace App_sale_manager
             this.groupBox_sale.Controls.Add(this.label_priceReduced);
             this.groupBox_sale.Controls.Add(this.label_priceMethod);
             this.groupBox_sale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox_sale.Location = new System.Drawing.Point(15, 148);
+            this.groupBox_sale.Location = new System.Drawing.Point(19, 185);
+            this.groupBox_sale.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_sale.Name = "groupBox_sale";
-            this.groupBox_sale.Size = new System.Drawing.Size(734, 248);
+            this.groupBox_sale.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox_sale.Size = new System.Drawing.Size(918, 310);
             this.groupBox_sale.TabIndex = 0;
             this.groupBox_sale.TabStop = false;
             this.groupBox_sale.Text = "Giảm giá";
@@ -355,9 +378,10 @@ namespace App_sale_manager
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(231, 167);
+            this.label1.Location = new System.Drawing.Point(289, 209);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 16);
+            this.label1.Size = new System.Drawing.Size(45, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "VND";
             // 
@@ -366,9 +390,10 @@ namespace App_sale_manager
             this.numericUpDown_Condition_Quantity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numericUpDown_Condition_Quantity.Enabled = false;
             this.numericUpDown_Condition_Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown_Condition_Quantity.Location = new System.Drawing.Point(11, 208);
+            this.numericUpDown_Condition_Quantity.Location = new System.Drawing.Point(14, 260);
+            this.numericUpDown_Condition_Quantity.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown_Condition_Quantity.Name = "numericUpDown_Condition_Quantity";
-            this.numericUpDown_Condition_Quantity.Size = new System.Drawing.Size(202, 19);
+            this.numericUpDown_Condition_Quantity.Size = new System.Drawing.Size(252, 22);
             this.numericUpDown_Condition_Quantity.TabIndex = 17;
             this.numericUpDown_Condition_Quantity.Click += new System.EventHandler(this.numericUpDown_Condition_Quantity_Click);
             // 
@@ -378,9 +403,10 @@ namespace App_sale_manager
             this.label_Condition_quantity.AutoSize = true;
             this.label_Condition_quantity.Enabled = false;
             this.label_Condition_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Condition_quantity.Location = new System.Drawing.Point(7, 191);
+            this.label_Condition_quantity.Location = new System.Drawing.Point(9, 239);
+            this.label_Condition_quantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Condition_quantity.Name = "label_Condition_quantity";
-            this.label_Condition_quantity.Size = new System.Drawing.Size(118, 16);
+            this.label_Condition_quantity.Size = new System.Drawing.Size(150, 20);
             this.label_Condition_quantity.TabIndex = 16;
             this.label_Condition_quantity.Text = "Số lượng mua trên:";
             // 
@@ -394,14 +420,15 @@ namespace App_sale_manager
             0,
             0,
             0});
-            this.numericUpDown_Condition_price.Location = new System.Drawing.Point(11, 168);
+            this.numericUpDown_Condition_price.Location = new System.Drawing.Point(14, 210);
+            this.numericUpDown_Condition_price.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown_Condition_price.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.numericUpDown_Condition_price.Name = "numericUpDown_Condition_price";
-            this.numericUpDown_Condition_price.Size = new System.Drawing.Size(202, 19);
+            this.numericUpDown_Condition_price.Size = new System.Drawing.Size(252, 22);
             this.numericUpDown_Condition_price.TabIndex = 15;
             this.numericUpDown_Condition_price.Click += new System.EventHandler(this.numericUpDown_Condition_price_Click);
             // 
@@ -411,9 +438,10 @@ namespace App_sale_manager
             this.label_Condition_price.AutoSize = true;
             this.label_Condition_price.Enabled = false;
             this.label_Condition_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Condition_price.Location = new System.Drawing.Point(7, 152);
+            this.label_Condition_price.Location = new System.Drawing.Point(9, 190);
+            this.label_Condition_price.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Condition_price.Name = "label_Condition_price";
-            this.label_Condition_price.Size = new System.Drawing.Size(115, 16);
+            this.label_Condition_price.Size = new System.Drawing.Size(148, 20);
             this.label_Condition_price.TabIndex = 14;
             this.label_Condition_price.Text = "Giá mặt hàng trên:";
             // 
@@ -422,9 +450,10 @@ namespace App_sale_manager
             this.checkBox_priceCondition.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_priceCondition.AutoSize = true;
             this.checkBox_priceCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_priceCondition.Location = new System.Drawing.Point(11, 119);
+            this.checkBox_priceCondition.Location = new System.Drawing.Point(14, 149);
+            this.checkBox_priceCondition.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_priceCondition.Name = "checkBox_priceCondition";
-            this.checkBox_priceCondition.Size = new System.Drawing.Size(137, 20);
+            this.checkBox_priceCondition.Size = new System.Drawing.Size(168, 24);
             this.checkBox_priceCondition.TabIndex = 13;
             this.checkBox_priceCondition.Text = "Điều kiện giảm giá";
             this.checkBox_priceCondition.UseVisualStyleBackColor = true;
@@ -434,9 +463,10 @@ namespace App_sale_manager
             // 
             this.numericUpDown_priceReduced.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numericUpDown_priceReduced.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown_priceReduced.Location = new System.Drawing.Point(11, 82);
+            this.numericUpDown_priceReduced.Location = new System.Drawing.Point(14, 102);
+            this.numericUpDown_priceReduced.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown_priceReduced.Name = "numericUpDown_priceReduced";
-            this.numericUpDown_priceReduced.Size = new System.Drawing.Size(202, 19);
+            this.numericUpDown_priceReduced.Size = new System.Drawing.Size(252, 22);
             this.numericUpDown_priceReduced.TabIndex = 12;
             this.numericUpDown_priceReduced.Click += new System.EventHandler(this.numericUpDown_priceReduced_Click);
             // 
@@ -448,9 +478,10 @@ namespace App_sale_manager
             this.comboBox_priceMethod.Items.AddRange(new object[] {
             "Giảm theo số",
             "Giảm theo phần trăm"});
-            this.comboBox_priceMethod.Location = new System.Drawing.Point(11, 42);
+            this.comboBox_priceMethod.Location = new System.Drawing.Point(14, 52);
+            this.comboBox_priceMethod.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_priceMethod.Name = "comboBox_priceMethod";
-            this.comboBox_priceMethod.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_priceMethod.Size = new System.Drawing.Size(289, 24);
             this.comboBox_priceMethod.TabIndex = 11;
             this.comboBox_priceMethod.Text = "Giảm theo phần trăm";
             this.comboBox_priceMethod.TextChanged += new System.EventHandler(this.comboBox_priceMethod_TextChanged);
@@ -460,9 +491,10 @@ namespace App_sale_manager
             this.label_priceReduced.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_priceReduced.AutoSize = true;
             this.label_priceReduced.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_priceReduced.Location = new System.Drawing.Point(7, 65);
+            this.label_priceReduced.Location = new System.Drawing.Point(9, 81);
+            this.label_priceReduced.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_priceReduced.Name = "label_priceReduced";
-            this.label_priceReduced.Size = new System.Drawing.Size(127, 16);
+            this.label_priceReduced.Size = new System.Drawing.Size(164, 20);
             this.label_priceReduced.TabIndex = 10;
             this.label_priceReduced.Text = "Phần trăm giảm (%):";
             // 
@@ -471,9 +503,10 @@ namespace App_sale_manager
             this.label_priceMethod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_priceMethod.AutoSize = true;
             this.label_priceMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_priceMethod.Location = new System.Drawing.Point(7, 26);
+            this.label_priceMethod.Location = new System.Drawing.Point(9, 32);
+            this.label_priceMethod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_priceMethod.Name = "label_priceMethod";
-            this.label_priceMethod.Size = new System.Drawing.Size(92, 16);
+            this.label_priceMethod.Size = new System.Drawing.Size(115, 20);
             this.label_priceMethod.TabIndex = 10;
             this.label_priceMethod.Text = "Kiểu giảm giá:";
             // 
@@ -485,9 +518,10 @@ namespace App_sale_manager
             this.button_quit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_quit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_quit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.button_quit.Location = new System.Drawing.Point(215, 686);
+            this.button_quit.Location = new System.Drawing.Point(219, 849);
+            this.button_quit.Margin = new System.Windows.Forms.Padding(4);
             this.button_quit.Name = "button_quit";
-            this.button_quit.Size = new System.Drawing.Size(393, 37);
+            this.button_quit.Size = new System.Drawing.Size(491, 46);
             this.button_quit.TabIndex = 2;
             this.button_quit.Text = "Thoát";
             this.button_quit.UseVisualStyleBackColor = false;
@@ -501,9 +535,10 @@ namespace App_sale_manager
             this.button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_save.ForeColor = System.Drawing.Color.White;
-            this.button_save.Location = new System.Drawing.Point(206, 647);
+            this.button_save.Location = new System.Drawing.Point(219, 804);
+            this.button_save.Margin = new System.Windows.Forms.Padding(4);
             this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(393, 37);
+            this.button_save.Size = new System.Drawing.Size(491, 46);
             this.button_save.TabIndex = 3;
             this.button_save.Text = "Lưu";
             this.button_save.UseVisualStyleBackColor = false;
@@ -537,90 +572,90 @@ namespace App_sale_manager
             this.panel1.Controls.Add(this.comboBox_saleMethod);
             this.panel1.Controls.Add(this.comboBox_saleCondition);
             this.panel1.Controls.Add(this.label_saleCondition);
-            this.panel1.Location = new System.Drawing.Point(9, 9);
+            this.panel1.Location = new System.Drawing.Point(13, 11);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(768, 220);
+            this.panel1.Size = new System.Drawing.Size(960, 275);
             this.panel1.TabIndex = 5;
             // 
             // panel6
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel6.Location = new System.Drawing.Point(31, 216);
+            this.panel6.Location = new System.Drawing.Point(39, 270);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(236, 2);
+            this.panel6.Size = new System.Drawing.Size(295, 2);
             this.panel6.TabIndex = 16;
             // 
             // panel5
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel5.Location = new System.Drawing.Point(32, 176);
+            this.panel5.Location = new System.Drawing.Point(40, 220);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(236, 2);
+            this.panel5.Size = new System.Drawing.Size(295, 2);
             this.panel5.TabIndex = 16;
             // 
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel4.Location = new System.Drawing.Point(32, 137);
+            this.panel4.Location = new System.Drawing.Point(40, 171);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(236, 2);
+            this.panel4.Size = new System.Drawing.Size(295, 2);
             this.panel4.TabIndex = 16;
             // 
             // panel8
             // 
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel8.Location = new System.Drawing.Point(414, 95);
+            this.panel8.Location = new System.Drawing.Point(518, 119);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(250, 2);
+            this.panel8.Size = new System.Drawing.Size(312, 2);
             this.panel8.TabIndex = 16;
             // 
             // panel7
             // 
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel7.Location = new System.Drawing.Point(414, 57);
+            this.panel7.Location = new System.Drawing.Point(518, 71);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
+            this.panel7.Size = new System.Drawing.Size(312, 2);
             this.panel7.TabIndex = 16;
             // 
             // panel3
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel3.Location = new System.Drawing.Point(31, 98);
+            this.panel3.Location = new System.Drawing.Point(39, 122);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(236, 2);
+            this.panel3.Size = new System.Drawing.Size(295, 2);
             this.panel3.TabIndex = 16;
             // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel2.Location = new System.Drawing.Point(31, 57);
+            this.panel2.Location = new System.Drawing.Point(39, 71);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(372, 2);
+            this.panel2.Size = new System.Drawing.Size(465, 2);
             this.panel2.TabIndex = 16;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Location = new System.Drawing.Point(4, 4);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 13);
+            this.label2.Size = new System.Drawing.Size(151, 17);
             this.label2.TabIndex = 15;
             this.label2.Text = "THÔNG TIN ƯU ĐÃI";
             // 
@@ -630,11 +665,12 @@ namespace App_sale_manager
             this.dataGridView_manager.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_manager.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_manager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_manager.Location = new System.Drawing.Point(675, 12);
+            this.dataGridView_manager.Location = new System.Drawing.Point(844, 15);
+            this.dataGridView_manager.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_manager.Name = "dataGridView_manager";
             this.dataGridView_manager.ReadOnly = true;
             this.dataGridView_manager.RowHeadersWidth = 51;
-            this.dataGridView_manager.Size = new System.Drawing.Size(62, 10);
+            this.dataGridView_manager.Size = new System.Drawing.Size(78, 12);
             this.dataGridView_manager.TabIndex = 4;
             // 
             // panel9
@@ -645,45 +681,47 @@ namespace App_sale_manager
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Controls.Add(this.groupBox_gift);
             this.panel9.Controls.Add(this.label3);
-            this.panel9.Location = new System.Drawing.Point(9, 232);
+            this.panel9.Location = new System.Drawing.Point(13, 290);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(768, 406);
+            this.panel9.Size = new System.Drawing.Size(960, 508);
             this.panel9.TabIndex = 6;
             // 
             // panel10
             // 
             this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel10.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel10.Location = new System.Drawing.Point(15, 141);
+            this.panel10.Location = new System.Drawing.Point(19, 176);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(734, 2);
+            this.panel10.Size = new System.Drawing.Size(918, 2);
             this.panel10.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Location = new System.Drawing.Point(4, 6);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 13);
+            this.label3.Size = new System.Drawing.Size(151, 17);
             this.label3.TabIndex = 15;
             this.label3.Text = "THÔNG TIN ƯU ĐÃI";
             // 
             // Sale_manager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(850, 718);
+            this.ClientSize = new System.Drawing.Size(984, 898);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.button_quit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_save);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Sale_manager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ưu đãi";
