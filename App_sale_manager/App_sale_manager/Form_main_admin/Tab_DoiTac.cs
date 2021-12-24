@@ -230,7 +230,7 @@ namespace App_sale_manager
                 Date = Convert.ToDateTime(row.Cells[4].Value.ToString());
                 label_guestReg_Text.Text = Date.ToString();
                 label_guestAddress_Text.Text = row.Cells[2].Value.ToString();
-                label_guestMoney_Text.Text = String.Format("{0:0,0}", Convert.ToDouble(row.Cells[5].Value.ToString()));
+                label_guestMoney_Text.Text = String.Format("{0:0,0}", Convert.ToDouble(row.Cells[5].Value.ToString().Replace(",", string.Empty)) + " VND");
                 string filepath = @"Image samples for testing\KHDK\" + label_guestID_Text.Text + ".jpg";
                 if (File.Exists(filepath))
                     pictureBox_dtcc_guestFace.Image = Image.FromFile(filepath);

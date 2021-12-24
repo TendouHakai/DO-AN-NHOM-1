@@ -91,7 +91,7 @@ namespace App_sale_manager
             this.label_Picture_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Picture_z.Location = new System.Drawing.Point(20, 140);
             this.label_Picture_z.Name = "label_Picture_z";
-            this.label_Picture_z.Size = new System.Drawing.Size(104, 16);
+            this.label_Picture_z.Size = new System.Drawing.Size(111, 16);
             this.label_Picture_z.TabIndex = 28;
             this.label_Picture_z.Text = "Ảnh minh họa:";
             this.label_Picture_z.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -152,7 +152,7 @@ namespace App_sale_manager
             this.label_DIACHI_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_DIACHI_z.Location = new System.Drawing.Point(20, 330);
             this.label_DIACHI_z.Name = "label_DIACHI_z";
-            this.label_DIACHI_z.Size = new System.Drawing.Size(59, 16);
+            this.label_DIACHI_z.Size = new System.Drawing.Size(62, 16);
             this.label_DIACHI_z.TabIndex = 24;
             this.label_DIACHI_z.Text = "Địa chỉ:";
             // 
@@ -165,7 +165,7 @@ namespace App_sale_manager
             this.label_NGDT_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_NGDT_z.Location = new System.Drawing.Point(213, 84);
             this.label_NGDT_z.Name = "label_NGDT_z";
-            this.label_NGDT_z.Size = new System.Drawing.Size(76, 16);
+            this.label_NGDT_z.Size = new System.Drawing.Size(80, 16);
             this.label_NGDT_z.TabIndex = 22;
             this.label_NGDT_z.Text = "Đối tác từ:";
             // 
@@ -189,7 +189,7 @@ namespace App_sale_manager
             this.label_SDT_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_SDT_z.Location = new System.Drawing.Point(20, 84);
             this.label_SDT_z.Name = "label_SDT_z";
-            this.label_SDT_z.Size = new System.Drawing.Size(103, 16);
+            this.label_SDT_z.Size = new System.Drawing.Size(106, 16);
             this.label_SDT_z.TabIndex = 20;
             this.label_SDT_z.Text = "Số điện thoại:";
             // 
@@ -213,7 +213,7 @@ namespace App_sale_manager
             this.label_TENDT_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_TENDT_z.Location = new System.Drawing.Point(213, 24);
             this.label_TENDT_z.Name = "label_TENDT_z";
-            this.label_TENDT_z.Size = new System.Drawing.Size(90, 16);
+            this.label_TENDT_z.Size = new System.Drawing.Size(92, 16);
             this.label_TENDT_z.TabIndex = 18;
             this.label_TENDT_z.Text = "Tên đối tác:";
             // 
@@ -242,7 +242,7 @@ namespace App_sale_manager
             this.label_ID_z.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ID_z.Location = new System.Drawing.Point(20, 24);
             this.label_ID_z.Name = "label_ID_z";
-            this.label_ID_z.Size = new System.Drawing.Size(84, 16);
+            this.label_ID_z.Size = new System.Drawing.Size(85, 16);
             this.label_ID_z.TabIndex = 16;
             this.label_ID_z.Text = "Mã đối tác:";
             // 
@@ -265,7 +265,8 @@ namespace App_sale_manager
             this.dateTimePicker_NGDT_z.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker_NGDT_z.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            this.dateTimePicker_NGDT_z.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_NGDT_z.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_NGDT_z.Location = new System.Drawing.Point(216, 100);
             this.dateTimePicker_NGDT_z.Name = "dateTimePicker_NGDT_z";
             this.dateTimePicker_NGDT_z.Size = new System.Drawing.Size(200, 20);

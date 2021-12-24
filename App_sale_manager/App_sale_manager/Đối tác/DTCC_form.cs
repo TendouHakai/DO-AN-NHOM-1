@@ -61,8 +61,8 @@ namespace App_sale_manager
         }
 
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
-        {
-            if (exedata("insert into DTCC values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', '" + textBox_SDT_z.Text + "', '" + dateTimePicker_NGDT_z.Value.ToString("MM/dd/yyyy") + "', N'" + textBox_DIACHI_z.Text + "')") == true)
+        {           
+            if (exedata("SET DATEFORMAT DMY\n insert into DTCC values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', '" + textBox_SDT_z.Text + "', '" + dateTimePicker_NGDT_z.Text + "', N'" + textBox_DIACHI_z.Text + "')") == true)
             {
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();

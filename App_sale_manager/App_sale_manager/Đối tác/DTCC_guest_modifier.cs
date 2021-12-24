@@ -51,8 +51,6 @@ namespace App_sale_manager
         public DTCC_guest_modifier()
         {
             InitializeComponent();
-            dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
-            dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
         }
@@ -78,8 +76,8 @@ namespace App_sale_manager
                     loaiKH = "NOR";
                 else
                     loaiKH = "VIP";
-            if (exedata("Update KHACHHANG set HOTEN = N'" + textBox_TENDT_z.Text + "', SDT = '" + textBox_SDT_z.Text + "', NGDK = '"
-                + dateTimePicker_NGDT_z.Value + "', DIACHI = N'" + textBox_DIACHI_z.Text + "', DOANHSO = '" + textBox_budget_z.Text + "', LOAIID = '"
+            if (exedata("set dateformat dmy\n Update KHACHHANG set HOTEN = N'" + textBox_TENDT_z.Text + "', SDT = '" + textBox_SDT_z.Text + "', NGDK = '"
+                + dateTimePicker_NGDT_z.Text + "', DIACHI = N'" + textBox_DIACHI_z.Text + "', DOANHSO = '" + textBox_budget_z.Text.Replace("VND",string.Empty) + "', LOAIKH = '"
                 + loaiKH + "' where KHID = '" + textBox_ID_z.Text + "'") == true)
             {
                 MessageBox.Show("Cập nhật thành công!");

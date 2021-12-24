@@ -51,8 +51,6 @@ namespace App_sale_manager
         public DTCC_modifier()
         {
             InitializeComponent();
-            dateTimePicker_NGDT_z.Format = DateTimePickerFormat.Custom;
-            dateTimePicker_NGDT_z.CustomFormat = "yyyy/MM/dd";
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
         }
@@ -72,8 +70,8 @@ namespace App_sale_manager
 
         private void button_DTCC_Accept_Click(object sender, EventArgs e)
         {
-            if (exedata("Update DTCC set TENDT = N'" + textBox_TENDT_z.Text + "', SDT = '"
-                + textBox_SDT_z.Text + "', NGDT = '" + dateTimePicker_NGDT_z.Value + "', DIACHI = N'"
+            if (exedata("set dateformat dmy\n Update DTCC set TENDT = N'" + textBox_TENDT_z.Text + "', SDT = '"
+                + textBox_SDT_z.Text + "', NGDT = '" + dateTimePicker_NGDT_z.Text + "', DIACHI = N'"
                 + textBox_DIACHI_z.Text + "' where DTID = '" + textBox_ID_z.Text + "'") == true)
             {
                 MessageBox.Show("Cập nhật thành công!");

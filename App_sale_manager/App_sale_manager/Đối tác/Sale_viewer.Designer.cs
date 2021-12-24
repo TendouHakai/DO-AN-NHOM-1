@@ -194,7 +194,7 @@ namespace App_sale_manager
             this.listBox_VIP_ongoing.TabIndex = 7;
             this.listBox_VIP_ongoing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_VIP_ongoing_MouseClick);
             this.listBox_VIP_ongoing.DoubleClick += new System.EventHandler(this.listBox_VIP_ongoing_DoubleClick);
-            this.listBox_VIP_ongoing.Leave += new System.EventHandler(this.listBox_VIP_ongoing_Leave);
+            this.listBox_VIP_ongoing.Leave += new System.EventHandler(this.listBox_NOR_waiting_Leave);
             // 
             // listBox_VIP_ended
             // 
@@ -286,7 +286,7 @@ namespace App_sale_manager
             this.panel1.Controls.Add(this.listBox_NOR_ongoing);
             this.panel1.Controls.Add(this.listBox_NOR_waiting);
             this.panel1.Location = new System.Drawing.Point(9, 46);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(445, 514);
             this.panel1.TabIndex = 11;
@@ -296,7 +296,7 @@ namespace App_sale_manager
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.panel5.Controls.Add(this.label_NOR_end);
             this.panel5.Location = new System.Drawing.Point(4, 332);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(195, 27);
             this.panel5.TabIndex = 10;
@@ -306,7 +306,7 @@ namespace App_sale_manager
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.panel4.Controls.Add(this.label_NOR_waiting);
             this.panel4.Location = new System.Drawing.Point(4, 184);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(195, 27);
             this.panel4.TabIndex = 9;
@@ -316,7 +316,7 @@ namespace App_sale_manager
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.label_NOR_ongoing);
             this.panel3.Location = new System.Drawing.Point(4, 28);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(195, 27);
             this.panel3.TabIndex = 8;
@@ -343,7 +343,7 @@ namespace App_sale_manager
             this.panel2.Controls.Add(this.listBox_VIP_waiting);
             this.panel2.Controls.Add(this.listBox_VIP_ended);
             this.panel2.Location = new System.Drawing.Point(459, 46);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(445, 514);
             this.panel2.TabIndex = 12;
@@ -353,7 +353,7 @@ namespace App_sale_manager
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label1);
             this.panel8.Location = new System.Drawing.Point(4, 332);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(195, 27);
             this.panel8.TabIndex = 15;
@@ -363,7 +363,7 @@ namespace App_sale_manager
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.panel7.Controls.Add(this.label2);
             this.panel7.Location = new System.Drawing.Point(4, 184);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(195, 27);
             this.panel7.TabIndex = 14;
@@ -373,7 +373,7 @@ namespace App_sale_manager
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
             this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(4, 28);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(195, 27);
             this.panel6.TabIndex = 13;

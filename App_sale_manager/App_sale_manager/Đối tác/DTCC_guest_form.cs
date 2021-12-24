@@ -69,8 +69,9 @@ namespace App_sale_manager
                     loaiKH = "NOR";
                 else
                     loaiKH = "VIP";
-            if (exedata("insert into KHACHHANG values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', N'"
-                + textBox_DIACHI_z.Text + "', '" + textBox_SDT_z.Text + "', '" + dateTimePicker_NGDT_z.Value + "', '" + textBox_budget_z.Text + "', '" + loaiKH + "')") == true)
+
+            if (exedata("set dateformat dmy\n insert into KHACHHANG values('" + textBox_ID_z.Text + "', N'" + textBox_TENDT_z.Text + "', N'"
+                + textBox_DIACHI_z.Text + "', '" + textBox_SDT_z.Text + "', '" + dateTimePicker_NGDT_z.Text + "', '" + textBox_budget_z.Text.Replace("VND", string.Empty) + "', '" + loaiKH + "')") == true)
             {
                 MessageBox.Show("Thêm thành công!");
                 SaveFileDialog Save = new SaveFileDialog();
