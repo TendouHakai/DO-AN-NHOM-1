@@ -133,6 +133,7 @@ namespace App_sale_manager
                 if (dtp_phancong_ngay.Value < DateTime.Today)
                 {
                     MessageBox.Show("Ngày này đã qua. Bạn không thêm vào được!", "Thông báo");
+                    return;
                 }
                 for (int i = 0; i < chkL_phancong_NVID.Items.Count; i++)
                 {
@@ -147,7 +148,8 @@ namespace App_sale_manager
                         {
                             try
                             {
-                                cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "', '" + CAIDs[j].Nglam.ToString("d") + "', N'Chưa điểm danh', N'" + CHEDO + ", N'" + txt_tieude.Text + "')";
+                                cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "', '" + CAIDs[j].Nglam.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh', N'" + CHEDO + "', N'" + txt_tieude.Text + "')";
+                            
                                 cmd.ExecuteNonQuery();
                             }
                             catch (Exception)

@@ -167,6 +167,7 @@ namespace App_sale_manager
             this.dataGridView_dtcc_guest = new System.Windows.Forms.DataGridView();
             this.tabP_lichlamviec = new System.Windows.Forms.TabPage();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_lich_xemCT = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_ngaynghi = new System.Windows.Forms.TextBox();
@@ -251,7 +252,6 @@ namespace App_sale_manager
             this.chonAnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xoaAnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox_image_anhnv = new OvalPictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Data_GiaoDich)).BeginInit();
             this.tabctrl_Nhanvien.SuspendLayout();
             this.tabP_Tongquan.SuspendLayout();
@@ -1784,6 +1784,13 @@ namespace App_sale_manager
             this.panel21.Size = new System.Drawing.Size(1224, 219);
             this.panel21.TabIndex = 8;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(581, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(591, 24);
+            this.textBox1.TabIndex = 7;
+            // 
             // btn_lich_xemCT
             // 
             this.btn_lich_xemCT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
@@ -2249,7 +2256,7 @@ namespace App_sale_manager
             this.btn_lich_diemdanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_lich_diemdanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btn_lich_diemdanh.ForeColor = System.Drawing.Color.White;
-            this.btn_lich_diemdanh.Location = new System.Drawing.Point(768, 75);
+            this.btn_lich_diemdanh.Location = new System.Drawing.Point(932, 80);
             this.btn_lich_diemdanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_lich_diemdanh.Name = "btn_lich_diemdanh";
             this.btn_lich_diemdanh.Size = new System.Drawing.Size(158, 42);
@@ -2302,7 +2309,7 @@ namespace App_sale_manager
             // 
             this.lbl_lich_TT.AutoSize = true;
             this.lbl_lich_TT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_lich_TT.Location = new System.Drawing.Point(672, 89);
+            this.lbl_lich_TT.Location = new System.Drawing.Point(696, 88);
             this.lbl_lich_TT.Name = "lbl_lich_TT";
             this.lbl_lich_TT.Size = new System.Drawing.Size(57, 17);
             this.lbl_lich_TT.TabIndex = 1;
@@ -2793,13 +2800,6 @@ namespace App_sale_manager
             this.pictureBox_image_anhnv.TabIndex = 67;
             this.pictureBox_image_anhnv.TabStop = false;
             this.pictureBox_image_anhnv.Click += new System.EventHandler(this.pictureBox_image_anhnv_Click_1);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(581, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(591, 24);
-            this.textBox1.TabIndex = 7;
             // 
             // Form_main_NV
             // 

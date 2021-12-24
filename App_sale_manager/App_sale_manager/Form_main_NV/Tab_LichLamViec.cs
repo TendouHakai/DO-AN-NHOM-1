@@ -11,18 +11,20 @@ namespace App_sale_manager
         private TimeSpan GIO_BD = new TimeSpan();
 
         private TimeSpan GIO_KT = new TimeSpan();
-
+        string caid = "";
         private void load_lich_calamHienTai()
         {
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
             cmd = sqlCon.CreateCommand();
             DateTime date = DateTime.Now;
+            
             cmd.CommandText = "SELECT CAID, GIO_BD, GIO_NGHI FROM CALAMVIEC WHERE GIO_BD<'" + date.ToString("HH:mm:ss") + "' AND GIO_NGHI>'" + date.ToString("HH:mm:ss") + "' AND SUBSTRING(CAID,2,1)='" + ((int)date.DayOfWeek).ToString() + "'";
             var reader = cmd.ExecuteReader();
+            
             while (reader.Read())
             {
-                string caid = reader.GetString(0);
+                caid = reader.GetString(0);
                 switch (caid.Substring(2))
                 {
                     case "S":
@@ -41,6 +43,7 @@ namespace App_sale_manager
                 GIO_BD = reader.GetTimeSpan(1);
                 lbl_lich_KT.Text = reader.GetTimeSpan(2).ToString();
                 GIO_KT = reader.GetTimeSpan(2);
+                
             }
             reader.Close();
             lblLich_ngay.Text = DateTime.Today.Day.ToString();
@@ -91,9 +94,15 @@ namespace App_sale_manager
                     table.Rows.Clear();
                     adapter.Fill(table);
                     if (table.Rows.Count == 0)
+                    {
                         MessageBox.Show("Bạn không có ca làm ngày hôm nay");
-                    else cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + CAID + "', '" + DateTime.Today.ToString("d") + "', N'Đã điểm danh', N'Lặp lại', '" + table.Rows[0]["TIEUDE"].ToString() + "')";
-                    cmd.ExecuteNonQuery();
+                        return;
+                    }
+                    else
+                    {
+                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + CAID + "', '" + DateTime.Today.ToString("MM/dd/yyyy") + "', N'Đã điểm danh', N'Lặp lại', '" + table.Rows[0]["TIEUDE"].ToString() + "')";
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 else
                 {
@@ -104,10 +113,11 @@ namespace App_sale_manager
                     }
                     else
                     {
-                        cmd.CommandText = "UPDATE CT_LAMVIEC TRANGTHAI = N'Đã điểm danh";
+                        cmd.CommandText = "UPDATE CT_LAMVIEC SET TRANGTHAI = N'Đã điểm danh' WHERE NVID ='"+NVID+"' AND CAID = '"+CAID+"' AND NGAYLAM = '"+DateTime.Today.ToString("MM/dd/yyyy")+"'";
                         cmd.ExecuteNonQuery();
                     }
                 }
+                
                 MessageBox.Show("Điểm danh thành công");
                 sqlCon.Close();
             }
@@ -342,9 +352,20 @@ namespace App_sale_manager
                 {
                     try
                     {
-                        cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
-                        textBox1.Text = cmd.CommandText;
-                        cmd.ExecuteNonQuery();
+                        if (caid == table.Rows[j]["CAID"].ToString() && i == DateTime.Today)
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Trống',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
+                            cmd.ExecuteNonQuery();
+                            break;
+
+                        }
+                        else
+                        {
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
+                            cmd.ExecuteNonQuery();
+                        }
+
+
                     }
                     catch (Exception) { }
                 }
@@ -353,6 +374,13 @@ namespace App_sale_manager
             txt_ngaylam.Text = cmd.ExecuteScalar().ToString();
             cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Chưa điểm danh' AND MONTH(NGAYLAM) =" + DateTime.Today.Month;
             txt_ngaynghi.Text = cmd.ExecuteScalar().ToString();
+            cmd.CommandText = "SELECT TRANGTHAI FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND CAID = '" + caid + "' AND NGAYLAM = '" + DateTime.Today.ToString("MM/dd/yyyy") + "'";
+            lbl_lich_TT.Text = cmd.ExecuteScalar().ToString();
+            if (lbl_lich_TT.Text == "Trống")
+                lbl_lich_TT.Text = "Chưa điểm danh";
+
+
+
             sqlCon.Close();
         }
 
@@ -361,6 +389,7 @@ namespace App_sale_manager
             load_lich_calamHienTai();
             load_lich_songayDiemDanh();
             load_lich_banglichhangtuan(DateTime.Today);
+            
         }
 
         private void btn_lich_xemCT_Click(object sender, EventArgs e)
