@@ -33,6 +33,7 @@ namespace App_sale_manager
             txtSPID.Text = "Chọn lại loại sản phẩm";
             sqlCon.Close();
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptrbHinhAnh.Image = Image.FromFile(@"..\..\HangHoa\" + "No Image" + ".jpg");
         }
 
         public Form_ThemSuaHangHoa(int n, string SPID, string TenSP, string NuocSX, string HangSX, string GiaBan, string GiaNhap, string SLTT, string DVT, string LoaiSP, string MoTa)
@@ -95,15 +96,21 @@ namespace App_sale_manager
                 }
                 else
                 {
-                    sqlCon.Open();
-                    string strquery = "insert into SANPHAM values('" + txtSPID.Text + "',N'" + txtTenSP.Text + "',N'" + LoaiID + "',N'" + txtHang.Text + "',N'" + txtNuocSX.Text + "'," + txtGiaBan.Text + "," + txtGiaNhap.Text
-                        + ",N'" + txtDVT.Text + "'," + 0 + "," + txtSLTT.Text + ",N'" + txtMoTa.Text + "')";
-                    sqlCmd = new SqlCommand(strquery, sqlCon);
-                    sqlCmd.ExecuteNonQuery();
-                    sqlCon.Close();
-                    ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg");
-                    MessageBox.Show("Thêm thành công");
-                    this.Close();
+                    try
+                    {
+                        sqlCon.Open();
+                        string strquery = "insert into SANPHAM values('" + txtSPID.Text + "',N'" + txtTenSP.Text + "',N'" + LoaiID + "',N'" + txtHang.Text + "',N'" + txtNuocSX.Text + "'," + txtGiaBan.Text + "," + txtGiaNhap.Text
+                            + ",N'" + txtDVT.Text + "'," + 0 + "," + txtSLTT.Text + ",N'" + txtMoTa.Text + "')";
+                        sqlCmd = new SqlCommand(strquery, sqlCon);
+                        sqlCmd.ExecuteNonQuery();
+                        sqlCon.Close();
+                        ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg");
+                        MessageBox.Show("Thêm thành công");
+                        this.Close();
+                    }
+                    catch (Exception) {
+                        MessageBox.Show("Thông tin không hợp lệ");
+                    }
                 }
             }
             else if (ModeHH == 2)
@@ -179,6 +186,42 @@ namespace App_sale_manager
         {
             if (ModeHH == 2)
             { ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtSPID.Text + ".jpg"); }
+        }
+
+        private void txtGiaBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsLetter(e.KeyChar))
+            {
+                MessageBox.Show("Vui lòng nhập số");
+            }
+        }
+
+        private void txtGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsLetter(e.KeyChar))
+            {
+                MessageBox.Show("Vui lòng nhập số");
+            }
+        }
+
+        private void txtSLTT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsLetter(e.KeyChar))
+            {
+                MessageBox.Show("Vui lòng nhập số");
+            }
         }
     }
 }

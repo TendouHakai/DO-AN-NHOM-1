@@ -28,7 +28,6 @@ namespace App_sale_manager
             txtNDMoTa.Text = MoTa;
             Image img = GetCopyImage(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
             ptrbHinhAnh.Image = img;
-            System.IO.File.Delete(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
             ptrbHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -54,7 +53,6 @@ namespace App_sale_manager
 
         private void Form_ChiTietHH_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ptrbHinhAnh.Image.Save(@"..\..\HangHoa\" + txtNDMaSP.Text + ".jpg");
             this.Close();
         }
     }

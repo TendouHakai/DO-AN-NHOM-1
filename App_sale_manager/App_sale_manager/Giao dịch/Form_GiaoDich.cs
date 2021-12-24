@@ -82,7 +82,10 @@ namespace App_sale_manager
                 pictureBox.Size = new Size(133, 132);
                 pictureBox.Location = new Point(4, 4);
                 pictureBox.Image = Image.FromFile(@"..\..\HangHoa\" + table.Rows[i]["SPID"] + ".jpg");
+
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                
                 Label Tien = new Label();
                 Tien.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
                 Tien.ForeColor = Color.Blue;
@@ -382,7 +385,7 @@ namespace App_sale_manager
                 if (dialogResult == DialogResult.Yes)
                 {
                     Form_CTHD cthd = new Form_CTHD(Box_IDHD.Text, Box_IDKH.Text, Box_IDNV.Text, Box_LoaiHD.Text, Box_TrangThai.Text, Box_GiaDaGiam.Text);
-                    cthd.Show();
+                    cthd.ShowDialog();
                 }
             }
             //}
@@ -453,7 +456,8 @@ namespace App_sale_manager
 
             try
             {
-                PTX_SanPham.Image = Image.FromFile(@"..\..\HangHoa\" + DGV_LuaChon.CurrentRow.Cells[0].Value + ".jpg");
+                Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\HangHoa\" + DGV_LuaChon.CurrentRow.Cells[0].Value + ".jpg"));
+                PTX_SanPham.Image = bmp;
                 PTX_SanPham.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch (Exception)
@@ -596,6 +600,9 @@ namespace App_sale_manager
 
         private void Form_GiaoDich_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            
+
             if (flag == false)
             {
                 cmd.CommandText = "delete  HDBH WHERE SOHD_BH ='" + Box_IDHD.Text + "'";
