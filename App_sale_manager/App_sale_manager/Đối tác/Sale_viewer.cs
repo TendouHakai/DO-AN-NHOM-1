@@ -63,11 +63,39 @@ namespace App_sale_manager
         public Sale_manager Sale_get(DataGridViewRow A)
         {
             Sale_manager B = new Sale_manager();
+            string SaleCondition = "";
+            switch (A.Cells[4].Value.ToString())
+            {
+                case "LMA":
+                    SaleCondition = "Laptop - Macbook";
+                    break;
+                case "MAK":
+                    SaleCondition = "Chuột - Bàn phím";
+                    break;
+                case "HG":
+                    SaleCondition = "Tai nghe";
+                    break;
+                case "CSG":
+                    SaleCondition = "Thiết bị chơi game (console)";
+                    break;
+                case "VGA":
+                    SaleCondition = "Card màn hình (VGA)";
+                    break;
+                case "RAM":
+                    SaleCondition = "RAM";
+                    break;
+                case "MBA":
+                    SaleCondition = "Bo mạch chủ";
+                    break;
+                case "HDS":
+                    SaleCondition = "Ổ cứng";
+                    break;
+            }
             B.textBox_saleName.Text = A.Cells[0].Value.ToString();
             B.comboBox_saleObj.Text = A.Cells[1].Value.ToString();
             B.comboBox_saleMethod.Text = A.Cells[2].Value.ToString();
             B.comboBox_saleCondition.Text = A.Cells[3].Value.ToString();
-            B.comboBox_Condition.Text = A.Cells[4].Value.ToString();
+            B.comboBox_Condition.Text = SaleCondition;
             B.dateTimePicker_startDate.Text = A.Cells[5].Value.ToString();
             B.dateTimePicker_endDate.Text = A.Cells[6].Value.ToString();
             B.textBox_gift.Text = A.Cells[7].Value.ToString();

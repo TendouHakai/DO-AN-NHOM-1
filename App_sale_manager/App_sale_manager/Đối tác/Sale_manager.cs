@@ -177,6 +177,34 @@ namespace App_sale_manager
 
         private void button_save_Click(object sender, EventArgs e)
         {
+            string SaleCondition = "";
+            switch (comboBox_Condition.Text)
+            {
+                case "Laptop - Macbook":
+                    SaleCondition = "LMA";
+                    break;
+                case "Chuột - Bàn phím":
+                    SaleCondition = "MAK";
+                    break;
+                case "Tai nghe":
+                    SaleCondition = "HG";
+                    break;
+                case "Thiết bị chơi game (console)":
+                    SaleCondition = "CSG";
+                    break;
+                case "Card màn hình (VGA)":
+                    SaleCondition = "VGA";
+                    break;
+                case "RAM":
+                    SaleCondition = "RAM";
+                    break;
+                case "Bo mạch chủ":
+                    SaleCondition = "MBA";
+                    break;
+                case "Ổ cứng":
+                    SaleCondition = "HDS";
+                    break;
+            }
             int Tudongxoa = 0, Codieukien = 0;
             if (checkBox_autoDelete.CheckState == CheckState.Checked)
                 Tudongxoa = 1;
@@ -212,7 +240,7 @@ namespace App_sale_manager
                 }
             }
             commandline = "insert into KHUYENMAI values(N'" + textBox_saleName.Text + "', N'" + comboBox_saleObj.Text + "', N'" + comboBox_saleMethod.Text + "', N'"
-                + comboBox_saleCondition.Text + "', N'" + comboBox_Condition.Text + "', '" + dateTimePicker_startDate.Value.ToString("MM/dd/yyyy") + "', '" + dateTimePicker_endDate.Value.ToString("MM/dd/yyyy") + "', N'"
+                + comboBox_saleCondition.Text + "', N'" + SaleCondition + "', '" + dateTimePicker_startDate.Value.ToString("MM/dd/yyyy") + "', '" + dateTimePicker_endDate.Value.ToString("MM/dd/yyyy") + "', N'"
                 + textBox_gift.Text + "', N'" + textBox_note.Text + "', N'" + comboBox_priceMethod.Text + "', '" + numericUpDown_priceReduced.Value + "', '" + numericUpDown_Condition_Quantity.Value + "', '"
                 + numericUpDown_Condition_price.Value + "', '" + Tudongxoa + "', '" + Codieukien + "')";
             if (con.State == ConnectionState.Closed)
