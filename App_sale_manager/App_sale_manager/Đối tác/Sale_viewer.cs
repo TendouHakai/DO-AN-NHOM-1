@@ -74,8 +74,8 @@ namespace App_sale_manager
             B.textBox_note.Text = A.Cells[8].Value.ToString();
             B.comboBox_priceMethod.Text = A.Cells[9].Value.ToString();
             B.numericUpDown_priceReduced.Value = Convert.ToInt32(A.Cells[10].Value.ToString());
-            B.numericUpDown_Condition_price.Value = Convert.ToInt32(A.Cells[11].Value.ToString());
-            B.numericUpDown_Condition_Quantity.Value = Convert.ToInt32(A.Cells[12].Value.ToString());
+            B.numericUpDown_Condition_price.Value = Convert.ToInt32(A.Cells[12].Value.ToString());
+            B.numericUpDown_Condition_Quantity.Value = Convert.ToInt32(A.Cells[11].Value.ToString());
             if (A.Cells[13].Value.ToString() == "1")
                 B.checkBox_autoDelete.CheckState = CheckState.Checked;
             if (A.Cells[14].Value.ToString() == "1")

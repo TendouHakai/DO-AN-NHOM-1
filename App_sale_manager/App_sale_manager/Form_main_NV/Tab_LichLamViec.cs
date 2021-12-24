@@ -132,9 +132,10 @@ namespace App_sale_manager
             public string TIEUDE;
             public string CAID;
         };
-
+        
         private void load_lich_banglichhangtuan(DateTime today)
         {
+            
             if (sqlCon.State == ConnectionState.Closed)
             {
                 sqlCon.Open();
@@ -188,18 +189,18 @@ namespace App_sale_manager
                     switch (caid[i].CAID.Substring(2, 1))
                     {
                         case "S":
-                            dgv_lich_tuan.Rows[0].Cells[8].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[0].Cells[8].Value = Tieude;
+                            dgv_lich_tuan.Rows[0].Cells[7].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[0].Cells[7].Value = Tieude;
                             break;
 
                         case "C":
-                            dgv_lich_tuan.Rows[2].Cells[8].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[2].Cells[8].Value = Tieude;
+                            dgv_lich_tuan.Rows[2].Cells[7].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[2].Cells[7].Value = Tieude;
                             break;
 
                         case "T":
-                            dgv_lich_tuan.Rows[3].Cells[8].Style.BackColor = Color.White;
-                            dgv_lich_tuan.Rows[3].Cells[8].Value = Tieude;
+                            dgv_lich_tuan.Rows[3].Cells[7].Style.BackColor = Color.White;
+                            dgv_lich_tuan.Rows[3].Cells[7].Value = Tieude;
                             break;
                     }
                 }
@@ -342,6 +343,7 @@ namespace App_sale_manager
                     try
                     {
                         cmd.CommandText = "INSERT INTO CT_LAMVIEC VALUES('" + NVID + "', '" + table.Rows[j]["CAID"] + "', '" + i.ToString("MM/dd/yyyy") + "', N'Chưa điểm danh',N'Lặp lại',N'" + table.Rows[j]["TIEUDE"] + "')";
+                        textBox1.Text = cmd.CommandText;
                         cmd.ExecuteNonQuery();
                     }
                     catch (Exception) { }

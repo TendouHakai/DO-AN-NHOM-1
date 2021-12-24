@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace App_sale_manager
 {
@@ -14,7 +15,7 @@ namespace App_sale_manager
         private SqlDataAdapter adapter = new SqlDataAdapter();
         private DataTable table;
         private DataTable Table_GiamGia;
-
+        List<HanghoaGD> hanghoas = new List<HanghoaGD>();
 
         bool flag = false;
         public Form_GiaoDich()
@@ -28,7 +29,8 @@ namespace App_sale_manager
         public Form_GiaoDich(string Manv)
         {
             InitializeComponent();
-            this.Size = new Size(1250, 770);
+            this.Size = new Size(1250, 790);
+            flowLayoutPanel1.Hide();
             Box_IDNV.Text = Manv;
 
             sqlCon = new SqlConnection(strCon);
@@ -61,19 +63,46 @@ namespace App_sale_manager
                 }
             }
 
-            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00',''), SOLUONG from SANPHAM";
+            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') as TIEN, SOLUONG from SANPHAM";
             adapter.SelectCommand = cmd;
             table = new DataTable();
             adapter.Fill(table);
             DGV_LuaChon.DataSource = table;
-
             DGV_LuaChon.Columns[0].HeaderText = "Mã sản phẩm";
             DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
             DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
             DGV_LuaChon.Columns[3].Visible = false;
+            hanghoas.Clear();
+            flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Panel panel = new Panel();
+                panel.Size = new Size(284, 139);
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Size = new Size(133, 132);
+                pictureBox.Location = new Point(4, 4);
+                pictureBox.Image = Image.FromFile(@"..\..\HangHoa\" + table.Rows[i]["SPID"] + ".jpg");
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                Label Tien = new Label();
+                Tien.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
+                Tien.ForeColor = Color.Blue;
+                Tien.Text = table.Rows[i]["TIEN"].ToString();
+                Tien.Location = new Point(143, 36);
+                Label Ten = new Label();
+                Ten.Text = chenlable(table.Rows[i]["TENSP"].ToString());
+                Ten.Location = new Point(145, 65);
+                panel.Controls.Add(pictureBox);
+                panel.Controls.Add(Tien);
+                panel.Controls.Add(Ten);
+
+                HanghoaGD hanghoa = new HanghoaGD(panel, pictureBox, Tien, Ten, table.Rows[i]["SPID"].ToString(), table.Rows[i]["TENSP"].ToString(), table.Rows[i]["SOLUONG"].ToString());
+                hanghoa.Click += button1_Click;
+                hanghoa.Click2 += click;
+                hanghoas.Add(hanghoa);
+                flowLayoutPanel1.Controls.Add(panel);
+            }
             Box_LoaiHD.Text = "Đơn trực tiếp";
             Box_TrangThai.Text = "Hoàn thành";
-
             Table_GiamGia = new DataTable();
             cmd.CommandText = "Select * from KHUYENMAI WHERE NGAYKT > '" + DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss") + "' ";
             adapter.SelectCommand = cmd;
@@ -88,7 +117,31 @@ namespace App_sale_manager
             }
             Box_TenUuDai.Items.Add("<Trống>");
         }
+        private void click(object sender, EventArgs e)
+        {
+            Point position = new Point();
+            position.X = this.Location.X + panel2.Location.X + flowLayoutPanel1.Location.X + (sender as HanghoaGD).panel.Location.X;
+            position.Y = this.Location.Y + panel2.Location.Y + flowLayoutPanel1.Location.Y + (sender as HanghoaGD).panel.Location.Y;
+            SL sl = new SL();
+            sl.Location = position;
+            sl.NhapSL += (sender as HanghoaGD).NhapSL;
+            sl.ShowDialog();
 
+        }
+        string chenlable(string Ten)
+        {
+            string chuoi = Ten;
+            for(int i = 1; (i * 18) < Ten.Length; i++)
+            {
+                if(i==4)
+                {
+                    chuoi.Substring(0, i * 18 - 4);
+                    chuoi = chuoi + "...";
+                }  
+                else chuoi = chuoi.Insert(i * 18, "\n");
+            }
+            return chuoi;
+        }
         private void CT_HD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             Update_Tong();
@@ -108,36 +161,52 @@ namespace App_sale_manager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (DGV_LuaChon.CurrentRow != null)
+            if(rbtndanhsach.Checked==true)
             {
-                foreach (DataGridViewRow temp in CT_HD.Rows)
+                if (DGV_LuaChon.CurrentRow != null)
                 {
-                    if (Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) > Convert.ToDouble(numericUpDown1.Value))
+                    foreach (DataGridViewRow temp in CT_HD.Rows)
                     {
-                        DGV_LuaChon.CurrentRow.Cells[3].Value = Convert.ToString(Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) - Convert.ToDouble(numericUpDown1.Value));
-                        cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + DGV_LuaChon.CurrentRow.Cells[3].Value + " WHERE SPID = '" + DGV_LuaChon.CurrentRow.Cells[0].Value + "'";
+                        if (Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) > Convert.ToDouble(numericUpDown1.Value))
+                        {
+                            DGV_LuaChon.CurrentRow.Cells[3].Value = Convert.ToString(Convert.ToDouble(DGV_LuaChon.CurrentRow.Cells[3].Value) - Convert.ToDouble(numericUpDown1.Value));
+                            cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + DGV_LuaChon.CurrentRow.Cells[3].Value + " WHERE SPID = '" + DGV_LuaChon.CurrentRow.Cells[0].Value + "'";
+                            cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cảnh báo : Không đủ số lượng hàng trong kho");
+                            return;
+                        }
+                        if (DGV_LuaChon.CurrentRow.Cells[0].Value == temp.Cells[0].Value)
+                        {
+                            temp.Cells[3].Value = numericUpDown1.Value + Convert.ToInt32(temp.Cells[3].Value);
+                            Update_Tong();
+                            return;
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Cảnh báo : Không đủ số lượng hàng trong kho");
-                        return;
-                    }
-                    if (DGV_LuaChon.CurrentRow.Cells[0].Value == temp.Cells[0].Value)
-                    {
-                        temp.Cells[3].Value = numericUpDown1.Value + Convert.ToInt32(temp.Cells[3].Value);
-                        Update_Tong();
-                        return;
-                    }
+                    DataGridViewRow row = (DataGridViewRow)CT_HD.Rows[0].Clone();
+                    row.Cells[0].Value = DGV_LuaChon.CurrentRow.Cells[0].Value;
+                    row.Cells[1].Value = DGV_LuaChon.CurrentRow.Cells[1].Value;
+                    row.Cells[2].Value = DGV_LuaChon.CurrentRow.Cells[2].Value;
+                    row.Cells[3].Value = numericUpDown1.Value;
+                    CT_HD.Rows.Add(row);
                 }
-                DataGridViewRow row = (DataGridViewRow)CT_HD.Rows[0].Clone();
-                row.Cells[0].Value = DGV_LuaChon.CurrentRow.Cells[0].Value;
-                row.Cells[1].Value = DGV_LuaChon.CurrentRow.Cells[1].Value;
-                row.Cells[2].Value = DGV_LuaChon.CurrentRow.Cells[2].Value;
-                row.Cells[3].Value = numericUpDown1.Value;
-                CT_HD.Rows.Add(row);
+                else
+                    MessageBox.Show("Phai lua chon san pham truoc");
             }
             else
-                MessageBox.Show("Phai lua chon san pham truoc");
+            {
+                cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + (sender as HanghoaGD).Soluong + " WHERE SPID = '" + (sender as HanghoaGD).IDSP + "'";
+                cmd.ExecuteNonQuery();
+                DataGridViewRow row = (DataGridViewRow)CT_HD.Rows[0].Clone();
+                row.Cells[0].Value = (sender as HanghoaGD).IDSP;
+                row.Cells[1].Value = (sender as HanghoaGD).TenSP;
+                row.Cells[2].Value = (sender as HanghoaGD).Tien.Text;
+                row.Cells[3].Value = (sender as HanghoaGD).SLchon;
+                CT_HD.Rows.Add(row);
+            } 
+                
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -148,34 +217,100 @@ namespace App_sale_manager
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             table = new DataTable();
-            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') from SANPHAM WHERE (SPID like '%" + Box_MASP.Text + "%' and TENSP like '%" + Box_TenSP.Text + "%')";
+            cmd.CommandText = "Select SPID, TENSP ,REPLACE(CONVERT(varchar(20), GIABAN, 1), '.00','') as TIEN, SOLUONG from SANPHAM WHERE (SPID like '%" + Box_MASP.Text + "%' and TENSP like '%" + Box_TenSP.Text + "%')";
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
-            DGV_LuaChon.DataSource = table;
-
-            DGV_LuaChon.Columns[0].HeaderText = "Mã sản phẩm";
-            DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
-            DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
+            if(rbtndanhsach.Checked ==true)
+            {
+                DGV_LuaChon.DataSource = table;
+                DGV_LuaChon.Columns[0].HeaderText = "Mã sản phẩm";
+                DGV_LuaChon.Columns[1].HeaderText = "Tên sản phẩm";
+                DGV_LuaChon.Columns[2].HeaderText = "Giá (VND)";
+                DGV_LuaChon.Columns[3].Visible = false;
+            }
+            else
+            {
+                hanghoas.Clear();
+                flowLayoutPanel1.Controls.Clear();
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    Panel panel = new Panel();
+                    panel.Size = new Size(284, 139);
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Size = new Size(133, 132);
+                    pictureBox.Location = new Point(4, 4);
+                    pictureBox.Image = Image.FromFile(@"..\..\HangHoa\" + table.Rows[i]["SPID"] + ".jpg");
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    Label Tien = new Label();
+                    Tien.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
+                    Tien.ForeColor = Color.Blue;
+                    Tien.Text = table.Rows[i]["TIEN"].ToString();
+                    Tien.Location = new Point(143, 36);
+                    Label Ten = new Label();
+                    Ten.Text = chenlable(table.Rows[i]["TENSP"].ToString());
+                    Ten.Location = new Point(145, 65);
+                    panel.Controls.Add(pictureBox);
+                    panel.Controls.Add(Tien);
+                    panel.Controls.Add(Ten);
+                    
+                    HanghoaGD hanghoa = new HanghoaGD(panel, pictureBox, Tien, Ten, table.Rows[i]["SPID"].ToString(), table.Rows[i]["TENSP"].ToString(), table.Rows[i]["SOLUONG"].ToString());
+                    hanghoa.Click += button1_Click;
+                    hanghoa.Click2 += click;
+                    hanghoas.Add(hanghoa);
+                    flowLayoutPanel1.Controls.Add(panel);
+                }
+            } 
+                
         }
 
         private void bnt_xoaSP_Click(object sender, EventArgs e)
         {
-            try
+            if(rbtndanhsach.Checked==true)
             {
-                for (int i = 0; i < DGV_LuaChon.RowCount - 1; i++)
-                    if (DGV_LuaChon.Rows[i].Cells[0].Value == CT_HD.CurrentRow.Cells[0].Value)
-                    {
-                        DGV_LuaChon.Rows[i].Cells[3].Value = Convert.ToString(Convert.ToDouble(DGV_LuaChon.Rows[i].Cells[3].Value) + Convert.ToDouble(CT_HD.CurrentRow.Cells[3].Value));
-                        cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + DGV_LuaChon.Rows[i].Cells[3].Value + " WHERE SPID = '" + DGV_LuaChon.Rows[i].Cells[0].Value + "'";
-                        CT_HD.Rows.Remove(CT_HD.CurrentRow);
-                        return;
-                    }
+                try
+                {
+                    for (int i = 0; i < DGV_LuaChon.RowCount - 1; i++)
+                        if (DGV_LuaChon.Rows[i].Cells[0].Value == CT_HD.CurrentRow.Cells[0].Value)
+                        {
+                            DGV_LuaChon.Rows[i].Cells[3].Value = Convert.ToString(Convert.ToDouble(DGV_LuaChon.Rows[i].Cells[3].Value) + Convert.ToDouble(CT_HD.CurrentRow.Cells[3].Value));
+                            cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = " + DGV_LuaChon.Rows[i].Cells[3].Value + " WHERE SPID = '" + DGV_LuaChon.Rows[i].Cells[0].Value + "'";
+                            cmd.ExecuteNonQuery();
+                            CT_HD.Rows.Remove(CT_HD.CurrentRow);
+                            return;
+                        }
+                    cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = SOLUONG + " + CT_HD.CurrentRow.Cells[3].Value + " WHERE SPID = '" + CT_HD.CurrentRow.Cells[0].Value + "'";
+                    CT_HD.Rows.Remove(CT_HD.CurrentRow);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Khong co san pham nao");
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Khong co san pham nao");
-            }
+                try
+                {
+                    for (int i = 0; i < hanghoas.Count; i++)
+                        if (hanghoas[i].IDSP == CT_HD.CurrentRow.Cells[0].Value.ToString())
+                        {
+                            hanghoas[i].Soluong = Convert.ToString(Convert.ToDouble(hanghoas[i].Soluong) + Convert.ToDouble(CT_HD.CurrentRow.Cells[3].Value.ToString()));
+                            cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = SOLUONG + " + CT_HD.CurrentRow.Cells[3].Value + " WHERE SPID = '" + CT_HD.CurrentRow.Cells[0].Value + "'";
+                            cmd.ExecuteNonQuery();
+                            CT_HD.Rows.Remove(CT_HD.CurrentRow);
+                            return;
+                        }
+                    cmd.CommandText = "  UPDATE SANPHAM SET SOLUONG = SOLUONG + " + CT_HD.CurrentRow.Cells[3].Value + " WHERE SPID = '" + CT_HD.CurrentRow.Cells[0].Value + "'";
+                    cmd.ExecuteNonQuery();
+                    CT_HD.Rows.Remove(CT_HD.CurrentRow);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Khong co san pham nao");
+                }
+            } 
+                
         }
 
         private void CT_HD_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -393,12 +528,12 @@ namespace App_sale_manager
                         }
                         if (Label_Loai.Text == "%")
                         {
-                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(CT_HD.Rows[i].Cells[2].Value) * Convert.ToDouble(Box_Giam.Text) / 100 * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value));
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text.Replace(",", string.Empty)) - Convert.ToDouble(CT_HD.Rows[i].Cells[2].Value.ToString().Replace(",", string.Empty)) * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value.ToString()) * Convert.ToDouble(Box_Giam.Text) / 100 );
                             Box_GiaDaGiam.Text = String.Format("{0:0,0}", Convert.ToDouble(Box_GiaDaGiam.Text));
                         }
                         else
                         {
-                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble(CT_HD.Rows[i].Cells[3]));
+                            Box_GiaDaGiam.Text = Convert.ToString(Convert.ToDouble(Box_GiaDaGiam.Text.Replace(",", string.Empty)) - Convert.ToDouble(Box_Giam.Text) * Convert.ToDouble(CT_HD.Rows[i].Cells[3].Value.ToString()));
                             Box_GiaDaGiam.Text = String.Format("{0:0,0}", Convert.ToDouble(Box_GiaDaGiam.Text));
                         }
                     }
@@ -452,6 +587,24 @@ namespace App_sale_manager
                 cmd.CommandText = "delete  HDBH WHERE SOHD_BH ='" + Box_IDHD.Text + "'";
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        private void rbtndanhsach_CheckedChanged(object sender, EventArgs e)
+        {
+            if((sender as RadioButton).Checked == true)
+            {
+                flowLayoutPanel1.Hide();
+                textBox1_TextChanged(this, e);
+            }    
+        }
+
+        private void rbtnHinhanh_CheckedChanged(object sender, EventArgs e)
+        {
+            if((sender as RadioButton).Checked == true)
+            {
+                flowLayoutPanel1.Show();
+                textBox1_TextChanged(this, e);
+            }    
         }
     }
 }

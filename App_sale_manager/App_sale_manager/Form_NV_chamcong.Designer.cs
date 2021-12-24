@@ -34,7 +34,6 @@ namespace App_sale_manager
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.calam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_songaylam = new System.Windows.Forms.Label();
             this.lbl_songaynghi = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -62,6 +61,7 @@ namespace App_sale_manager
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.calam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_ngaynghi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_ngaylam)).BeginInit();
@@ -74,7 +74,7 @@ namespace App_sale_manager
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -116,14 +116,6 @@ namespace App_sale_manager
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1085, 272);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // calam
-            // 
-            this.calam.HeaderText = "Ca làm";
-            this.calam.MinimumWidth = 6;
-            this.calam.Name = "calam";
-            this.calam.ReadOnly = true;
-            this.calam.Width = 125;
             // 
             // lbl_songaylam
             // 
@@ -397,6 +389,15 @@ namespace App_sale_manager
             this.panel3.Size = new System.Drawing.Size(1091, 68);
             this.panel3.TabIndex = 7;
             // 
+            // calam
+            // 
+            this.calam.Frozen = true;
+            this.calam.HeaderText = "Ca làm";
+            this.calam.MinimumWidth = 6;
+            this.calam.Name = "calam";
+            this.calam.ReadOnly = true;
+            this.calam.Width = 125;
+            // 
             // Form_NV_chamcong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,7 +444,6 @@ namespace App_sale_manager
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn calam;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
@@ -454,5 +454,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn calam;
     }
 }

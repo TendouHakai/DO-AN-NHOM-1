@@ -220,7 +220,6 @@ namespace App_sale_manager
             this.label_Thuong_nv_infonv = new System.Windows.Forms.Label();
             this.label_Luong_nv_infonv = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.pictureBox_image_anhnv = new OvalPictureBox();
             this.lb_username_nv = new System.Windows.Forms.Label();
             this.label_thongtincanhan_nv_infonv = new System.Windows.Forms.Label();
             this.label_MaNV_nv_infonv = new System.Windows.Forms.Label();
@@ -251,6 +250,8 @@ namespace App_sale_manager
             this.contextMenuStrip_anh_nv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.chonAnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xoaAnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox_image_anhnv = new OvalPictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Data_GiaoDich)).BeginInit();
             this.tabctrl_Nhanvien.SuspendLayout();
             this.tabP_Tongquan.SuspendLayout();
@@ -297,10 +298,10 @@ namespace App_sale_manager
             this.tabP_Canhan.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_anhnv)).BeginInit();
             this.panel23.SuspendLayout();
             this.toolStripMainNV.SuspendLayout();
             this.contextMenuStrip_anh_nv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_anhnv)).BeginInit();
             this.SuspendLayout();
             // 
             // label3_GD
@@ -1769,6 +1770,7 @@ namespace App_sale_manager
             // panel21
             // 
             this.panel21.BackColor = System.Drawing.Color.White;
+            this.panel21.Controls.Add(this.textBox1);
             this.panel21.Controls.Add(this.btn_lich_xemCT);
             this.panel21.Controls.Add(this.label5);
             this.panel21.Controls.Add(this.txt_ngaynghi);
@@ -2426,18 +2428,6 @@ namespace App_sale_manager
             this.panel22.Size = new System.Drawing.Size(402, 617);
             this.panel22.TabIndex = 68;
             // 
-            // pictureBox_image_anhnv
-            // 
-            this.pictureBox_image_anhnv.BackColor = System.Drawing.Color.White;
-            this.pictureBox_image_anhnv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_image_anhnv.Location = new System.Drawing.Point(87, 114);
-            this.pictureBox_image_anhnv.Name = "pictureBox_image_anhnv";
-            this.pictureBox_image_anhnv.Size = new System.Drawing.Size(220, 198);
-            this.pictureBox_image_anhnv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_image_anhnv.TabIndex = 67;
-            this.pictureBox_image_anhnv.TabStop = false;
-            this.pictureBox_image_anhnv.Click += new System.EventHandler(this.pictureBox_image_anhnv_Click_1);
-            // 
             // lb_username_nv
             // 
             this.lb_username_nv.AutoSize = true;
@@ -2792,6 +2782,25 @@ namespace App_sale_manager
             this.xoaAnhToolStripMenuItem.Text = "Xoá ảnh";
             this.xoaAnhToolStripMenuItem.Click += new System.EventHandler(this.xoaAnhToolStripMenuItem_Click_1);
             // 
+            // pictureBox_image_anhnv
+            // 
+            this.pictureBox_image_anhnv.BackColor = System.Drawing.Color.White;
+            this.pictureBox_image_anhnv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox_image_anhnv.Location = new System.Drawing.Point(87, 114);
+            this.pictureBox_image_anhnv.Name = "pictureBox_image_anhnv";
+            this.pictureBox_image_anhnv.Size = new System.Drawing.Size(220, 198);
+            this.pictureBox_image_anhnv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_image_anhnv.TabIndex = 67;
+            this.pictureBox_image_anhnv.TabStop = false;
+            this.pictureBox_image_anhnv.Click += new System.EventHandler(this.pictureBox_image_anhnv_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(581, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(591, 24);
+            this.textBox1.TabIndex = 7;
+            // 
             // Form_main_NV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2867,12 +2876,12 @@ namespace App_sale_manager
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
             this.panel22.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_anhnv)).EndInit();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             this.toolStripMainNV.ResumeLayout(false);
             this.toolStripMainNV.PerformLayout();
             this.contextMenuStrip_anh_nv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image_anhnv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3080,5 +3089,6 @@ namespace App_sale_manager
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

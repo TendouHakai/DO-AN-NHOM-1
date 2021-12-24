@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HanghoaGD.cs" />
     <Compile Include="Nhân viên\Form_addnv_admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +108,12 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SL.Designer.cs">
+      <DependentUpon>SL.cs</DependentUpon>
     </Compile>
     <Compile Include="Tổng quan\Form_chuthich.cs">
       <SubType>Form</SubType>
@@ -290,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OvalPictureBox.resx">
       <DependentUpon>OvalPictureBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SL.resx">
+      <DependentUpon>SL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tổng quan\Form_chuthich.resx">
       <DependentUpon>Form_chuthich.cs</DependentUpon>

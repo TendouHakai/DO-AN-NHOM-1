@@ -393,22 +393,22 @@ namespace App_sale_manager
             cmd.ExecuteNonQuery();
             for (int i = 0; i < dgv_nv_phancong_lich.Rows.Count - 1; i++)
             {
-                if (dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() == "Lặp lại")
+                if (dgv_nv_phancong_lich.Rows[i].Cells[7].Value.ToString() == "Lặp lại")
                 {
                     if (dgv_nv_phancong_lich.Rows[i].Cells[3].Value.ToString() == "True")
                     {
                         try
                         {
-                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "S', N'Lịch làm việc hàng tuần' )";
                             cmd.ExecuteNonQuery();
                         }
-                        catch(Exception) { }
+                        catch (Exception) { }
                     }
                     if (dgv_nv_phancong_lich.Rows[i].Cells[4].Value.ToString() == "True")
                     {
                         try
                         {
-                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "C', N'Lịch làm việc hàng tuần' )";
                             cmd.ExecuteNonQuery();
                         }
                         catch (Exception) { }
@@ -417,7 +417,7 @@ namespace App_sale_manager
                     {
                         try
                         {
-                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', N'" + dgv_nv_phancong_lich.Rows[i].Cells[6].Value.ToString() + "' )";
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + dgv_nv_phancong_lich.Rows[i].Cells[0].Value.ToString() + "', 'C" + ((int)mon_nv_phancong_lich.SelectionRange.Start.DayOfWeek).ToString() + "T', N'Lịch làm việc hàng tuần' )";
                             cmd.ExecuteNonQuery();
                         }
                         catch (Exception) { }

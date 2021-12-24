@@ -66,5 +66,7 @@ namespace App_sale_manager
             this.MaximizeBox = false;
             tabctrl_Nhanvien_SelectedIndexChanged(this, new EventArgs());
         }
+
+        
     }
 }

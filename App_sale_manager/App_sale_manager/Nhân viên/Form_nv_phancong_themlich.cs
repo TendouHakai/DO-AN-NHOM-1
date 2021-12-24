@@ -30,6 +30,7 @@ namespace App_sale_manager
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            cbo_chedo.SelectedIndex = 0;
             sqlCon = new SqlConnection(strCon);
             dgv_phancong_nvid.DefaultCellStyle.Font = new Font("Verdana", 8, FontStyle.Regular);
             if (sqlCon.State == ConnectionState.Closed)
@@ -190,7 +191,7 @@ namespace App_sale_manager
                     {
                         try
                         {
-                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "',N'" + txt_tieude.Text + "')";
+                            cmd.CommandText = "INSERT INTO CT_LAMVIEC_HANGTUAN VALUES('" + chkL_phancong_NVID.Items[i].ToString() + "', '" + CAIDs[j].CA + "',N'Lịch làm việc hàng tuần')";
                             cmd.ExecuteNonQuery();
                         }
                         catch (Exception)
@@ -277,6 +278,15 @@ namespace App_sale_manager
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbo_chedo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbo_chedo.SelectedIndex == 0)
+            {
+                txt_tieude.Enabled = true ;
+            }
+            else txt_tieude.Enabled = false;
         }
     }
 }

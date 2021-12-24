@@ -90,7 +90,7 @@ namespace App_sale_manager
             this.checkBox_autoDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_autoDelete.AutoSize = true;
             this.checkBox_autoDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_autoDelete.Location = new System.Drawing.Point(508, 146);
+            this.checkBox_autoDelete.Location = new System.Drawing.Point(497, 146);
             this.checkBox_autoDelete.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_autoDelete.Name = "checkBox_autoDelete";
             this.checkBox_autoDelete.Size = new System.Drawing.Size(262, 24);
@@ -104,7 +104,7 @@ namespace App_sale_manager
             this.dateTimePicker_endDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dateTimePicker_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(508, 96);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(497, 96);
             this.dateTimePicker_endDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(318, 22);
@@ -115,7 +115,7 @@ namespace App_sale_manager
             this.label_endDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_endDate.AutoSize = true;
             this.label_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_endDate.Location = new System.Drawing.Point(502, 76);
+            this.label_endDate.Location = new System.Drawing.Point(491, 76);
             this.label_endDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_endDate.Name = "label_endDate";
             this.label_endDate.Size = new System.Drawing.Size(111, 20);
@@ -128,7 +128,7 @@ namespace App_sale_manager
             this.dateTimePicker_startDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dateTimePicker_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(508, 48);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(497, 48);
             this.dateTimePicker_startDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
             this.dateTimePicker_startDate.Size = new System.Drawing.Size(318, 22);
@@ -139,7 +139,7 @@ namespace App_sale_manager
             this.label_startDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_startDate.AutoSize = true;
             this.label_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_startDate.Location = new System.Drawing.Point(502, 28);
+            this.label_startDate.Location = new System.Drawing.Point(491, 28);
             this.label_startDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_startDate.Name = "label_startDate";
             this.label_startDate.Size = new System.Drawing.Size(107, 20);
@@ -161,7 +161,7 @@ namespace App_sale_manager
             "Bo mạch chủ",
             "Ổ cứng (SSD)",
             "Ổ cứng (HDD)"});
-            this.comboBox_Condition.Location = new System.Drawing.Point(31, 245);
+            this.comboBox_Condition.Location = new System.Drawing.Point(20, 245);
             this.comboBox_Condition.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Condition.Name = "comboBox_Condition";
             this.comboBox_Condition.Size = new System.Drawing.Size(289, 24);
@@ -173,7 +173,7 @@ namespace App_sale_manager
             this.label_Condition.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_Condition.AutoSize = true;
             this.label_Condition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Condition.Location = new System.Drawing.Point(28, 225);
+            this.label_Condition.Location = new System.Drawing.Point(17, 225);
             this.label_Condition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Condition.Name = "label_Condition";
             this.label_Condition.Size = new System.Drawing.Size(133, 20);
@@ -188,7 +188,7 @@ namespace App_sale_manager
             this.comboBox_saleCondition.Items.AddRange(new object[] {
             "Mặt hàng",
             "Nhà cung cấp"});
-            this.comboBox_saleCondition.Location = new System.Drawing.Point(31, 196);
+            this.comboBox_saleCondition.Location = new System.Drawing.Point(20, 196);
             this.comboBox_saleCondition.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_saleCondition.Name = "comboBox_saleCondition";
             this.comboBox_saleCondition.Size = new System.Drawing.Size(289, 24);
@@ -201,7 +201,7 @@ namespace App_sale_manager
             this.label_saleCondition.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleCondition.AutoSize = true;
             this.label_saleCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleCondition.Location = new System.Drawing.Point(28, 176);
+            this.label_saleCondition.Location = new System.Drawing.Point(17, 176);
             this.label_saleCondition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleCondition.Name = "label_saleCondition";
             this.label_saleCondition.Size = new System.Drawing.Size(99, 20);
@@ -217,7 +217,7 @@ namespace App_sale_manager
             "Giảm giá",
             "Giảm giá & Tặng kèm",
             "Tặng kèm"});
-            this.comboBox_saleMethod.Location = new System.Drawing.Point(31, 146);
+            this.comboBox_saleMethod.Location = new System.Drawing.Point(20, 146);
             this.comboBox_saleMethod.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_saleMethod.Name = "comboBox_saleMethod";
             this.comboBox_saleMethod.Size = new System.Drawing.Size(289, 24);
@@ -230,7 +230,7 @@ namespace App_sale_manager
             this.label_saleMethod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleMethod.AutoSize = true;
             this.label_saleMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleMethod.Location = new System.Drawing.Point(28, 128);
+            this.label_saleMethod.Location = new System.Drawing.Point(17, 128);
             this.label_saleMethod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleMethod.Name = "label_saleMethod";
             this.label_saleMethod.Size = new System.Drawing.Size(96, 20);
@@ -246,7 +246,7 @@ namespace App_sale_manager
             "Khách thường",
             "Khách vip",
             "Tất cả"});
-            this.comboBox_saleObj.Location = new System.Drawing.Point(31, 98);
+            this.comboBox_saleObj.Location = new System.Drawing.Point(20, 98);
             this.comboBox_saleObj.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_saleObj.Name = "comboBox_saleObj";
             this.comboBox_saleObj.Size = new System.Drawing.Size(289, 24);
@@ -258,7 +258,7 @@ namespace App_sale_manager
             this.label_saleObj.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleObj.AutoSize = true;
             this.label_saleObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleObj.Location = new System.Drawing.Point(28, 76);
+            this.label_saleObj.Location = new System.Drawing.Point(17, 76);
             this.label_saleObj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleObj.Name = "label_saleObj";
             this.label_saleObj.Size = new System.Drawing.Size(135, 20);
@@ -270,7 +270,7 @@ namespace App_sale_manager
             this.textBox_saleName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox_saleName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_saleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_saleName.Location = new System.Drawing.Point(31, 48);
+            this.textBox_saleName.Location = new System.Drawing.Point(20, 48);
             this.textBox_saleName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_saleName.Name = "textBox_saleName";
             this.textBox_saleName.Size = new System.Drawing.Size(467, 15);
@@ -281,7 +281,7 @@ namespace App_sale_manager
             this.label_saleName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_saleName.AutoSize = true;
             this.label_saleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_saleName.Location = new System.Drawing.Point(28, 28);
+            this.label_saleName.Location = new System.Drawing.Point(17, 28);
             this.label_saleName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_saleName.Name = "label_saleName";
             this.label_saleName.Size = new System.Drawing.Size(92, 20);
@@ -297,7 +297,7 @@ namespace App_sale_manager
             this.groupBox_gift.Controls.Add(this.label_gift);
             this.groupBox_gift.Enabled = false;
             this.groupBox_gift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox_gift.Location = new System.Drawing.Point(10, 28);
+            this.groupBox_gift.Location = new System.Drawing.Point(-1, 28);
             this.groupBox_gift.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_gift.Name = "groupBox_gift";
             this.groupBox_gift.Padding = new System.Windows.Forms.Padding(4);
@@ -364,7 +364,7 @@ namespace App_sale_manager
             this.groupBox_sale.Controls.Add(this.label_priceReduced);
             this.groupBox_sale.Controls.Add(this.label_priceMethod);
             this.groupBox_sale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox_sale.Location = new System.Drawing.Point(10, 185);
+            this.groupBox_sale.Location = new System.Drawing.Point(-1, 185);
             this.groupBox_sale.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_sale.Name = "groupBox_sale";
             this.groupBox_sale.Padding = new System.Windows.Forms.Padding(4);
@@ -416,8 +416,18 @@ namespace App_sale_manager
             this.numericUpDown_Condition_price.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numericUpDown_Condition_price.Enabled = false;
             this.numericUpDown_Condition_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_Condition_price.Increment = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDown_Condition_price.Location = new System.Drawing.Point(14, 210);
             this.numericUpDown_Condition_price.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDown_Condition_price.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.numericUpDown_Condition_price.Name = "numericUpDown_Condition_price";
             this.numericUpDown_Condition_price.Size = new System.Drawing.Size(253, 22);
             this.numericUpDown_Condition_price.TabIndex = 15;
@@ -513,7 +523,7 @@ namespace App_sale_manager
             this.button_quit.Location = new System.Drawing.Point(258, 863);
             this.button_quit.Margin = new System.Windows.Forms.Padding(4);
             this.button_quit.Name = "button_quit";
-            this.button_quit.Size = new System.Drawing.Size(473, 46);
+            this.button_quit.Size = new System.Drawing.Size(452, 46);
             this.button_quit.TabIndex = 2;
             this.button_quit.Text = "Thoát";
             this.button_quit.UseVisualStyleBackColor = false;
@@ -531,7 +541,7 @@ namespace App_sale_manager
             this.button_save.Location = new System.Drawing.Point(258, 809);
             this.button_save.Margin = new System.Windows.Forms.Padding(4);
             this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(473, 46);
+            this.button_save.Size = new System.Drawing.Size(452, 46);
             this.button_save.TabIndex = 3;
             this.button_save.Text = "Lưu";
             this.button_save.UseVisualStyleBackColor = false;
@@ -569,14 +579,14 @@ namespace App_sale_manager
             this.panel1.Location = new System.Drawing.Point(11, 11);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(942, 275);
+            this.panel1.Size = new System.Drawing.Size(921, 275);
             this.panel1.TabIndex = 5;
             // 
             // panel6
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel6.Location = new System.Drawing.Point(30, 270);
+            this.panel6.Location = new System.Drawing.Point(19, 270);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(295, 2);
@@ -586,7 +596,7 @@ namespace App_sale_manager
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel5.Location = new System.Drawing.Point(31, 220);
+            this.panel5.Location = new System.Drawing.Point(20, 220);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(295, 2);
@@ -596,7 +606,7 @@ namespace App_sale_manager
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel4.Location = new System.Drawing.Point(31, 171);
+            this.panel4.Location = new System.Drawing.Point(20, 171);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(295, 2);
@@ -606,7 +616,7 @@ namespace App_sale_manager
             // 
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel8.Location = new System.Drawing.Point(508, 119);
+            this.panel8.Location = new System.Drawing.Point(497, 119);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(313, 2);
@@ -616,7 +626,7 @@ namespace App_sale_manager
             // 
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel7.Location = new System.Drawing.Point(508, 71);
+            this.panel7.Location = new System.Drawing.Point(497, 71);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(313, 2);
@@ -626,7 +636,7 @@ namespace App_sale_manager
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel3.Location = new System.Drawing.Point(30, 122);
+            this.panel3.Location = new System.Drawing.Point(19, 122);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(295, 2);
@@ -636,7 +646,7 @@ namespace App_sale_manager
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(156)))), ((int)(((byte)(85)))));
-            this.panel2.Location = new System.Drawing.Point(30, 71);
+            this.panel2.Location = new System.Drawing.Point(19, 71);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(465, 2);
@@ -661,7 +671,7 @@ namespace App_sale_manager
             this.dataGridView_manager.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_manager.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_manager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_manager.Location = new System.Drawing.Point(835, 15);
+            this.dataGridView_manager.Location = new System.Drawing.Point(824, 15);
             this.dataGridView_manager.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_manager.Name = "dataGridView_manager";
             this.dataGridView_manager.ReadOnly = true;
@@ -681,14 +691,14 @@ namespace App_sale_manager
             this.panel9.Location = new System.Drawing.Point(11, 290);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(942, 507);
+            this.panel9.Size = new System.Drawing.Size(921, 507);
             this.panel9.TabIndex = 6;
             // 
             // panel10
             // 
             this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel10.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel10.Location = new System.Drawing.Point(10, 176);
+            this.panel10.Location = new System.Drawing.Point(-1, 176);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(917, 2);

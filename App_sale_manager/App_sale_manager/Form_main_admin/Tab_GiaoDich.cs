@@ -53,7 +53,7 @@ namespace App_sale_manager
             Box_GD_MaKhachHang.Text = "";
             BOX_GD_MaNhanVien.Text = "";
         }
-
+       
         private void bnt_Timkiem_Click(object sender, EventArgs e)
         {
             if (sqlCon.State == ConnectionState.Closed)
