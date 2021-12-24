@@ -374,10 +374,15 @@ namespace App_sale_manager
             txt_ngaylam.Text = cmd.ExecuteScalar().ToString();
             cmd.CommandText = "SELECT COUNT(*) FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND TRANGTHAI = N'Chưa điểm danh' AND MONTH(NGAYLAM) =" + DateTime.Today.Month;
             txt_ngaynghi.Text = cmd.ExecuteScalar().ToString();
-            cmd.CommandText = "SELECT TRANGTHAI FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND CAID = '" + caid + "' AND NGAYLAM = '" + DateTime.Today.ToString("MM/dd/yyyy") + "'";
-            lbl_lich_TT.Text = cmd.ExecuteScalar().ToString();
-            if (lbl_lich_TT.Text == "Trống")
-                lbl_lich_TT.Text = "Chưa điểm danh";
+            if(caid != "")
+            {
+                cmd.CommandText = "SELECT TRANGTHAI FROM CT_LAMVIEC WHERE NVID ='" + NVID + "' AND CAID = '" + caid + "' AND NGAYLAM = '" + DateTime.Today.ToString("MM/dd/yyyy") + "'";
+
+                lbl_lich_TT.Text = cmd.ExecuteScalar().ToString();
+                if (lbl_lich_TT.Text == "Trống")
+                    lbl_lich_TT.Text = "Chưa điểm danh";
+            }
+        
 
 
 
