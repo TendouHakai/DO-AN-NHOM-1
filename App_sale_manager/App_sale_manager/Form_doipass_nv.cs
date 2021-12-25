@@ -66,7 +66,7 @@ namespace App_sale_manager
                     if (sb.ToString() == matkhau)
                     {
 
-                        inputBytes = System.Text.Encoding.ASCII.GetBytes(tb_matkhaucu_nv.Text);
+                        inputBytes = System.Text.Encoding.ASCII.GetBytes(tb_matkhaumoi_nv.Text);
                         hash = mh.ComputeHash(inputBytes);
                         sb = new StringBuilder();
 

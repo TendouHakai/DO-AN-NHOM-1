@@ -142,6 +142,11 @@ namespace App_sale_manager
             byte[] hash = mh.ComputeHash(inputBytes);
 
             StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+
             if (exedata("set dateformat dmy " + "insert into NHANVIEN values('" + tb_MaNV_nv_infonv.Text + "',N'" + tb_TenNV_nv_infonv.Text + "','" + tb_SDT_nv_infonv.Text + "',' " + dt_NgayVaoLam_nv_infonv.Text + " ','" + dt_NgaySinh_nv_infonv.Text + "','" + 0 + "',N'" + tb_ChucVu_nv_infonv.Text + "',N'" + tb_MaNV_nv_infonv.Text + "','" + sb.ToString() + "','" + 0 + "','" + 0 + "')") == true)
             {
                 MessageBox.Show("Thêm thành công!");

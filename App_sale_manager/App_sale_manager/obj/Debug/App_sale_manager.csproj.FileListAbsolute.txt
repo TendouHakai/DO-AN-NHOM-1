@@ -157,4 +157,3 @@ F:\code\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manage
 F:\code\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.csproj.CoreCompileInputs.cache
 F:\code\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.exe
 F:\code\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.pdb
-C:\Users\DELL\DO-AN-NHOM-1\App_sale_manager\App_sale_manager\obj\Debug\App_sale_manager.csproj.AssemblyReference.cache
